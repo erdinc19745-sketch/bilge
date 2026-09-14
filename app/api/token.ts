@@ -18,7 +18,7 @@ export default async function handler(req: Req, res: Res) {
   if (!FAMILY_CODE || !FAMILY_USER_ID || !DEXIE_DB_URL || !DEXIE_CLIENT_ID || !DEXIE_CLIENT_SECRET) {
     return res.status(503).json({ error: "sunucu ayarı eksik" });
   }
-  const b = (typeof req.body === "string" ? JSON.parse(req.body) : req.body) as { code?: string; public_key?: string };
+  const b = (typeof req.body === "string" ? JSON.parse(req.body) : req.body) as { code?: string; public_key?: string; first?: boolean };
   // Tire/boşluk fark etmez: "N94Z-N52S" == "n94z n52s"
   const norm = (c: string) => c.toUpperCase().replace(/[^A-Z0-9]/g, "");
   const code = norm(String(b.code ?? ""));
@@ -58,6 +58,6 @@ export default async function handler(req: Req, res: Res) {
   const json = await r.json();
   if (!r.ok) return res.status(502).json({ error: "Dexie Cloud oturum vermedi", detail: json });
   res.setHeader("Set-Cookie", makeSessionCookie()); // diğer API'ler (hatırlatma) bu çerezi ister
-  await logLogin("giriş");
+  if (b.first !== false) await logLogin("giriş"); // saatlik token yenilemeleri (first:false) günlüğe girmez
   return res.status(200).json(json);
 }

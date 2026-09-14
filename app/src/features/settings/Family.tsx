@@ -54,9 +54,11 @@ export default function Family() {
         </div>
       </div>
 
-      {logins.length > 0 && (
+      <div className="text-sm">
+        <div className="muted text-xs mb-1">Aile koduyla girişler — tanımadığın bir cihaz görürsen kodu değiştirelim</div>
+        {logins.length === 0 && <p className="text-xs muted">Henüz yeni giriş yok. Bundan sonra kodu girip bağlanan her telefon burada listelenir (cihaz, şehir, saat). Şu anki telefonlar günlük açılmadan önce bağlandığı için görünmez.</p>}
+        {logins.length > 0 && (
         <div className="text-sm">
-          <div className="muted text-xs mb-1">Son girişler (aile koduyla) — tanımadığın bir cihaz görürsen kodu değiştirelim</div>
           <ul className="text-xs divide-y divide-(--line)">
             {logins.map((l) => (
               <li key={l.id} className="py-1 flex justify-between gap-2">
@@ -66,7 +68,8 @@ export default function Family() {
             ))}
           </ul>
         </div>
-      )}
+        )}
+      </div>
 
       <div className="text-sm">
         <div className="muted text-xs mb-1">Başka telefon eklemek için</div>

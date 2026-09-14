@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
+import { format, parseISO } from "date-fns";
+import { tr } from "date-fns/locale";
 import { db, demoMode, ensureFamilyRealm } from "../../db/db";
 import Family from "./Family";
 import NotifySettings from "../notify/NotifySettings";
@@ -7,10 +9,15 @@ import LayoutSettings from "./LayoutSettings";
 import DataReset from "./DataReset";
 import { getThemePref, setThemePref, type ThemePref } from "../../lib/theme";
 import { CONFIRM_LABEL, getConfirmPrefs, setConfirmPref, type ConfirmKey } from "../../lib/confirm";
+import { Icon } from "../../lib/icons";
 
-/** Bebek bilgisi + veri yedeği (JSON dışa/içe aktarma). Veri bizim, telefonda durur. */
+/**
+ * Ayarlar. Sıra: bebek (özet satırı, "Düzenle" ile form) → bildirimler → aile → kayıt ekranı → görünüm → veri → sıfırla.
+ * Bebek formu yalnız ilk kurulumda ya da Düzenle'ye basınca açılır; her açılışta form görmek gereksiz.
+ */
 export default function Settings() {
   const baby = useLiveQuery(() => db.baby.get("me"));
+  const [editing, setEditing] = useState(false);
   const [name, setName] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [sex, setSex] = useState<"kiz" | "erkek">("kiz");
@@ -30,10 +37,16 @@ export default function Settings() {
 
   const save = async () => {
     if (!name || !birthDate) return setMsg("İsim ve doğum tarihi gerekli.");
-    // Bulut açıksa: ilk kayıtta aile alanı oluşur, bebek kaydı o alana yazılır
-    const realmId = baby?.realmId ?? (await ensureFamilyRealm());
-    await db.baby.put({ id: "me", name, birthDate, sex, dvitTime, realmId });
+    if (baby) {
+      // Var olan kaydı güncelle (put tüm kaydı ezer: hatırlatma kuralları, nöbet, taburculuk saati kaybolurdu)
+      await db.baby.update("me", { name, birthDate, sex, dvitTime });
+    } else {
+      // Bulut açıksa: ilk kayıtta aile alanı oluşur, bebek kaydı o alana yazılır
+      const realmId = await ensureFamilyRealm();
+      await db.baby.put({ id: "me", name, birthDate, sex, dvitTime, realmId });
+    }
     setMsg("Kaydedildi.");
+    setEditing(false);
   };
 
   const exportJson = async () => {
@@ -78,7 +91,8 @@ export default function Settings() {
     setMsg(`${data.events?.length ?? 0} kayıt içe aktarıldı.`);
   };
 
-  const inputCls = "input";
+  const showForm = !baby || editing;
+  const lastBackup = (() => { try { return Number(localStorage.getItem("bilge.lastBackup") || 0); } catch { return 0; } })();
 
   return (
     <div className="flex flex-col gap-4 pt-1">
@@ -96,50 +110,52 @@ export default function Settings() {
       )}
 
       <section className="card flex flex-col gap-3">
-        <h2 className="font-semibold">Bebek</h2>
-        <label className="text-sm muted">
-          İsim
-          <input className={inputCls} value={name} onChange={(e) => setName(e.target.value)} />
-        </label>
-        <label className="text-sm muted">
-          Doğum tarihi
-          <input type="date" className={inputCls} value={birthDate} onChange={(e) => setBirthDate(e.target.value)} />
-        </label>
-        <label className="text-sm muted">
-          D vitamini saati (takvim hatırlatması)
-          <input type="time" className={inputCls} value={dvitTime} onChange={(e) => setDvitTime(e.target.value)} />
-        </label>
-        <div className="grid grid-cols-2 gap-2">
-          {(["kiz", "erkek"] as const).map((s) => (
-            <button
-              key={s}
-              className="btn text-base"
-              style={{ minHeight: 48, outline: sex === s ? "2px solid var(--accent)" : "none" }}
-              onClick={() => setSex(s)}
-            >
-              {s === "kiz" ? "Kız" : "Erkek"}
-            </button>
-          ))}
-        </div>
-        <button className="btn btn-accent" style={{ minHeight: 52 }} onClick={save}>
-          Kaydet
-        </button>
+        {baby && !editing ? (
+          <div className="flex items-center justify-between gap-3">
+            <div className="min-w-0">
+              <div className="font-semibold truncate">{baby.name} <span className="muted font-normal text-sm">· {baby.sex === "kiz" ? "kız" : "erkek"}</span></div>
+              <div className="text-xs muted">Doğum {format(parseISO(baby.birthDate), "d MMMM yyyy", { locale: tr })} · D vitamini {baby.dvitTime ?? "09:00"}</div>
+            </div>
+            <button className="btn text-sm px-3 shrink-0 flex items-center gap-1" style={{ minHeight: 40 }} onClick={() => { setEditing(true); setMsg(""); }}><Icon name="sliders" size={16} /> Düzenle</button>
+          </div>
+        ) : (
+          <h2 className="font-semibold">{baby ? "Bebek bilgisi" : "Bebeğini tanıt"}</h2>
+        )}
+        {showForm && (
+          <>
+            <label className="text-sm muted">
+              İsim
+              <input className="input" value={name} onChange={(e) => setName(e.target.value)} />
+            </label>
+            <label className="text-sm muted">
+              Doğum tarihi
+              <input type="date" className="input" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} />
+            </label>
+            <label className="text-sm muted">
+              D vitamini saati (hatırlatma)
+              <input type="time" className="input" value={dvitTime} onChange={(e) => setDvitTime(e.target.value)} />
+            </label>
+            <div className="grid grid-cols-2 gap-2">
+              {(["kiz", "erkek"] as const).map((s) => (
+                <button key={s} className="btn text-base" style={{ minHeight: 48, outline: sex === s ? "2px solid var(--accent)" : "none" }} onClick={() => setSex(s)}>
+                  {s === "kiz" ? "Kız" : "Erkek"}
+                </button>
+              ))}
+            </div>
+            <div className={`grid gap-2 ${baby ? "grid-cols-2" : "grid-cols-1"}`}>
+              {baby && <button className="btn text-base" style={{ minHeight: 52 }} onClick={() => { setEditing(false); setMsg(""); }}>Vazgeç</button>}
+              <button className="btn btn-accent" style={{ minHeight: 52 }} onClick={save}>Kaydet</button>
+            </div>
+          </>
+        )}
         {msg && <p className="text-sm muted">{msg}</p>}
       </section>
 
-      {baby && (
-        <section className="card flex flex-col gap-2">
-          <h2 className="font-semibold">Görünüm</h2>
-          <div className="grid grid-cols-3 gap-2">
-            {([["auto", "Otomatik"], ["dark", "Koyu"], ["light", "Açık"]] as [ThemePref, string][]).map(([v, l]) => (
-              <button key={v} className={`btn text-sm ${theme === v ? "btn-accent" : ""}`} style={{ minHeight: 40 }} onClick={() => { setThemePref(v); setTheme(v); }}>
-                {l}
-              </button>
-            ))}
-          </div>
-          <p className="text-xs muted">Otomatik: 08:00-20:00 açık, gece koyu (gece mavi ışık yok, gözü almaz).</p>
-        </section>
-      )}
+      {baby && !demoMode && <NotifySettings baby={baby} />}
+
+      {baby && !demoMode && <Family />}
+
+      {baby && <LayoutSettings />}
 
       {baby && (
         <section className="card flex flex-col gap-2">
@@ -160,46 +176,42 @@ export default function Settings() {
         </section>
       )}
 
-      {baby && <LayoutSettings />}
-
       {baby && (
         <section className="card flex flex-col gap-2">
-          <h2 className="font-semibold">Kilit ekranından tek dokunuş (iOS Kısayolları)</h2>
-          <p className="text-xs muted">
-            Kısayollar uygulaması → + → "URL'yi aç" → adres: <b style={{ color: "var(--text)" }}>{window.location.origin}/?act=emzir-sol</b> → kısayolu ana ekrana ya da kilit ekranı widget'ına ekle.
-            Dokununca uygulama açılır ve kaydı hemen alır. Değerler: emzir-sol · emzir-sag · emzir-bitir · uyku · uyandi · bez-islak · bez-kaka · dvit
-          </p>
-          <button className="btn text-sm" style={{ minHeight: 40 }} onClick={() => navigator.clipboard?.writeText(`${window.location.origin}/?act=emzir-sol`)}>Örnek adresi kopyala</button>
+          <h2 className="font-semibold">Görünüm</h2>
+          <div className="grid grid-cols-3 gap-2">
+            {([["auto", "Otomatik"], ["dark", "Koyu"], ["light", "Açık"]] as [ThemePref, string][]).map(([v, l]) => (
+              <button key={v} className={`btn text-sm ${theme === v ? "btn-accent" : ""}`} style={{ minHeight: 40 }} onClick={() => { setThemePref(v); setTheme(v); }}>
+                {l}
+              </button>
+            ))}
+          </div>
+          <p className="text-xs muted">Otomatik: 08:00-20:00 açık, gece koyu (gece mavi ışık yok, gözü almaz).</p>
         </section>
       )}
 
-      {baby && !demoMode && <NotifySettings baby={baby} />}
-
-      {baby && !demoMode && <Family />}
-
       {baby && (
         <section className="card flex flex-col gap-2">
-          <h2 className="font-semibold">Veri</h2>
+          <h2 className="font-semibold">Yedek</h2>
           <p className="text-xs muted">
-            Kayıtlar telefonda ve aile bulutunda durur. Ayda bir yedeği dosya olarak al (Dosyalar/iCloud'a kaydet); gerekirse aynı dosyayla geri yükle.
-            {(() => { try { const t = Number(localStorage.getItem("bilge.lastBackup") || 0); return t ? ` Son yedek: ${new Date(t).toLocaleDateString("tr-TR")}.` : " Henüz yedek alınmadı."; } catch { return ""; } })()}
+            Kayıtlar telefonda ve aile bulutunda durur. Ayda bir yedeği dosya olarak al (Dosyalar/iCloud'a kaydet; fotoğraflar hariç); gerekirse aynı dosyayla geri yükle.
+            {lastBackup ? ` Son yedek: ${new Date(lastBackup).toLocaleDateString("tr-TR")}.` : " Henüz yedek alınmadı."}
           </p>
-          <button className="btn text-base" style={{ minHeight: 48 }} onClick={exportJson}>
-            Yedeği paylaş / indir
-          </button>
-          <label className="btn text-base flex items-center justify-center" style={{ minHeight: 48 }}>
-            Yedekten geri yükle
-            <input
-              type="file"
-              accept="application/json"
-              className="hidden"
-              onChange={(e) => e.target.files?.[0] && importJson(e.target.files[0])}
-            />
-          </label>
+          <div className="grid grid-cols-2 gap-2">
+            <button className="btn text-base" style={{ minHeight: 48 }} onClick={exportJson}>Yedeği paylaş</button>
+            <label className="btn text-base flex items-center justify-center" style={{ minHeight: 48 }}>
+              Geri yükle
+              <input type="file" accept="application/json" className="hidden" onChange={(e) => e.target.files?.[0] && importJson(e.target.files[0])} />
+            </label>
+          </div>
         </section>
       )}
 
       {baby && <DataReset />}
+
+      <p className="text-[10px] muted text-center pb-2">
+        Bilge · sürüm {__BUILD__} · Tıbbi tavsiye değildir; eşikler Sağlık Bakanlığı / WHO / AAP / NICE kaynaklıdır (Özet → Değerlendirme → kaynaklar).
+      </p>
     </div>
   );
 }

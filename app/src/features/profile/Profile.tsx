@@ -1,3 +1,4 @@
+import { parseISO } from "date-fns";
 import { useLiveQuery } from "dexie-react-hooks";
 import { db } from "../../db/db";
 import type { Baby } from "../../db/types";
@@ -8,7 +9,7 @@ import { MilestonesAll } from "../milestones/MilestoneCard";
 /** Bebeğin sayfası: profil fotoğrafı, yaş, aylık albüm, büyüme eğrisi */
 export default function Profile({ baby, onClose }: { baby: Baby; onClose: () => void }) {
   const avatar = useLiveQuery(() => db.photos.where("month").equals(-1).first(), []);
-  const days = Math.floor((Date.now() - new Date(baby.birthDate).getTime()) / 86_400_000);
+  const days = Math.floor((Date.now() - parseISO(baby.birthDate).getTime()) / 86_400_000);
 
   return (
     <div className="flex flex-col gap-5 pt-1">
@@ -21,7 +22,7 @@ export default function Profile({ baby, onClose }: { baby: Baby; onClose: () => 
         <div className="flex-1">
           <div className="text-2xl font-bold">{baby.name}</div>
           <div className="muted text-sm">{days} günlük · {Math.floor(days / 7)} hafta {days % 7} gün</div>
-          <div className="muted text-xs">{new Date(baby.birthDate).toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}</div>
+          <div className="muted text-xs">{parseISO(baby.birthDate).toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })}</div>
         </div>
         <button className="muted px-2 self-start" onClick={onClose}>✕</button>
       </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
-import { addMonths, differenceInDays, format } from "date-fns";
+import { addMonths, differenceInDays, format, parseISO } from "date-fns";
 import { tr } from "date-fns/locale";
 import { addEvent, db } from "../../db/db";
 import type { Baby, BabyEvent } from "../../db/types";
@@ -18,8 +18,8 @@ const READY = ["Desteksiz ya da hafif destekle oturabiliyor, başını dik tutuy
 
 export default function SolidsBlock({ baby, recent, lit, onDone }: { baby: Baby; recent: BabyEvent[]; lit: string | null; onDone: (k: string, msg: string, undo?: () => Promise<void>) => void }) {
   const [open, setOpen] = useState(false);
-  const ageDays = differenceInDays(Date.now(), new Date(baby.birthDate));
-  const startAt = addMonths(new Date(baby.birthDate), 6);
+  const ageDays = differenceInDays(Date.now(), parseISO(baby.birthDate));
+  const startAt = addMonths(parseISO(baby.birthDate), 6);
   const daysLeft = differenceInDays(startAt, Date.now());
   const active = ageDays >= 165; // 5,5 aydan itibaren kayıt açılır
   const logs = useLiveQuery(() => db.events.where("type").equals("ekgida").reverse().sortBy("start"), []) ?? [];

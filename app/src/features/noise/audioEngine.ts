@@ -49,14 +49,33 @@ function makeBuffer(c: AudioContext, kind: Kind): AudioBuffer {
   return buf;
 }
 
-/** 1 sn sessiz WAV — iOS'ta ses oturumunu açık tutmak için döngüde çalar */
-function silentWav(): string {
-  const sr = 8000, n = sr, b = new ArrayBuffer(44 + n * 2), v = new DataView(b);
+/** 16 bit mono WAV → blob adresi */
+function wavUrl(sr: number, samples: Float32Array): string {
+  const n = samples.length, b = new ArrayBuffer(44 + n * 2), v = new DataView(b);
   const s = (o: number, t: string) => { for (let i = 0; i < t.length; i++) v.setUint8(o + i, t.charCodeAt(i)); };
   s(0, "RIFF"); v.setUint32(4, 36 + n * 2, true); s(8, "WAVE"); s(12, "fmt "); v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
   v.setUint32(24, sr, true); v.setUint32(28, sr * 2, true); v.setUint16(32, 2, true); v.setUint16(34, 16, true); s(36, "data"); v.setUint32(40, n * 2, true);
+  for (let i = 0; i < n; i++) v.setInt16(44 + i * 2, Math.max(-1, Math.min(1, samples[i])) * 32767, true);
   return URL.createObjectURL(new Blob([b], { type: "audio/wav" }));
 }
+/** 1 sn sessiz WAV — iOS'ta ses oturumunu açık tutmak için döngüde çalar */
+const silentWav = () => wavUrl(8000, new Float32Array(8000));
+/**
+ * Alarm sesi WAV (2,4 sn döngü): 880/1320 Hz dörtlü bip, 1,2 sn'de bir. <audio> elemanından çalar;
+ * iPhone kilitliyken Web Audio susar ama <audio> çalmaya devam eder (müzik uygulamaları gibi).
+ */
+function alarmWav(): string {
+  const sr = 22050, out = new Float32Array(Math.round(sr * 2.4));
+  for (const base of [0, 1.2]) for (const [f, at] of [[880, 0], [1320, 0.2], [880, 0.4], [1320, 0.6]] as [number, number][]) {
+    const s0 = Math.round((base + at) * sr), len = Math.round(0.17 * sr);
+    for (let i = 0; i < len; i++) {
+      const env = Math.min(1, i / (0.01 * sr), (len - i) / (0.03 * sr));
+      const t = i / sr; out[s0 + i] = env * 0.75 * (Math.sin(2 * Math.PI * f * t) * 0.8 + Math.sin(2 * Math.PI * f * 3 * t) * 0.2);
+    }
+  }
+  return wavUrl(sr, out);
+}
+let silentUrl = "", alarmUrl = "";
 
 function ensure() {
   if (!ctx) {
@@ -64,7 +83,7 @@ function ensure() {
     gain = ctx.createGain(); gain.connect(ctx.destination);
     document.addEventListener("visibilitychange", () => { if (state.playing && ctx?.state === "suspended") ctx.resume().catch(() => undefined); });
   }
-  if (!keepAlive) { keepAlive = new Audio(silentWav()); keepAlive.loop = true; keepAlive.volume = 0.01; }
+  if (!keepAlive) { silentUrl = silentWav(); alarmUrl = alarmWav(); keepAlive = new Audio(silentUrl); keepAlive.loop = true; keepAlive.preload = "auto"; }
   return { ctx: ctx!, gain: gain! };
 }
 
@@ -97,17 +116,20 @@ export function stop() {
   emit();
 }
 
-/** Alarm modu: sessiz tutucu ses (uygulamayı arka planda uyanık tutar) */
-export async function keepAliveStart() {
+/** Alarm modu: sessiz tutucu ses (uygulamayı arka planda uyanık tutar). Kullanıcı dokunuşunda, await'ten ÖNCE play() çağrılır (iOS). */
+export async function keepAliveStart(): Promise<boolean> {
   const { ctx: c } = ensure();
-  if (c.state === "suspended") await c.resume().catch(() => undefined);
   keepAliveWanted = true;
-  await keepAlive?.play().catch(() => undefined);
+  const p = keepAlive!.play().then(() => true, () => false);
+  if (c.state === "suspended") c.resume().catch(() => undefined);
   if ("mediaSession" in navigator && !state.playing) {
     navigator.mediaSession.metadata = new MediaMetadata({ title: "Gece alarm modu açık", artist: "Bilge" });
   }
+  return p;
 }
 export function keepAliveStop() { keepAliveWanted = false; if (!state.playing) keepAlive?.pause(); }
+/** Tanı: tutucu ses gerçekten çalıyor mu? */
+export const keepAliveInfo = () => keepAlive ? `${keepAlive.paused ? "duruk" : "çalıyor"} · src ${keepAlive.src === alarmUrl ? "alarm" : "sessiz"} · ctx ${ctx?.state ?? "-"}` : "yok";
 
 /* ---- Alarm sesi: 880/1320 Hz çift bip, 1,2 sn'de bir, durdurulana kadar ---- */
 let alarmTimer: number | undefined;
@@ -121,15 +143,30 @@ function beepPair() {
     o.start(t + at); o.stop(t + at + 0.2);
   }
 }
-export async function playAlarmTone() {
+/** Alarm: önce <audio> (kilitliyken de çalar); açılmazsa Web Audio bipleri. Döner: hangi yol çaldı */
+export async function playAlarmTone(): Promise<"audio" | "webaudio" | "none"> {
   const { ctx: c } = ensure();
-  if (c.state === "suspended") await c.resume().catch(() => undefined);
-  keepAlive?.play().catch(() => undefined);
   window.clearInterval(alarmTimer);
+  const el = keepAlive!;
+  try {
+    if (el.src !== alarmUrl) { el.src = alarmUrl; el.loop = true; }
+    await el.play();
+    return "audio";
+  } catch { /* elemanla olmadı → Web Audio */ }
+  if (c.state === "suspended") await c.resume().catch(() => undefined);
+  if (c.state !== "running") return "none";
   beepPair();
   alarmTimer = window.setInterval(beepPair, 1200);
+  return "webaudio";
 }
-export function stopAlarmTone() { window.clearInterval(alarmTimer); alarmTimer = undefined; }
+export function stopAlarmTone() {
+  window.clearInterval(alarmTimer); alarmTimer = undefined;
+  const el = keepAlive;
+  if (el && el.src === alarmUrl) {
+    el.src = silentUrl; el.loop = true;
+    if (keepAliveWanted || state.playing) el.play().catch(() => undefined); else el.pause();
+  }
+}
 
 export function setVolume(v: number) { state.volume = v; if (gain) gain.gain.value = v; emit(); }
 export function setTimer(min: number) { state.timerMin = min; if (state.playing) state.endsAt = min ? Date.now() + min * 60_000 : null; emit(); }

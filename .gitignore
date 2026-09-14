@@ -13,3 +13,4 @@ app/.env*.local
 *.log
 .DS_Store
 Thumbs.db
+app/tsconfig.tsbuildinfo

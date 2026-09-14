@@ -1,3 +1,4 @@
+import { parseISO } from "date-fns";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { useLiveQuery, useObservable } from "dexie-react-hooks";
 import { cloudEnabled, db, currentUser$, demoMode, syncState$ } from "./db/db";
@@ -17,7 +18,6 @@ import { runQuickAct } from "./features/log/quickAct";
 import NowPlaying from "./features/noise/NowPlaying";
 import { useAlarm } from "./features/notify/chime";
 import { armAlarm, snooze, stopRinging } from "./features/notify/alarmEngine";
-import { Icon as AlarmIcon } from "./lib/icons";
 
 type Tab = "kayit" | "serit" | "ozet" | "takvim" | "ayarlar";
 
@@ -71,7 +71,7 @@ export default function App() {
       <ConfirmHost />
       {alarm.ringing && alarm.armed && (
         <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 px-6 text-center" style={{ background: "var(--accent)", color: "var(--on-accent)" }}>
-          <AlarmIcon name="bell" size={64} />
+          <Icon name="bell" size={64} />
           <div className="text-3xl font-bold">{alarm.ringing.label}</div>
           <div className="text-sm opacity-80">{new Date().toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" })}</div>
           <button className="btn text-xl w-full" style={{ minHeight: 72, background: "var(--on-accent)", color: "var(--accent)" }} onClick={stopRinging}>Durdur</button>
@@ -155,7 +155,7 @@ export default function App() {
 
 /** "5 hafta 2 gün" — yenidoğanda haftalar, sonra aylar */
 function AgeBadge({ birthDate }: { birthDate: string }) {
-  const days = Math.floor((Date.now() - new Date(birthDate).getTime()) / 86400000);
+  const days = Math.floor((Date.now() - parseISO(birthDate).getTime()) / 86400000);
   let text: string;
   if (days < 0) text = "henüz doğmadı";
   else if (days < 8 * 7) text = `${Math.floor(days / 7)} hafta ${days % 7} gün`;

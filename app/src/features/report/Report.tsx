@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
-import { differenceInCalendarDays, differenceInDays, format, startOfDay, subDays } from "date-fns";
+import { differenceInCalendarDays, differenceInDays, format, parseISO, startOfDay, subDays } from "date-fns";
 import { tr } from "date-fns/locale";
 import { db } from "../../db/db";
 import type { Baby, BabyEvent } from "../../db/types";
@@ -57,7 +57,7 @@ export default function Report({ baby, onClose }: { baby: Baby; onClose: () => v
   const [questions, setQuestions] = useState(() => { try { return localStorage.getItem(QKEY) ?? ""; } catch { return ""; } });
   useEffect(() => { try { localStorage.setItem(QKEY, questions); } catch { /* */ } }, [questions]);
 
-  const ageDays = differenceInDays(Date.now(), new Date(baby.birthDate));
+  const ageDays = differenceInDays(Date.now(), parseISO(baby.birthDate));
   const s7 = stats(events, 7), s30 = stats(events, 30);
   const doneKeys = new Set(scheduleDone.map((d) => d.key));
   const schedule = buildSchedule(baby.birthDate);
@@ -77,11 +77,11 @@ export default function Report({ baby, onClose }: { baby: Baby; onClose: () => v
   const asText = () => {
     const L: string[] = [];
     L.push(`${baby.name} — aile hekimi özeti (${format(Date.now(), "d MMM yyyy", { locale: tr })})`);
-    L.push(`Doğum: ${format(new Date(baby.birthDate), "d MMM yyyy", { locale: tr })} · ${ageDays} günlük (${Math.floor(ageDays / 7)} hf ${ageDays % 7} g)`);
+    L.push(`Doğum: ${format(parseISO(baby.birthDate), "d MMM yyyy", { locale: tr })} · ${ageDays} günlük (${Math.floor(ageDays / 7)} hf ${ageDays % 7} g)`);
     for (const s of [s7, s30]) {
       L.push(`Son ${s.days} gün: günde ${per(s.days, s.feeds)} beslenme (${s.breast} emzirme, ${s.bottle} biberon${s.bottle ? ` ort. ${Math.round(s.bottleMl / s.bottle)} ml` : ""}), ${per(s.days, s.wet)} ıslak, ${per(s.days, s.poo)} kaka, uyku ${fmtDuration((s.sleepMin / s.days) * 60_000)}/gün, en uzun ${fmtDuration(s.longest * 60_000)}, gece uyanma ${per(s.days, s.nightWakes)}, D vit ${s.dvitDays}/${s.days} gün`);
     }
-    if (measurements.length) L.push("Ölçümler: " + measurements.map((m) => `${format(m.at, "d MMM", { locale: tr })}: ${[m.weightG ? `${(m.weightG / 1000).toFixed(2)} kg P${percentile(zScore(baby.sex, "weight", differenceInDays(m.at, new Date(baby.birthDate)) / 30.4375, m.weightG / 1000) ?? 0)}` : "", m.lengthCm ? `${m.lengthCm} cm` : "", m.headCm ? `baş ${m.headCm} cm` : ""].filter(Boolean).join(", ")}`).join(" · "));
+    if (measurements.length) L.push("Ölçümler: " + measurements.map((m) => `${format(m.at, "d MMM", { locale: tr })}: ${[m.weightG ? `${(m.weightG / 1000).toFixed(2)} kg P${percentile(zScore(baby.sex, "weight", differenceInDays(m.at, parseISO(baby.birthDate)) / 30.4375, m.weightG / 1000) ?? 0)}` : "", m.lengthCm ? `${m.lengthCm} cm` : "", m.headCm ? `baş ${m.headCm} cm` : ""].filter(Boolean).join(", ")}`).join(" · "));
     if (scheduleDoneList.length) L.push("Yapılan: " + scheduleDoneList.map((i) => i.title).join(", "));
     if (overdue.length) L.push("Gecikmiş: " + overdue.map((i) => i.title).join(", "));
     L.push(`Gelişim (${target}. ay listesi): ${msTarget.filter((m) => msDone.has(m.key)).length}/${msTarget.length} işaretli` + (msTarget.some((m) => !msDone.has(m.key)) ? `; işaretlenmemiş: ${msTarget.filter((m) => !msDone.has(m.key)).map((m) => m.text).join(", ")}` : ""));
@@ -109,7 +109,7 @@ export default function Report({ baby, onClose }: { baby: Baby; onClose: () => v
 
         <h1 className="text-2xl font-bold">{baby.name} — aile hekimi özeti</h1>
         <p className="muted text-sm">
-          Doğum {format(new Date(baby.birthDate), "d MMMM yyyy", { locale: tr })} · {ageDays} günlük ({Math.floor(ageDays / 7)} hafta {ageDays % 7} gün) · Rapor {format(Date.now(), "d MMMM yyyy", { locale: tr })}
+          Doğum {format(parseISO(baby.birthDate), "d MMMM yyyy", { locale: tr })} · {ageDays} günlük ({Math.floor(ageDays / 7)} hafta {ageDays % 7} gün) · Rapor {format(Date.now(), "d MMMM yyyy", { locale: tr })}
         </p>
 
         <Sec title="Beslenme, uyku, bez">
@@ -136,7 +136,7 @@ export default function Report({ baby, onClose }: { baby: Baby; onClose: () => v
               <thead className="muted text-xs"><tr><th className="text-left">Tarih</th><th>Kilo</th><th>Boy</th><th>Baş</th></tr></thead>
               <tbody className="tabular-nums text-center">
                 {measurements.map((m) => {
-                  const age = differenceInDays(m.at, new Date(baby.birthDate)) / 30.4375;
+                  const age = differenceInDays(m.at, parseISO(baby.birthDate)) / 30.4375;
                   const p = (ind: "weight" | "length" | "head", v?: number) => { if (!v) return "—"; const z = zScore(baby.sex, ind, age, v); return z == null ? String(v) : `${v} (P${percentile(z)})`; };
                   return <Row key={m.id} l={format(m.at, "d MMM yyyy", { locale: tr })} a={p("weight", m.weightG ? +(m.weightG / 1000).toFixed(2) : undefined)} b={p("length", m.lengthCm)} c={p("head", m.headCm)} />;
                 })}

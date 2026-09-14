@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
-import { differenceInDays, differenceInHours, format } from "date-fns";
+import { differenceInDays, differenceInHours, format, parseISO } from "date-fns";
 import { tr } from "date-fns/locale";
 import { addEvent, db } from "../../db/db";
 import type { Baby, BabyEvent } from "../../db/types";
@@ -16,8 +16,8 @@ const ZONES = ["Yok", "Yüz / gözaklar", "Gövde (göbeğe kadar)", "Kol ve bac
 
 export default function JaundiceCard({ baby, recent, onDone }: { baby: Baby; recent: BabyEvent[]; onDone: (k: string, msg: string, undo?: () => Promise<void>) => void }) {
   const [open, setOpen] = useState(false);
-  const ageDays = differenceInDays(Date.now(), new Date(baby.birthDate));
-  const ageHours = differenceInHours(Date.now(), new Date(baby.birthDate));
+  const ageDays = differenceInDays(Date.now(), parseISO(baby.birthDate));
+  const ageHours = differenceInHours(Date.now(), parseISO(baby.birthDate));
   const logs = recent.filter((e) => e.type === "sarilik").sort((a, b) => b.start - a.start);
   const last = logs[0];
   const lastZone = last?.zone ?? undefined;
@@ -26,10 +26,10 @@ export default function JaundiceCard({ baby, recent, onDone }: { baby: Baby; rec
   // Kontrol zamanı: taburculuk yaşına göre (TND)
   let dueHour: number | undefined;
   if (dischargeAt) {
-    const dAge = differenceInHours(dischargeAt, new Date(baby.birthDate));
+    const dAge = differenceInHours(dischargeAt, parseISO(baby.birthDate));
     dueHour = dAge < 24 ? 72 : dAge < 48 ? 96 : 120;
   }
-  const dueAt = dueHour ? new Date(baby.birthDate).getTime() + dueHour * 3600_000 : undefined;
+  const dueAt = dueHour ? parseISO(baby.birthDate).getTime() + dueHour * 3600_000 : undefined;
   const all = useLiveQuery(() => db.scheduleDone.get("izlem3"), []); // 15. gün izlemi yapıldıysa artık kontrol geçmiştir
   void all;
 

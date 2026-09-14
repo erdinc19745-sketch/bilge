@@ -5,6 +5,7 @@ import { getRole } from "../family/family";
 /** Ayarlar → Kayıt ekranı düzeni: blokları gizle / yukarı-aşağı taşı (cihaz ayarı) */
 export default function LayoutSettings() {
   const [l, setL] = useState(getLayout);
+  const [open, setOpen] = useState(false); // uzun liste: varsayılan kapalı
   const apply = (next: typeof l) => { setLayout(next); setL(getLayout()); };
   const move = (b: Block, dir: -1 | 1) => {
     const i = l.order.indexOf(b), j = i + dir;
@@ -24,12 +25,12 @@ export default function LayoutSettings() {
 
   return (
     <section className="card flex flex-col gap-2">
-      <div className="flex items-center justify-between">
+      <button className="flex items-center justify-between text-left" onClick={() => setOpen((v) => !v)} aria-expanded={open}>
         <h2 className="font-semibold">Kayıt ekranı düzeni</h2>
-        <button className="text-xs muted underline" onClick={() => { resetLayout(); setL(getLayout()); }}>varsayılan</button>
-      </div>
-      <p className="text-xs muted">Kullanmadığın bloğu gizle (örn. biberon yoksa), sık kullandığını yukarı al. Sadece bu telefon için.</p>
-      <ul className="divide-y divide-(--line)">
+        <span className="text-xs muted">{open ? "▲" : `${l.hidden.length ? l.hidden.length + " gizli · " : ""}düzenle ▼`}</span>
+      </button>
+      {open && <p className="text-xs muted">Kullanmadığın bloğu gizle (örn. biberon yoksa), sık kullandığını yukarı al. Sadece bu telefon için. <button className="underline" onClick={() => { resetLayout(); setL(getLayout()); }}>varsayılana dön</button></p>}
+      {open && <ul className="divide-y divide-(--line)">
         {l.order.map((b, i) => {
           const hidden = !isVisible(l, b, role);
           return (
@@ -43,7 +44,7 @@ export default function LayoutSettings() {
             </li>
           );
         })}
-      </ul>
+      </ul>}
     </section>
   );
 }

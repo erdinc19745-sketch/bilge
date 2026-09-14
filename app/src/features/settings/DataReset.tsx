@@ -52,10 +52,10 @@ export default function DataReset() {
 
   return (
     <section className="card flex flex-col gap-2">
-      <h2 className="font-semibold">Deneme verilerini sıfırla</h2>
+      <h2 className="font-semibold">Sıfırla</h2>
       <p className="text-xs muted">
         Şu an: {counts?.events ?? 0} kayıt · {counts?.measurements ?? 0} ölçüm · {counts?.photos ?? 0} fotoğraf · {counts?.schedule ?? 0} takvim işareti · {counts?.milestones ?? 0} gelişim işareti.
-        Gerçek kullanıma başlamadan önce deneme kayıtlarını buradan temizle.
+        Yanlış girilen tek kaydı Şerit'ten sil; burası toplu silme içindir (aile telefonlarına da yayılır).
       </p>
       <div className="grid grid-cols-2 gap-2">
         <button className="btn text-sm" style={{ minHeight: 48 }} disabled={busy} onClick={clearEvents}>🧹 Kayıtları sil</button>

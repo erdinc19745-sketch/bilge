@@ -20,12 +20,15 @@ export const setRole = (r: Role) => safeSet(K_ROLE, r);
 export async function fetchFamilyTokens(params: { public_key: string; hints?: unknown }) {
   const code = getFamilyCode();
   if (!code) throw new Error("Aile kodu girilmemiş");
+  // Bu cihaz daha önce girdiyse "yenileme"dir (Dexie oturumu saatlik tazelenir) → sunucu günlüğe yazmaz
+  const first = safeGet("bilge.loggedIn") !== "1";
   const r = await fetch("/api/token", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ code, public_key: params.public_key }),
+    body: JSON.stringify({ code, public_key: params.public_key, first }),
   });
   const json = await r.json().catch(() => ({}));
   if (!r.ok) throw new Error(json.error ?? "Giriş başarısız");
+  safeSet("bilge.loggedIn", "1");
   return json;
 }

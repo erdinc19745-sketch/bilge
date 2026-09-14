@@ -1,4 +1,4 @@
-import { startOfDay } from "date-fns";
+import { parseISO, startOfDay } from "date-fns";
 import type { Baby, BabyEvent } from "../../db/types";
 import { fmtClock, fmtDuration, fmtTime } from "../../lib/time";
 import { DEFAULT_RULES } from "../notify/reminders";
@@ -23,7 +23,7 @@ export default function StatusPanel({ baby, recent }: { baby: Baby | null | unde
   const nextFeedIn = feedAt && gapMin > 0 ? feedAt + gapMin * 60_000 - now : undefined;
 
   // Uyku penceresi: uyanıksa, son uyanmadan itibaren yaş+kişisel örüntüye göre tahmin
-  const ageMonths = baby ? differenceInDays(now, new Date(baby.birthDate)) / 30.4375 : 0;
+  const ageMonths = baby ? differenceInDays(now, parseISO(baby.birthDate)) / 30.4375 : 0;
   const pred = baby ? predictWindow(ageMonths, recent) : null;
   const wakeAt = lastSleep?.end;
   const winFrom = wakeAt && pred ? wakeAt + pred.fromMin * 60_000 : undefined;

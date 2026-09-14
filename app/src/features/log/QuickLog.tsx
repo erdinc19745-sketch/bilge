@@ -1,3 +1,4 @@
+import { parseISO } from "date-fns";
 import { Fragment, lazy, Suspense, useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import { addEvent, db, endEvent, reopenEvent, startEvent } from "../../db/db";
@@ -177,23 +178,29 @@ export default function QuickLog() {
           </div>
         )}
         {bottleOpen && (
-          <div className="grid grid-cols-5 gap-2 -mt-1">
+          <>
+          <div className="grid grid-cols-4 gap-2 -mt-1">
             {[30, 60, 90, 120].map((ml) => (
               <LitButton lit={lit} key={ml} k={`ml-${ml}`} className="text-base" style={{ minHeight: 52 }} onTap={() => bottle(ml)}>
                 {ml}
               </LitButton>
             ))}
+          </div>
+          <div className="flex gap-2 -mt-1">
             <input
               inputMode="numeric"
-              placeholder="ml"
+              placeholder="başka miktar (ml)"
               value={customMl}
               onChange={(e) => setCustomMl(e.target.value.replace(/\D/g, ""))}
               onKeyDown={(e) => e.key === "Enter" && customMl && (bottle(Number(customMl)), setCustomMl(""))}
-              onBlur={() => customMl && (bottle(Number(customMl)), setCustomMl(""))}
-              className="input mt-0 text-center text-base"
-              style={{ minHeight: 52 }}
+              className="input mt-0 flex-1 text-base"
+              style={{ minHeight: 48 }}
             />
+            <LitButton lit={lit} k={`ml-${customMl}`} accent className="text-base px-5" style={{ minHeight: 48, opacity: customMl ? 1 : 0.5 }} onTap={() => { if (customMl) { bottle(Number(customMl)); setCustomMl(""); } }}>
+              Kaydet
+            </LitButton>
           </div>
+          </>
         )}
       </>
     ),
@@ -258,7 +265,7 @@ export default function QuickLog() {
       </>
     ),
     // Sarılık kartı 28. günden sonra kendiliğinden kalkar
-    sarilik: baby && (Date.now() - new Date(baby.birthDate).getTime()) / 86_400_000 <= 28 ? <JaundiceCard baby={baby} recent={recent} onDone={done} /> : null,
+    sarilik: baby && (Date.now() - parseISO(baby.birthDate).getTime()) / 86_400_000 <= 28 ? <JaundiceCard baby={baby} recent={recent} onDone={done} /> : null,
     ekgida: baby ? <SolidsBlock baby={baby} recent={recent} lit={lit} onDone={done} /> : null,
     bilgi: <InfoCards />,
     ses: <VoiceInput onSaved={(label, undo) => done("ses", label, undo)} />,
@@ -369,7 +376,7 @@ function FeverInput({ onDone }: { onDone: (t: number) => void }) {
       <button className="btn btn-accent px-5" style={{ minHeight: 48 }} onClick={() => !isNaN(t) && onDone(t)}>
         Kaydet
       </button>
-      {high && <div className="basis-full text-sm text-red-300">≥ 38 °C: 3 aydan küçük bebekte doktora/acile başvurulmalı.</div>}
+      {high && <div className="basis-full text-sm font-semibold" style={{ color: "#e8703f" }}>≥ 38 °C: 3 aydan küçük bebekte doktora/acile başvurulmalı.</div>}
     </div>
   );
 }

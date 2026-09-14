@@ -59,14 +59,15 @@ export async function syncReminders(baby: Baby, recent: BabyEvent[], meds: Medic
   try {
     const subs = await db.pushSubs.toArray();
     const current = await db.reminders.toArray();
-    const desired = subs.length ? desiredReminders(baby, recent, Date.now(), meds) : [];
+    // Push aboneliği olmasa da liste tutulur (gece alarm modu bu tabloyu okur); QStash yalnız abonelik varsa
+    const desired = desiredReminders(baby, recent, Date.now(), meds);
     const realmId = await familyRealmId();
 
     // Artık istenmeyenleri iptal et
     for (const c of current) {
       const d = desired.find((x) => x.kind === c.kind);
       if (!d || Math.abs(d.at - c.at) > 60_000) {
-        await api({ action: "cancel", msgId: c.msgId });
+        if (c.msgId) await api({ action: "cancel", msgId: c.msgId });
         await db.reminders.delete(c.kind);
       }
     }
@@ -74,6 +75,7 @@ export async function syncReminders(baby: Baby, recent: BabyEvent[], meds: Medic
     for (const d of desired) {
       const c = await db.reminders.get(d.kind);
       if (c && Math.abs(c.at - d.at) <= 60_000) continue;
+      if (!subs.length) { await db.reminders.put({ kind: d.kind, at: d.at, msgId: "", updatedAt: Date.now(), realmId }); continue; }
       const r = await api({
         action: "schedule",
         at: d.at,

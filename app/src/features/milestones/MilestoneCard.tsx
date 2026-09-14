@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
-import { differenceInDays, format } from "date-fns";
+import { differenceInDays, format, parseISO } from "date-fns";
 import { tr } from "date-fns/locale";
 import { db, familyRealmId } from "../../db/db";
 import type { Baby } from "../../db/types";
 import { Chip } from "../../lib/icons";
 import { CAT_ICON, CAT_LABEL, MILESTONES, PERIOD_NOTES, targetMonth, WINDOWS, type Cat } from "./milestones";
 
-const ageMonths = (baby: Baby) => differenceInDays(Date.now(), new Date(baby.birthDate)) / 30.4375;
+const ageMonths = (baby: Baby) => differenceInDays(Date.now(), parseISO(baby.birthDate)) / 30.4375;
 
 /** Basamağı işaretle / kaldır */
 async function toggle(key: string, done: boolean) {

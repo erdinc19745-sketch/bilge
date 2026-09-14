@@ -1,3 +1,4 @@
+import { parseISO } from "date-fns";
 import { useEffect, useState } from "react";
 import { ask } from "../../lib/confirm";
 import { useLiveQuery } from "dexie-react-hooks";
@@ -12,7 +13,7 @@ export default function Photos({ birthDate }: { birthDate: string }) {
   const photos = useLiveQuery(() => db.photos.toArray(), []) ?? [];
   const [view, setView] = useState<Photo | null>(null);
   const byMonth = new Map(photos.filter((p) => p.month >= 0).map((p) => [p.month, p]));
-  const nowMonth = Math.floor((Date.now() - new Date(birthDate).getTime()) / (30.4375 * 86_400_000));
+  const nowMonth = Math.floor((Date.now() - parseISO(birthDate).getTime()) / (30.4375 * 86_400_000));
   const months = Array.from({ length: Math.max(13, nowMonth + 2) }, (_, i) => i);
 
   return (

@@ -5,7 +5,7 @@ import type { Baby } from "../../db/types";
 import { DEFAULT_RULES, refreshSession, type Rules } from "./reminders";
 import { disablePush, enablePush, isStandalone, pushSupported, thisDeviceSubscribed } from "./push";
 import { getFamilyCode, setFamilyCode } from "../family/family";
-import { armAlarm, disarmAlarm, getAlarmState, subscribeAlarm, testAlarm, type AlarmState } from "./alarmEngine";
+import { armAlarm, clearAlarmLog, disarmAlarm, getAlarmLog, getAlarmState, subscribeAlarm, testAlarm, TEST_DELAY_S, type AlarmState } from "./alarmEngine";
 
 /** Ayarlar → Bildirimler: cihaz izni + kurallar (beslenme aralığı, uzun uyku, D vitamini) + deneme */
 export default function NotifySettings({ baby }: { baby: Baby }) {
@@ -17,6 +17,9 @@ export default function NotifySettings({ baby }: { baby: Baby }) {
   const [codeSaved, setCodeSaved] = useState(!!getFamilyCode());
   const [alarm, setAlarm] = useState<AlarmState>(getAlarmState);
   useEffect(() => subscribeAlarm(setAlarm), []);
+  const [logOpen, setLogOpen] = useState(false);
+  const [, setLogTick] = useState(0);
+  useEffect(() => { if (!logOpen) return; const t = window.setInterval(() => setLogTick((x) => x + 1), 5000); return () => window.clearInterval(t); }, [logOpen]);
   const rules: Rules = { ...DEFAULT_RULES, ...(baby.reminders ?? {}) };
 
   useEffect(() => { thisDeviceSubscribed().then(setMine); }, [subs.length]);
@@ -74,23 +77,30 @@ export default function NotifySettings({ baby }: { baby: Baby }) {
       {subs.length > 0 && (
         <div className="flex items-center justify-between">
           <p className="text-xs muted">Bildirim alan cihazlar: {subs.map((s) => s.device).join(", ")}</p>
-          <button className="text-xs underline muted" onClick={() => testPush()}>Deneme bildirimi</button>
+          <button className="text-xs underline muted" onClick={() => testPush()}>Bildirimi dene</button>
         </div>
       )}
 
       <div className="rounded-2xl p-3 flex flex-col gap-2" style={{ background: "var(--card-2)" }}>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-2">
           <div>
             <div className="text-sm font-semibold">⏰ Gece alarm modu</div>
-            <div className="text-[11px] muted">Telefon kilitliyken de hatırlatma anında sürekli zil çalar (sessiz modda bile, medya sesiyle). Uygulama gece açık kalmalı — kaydırıp kapatma; şarja tak.</div>
+            <div className="text-[11px] muted">Hatırlatma anında telefon kilitliyken de sürekli zil (medya sesiyle çalar; sessiz anahtarı etkilemez). Uygulama açık kalsın — kaydırıp kapatma, şarja tak, medya sesini aç.</div>
           </div>
-          <button className={`btn text-sm px-4 ${alarm.armed ? "btn-accent" : ""}`} style={{ minHeight: 44 }} onClick={() => (alarm.armed ? disarmAlarm() : armAlarm())}>{alarm.armed ? "Açık" : "Aç"}</button>
+          <button className={`btn text-sm px-4 shrink-0 ${alarm.armed ? "btn-accent" : ""}`} style={{ minHeight: 44 }} onClick={() => (alarm.armed ? disarmAlarm() : armAlarm())}>{alarm.armed ? "Açık" : "Aç"}</button>
         </div>
         {alarm.armed && (
-          <div className="flex items-center justify-between text-xs muted">
-            <span>{alarm.next ? `Sonraki: ${new Date(alarm.next.at).toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" })} · ${alarm.next.label}` : "Bekleyen hatırlatma yok (kayıt girince oluşur)"}</span>
-            <button className="underline" onClick={() => { testAlarm(); setMsg("10 saniye sonra alarm çalacak — telefonu kilitleyip dene."); }}>Deneme alarmı</button>
-          </div>
+          <>
+            <div className="text-xs muted">{alarm.next ? `Sonraki: ${new Date(alarm.next.at).toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" })} · ${alarm.next.label}` : "Bekleyen hatırlatma yok (beslenme/uyku kaydı girince oluşur)"}</div>
+            <button className="btn text-base" style={{ minHeight: 48 }} onClick={() => { testAlarm(); setMsg(`${TEST_DELAY_S} saniye sonra alarm çalacak — şimdi telefonu kilitle ve bekle.`); }}>🔔 Alarmı dene ({TEST_DELAY_S} sn sonra)</button>
+            <button className="text-[11px] muted underline text-left" onClick={() => setLogOpen((v) => !v)}>{logOpen ? "günlüğü gizle" : "alarm günlüğü (çalmadıysa buraya bak)"}</button>
+            {logOpen && (
+              <div className="text-[10px] font-mono leading-snug whitespace-pre-wrap break-words rounded-lg p-2" style={{ background: "var(--card)" }}>
+                {getAlarmLog().slice(-14).join("\n") || "henüz kayıt yok"}
+                <div className="mt-1"><button className="underline muted" onClick={() => { clearAlarmLog(); setLogTick((x) => x + 1); }}>temizle</button></div>
+              </div>
+            )}
+          </>
         )}
       </div>
 

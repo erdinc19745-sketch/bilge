@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { ask } from "../../lib/confirm";
 import { useLiveQuery } from "dexie-react-hooks";
-import { differenceInDays, format } from "date-fns";
+import { differenceInDays, format, parseISO } from "date-fns";
 import { tr } from "date-fns/locale";
 import { db, familyRealmId, uid } from "../../db/db";
 import type { Baby, Measurement } from "../../db/types";
 import type { Indicator } from "./who";
 import { IND_LABEL, percentile, valueAtZ, Z_LINES, zScore } from "./percentile";
 
-const ageMonths = (baby: Baby, at: number) => differenceInDays(at, new Date(baby.birthDate)) / 30.4375;
+const ageMonths = (baby: Baby, at: number) => differenceInDays(at, parseISO(baby.birthDate)) / 30.4375;
 
 /** Ölçüm girişi + WHO persentil eğrisi (aile hekiminin kullandığı eğrinin aynısı) */
 export default function Growth({ baby }: { baby: Baby }) {

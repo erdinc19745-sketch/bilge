@@ -11,7 +11,11 @@ const cloudUrl: string | undefined = cloudFile?.dbUrl ?? cloudFile?.databaseUrl;
 
 // PWA: iPhone'da "Ana Ekrana Ekle" ile kurulur, çevrimdışı çalışır.
 export default defineConfig({
-  define: cloudUrl ? { "import.meta.env.VITE_DEXIE_CLOUD_URL": JSON.stringify(cloudUrl) } : {},
+  define: {
+    ...(cloudUrl ? { "import.meta.env.VITE_DEXIE_CLOUD_URL": JSON.stringify(cloudUrl) } : {}),
+    // Ayarlar altında "sürüm" — canlı sitede hangi derlemenin olduğunu telefondan görmek için
+    __BUILD__: JSON.stringify(new Date().toLocaleString("tr-TR", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Istanbul" })),
+  },
   plugins: [
     react(),
     tailwindcss(),
