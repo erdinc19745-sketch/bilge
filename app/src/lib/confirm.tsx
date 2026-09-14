@@ -26,7 +26,7 @@ export function ConfirmHost() {
   if (!p) return null;
   const done = (v: boolean) => { p.resolve(v); setP(null); };
   return (
-    <div className="fixed inset-0 z-40 flex flex-col justify-end" style={{ background: "rgba(0,0,0,0.55)" }} onClick={() => done(false)}>
+    <div className="fixed inset-0 z-[60] flex flex-col justify-end" style={{ background: "rgba(0,0,0,0.55)" }} onClick={() => done(false)}>
       <div className="slide-up card safe-bottom rounded-b-none flex flex-col gap-3" onClick={(e) => e.stopPropagation()}>
         <div className="text-lg font-semibold">{p.title}</div>
         {p.text && <p className="text-sm muted">{p.text}</p>}

@@ -1,5 +1,5 @@
 import { parseISO } from "date-fns";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useLiveQuery, useObservable } from "dexie-react-hooks";
 import { cloudEnabled, db, currentUser$, demoMode, syncState$ } from "./db/db";
 import Onboarding, { isOnboarded } from "./features/onboarding/Onboarding";
@@ -16,6 +16,7 @@ import { ConfirmHost } from "./lib/confirm";
 import { Icon, type IconName } from "./lib/icons";
 import { runQuickAct } from "./features/log/quickAct";
 import NowPlaying from "./features/noise/NowPlaying";
+import NightScreen, { isNightHour } from "./features/log/NightScreen";
 import { useAlarm } from "./features/notify/chime";
 import { armAlarm, snooze, stopRinging } from "./features/notify/alarmEngine";
 
@@ -34,6 +35,9 @@ export default function App() {
   const [tab, setTab] = useState<Tab>(() => (new URLSearchParams(location.search).get("tab") as Tab) || "kayit");
   const [profile, setProfile] = useState(() => location.search.includes("profile"));
   const [onboarded, setOnboarded] = useState(isOnboarded);
+  // Gece ekranı: başlık 🌙 ile; 21-09 arası alarm modu açıkken 2 dk dokunulmazsa kendiliğinden
+  const [night, setNight] = useState(false);
+  const idleRef = useRef<number | undefined>(undefined);
   // Yeni sürüm bekliyor (service worker): kullanıcı isteyince yenile
   const [updateReady, setUpdateReady] = useState(false);
   useEffect(() => { const on = () => setUpdateReady(true); window.addEventListener("bilge-update", on); return () => window.removeEventListener("bilge-update", on); }, []);
@@ -64,6 +68,16 @@ export default function App() {
 
   // Hatırlatma zamanı: alarm modu açıksa sürekli zil + tam ekran; değilse kısa zil + şerit
   const alarm = useAlarm();
+  useEffect(() => {
+    const arm = () => {
+      window.clearTimeout(idleRef.current);
+      if (!alarm.armed || !baby || needLogin || night) return;
+      idleRef.current = window.setTimeout(() => { if (isNightHour()) setNight(true); }, 120_000);
+    };
+    arm();
+    document.addEventListener("pointerdown", arm);
+    return () => { document.removeEventListener("pointerdown", arm); window.clearTimeout(idleRef.current); };
+  }, [alarm.armed, baby, needLogin, night]);
   const chimeMsg = alarm.ringing && !alarm.loud ? alarm.ringing.label : null;
 
   // ?act=… kısayolu (iOS Kısayolları / kilit ekranı widget'ı)
@@ -88,6 +102,7 @@ export default function App() {
           <button className="btn text-base w-full" style={{ minHeight: 56, background: "rgba(0,0,0,0.15)", color: "var(--on-accent)" }} onClick={() => snooze(10)}>10 dk ertele</button>
         </div>
       )}
+      {night && baby && !needLogin && <NightScreen onExit={() => setNight(false)} />}
       {baby && !onboarded && !needLogin && <Onboarding onDone={() => setOnboarded(true)} />}
       {!alarm.armed && alarm.prefWanted && baby && (
         <button className="fixed left-4 right-4 top-4 z-40 px-4 py-2.5 rounded-2xl text-sm font-semibold shadow-lg text-left" style={{ background: "var(--card)", marginTop: "env(safe-area-inset-top)", boxShadow: "0 0 0 1px var(--line)" }} onClick={() => armAlarm()}>
@@ -114,7 +129,13 @@ export default function App() {
             {baby && <AgeBadge birthDate={baby.birthDate} />}
           </span>
         </button>
-        <span className="text-xs muted text-right leading-tight">
+        <span className="text-xs muted text-right leading-tight flex items-start gap-2">
+          {baby && !needLogin && (
+            <button className="rounded-xl flex items-center justify-center" style={{ width: 36, height: 36, background: "var(--card-2)", color: "var(--accent)" }} aria-label="Gece ekranı" onClick={() => setNight(true)}>
+              <Icon name="moon" size={18} />
+            </button>
+          )}
+          <span className="text-right leading-tight">
           {cloudEnabled && (
             <span className="inline-flex items-center gap-1 justify-end" title={`senkron: ${sync?.phase ?? "—"}`} aria-label={`senkron ${sync?.phase ?? ""}`}>
               <span className="w-2 h-2 rounded-full" style={{ background: sync?.phase === "in-sync" ? "var(--c-bez)" : sync?.phase === "pushing" || sync?.phase === "pulling" ? "var(--accent)" : sync?.phase === "error" ? "#e8703f" : "var(--muted)" }} />
@@ -124,6 +145,7 @@ export default function App() {
           {demoMode && <span className="block text-[10px] font-bold px-1.5 rounded" style={{ background: "var(--accent)", color: "var(--on-accent)" }}>DEMO · örnek veri</span>}
           {new Date().toLocaleDateString("tr-TR", { day: "numeric", month: "short" })}
           <span className="block">{new Date().toLocaleDateString("tr-TR", { weekday: "long" })}</span>
+          </span>
         </span>
       </header>
 
