@@ -1,0 +1,2598 @@
+TÜRK NEONATOLOJİ DERNEĞİ
+YENİDOĞAN SARILIKLARINDA 
+YAKLAŞIM, İZLEM VE TEDAVİ 
+REHBERİ  
+2022 GÜNCELLEMESİ
+Prof. Dr. Asuman ÇOBAN         Prof. Dr. Münevver KAYNAK TÜRKMEN         Prof. Dr. Tuğba GÜRSOY
+EDİTÖRLER
+Prof. Dr. Asuman ÇOBAN
+Prof. Dr. Münevver KAYNAK TÜRKMEN
+Prof. Dr. Tuğba GÜRSOY
+TÜRK NEONATOLOJİ DERNEĞİ REHBERLERİ
+Copyright © 2022
+Türk Neonatoloji Derneği Yenidoğan Sarılıklarında Yaklaşım, İzlem ve Tedavi Rehberi 2022 Güncellemesi Reh-
+berinin her türlü yayın hakkı Türk Neonatoloji Derneği’ne aittir. Yazılı olarak izin alınmadan ve kaynak gösteril-
+meden kısmen veya tamamen kopya edilemez; fotokopi, teksir, baskı ve diğer yollarla çoğaltılamaz.
+Bu klinik protokol, uygulayıcıya konusundaki son bilimsel gelişmeleri, kanıtlar doğrultusunda özetleyip suna-
+rak, kolaylık sağlamak amacıyla öneri niteliğinde yazılmıştır. Burada belirtilen bilgi ve önerilerin yorumlanması 
+ve uygulanması hekimin kendi sorumluluğundadır.
+Bilimsel verilerle ilgili kanıtların, sürekli gelişme halinde olduğu unutulmamalıdır. Türk Neonatoloji  
+Derneği’nin önerilerini içeren bu protokolün, bilimsel verilerle ilgili yeni yeterli kanıtlar doğrultusunda, ileriki 
+yıllarda güncellenmesi planlanmaktadır.
+ISBN: 978-605-68344-0-0
+Bu rehberin güncellenmesi sonrasında Eylül 2022 tarihinde AAP tarafından 2004 rehberinin ve 2009 
+revizyonunun yeni revizyonu yayınlanmıştır. Farklılıklar veya yenilikler ileride rehbere yansıtılacaktır
+3
+İÇİNDEKİLER
+KISAL TMALAR 6
+A. GİRİŞ 7
+A1. Genel bilgiler 7
+A2. Fizyolojik –patolojik sarılık 7
+A3. Klinik anlamlı hiperbilirubineminin sınıflaması 8
+A4. Bilirubin ensefalopatisi ve kernikterus 8
+A5. Kernikterus; “asla olmaması gereken bir durum” 10
+A6. Ülkemizdeki durum 11
+A7. Neden farklı rehberlere gereksinim vardır? 11
+A8. Rehberin amacı ve hedefleri 12
+B. SARILIKLI BEBEĞE YAKLAŞIM VE SARILIĞIN ÖNLENMESİ 12
+B1. Birincil koruma 12
+   B1a) Yeterli ve başarılı emzirme 12
+   B1b) Su veya şekerli su desteğinden kaçınma 13
+B2. İkincil koruma 13
+   B2a) Kan gruplarının belirlenmesi 13
+   B2b) Klinik değerlendirme 13
+   B2c) Laboratuvar olarak değerlendirme 13
+           B2c.1) Yatmakta olan bebek 13
+           B2c.2) Sarılık tedavisi için hastaneye yeniden başvuran bebek 15
+           B2c.3) Bilirubin değerlendirme yöntemleri 15
+B2c.3i) Kanda bilirubin ölçümü 15
+B2c.3ii) Transkutan bilirubin (TcB) ölçümü 16
+           B2c.4) Direkt bilirubin ne zaman bakılmalı 16
+   B2d) Risk faktörleri 17
+   B2e) Sarılığın nedenine yönelik özel değerlendirmeler 17
+   B2f) Taburculuk öncesi risk değerlendirme 18
+   B2g) Taburculuk sonrası izlem 18
+   B2h) Uzamış sarılık 18
+   B2i) Sarılıklı bebeklerde kaçınılması gereken ilaçlar 20
+4
+C.TEDAVİ 20
+C1. Tedavi endikasyonu gebelik haftasına mı yoksa doğum ağırlığına göre mi olmalı? 20
+C2. Yenidoğanda hemoliz kriterleri 20
+C3. Fototerapi 22
+     C3a) Amaç ve endikasyonlar 22
+     C3b) Fototerapinin etkinliği 23
+           C3b.1) Doz-yanıt ilişkisi 23
+           C3b.2) Fototerapi dozunun rutin ölçümü 24
+           C3b.3) Işık spektrumunun irradiyansı 24
+   C3c) Yoğun fototerapi nedir? 25
+   C3d) Fototerapi nasıl etkin kullanılır? 25
+         C3d.1) Işık kaynağı 25
+         C3d.2) Işığın mesafesi 25
+         C3d.3) Yüzeyin genişliği 25
+   C3e) Fototerapi bilirubini ne kadar düşürür? 25
+   C3f) Fototerapi aralıklı mı, sürekli mi verilmeli? 25
+   C3g) Fototerapi ne zaman sonlandırılmalı? 26
+   C3h) “Rebound” bilirubin bakılmalı mı? 26
+   C3 i) Profilaktik fototerapi uygulanmalı mı? 26
+   C3j) Fototerapi komplikasyonlar 26
+         C3j.1) Kısa dönem etkileri 26
+         C3j.2) Uzun dönem yan etkileri 27
+C4. Kan değişimi 28
+   C4a) Amaç ve endikasyonlar 28
+   C4b) Serum albumin düzeyi ve B/A oranı 28
+   C4c) Kan değişimi hazırlığı, malzemeler 29
+   C4d) Seçilecek kan ürünleri ve özellikleri 29
+            C4d.1) Kan grupları 29
+            C4d.2) Işınlama ve filtreleme 30
+            C4d.3) Isıtma 30
+            C4d.4) Miktarın hesaplanması 30
+   C4e) Umbilikal ven kateterizasyonu 30
+   C4f) Kan değişimi için alınacak önlemler 31
+   C4g) Bebeğin hazırlanması 31
+   C4h) İşlem 31
+   C4i) Kan değişimi hızı, miktarı 32
+   C4j) Kan değişimi öncesi ve sonrası laboratuar testleri 32
+5
+   C4k) Kan değişimi sonrası ilaçlar 32
+   C4l) Kan değişimi sonrası izlem 32
+   C4m) Kan değişimi komplikasyonları 32
+C5. Farmakolojik tedavi 33
+C5a) Bilirubin klirensinin normal metabolik yolunun hızlandırılması 33
+         C5a.1) Glukuronozil transferaz enziminin indüksiyonu (Fenobarbital) 33
+         C5a.2) Enterohepatik dolaşımın azaltılması 33
+   C5b) Bilirubin yapımının azaltılması 33
+         C5b.1) Hem oksijenazın inhibisyonu 33
+         C5b.2) Hemolizin inhibe edilmesi (İVİG) 33
+D. ÖZEL DURUMLAR 33
+D1. Rh hemolitik hastalığın yönetimi 33
+D2. İlk 24 saatte ortaya çıkan sarılıkta tedavi prensipleri 34
+E. İZLEM 34
+F. KAYNAKLAR 35
+6
+KISAL TMALAR
+AAP : Amerikan Pediatri Akademisi
+BİND : Bilirubinin indüklediği nörolojik disfonksiyon 
+B/A : Bilirubinin albumine oranı
+Ca : Kalsiyum
+DİK : Disemine intravasküler koagülasyon
+ETCO : End tidal karbonmonoksit
+FKU : Fenilketonüri
+FT : Fototerapi
+G6PD : Glukoz 6 fosfat dehidrogenaz
+Hct : Hematokrit
+Hb : Hemoglobin
+İVİG : Intravenöz immünoglobulin
+NEK : Nekrotizan enterokolit
+sT4 : Serbest tiroksin
+TSB : Total serum bilirubini
+TB : Total bilirubin
+TcB : Transkutan bilirubin
+TSH : Tiroid stimule edici hormon
+7
+A. GİRİŞ
+A1. GENEL BİLGİLER
+Sarılık genellikle başka sağlık sorunu olmayan yenidoğan 
+bebeklerde tıbbi ilgi ve dikkat gerektiren en sık rastlanan 
+klinik bulgulardan biridir. “Sarılık” terimi bilirubinin deri ve 
+mukozalarda birikimi sonucu deri ve skleraların sarı renk -
+te görülmesini ifade eder; bu duruma vücutta bilirubinin 
+yükselmesi, yani “hiperbilirubinemi” neden olur. Total 
+serum bilirubin (TSB) düzeyi ancak 5 mg/dL ’yi aştığında 
+sarılık görülür (1). Bu neden-sonuç ilişkisine rağmen “ne -
+onatal hiperbilirubinemi” ve “neonatal sarılık” sık olarak 
+birbirinin yerine kullanılır. Yenidoğanların en az üçte ikisi-
+nin yaşamın ilk haftasında klinik olarak sarardığı bilinmek-
+tedir (2). Normal fizyolojik bir durum olarak kabul edilir, 
+genellikle selim ve geçicidir ve çoğu kez de TSB düzeyi 
+bebek için tehlike kaynağı olmayacak düzeyde kalır. An -
+cak, yenidoğanların küçük bir bölümünde geri dönüşüm-
+süz ciddi beyin hasarı için tehdit oluşturabilen düzeylere 
+erişebilir. Zamanında tanı konup tedavi edilmeyen yüksek 
+bilirubin düzeylerinin yol açacağı bilirubin ensefalopatisi 
+ciddi nörolojik sekellere neden olur. Kernikterus olarak bi-
+linen atetoid serebral felç gelişebilir (3). Sarılıklı bebeğe 
+yaklaşımda amaç bilirubin düzeylerinin aşırı yükselmesini 
+önlemek ve nörolojik hasar riskini ortadan kaldırmak, bir 
+anlamda kernikterus vakalarını “eradike etmek”tir (4,5).
+Yenidoğan sarılıkları küresel bir sağlık sorunudur. Bir -
+leşmiş Milletler’in “Sürdürebilir Gelişme Hedefleri” arasın-
+daki sağlık hedeflerinde tüm yenidoğanların sağkalım 
+şansları, büyümeleri ve uzun süreli iyiliği güçlü bir gün -
+dem oluşturmakta ve bunların arasında neonatal sarı -
+lık da önemli bir sağlık sorunu olarak gittikçe artan bir 
+ilgi uyandırmaktadır. Yenidoğan sarılıkları 5 yaş altı her 
+100.000 ölümün 8’ine neden olurken bu yaşda görülen 
+ölüm nedenleri arasında da 16. sırayı almaktadır (6). 
+Yenidoğan dönemi ölümlerinin nedenlerine bakıl -
+dığında yenidoğan sarılıkları erken neonatal ölümlerde 
+1309/100.000, geç neonatal ölümlerde ise 187/100.000 
+oranında görülmektedir (7). 
+A2. FİZYOLOJİK – PATOLOJİK SARILIK 
+Yenidoğanların hemen hepsinde hayatın ilk haftasında 
+total bilirubin düzeyinin yükselmesi ve bunların üçte iki -
+sinde de klinik olarak sarılık görülmesi nedeniyle bu geçici 
+hiperbilirubinemiye “fizyolojik sarılık” denmektedir. Hatta 
+son çalışmalarda miad ve miada yakın doğan bebeklerin 
+%80’inde TSB düzeyinin 5 mg/dL üzerinde olduğu saptan-
+mıştır; bu insan gözünün yenidoğanda konjuge olmayan 
+hiperbilirubinemiyi tanıyabildiği düzeydir (1). 
+“Fizyolojik sarılık” terimi TSB düzeyleri normal sınırlar 
+içinde olan sağlıklı bebeklerdeki sarılık için kullanılmakta-
+dır, ancak miadında veya miada yakın doğan yenidoğan -
+larda bilirubin düzeylerinin birbirinden çok farklı olabil -
+mesi nedeniyle “normal veya fizyolojik” bir TSB düzeyini 
+tanımlamak çözülmesi gereken bir sorun olmaya devam 
+etmektedir.
+YENİDOĞAN  
+SARILIKLARINDA YAKLAŞIM,  
+İZLEM VE TEDAVİ
+8
+Anne sütü ile beslenmenin bu kadar yaygın olmadığı 
+ve fototerapinin mevcut olmadığı dönemlerde yapılan 
+çalışmalarda yenidoğanların %95’inde TSB’nin 12,9 mg/
+dL düzeyini aşmadığı görülmüş ve bu değer “fizyolojik 
+sarılık” sınırı olarak kabul edilmiştir. Ancak günümüzde 
+yenidoğan sarılığının doğal seyrini belirlemek mümkün 
+değildir; bazı yenidoğanlar ilk 24-72 saatte artan bilirubin 
+düzeyleri veya riskleri nedeniyle bu düzeylerde fototerapi 
+almaktadır. Yenidoğanların postnatal yaşları çok önemlidir. 
+Fizyolojik kabul edilmiş olan bu düzey günümüzde biliru-
+bin nomogramına göre postnatal yaşı <48 saat olanlarda 
+>95. persentildedir; yani patolojiktir, ancak 4-5. günlerden 
+sonra bu değerdeki bilirubin düşük risk grubuna girer. Bü-
+tün bunlardan dolayı artık “fizyolojik sarılık” sınırı farklı ta-
+nımlanmalıdır. Genel olarak Kuzey Amerika topluluğunda 
+anne sütü ile beslenen, 4-5 günlükken TSB değeri 15 mg/
+dL olan bebeklerde sarılığın nedeni ile ilgili ayrıntılı tetkik 
+yapılmamakta, ancak bu bebeklerin bilirubinin artmadı -
+ğından emin olmak için izlenmesi önerilmektedir (6). Fizyo-
+lojik- patolojik sarılık terimleri sık olarak doğru kullanılma-
+makta ve potansiyel zararlı sonuçlara neden olmaktadır, bu 
+nedenle kullanımı sınırlı olmalıdır. Bununla ilişkili olarak bu 
+terimler yerine “yenidoğan sarılığı” veya “neonatal bilirubi-
+nemi” kullanılması, belli düzeyler üzerinde “hiperbilirubine-
+mi” teriminin kullanılması önerilmektedir (9).
+Sonuç olarak sağlıklı miadında doğan bir yenidoğan -
+da TSB düzeyi, saat olarak yaşa göre bilirubinin persentil 
+dağılımını gösteren nomogramda değerlendirilerek risk 
+bölgesi belirlenmeli, tedavi gerektirip gerekmediği sap -
+tanmalı; ancak bundan sonra “fizyolojik” olabileceği düşü-
+nülmelidir.
+1.  Yenidoğanların en az üçte ikisinde yaşamın ilk haftasında 
+klinik olarak sarılık görülür.
+2.  Hiperbilirubinemi yenidoğanların küçük bir bölümünde 
+geri dönüşümsüz ciddi beyin hasarı için tehdit oluştura -
+bilen düzeylere erişebilir.
+3.  “Normal veya fizyolojik” bir TSB düzeyinin tanımlanması 
+çözülmesi gereken bir sorun olmaya devam etmektedir.
+4.  Günümüzde yenidoğan sarılığının doğal seyrini belirle -
+mek mümkün değildir.
+5.  Geçmişte TSB<12,9 mg/dL değeri “fizyolojik sarılık” sınırı 
+olarak kabul edilmiştir; ancak bu terim artık kullanılma -
+malıdır.
+6.  Fizyolojik–patolojik sarılık tanımlaması için bebeğin ge -
+belik haftası, postnatal yaşı, riskleri bilinmeli ve TSB saat 
+olarak bilirubin nomogramında değerlendirilmelidir.
+A3. KLİNİK ANLAMLI 
+HİPERBİLİRUBİNEMİNİN SINIFLAMASI (6)
+A3a) Anlamlı hiperbilirubinemi
+Postnatal yaş ve sarılık nedenine göre değişen, fototerapi 
+gerektiren bilirubin düzeyi (tipik olarak TSB ≥ 12 mg/dL).
+A3b) Ciddi hiperbilirubinemi
+Postnatal yaş ve sarılık nedenine göre değişen, kan de -
+ğişimi sınırına yakın veya sınırında bilirubin düzeyi (tipik 
+olarak TSB ≥ 20 mg/dL) veya hafif derecede akut bilirubin 
+ensefalopatisinin erken bulgularıyla seyreden herhangi 
+bir yüksek TSB düzeyi.
+A3c) Aşırı hiperbilirubinemi
+Kan değişimi sınırında bilirubin düzeyi (tipik olarak TSB ≥ 
+25 mg/dL), veya hafif-orta derecede akut bilirubin ensefa-
+lopatisinin bulgularıyla seyreden herhangi bir yüksek TSB 
+düzeyi.
+A3d) Zararlı veya kritik hiperbilirubinemi
+Kan değişimi sınırında bilirubin düzeyi (tipik olarak TSB ≥ 
+30 mg/dL), veya orta-ağır derecede akut bilirubin ensefa-
+lopatisinin bulgularıyla seyreden herhangi bir yüksek TSB 
+düzeyi
+A4. BİLİRUBİN ENSEFALOPATİSİ VE 
+KERNİKTERUS
+Kernikterus, bilirubin toksisitesinin beyinde oluşturduğu 
+patolojik bulguları tanımlayan bir terimdir ve bilirubin 
+ensefalopatisi ile genellikle eşanlamlı olarak kulanılır.  Bu 
+tanım karışıklığını önlemek amacıyla artık Amerikan Pe -
+diatri Akademisi “akut bilirubin ensefalopatisi” teriminin 
+doğumdan sonraki ilk haftada görülen bilirubin toksisite-
+sinin akut belirtilerini, “kernikterus” teriminin ise bilirubin 
+toksisitesinin kronik ve kalıcı klinik sekellerini tanımlamak 
+için kullanılmasını önermiştir (10). Günümüzde bilirubin 
+ensefalopatisi ile ilişkili değişiklikleri tanımlamada bili -
+rubinin indüklediği nörolojik disfonksiyon (BİND) teri -
+minin kullanılması önerilmektedir. BİND hafif ve belirsiz 
+nörolojik bozukluklardan (izole işitsel nöropati, hareket 
+bozuklukları, distoni, bilişsel bozukluklar, hafif zeka geri -
+liği), akut bilirubin ensefalopatisi ve post-ikterik sekelleri 
+(nöromotor/işitsel) de içine alan geniş bir spektrum gös -
+terir (11, 12). Geç preterm ve term bebeklerde nörolojik 
+etkilenmenin derecesini değerlendirmek için BİND skor -
+laması kullanılır (Tablo 1) (11). 
+En sık etkilenen bölgeler bazal ganglionlar (özellikle 
+globus pallidus, subtalamik çekirdek); hipokampus, subs-
+tantia nigra, çeşiti kraniyal sinirler (özellikle okülomotor, 
+vestibüler, koklear, fasiyal sinir çekirdekleri); çeşitli beyin 
+sapı çekirdekleri, özellikle ponsun retiküler yapısı; sere -
+9
+beller çekirdekler ve medulla spinalisin ön boynuz hücre-
+leridir.  Patofizyolojisi ve bilirubinin özellikle beynin bazal 
+ganglionlarına depolanmasının nedeni, bilirubinin hücre 
+içine girdikten sonra oluşan nöron hasarının mekanizması 
+da tam olarak bilinmemektedir (13).
+Akut bilirubin ensefalopatisi (ABE): İleri derecede sarı -
+lığı olan bebek üç klinik evreden geçer. İlk birkaç günde 
+bebek letarjik ve hipotoniktir, emmesi zayıftır. Bu bulgular 
+özgül değildir, ancak varlığında bilirubin ensefalopatisi 
+düşünülmelidir. İlk haftanın sonuna doğru orta derecede 
+stupor, hipertoni, tiz sesle ağlama, ateş ve konvülziyonlar 
+ile ikinci evre bulguları ortaya çıkar. Ateş, diensefalik tutul-
+ma ile ilgili olabilir. Çoğu bebekte retrokollis (boynun ar -
+kaya doğru yaylanması) ve opistotonus (gövdenin arkaya 
+yaylanması) görülür. Moro refleksi kaybolur, apne, derin 
+stupor, koma, bazen konvülziyon ve ölüm olabilir.  Rijidi -
+te, solunum düzensizliği ve pulmoner kanamalar terminal 
+belirtilerdir. Hayatta kalanlarda birinci haftanın sonunda, 
+hipertoni geriler ve hastanın durumu iyileşiyor izlenimini 
+verir, bu bebeklerde kronik bilirubin ensefalopatisinin ka-
+rakteristik klinik bulguları yaklaşık bebek 6 haftalık oldu -
+ğunda ortaya çıkar.
+Kronik bilirubin ensefalopatisi: İlk bir yıl içinde hastalar 
+iyi beslenemezler, hipotonikdirler, motor gelişim geridir. 
+Kronik bilirubin ensefalopatisinin diğer tipik bulguları 
+bir yaştan önce görülmez, sık olarak da yıllar sonra orta -
+ya çıkar. Klasik sekel tetradı; ekstrapiramidal bozukluklar, 
+yüksek frekanslı sensörinöral işitme kaybı, özellikle yukarı 
+bakış anormalliği olmak üzere bakış anormallikleri ve diş 
+minesi hipoplazisidir. Mental retardasyon daha az sıklıkla 
+görülür. Bazı vakalarda tek bulgu izole sensörinöral işitme 
+kaybıdır (14).
+Son yıllarda bilirubin toksisitesinin fizyopatolojik ve 
+klinik bulgularına dayalı bir sınıflandırması önerilmek -
+tedir. Kernikteruslu bebekler çok değişik klinik bulgular 
+ile başvurabileceğinden akut bilirubin nörotoksisitesi de 
+dahil bilirubin nörotoksisitesinin tüm nörolojik sekelleri -
+ni içeren kapsayıcı bir terim olan Kernikterus Spektrum 
+Bozuklukları- KSB (Kernicterus Spectrum Disorders-KSDs) 
+teriminin kullanılması tartışılmaktadır. Bu terminolojide 
+kernikterusun başlıca bozukluk tablolarına (motor, işit -
+sel) göre alt sınıflamalar mevcuttur (Tablo 2). Ayrıca ciddi 
+hiperbilrubinemi öyküsü olan ve hafif veya belli belirsiz 
+gelişimsel gecikmeleri olanlar için de belli belirsiz KSB 
+teriminin kullanılması önerilmektedir. Hiperbilirubinemi -
+nin klinik sonuçları için böyle bir sistematik sınıflamanın 
+uyarlanması bu alanın birleştirilmesine yardım edecek, 
+KSB’nin hem önlenmesi ve hem de tedavisi için daha etkin 
+araştırma imkanları oluşturabilecektir (15).
+Klinik bulgular Skor Tarih/saat Tarih/saat Tarih/saat
+Mental durum
+      Normal 0
+       Uykulu ancak uyandırılabilir, beslenme azalmış 1
+       Letarjik, emme zayıf, irritabl 2
+       Semikoma/koma, beslenemiyor, nöbet 3
+Kas tonusu
+      Normal 0
+      Hafif / orta hipotoni 1
+       Hafif / orta hipertoni, hipotoni ile dönüşümlü 2
+      Retrokolis ve opistotonus 3
+Ağlama paterni
+      Normal 0
+       Uyandırıldığında tiz sesle ağlama 1
+       Tiz sesle ağlama ve sakinleştirilmesi zor 2
+       Sakinleştirilemeyen ağlama veya ağlamama 3
+Total BİND skoru
+Tablo 1. Bilirubinin indüklediği nörolojik disfonksiyon (BİND) skorlaması (11)
+10
+A5. KERNİKTERUS: “ASLA OLMAMASI 
+GEREKEN BİR DURUM”
+Yüksek bilirubin düzeylerinin zararlı olabileceği bilinci -
+nin yerleşmesinin yanısıra fototerapi ve kan değişimi ile 
+hiperbilirubineminin kontrol altına alınması sonucu bili -
+rubin ensefalopatisi vakalarının sıklığı önemli oranlarda 
+azalmıştır. Önleyici tedavinin kernikterusu önlemede en 
+etkin yöntem olduğu bilinmektedir (16,17). Ancak özellik-
+le 1990’lı yıllardan sonra kernikterus vakalarında yeniden 
+artış bildirilmektedir (18). 
+Bu vakalar incelendiğinde kernikterusun sarılığı fark 
+edilmeyen, ya da yaşa göre derecesi değerlendirilmeyen 
+ve çoğunlukla, hemoliz, prematürite, hipoalbuminemi, 
+emzirme ile ilgili sorunlar gibi riskleri olan yenidoğanlar -
+da geliştiği saptanmıştır. Bu faktörler de göz önüne alına-
+rak Amerikan Pediatri Akademisi tarafından 2004 yılında 
+yenidoğan sarılığının tanınması, önlenmesi ve tedavisi ile 
+ilgili yeni öneriler yayınlanmıştır (10). Bu rehbere uyuldu -
+ğunda bilirubin ensefalopatisinin önlenebileceğini veya 
+sekellerin azalabileceğini ileri sürmüştür (10). Kernikterus 
+için artık “asla görülmemesi gereken olay” ilkesi vurgulan-
+maktadır. 
+Ancak kernikterus halen dünyanın her tarafından bildi-
+rilmeye devam etmekte, hatta Amerika Birleşik Devletleri, 
+Kanada, Hollanda, Danimarka, İtalya, İngiltere, Almanya 
+gibi gelişmiş tıbbi bakımı olan ülkelerden de vakalar bil -
+dirilmektedir (19-27). Bu artışın nedenleri i) Yenidoğan sa-
+rılıklarına daha liberal yaklaşılması, ii) anne-bebek çiftinin 
+bilirubin düzeyi tepe yapmadan erken taburcu edilme -
+si, iii) anne sütü ile beslenen bebek sayısının artması, iv) 
+yanlış bir varsayım olan kernikterus için hemoliz artışının 
+gerekliliği, v) geç pretermlerde izlenen sarılığın term be -
+bekler gibi yönetilmesidir (19).
+Kernikterus sıklığı büyük coğrafik farklılıklar gösterir 
+(28). Kuzey Amerika ve Avrupa’da term ve geç preterm -
+lerde tahmini sıklık 0.4-2.7/100.000’dir (29). Hatta Kana -
+da’da yapılan bir çalışmaya göre akut bilirubin ensefa -
+lopatisi sıklığının 1/10.000 olduğu, bunun fenilketonüri 
+sıklığına benzer olduğu; kronik ensefalopati sıklığının ise 
+2/100.000 olduğu saptanmıştır (21). Danimarka’da KSB 
+sıklığı 1.2/100.000, İsveç’te ise kernikterus sıklığı benzer 
+şekilde 1.3/ 100.000 canlı doğum olduğu bildirilmiştir (30, 
+31). Japonya’da ise kernikterus sıklığı oldukça düşük olup 
+0.4/100.000 civarındadır (32).
+Ciddi yenidoğan sarılığının verdiği zarar düşük ve orta 
+gelirli ülkelerde daha sık görülür (33). Bazı gelişmekte olan 
+ülkelerde ciddi neonatal sarılık sıklığı gelişmiş ülkelerden 
+yaklaşık 100 kat fazladır (34). Buna neden olan faktörler; 
+neonatal sarılığın yetersiz taranması, TSB düzeyi ölçümü 
+imkanların yetersiz olması, ciddi hiperbilirubinemi veya 
+bilirubin nörotoksisite riskini artıran G6PD enzim eksikliği, 
+Rh izoimmünizasyonu, sepsis gibi durumların sık görül -
+mesi, sarılıklı yenidoğanların tedavi olanaklarının olduğu 
+bölgelere sevk edilmesinde gecikme, fototerapi uygula -
+malarında sorun ve güvenli kan bankası uygulamalarının 
+olmaması nedeniyle yüksek bilirubin düzeyleri olan be -
+beklerde kan değişiminin yapılamamasıdır (28).
+İşitsel kernikterus Motor kernikterus
+Yo k İşitsel semptom yok Motor semptom yok
+Hafif
+Hafif işitsel nöropati spektrum bozukluğu, zamanla 
+düzelebilir + hafif işitme kaybı; normal veya hafif 
+gecikmiş konuşma
+Hafif anormal kas tonusu + atetozis; hafif kaba motor 
+gerilik
+Orta
+Kalıcı anormal ABR ile işitsel nöropati spektrum 
+bozukluğu, hafif/orta işitme kaybı, gecikmiş konuşma 
+veya konuşmanın olmaması
+Orta derece anormal kas tonusu, atetoid serebral 
+felç; destekle veya desteksiz ayağa kalkabilir, anormal 
+yürüyüş, anormal tonus, el ve ayaklarda anormal 
+postür
+Ağır ABR’de cevap alınamaması ile işitsel nöropati spektrum 
+bozukluğu, ciddi işitme kaybı/sağırlık
+Ciddi anormal tonus, atetoid serebral felç; ayağa 
+kalkamaz, kendi kendine beslenemez, konuşamaz, 
+hipertonisite ve kas krampları
+Tablo 2. Kernikterus spektrum bozukluğunun evrelendirilmesi
+Skor 1-3: Hafif düzey ABE, total bilirubin düzeyine göre fototerapi gerekir. Bu bebeklerde işitsel beyin sapı cevabı (“Auditory Brainstem Respon -
+se”-ABR) testi yapılması önemlidir; anormal sonuç orta düzeyde ABE varlığını destekler. Seri ABR izlemi akut işitsel hasarın ilerlemesi, sabit kalması 
+veya geri dönmesinin objektif bir ölçütü olarak kullanılabilir ve bilirubin düşürme stratejilerinin etkinliğinin yorumlanmasını sağlayabilir.
+Skor 4-6: Orta düzey ABE, acil girişim gerekir (yoğun fototerapi ve gerekirse kan değişimi).
+Skor 7-9: İleri düzey ABE, acilen kan değişimi yapılmalıdır.
+11
+A6. ÜLKEMİZDE DURUM 
+Ülkemizde yenidoğanlarda hiperbilirubinemi sıklığı ile il -
+gili net veriler yoktur. Ülkemizde 2018 yılında yapılan ça -
+lışmada toplum bazlı olmasa da ciddi hiperbilirubinemi, 
+tedavi gerektiren hiperbilirubinemi, kan değişimi sıklığı 
+belirlenmiştir (35). Çok merkezli yapılan bu çalışmada be-
+beklerin %6,4’ünde bilirubin düzeyi >25 mg/dL saptan -
+mış, %0,23’ünde akut bilirubin ensefalopatisi bulguları, 
+%0,2’sinde ise işitme kaybı tespit edilmiştir (35). Kan de -
+ğişimi yapılan bebeklerde akut bilirubin ensefalopatisi 
+sıklığı %9,8 olarak rapor edilmiştir (36). TSB>25 mg/dL 
+saptanan bebeklerde 2006 yılında yapılan çalışmada ker -
+nikterus oranı %6,5 olarak bildirilirken (37), 2018 yılında 
+ise akut bilirubin ensefalopatisi oranı %3,6 saptanmıştır 
+(35). Mortalite istatistiklerinde akut bilirubin ensefalopa -
+tisine bağlı ölüm bildirilmemektedir (38).
+Ülkemizde yenidoğan bakımında geleneksel uygula -
+malar yaygındır (39). Bu uygulamalar sarılıklı bebeklerin 
+sağlık kurumlarına başvurusunu geciktirmekte veya en -
+gellemektedir. Yenidoğan sağlığı konusunda son yıllar -
+daki ilerlemelere rağmen halen bazı sağlık sistemi temelli 
+sorunlar devam etmektedir. Sezaryen doğum oranlarının 
+yüksekliği, doğumdan sonra çok erken (<24 saat) tabur -
+culuk uygulamaları, taburculuktan sonraki 48 saat için -
+de kontrol edilme sisteminin yeterince uygulanmaması, 
+kontrollerin yenidoğan sağlığı konusunda donanımlı ol -
+mayan aile hekimlerince yapılması bunlardan bazılarıdır. 
+Ayrıca gene neonatal sarılığa neden olabilecek bazı hasta-
+lıkların sık görülmesi (G6PD enzim eksikliği), akraba evlilik 
+oranının yüksek olması ve bunun sonucu genetik geçişli 
+hastalıkların yüksek oranı (ör. galaktozemi, G6PD enzim 
+eksikliği vs.) neonatal hiperbilirubinemi sıklığını artıran 
+faktörlerdir. Rh uyuşmazlığına bağlı hemolitik hiperbiliru-
+binemi de halen maternal profilaksideki aksamalar nede -
+niyle azalmakla birlikte devam etmektedir. 
+A7. NEDEN FARKLI REHBERLERE 
+GEREKSİNİM VARDIR?
+Başka sağlık sorunu olmayan term ve geç pretermlerde 
+sarılığın tanısı ve tedavisi halen çözülmesi gereken bir 
+sorun olarak devam etmektedir (16). Son yıllarda önceki 
+yıllara göre bu durum hakkında farkındalık daha fazladır. 
+AAP tarafından yayınlanan hiperbilirubinemi yönetimi ile 
+ilgili öneriler yaygın olarak kullanılmaktadır (10). Bununla 
+beraber hiperbilirubineminin yönetimindeki uygulama -
+larda belirgin farklılıklar vardır ve bu rehbere uyum yeterli 
+değildir (40). Hiperbilirubinemi tanı ve tedavisi ile ilgili ça-
+balar sadece Amerika Birleşik Devletleri’ne özgü değildir. 
+Birçok ülke son uygulamalarını değerlendirme, prognoz 
+ilişkili verilerini toplama ve ulusal klinik uygulama rehber-
+lerini oluşturma girişimindedirler (41). Konuyla ilgili olarak 
+ülkemizde 2002 yılında Türk Neonatoloji Derneği dernek 
+bülteninde tanı ve tedavi protokolleri arasında bir rehber 
+hazırlamıştır (42).
+Ayrıca çeşitli ülkelerden de rehberler yayınlanmıştır. 
+Norveç (2011) (43), Kanada (2007) (44), İsviçre (2007) (45), 
+İsrail (2008) (19), Hollanda (2011) (46), İngiltere (2011) 
+(47), İtalya (2014) (48), Almanya (2010) (49), ve Çin (2010) 
+(50) gibi ülkeler rehberlerini hazırlamışlardır. Son yıllarda 
+İspanya (2017) (51) ve ilki 1992 yılında hazırlanmış olan 
+Kobe kriterlerinin düzenlendiği Japonya rehberleri (2018 
+ve 2021) yayınlanmıştır (32, 52). AAP ise 2004 rehberi (10) 
+ile ilgili bir açıklamayı en son 2009 yılında yayınlamıştır (8). 
+Bu rehberlerden İngiltere 2016 yılında (53) ve Avustralya 
+2019 (54) ve Yeni Zellanda ise 2020 yılında (55) kendi site-
+lerinde rehberlerini güncellemişlerdir. Bizim 2014 yılında 
+hazırladığımız rehber de 2018 yılında İngilizce kaynaklar -
+da yer almıştır (56).
+Dünyada yenidoğanlar ve sorunlarının fizyopatolojisi 
+ve bunlardan etkilenme durumları aynı olmasına rağmen 
+ülkeler kendi rehberlerini oluşturmuşlardır. Aslında çeşit -
+li rehberlere bakıldığında amaç ve ana prensiplerde fark 
+yoktur. Ancak rehberlerin önerileri arasında farklar oldu -
+ğu görülmüştür (57). Farklı ülke veya coğrafi bölgelerde 
+hiperbilirubinemiyi artırma veya azaltma potansiyeli ta -
+şıyan lokal gelenekler veya göreneklerin olmasının yanı 
+1.  “Akut bilirubin ensefalopatisi“ terimi doğumdan sonraki 
+ilk haftada görülen bilirubin toksisitesinin akut belirtile -
+rini, “kernikterus” terimi ise bilirubin toksisitesinin kronik 
+ve kalıcı klinik sekellerini tanımlamak için kullanılmalıdır.
+2.  Günümüzde bilirubin ensefalopatisi ile ilişkili değişiklik -
+leri tanımlamada daha geniş kapsamlı olan bilirubinin 
+indüklediği nörolojik disfonksiyon (BİND) teriminin kulla-
+nılması önerilmektedir.  Fizyopatolojik ve klinik kriterlere 
+dayalı, bilirubin nörotoksisitesinin tüm nörolojik sekelle -
+rini içeren, kapsamlı Kernikterus Spektrum Bozuklukları 
+(KSB) teriminin kullanılması tartışmalıdır.
+3.  Konjüge olmamış serbest bilirubin kan-beyin bariyerini 
+geçebilir.
+4.  Bilirubin ensefalopatisi vakalarının sıklığı önemli oranlar-
+da azalmıştır; ancak son yıllarda, kernikterus vakalarında 
+yeniden artış bildirilmektedir.
+5.  Gelişmiş tıbbi bakımı olan ülkelerde tahmini kernikterus 
+sıklığı 0.4-2.7/100.000; akut bilirubin ensefalpatisi sıklığı 
+1/10.000’dir. 
+6.  Bazı gelişmekte olan ülkelerde ciddi neonatal sarılık sıklı-
+ğı gelişmiş ülkelerden yaklaşık 100 kez fazladır.
+12
+sıra sağlık sistemlerinin de farklı özellikleri olabilir (58). Bu 
+nedenle o ülkelerde mevcut durumlara uygun yeni reh -
+berler hazırlanmaktadır.
+A8. REHBERİN AMACI VE HEDEFLERİ
+Hastanede yattığı sürede neonatolog/çocuk hekimi sa -
+rılığın izlenmesinden ve gerektiğinde tedavisinden so -
+rumludur ve bebek taburcu olduğunda izlem planını 
+yapmalıdır. Bundan sonra izlendiği kurumdaki çocuk 
+hekimleri/aile hekimleri sorumluluğu üstlenir. Artık gü -
+nümüzde hastane yatış süreleri kısaldığından hiperbiliru -
+bineminin yönetimindeki sorumluluk neonatolog, çocuk 
+hekimi, aile hekimleri tarafından paylaşılmaktadır. Bu reh-
+ber hastanede çalışan neonatologlara olduğu kadar tüm 
+kamu ve özel sağlık kurumlarında çalışan çocuk hekimi ve 
+aile hekimlerine yöneliktir. 
+AMAÇ neonatal sarılığın yönetimi için klinik deneyim -
+ler, tıbbi raporlar ve bireysel katkılarla değiştirilebilecek 
+genel prensipleri içeren bir rehber hazırlamaktır. Ancak 
+her yenidoğan kendine has özellikler taşır, bu nedenle 
+her yenidoğana uygun olabilen bir rehber olması müm -
+kün değildir. Rehberler sadece yönlendirici özellik taşırlar.  
+Tedaviye yaklaşımda risk faktörleri ve bireysel özellikler 
+dikkate alınmalıdır.
+HEDEF tüm oluşturulan prensipleri neonatologların, 
+çocuk ve aile hekimlerinin dikkate almaları ve böylece 
+ciddi hiperbilirubineminin (TSB > 25 mg/dL) önlenmesi, 
+zamanında uygun ve doğru tedavi edilmesidir.
+1.  AAP tarafından yayınlanan hiperbilirubinemi yönetimi ile 
+ilgili öneriler yaygın olarak kullanılmakla beraber uygu -
+lamalarda belirgin farklılıklar vardır ve bu rehbere uyum 
+düşük kalmaktadır. 
+2.  Son yıllarda önceki yıllara göre bu durum hakkında far -
+kındalık daha fazladır ve ülkeler kendi rehberlerini hazır -
+lama gayretindedirler.
+3.  Bunun nedeni farklı ülke veya coğrafi bölgelerde hiper -
+bilirubinemiyi artırma veya azaltma potansiyeli taşıyan 
+lokal gelenekler veya göreneklerin olması ve sağlık sis -
+temlerinin özellikleridir.
+4.  Ülkemizde yenidoğanlarda hiperbilirubinemi sıklığı ile 
+ilgili net veriler yoktur.
+5.  Rehber neonatologlara olduğu kadar tüm kamu ve özel 
+sağlık kurumlarında çalışan çocuk hekimi ve aile hekimle-
+rine yönelik olarak hazırlanmıştır.
+B. SARILIKLI BİR BEBEĞE YAKLAŞIM VE 
+SARILIĞIN ÖNLENMESİ
+B1. BİRİNCİL KORUMA
+B1a) Y eterli ve başarılı emzirme
+Hiperbilirubinemi riski ile bebeğin tek başına anne sütü 
+ile beslenmesi arasında güçlü bir ilişki belirtilmiştir (59). 
+Bu nedenle başlıca birincil önleme girişimi yeterli ve başa-
+rılı bir emzirmenin sağlanmasıdır. Anne sütünün faydaları 
+iyi bilinmektedir ve anneler bebeklerini emzirmeleri için 
+desteklenmelidir. Mümkün olduğu kadar erken, tercihen 
+doğumdan sonraki ilk saat içinde emzirme başlatılmalıdır. 
+Herhangi bir nedenle bebek annesini direkt memeden 
+ememiyorsa, yeterli süt üretimini uyarmak için anneler 
+sütlerini pompa ile sağmalıdır. Sağılan süt en kısa sürede 
+bebeğe verilmelidir. 
+Emzirme sıklığının artması anlamlı hiperbilirubinemi 
+gelişme olasılığını azaltır. Bu nedenle yaşamın ilk günle -
+rinde annelere günde en az 8-12 kez emzirmeleri önerilir 
+(10). Tek başına anne sütüyle beslenme desteklenmelidir. 
+Bunun için her anneye emzirme danışmanlığı verilmesi 
+önemlidir.
+Tek başına anne sütü ile beslenen bebekler 3. gün ci -
+varında doğum ağırlıklarının %6-8’ini kaybederler. İlk üç 
+günde doğum ağırlığının %10’undan fazla veya günde 
+%3’den fazla tartı kaybı varsa yeterli beslenme açısından 
+bebek değerlendirilmelidir. Yeteri kadar beslenen bir be -
+bek ilk 72 saat içinde günde 5 veya daha fazla bez ıslatır 
+(60). Koyu renk idrar direkt bilirubin yüksekliğine bağlı 
+olabilir. Yeterince beslenemeyen bebeğin bezinde ürat 
+kristalleri görülebilir.
+Yetersiz beslenme bulguları varsa, bebek dehidratas -
+yon açısından klinik ve biyokimyasal olarak (emmeme, 
+letarji, yüksek sodyum düzeyi vs.) değerlendirilmelidir. 
+Öncelikle emzirme danışmanlığı gözden geçirilmeli, hi -
+pernatremi mevcutsa sık emzirmeyle birlikte sağılmış süt/
+formül mama verilmelidir. Mama verilecekse hidrolize 
+proteinli mamalar tercih edilebilir, çünkü inek sütü prote-
+inine maruziyet önlenir ve bilirubin düzeyleri daha hızla 
+düşebilir (60).  Hidrasyonu düzelmiyor, tartı kaybı devam 
+ediyor ve hipernatremi varsa veya oral beslenemiyorsa 
+intravenöz sıvı verilebilir. 
+Geç preterm bebekler (34-37 gebelik haftası) yeterli 
+beslenememe ve hiperbilirubinemi açısından risklidir. Bu 
+nedenle bu bebekler beslenme ve sarılık yönünden yakın 
+izlenmelidir.
+13
+B1b) Su ve şekerli su desteğinden kaçınma
+Anne sütü ile beslenen bebeğe su, dekstrozlu mayi veril -
+mesi hiperbilirubinemiyi önlemez veya bilirubin düzeyini 
+düşürmez (61). Bu uygulama yeterli beslenme sağlamaz 
+ve hiponatremiye neden olabilir. Bu nedenle sarılıklı ye -
+nidoğan bebeklere su veya şekerli su desteği verilmesine 
+gerek yoktur. (60, 61).
+1.  Hiperbilirubinemiyi önlemek için tüm yenidoğanların
+emzirilmesi desteklenmelidir.
+2.  Bebekler yaşamın ilk günlerinde günde en az 8-12 kez
+emzirilmelidir.
+3.  Yenidoğan bebeklere su ve şekerli su verilmemelidir. Bu
+uygulama hiperbilirubinemiyi önlemez.
+4.  T aburcu öncesi aileler uygun beslenme ve sarılık konu -
+sunda bilgilendirilmelidir.
+5.  G eç preterm bebekler beslenme yetersizliği ve sarılık açı -
+sından yüksek risk taşırlar.
+B2. İKİNCİL KORUMA 
+B2a) Kan gruplarının belirlenmesi
+Yenidoğanlarda ciddi hiperbilirubinemi gelişme riskinin 
+belirlenmesi açısından bazı önlemler alınmalıdır (10). 
+1. 
+ Tüm gebe kadınların ABO ve Rh (D) kan gruplarına ve
+olağan dışı izoimmün antikorlarına bakılmalıdır.
+2.  A nne kan grubu bilinmiyor veya anne kan grubu O veya 
+Rh (-) ise, kordon kanında direkt Coombs testi, ABO ve
+Rh (D) kan grubuna bakılmalıdır.
+B2b) Klinik değerlendirme
+Tüm yenidoğanlar sarılık gelişmesi açısından izlenmelidir. 
+Doğumdan sonra ilk muayene sırasında cilt rengi kontrol 
+edilmelidir. Vital bulgularla birlikte 8-12 saat ara ile cilt ve 
+konjunktivada sarılık varlığı değerlendirilmelidir. Sarılığın 
+gözle değerlendirilmesi bebek çıplak iken, aydınlık or -
+tamda tercihen doğal ışıkta yapılmalı, cilde parmakla ba -
+sılıp soldurduktan sonra cildin rengine bakılmalıdır. Sarılık 
+önce yüzde görülür, daha sonra gövde ve ekstremitelere 
+yayılır. Ancak sarılığın yayılımından bilirubin düzeyinin 
+tahmini güvenilir değildir (10). Sarı görünen bebeğin total 
+bilirubinine mutlaka bakılmalıdır.
+Sklera ve üzerini kaplayan konjuntivada melanin pig-
+menti yoktur ve bu dokuların bilirubine afinitesi fazladır. 
+Kanda bilirubin yükselirken gözün bu beyaz dokuları sarı-
+ya boyanır ve konjunktival sarılık olarak adlandırılır. Kon -
+junktival sarılığın olmaması önemli hiperbilirubinemiyi 
+dışlamada yararlı olabilir (62). 
+İlk 24 saatte gelişen sarılık aksi kanıtlanana kadar pato-
+lojik kabul edilmelidir. Bu bebeklerin serum bilirubin dü -
+zeyleri değerlendirilmeli ve bebekler hemolitik hastalık ve 
+diğer patolojik nedenler açısından araştırılmalıdır. 
+B2c) Laboratuvar olarak değerlendirme
+B2c.1) Y atmakta olan bebek 
+Sararan her bebekte bilirubin düzeyine bakılmalıdır. Teda-
+vi gerektiren düzeyde hiperbilirubinemi gelişen, tekrarla-
+nan bilirubin ölçümlerinde persentil atlayan ve öykü ya da 
+fizik muayenede sarılığı açıklayacak bir neden bulunama-
+yan bebekler Tablo 3’e göre değerlendirilir (10). 
+Her bilirubin değeri bebeğin saat olarak yaşına göre 
+hazırlanmış olan “bilirubin nomogramına” göre yorum -
+lanmalıdır (Şekil 1) (63). Postnatal yaşa göre nomogra-
+mın kullanımı tekrarlanan bilirubin değerlerinin seyrinin 
+izlenmesi ve daha sonra hiperbilirubinemi gelişecek be -
+beğin öngörülmesini sağlar. “Bhutani nomogramı” olarak 
+bilinen ve 1999 yılından beri yaygın olarak kullanılan bu 
+Endikasyonlar Değerlendirme
+İlk 24 saatte ortaya çıkan sarılık TSB ölçün
+Bebeğin normalden daha sarı görülmesi TcB ve/veya TSB ölçün
+Fototerapi alan veya TSB hızla yükselen ve öykü ve fizik muayene 
+ile nedeni açıklanamayan sarılık
+Kan grubu ve direkt Coombs testi
+Tam kan sayımı ve periferik yayma
+Direkt bilirubin ölçümü
+Retikülosit sayısı, G6PD enzimi, idrarda redüktan madde
+Bebeğin yaşı ve TSB’ye göre 4-24 saat içinde tekrarla
+Kan değişimi gerektirecek düzeyde olan veya fototerapiye yanıt 
+vermeyen TSB Albumin
+Direkt hiperbilirubinemi İdrar tetkiki ve idrar kültürü, sepsis araştırması (öykü ve fizik 
+muayene düşündürüyorsa)
+Tablo 3. Hiperbilirubinemili yenidoğanda değerlendirme
+TSB: Total Serum Bilirubin, TcB: Transkutan Bilirubin
+14
+nomogramın günümüzde kullanımı tartışılmaktadır. Bu 
+nomogramın zayıf yönleri nedeniyle daha büyük örnek -
+le yapılan ikinci bir Bhutani nomogramında yaşamın ilk 
+12 saatine ait veriler de elde edilmiş; cinsiyet, etnik grup 
+ve yaş gruplarına göre alt gruplar oluşturulmuştur. İkin -
+ci nomogramda total bilirubin değerleri ilk 60 saatte ilk 
+nomogram ile uyumlu ancak 75. ve 95. persentil TSB de -
+ğerleri daha yüksek bulunmuştur (64). Bu nomogramların 
+erken neonatal bilirubineminin doğal seyrini yansıtma -
+yacağından kullanılmasının uygun olmadığını ileri süren 
+bir başka çalışmada 12 farklı ülkeden transkutan bilirubin 
+(TcB) eğri verileri kullanılarak yeni bir nomogram oluştu -
+rulmuştur. Transkutan bilirubin değerleri ile oluşturulan 
+bu nomogram postnatal ilk 5 günde, gebelik yaşı ≥35 haf-
+ta olan, sağlıklı görünen ve daha çok anne sütü ile bes -
+lenen bebeklerde bilirubineminin doğal seyrini gösteren 
+ilk TcB eğrileridir. (Şekil 2) (65). Günümüzde daha güvenli 
+sınırlarda kalmak için henüz daha kullanımının yeterince 
+denenmemiş olan yeni Bhutani eğrisi yerine, şimdilik ilk 
+eğrilerin kullanılması daha uygun olabilir.
+Bebek anne yanında izlenirken TSB veya TcB düzeyleri 
+risk faktörleri ile birlikte değerlendirilerek hiperbilirubi -
+nemi gelişme riski öngürülebilir. Kan örneği metabolik 
+tarama ile birlikte alınabilir. TSB veya TcB’nin bilirubin no-
+mogramında değerlendirilmesi ciddi hiperbilirubinemi 
+gelişme riskinin belirlenmesini sağlar. Risk bölgeleri ve kli-
+nik risk faktörleri ile sarılığın gelişme riski değerlendirerek 
+izlem planı oluşturulur (Şekil 1, Tablo 4). Birden fazla farklı 
+Şekil 1. Postnatal yaş ve total bilirubin değerlerine göre bebeklerin risk durumunu belirlemek için oluşturulan nomogram   
+Şekil 2. Gebelik yaşı  ≥35 gebelik haftasından büyük, anne sütü ile beslenen, sağlıklı yenidoğanların postnatal bilirubin düzeyle-
+rinin doğal seyrini gösteren transkutan bilirubin nomogramı. Farklı 12 ülkede yapılan 20 nomogramdan elde edilmiştir (65). 
+15
+zamanda bilirubin düzeyi alınan bebeklerde, bu değerler 
+nomogram üzerine işaretlenip, bilirubin yükselme hızı de-
+ğerlendirilir. Eğer bilirubin düzeyi üst persentil eğrilerine 
+doğru yükseliyorsa hemoliz düşünülür ve buna göre araş-
+tırılır ve izlenir (8, 63). 
+B2c.2) Sarılık tedavisi için hastaneye yeniden başvuran 
+bebek
+Sarılık nedeniyle başvuran ve tedavi gerektiren hastalarda 
+aşağıdaki tetkikler yapılmalıdır (10).
+1.
+A nne ve bebek kan grupları
+2. Dir ekt Coombs testi
+3. T am kan sayımı ve periferik yayma
+4. R etikülosit sayısı
+5. T otal, direkt, indirekt bilirubin düzeyleri
+6. G6PD enzim düzeyi
+7. İdr arda redüktan madde
+8. T SB kan değişimi sınırına yaklaşıyorsa serum albumin
+düzeyi
+9. P atolojik tartı kaybı varsa serum elektrolitleri
+10. Dir ekt bilirubin artışı veya geç başlangıçlı sarılık varsa
+tam idrar incelemesi, idrar kültürü, sepsis göstergeleri
+11. Uzamış sarılıkta yukarıdaki testlere ek olarak tiroid
+fonksiyon testleri, direkt bilirubin artışı varsa kolestaz
+incelemeleri
+B2c.3) Bilirubin değerlendirme yöntemleri
+B2c.3i) Kanda bilirubin ölçümü
+a. Kimyasal laboratuvar analizi
+Serum ya da plazmada kimyasal reaksiyonla (diazo) ya da 
+spektrofotometrik olarak TB düzeyi direkt olarak ölçülür. 
+Bu ölçümler altın standart olarak kabul edilir, diğer bili -
+rubin ölçüm yöntemlerini değerlendirmek için kullanılır. 
+Ancak venöz kan alınma ihtiyacı vardır ve yenidoğanda 
+ağrılı bir işlem olup yeterli kan alınması her zaman müm -
+kün olmayabilir. Ayrıca TB ölçümlerinde laboratuvarlar ve 
+analizörler arasında büyük farklılıklar tespit edilmiştir (67).
+b. Kimyasal olmayan fotometrik yöntem
+Hasta başında özel ölçüm cihazları ile bilirubin düzeyleri 
+spektrofotometrik olarak ölçülür ve az miktarda kan (to -
+puktan kapiller kan örneği) gerekir. Maliyeti çok düşüktür, 
+dezavantajı örneğin ölçüm öncesi santrifüje edilme ge -
+reksinimidir. Bu nedenle kan gazı ölçüm aletleri daha ön 
+plana geçmiştir. Özellikle başka nedenlerle kan gazı ana -
+lizi gerekli olduğunda bu yöntemle bilirubin tayini ilk ter-
+cih olmalıdır. Fotometrik cihazlar ile ölçülen bilirubin de -
+ğerleri ile standart kimyasal bilirubin ölçümleri arasında 
+yakın bir bağıntı vardır. Ancak bilirubin düzeyleri 15 mg/
+dL ’yi aştığında bu uyum bozulur, TB değerleri daha düşük 
+olarak ölçülür. Bu durumda bilirubin standart laboratuvar 
+yöntemi ile değerlendirilmelidir (68). 
+Acil servise sarılık ile getirilen yenidoğan bebeklerde uygulanacak akış şeması 
+16
+B2c.3ii) Transkutan bilirubin (TcB) ölçümü 
+TcB ölçüm cihazı cilt yüzeyinden total serum veya plazma 
+bilirubinini ölçer. TcB ölçümünün kullanımı gözle değer -
+lendirme ile sarardığı fark edilen bebeklerin bilirubin de -
+ğerlerinin belirlenmesi için kan alımı sayısını azaltmıştır. 
+Ayrıca TcB ölçümünün hastanede ve hastane dışında yay-
+gın kullanımı ağır hiperbilirubinemi sıklığını ve fototerapi 
+için hastaneye tekrar başvuru sıklığını, fototerapi alan be-
+bek sayısını ve süresini de azalttığını gösteren çalışmalar 
+vardır (69-71). Ancak fototerapi alan bebeklerde kullanıl-
+mamalıdır (72). Cilt rengi koyu olan bebeklerde TcB ölçü -
+mü güvenilir değildir. 
+Dünyanın farklı bölgelerinde değişik etnik gruplarda 
+TcB nomogramları geliştirilmiş, term ve geç preterm be -
+beklerde TcB ile TB ölçümleri arasında yakın korelasyon 
+gösterilmiştir (73-77). Kullanılan TcB ölçen aletleri ara -
+sında farklılıklar belirlenmiştir. Bu nedenle klinikte farklı 
+cihazlar kullanılıyorsa aynı bebek aynı cihazla takip edil -
+melidir. Yüksek bilirubin düzeylerinde TcB ölçümleri TSB 
+ölçümlerinden düşük sonuç verebileceği için de standart 
+laboratuvar yöntemleri ile doğrulanmalıdır (77). Klinikte 
+TSB ölçümü yerine TcB kullanılacaksa yeni cihazın ölçtü -
+ğü değerlerin TSB değerleri ile uygunluğu karşılaştırılarak 
+doğruluğundan emin olunmalıdır (8). 
+Aşağıdaki durumlarda TSB bakılması önerilmektedir 
+(8,78):
+1.
+T cB > 13 mg/dL olan bebekler
+2. İ lk 24 saatte sarılığın görüldüğü bebekler
+3. T edavi kararı verilen bebekler
+4. F ototerapi tedavisi alan bebekler
+5. Bhutani eğrisine göre 75. persentilin üzerinde bilirubin 
+değeri olanlar
+6. TcB düzeyi, önerilen FT değerinin %70’i kadar olan be-
+bekler
+Son yıllarda dijital fotoğraf makinaları kullanılarak çe -
+kilen fotoğraflar ile skleral konjunktival bilirubin ölçüm ci-
+hazları geliştirme, akıllı telefonlarla yenidoğan sarılığının 
+ölçülmesi çalışmaları mevcuttur (79-81). Bu çalışmalarda 
+skleral konjunktival bilirubin ile TSB arasında iyi korelas -
+yon bulunmuştur. Ancak rutin kullanım için daha fazla ça-
+lışmaya ihtiyaç vardır.
+B2c.4) Direkt bilirubin ne zaman bakılmalı?
+Tedavi gerektiren tüm sarılıklı bebeklerde kontrol amaç -
+lı, hasta ve/veya uzamış sarılığı olan bebeklerde kolestazı 
+değerlendirmek amacıyla total bilirubin ile birlikte direkt 
+bilirubin bakılmalıdır. 
+TSB 5 mg/dL ’nin altında olduğunda direkt bilirubin 1 
+mg/dL ’nin üzerinde ise veya TSB 5 mg/dL ’nin üzerinde ol-
+duğunda direkt bilirubin total bilirubinin %20’sinden faz-
+la ise direkt (konjuge) hiperbilirubinemi tanısı konur (10). 
+Ancak son yıllarda ESPGAN ve SNAPGAN direkt bilirubin 
+düzeyinin 1 mg/dL ’nin üzerinde olduğu durumların pato-
+lojik olarak değerlendirimesini ve tanısal araştırma yapıl -
+masını önermektedir (82).
+1. Tüm gebelerde ABO ve Rh (D) kan gruplarına ve olağan
+dışı izoimmün antikorlara bakılmalıdır.
+2. A nne kan grubu bilinmiyorsa veya anne kan grubu O
+veya Rh (-) ise kordon kanında direkt Coombs testi, ABO
+ve Rh (D) kan grubuna bakılmalıdır.
+3.
+D oğumdan sonra 8-12 saat ara ile vital bulgularla birlik -
+te sarılık varlığı değerlendirilmelidir.
+4. S arılığın gözle değerlendirilmesi güvenilir değildir. Sarı
+görünen bebekte bilirubin tayini yapılmalıdır.
+5. İ lk 24 saatte gelişen sarılık aksi kanıtlanana kadar patolo -
+jik kabul edilmelidir. Bu bebeklerde hemolitik hastalık ve 
+diğer patolojik nedenler araştırılmalıdır.
+6.
+T SB düzeyleri bebeğin yaşına göre bilirubin nomogramın-
+da (Şekil 1) yorumlanmalıdır.
+7. T edavi gerektiren düzeyde hiperbilirubinemi gelişen, TSB
+düzeyindeki artış persentil atlayan ve öykü ya da fizik mu-
+ayenede sarılığı açıklayacak bir neden bulunamayan be-
+beklerde ayrıntılı laboratuvar incelemeleri yapılmalıdır.
+8.
+Bilirubin farklı yöntemlerle ölçülebilir.
+9. TcB ile TSB ölçümleri arasında yakın bağıntı gösterilmiş-
+tir. Ancak TcB >13 mg/dL, ilk gün görülen sarılık, fotote-
+rapi alan bebek ve tedavi kararı verilirken TcB güvenilir
+değildir.
+10.
+ T edavi gerektiren tüm sarılıklı bebeklerde total bilirubin
+ile birlikte direkt bilirubin ölçülmedir.
+11. Dir ekt hiperbilirubinemi her zaman patolojiktir.
+Taburcu olmadan önceki TSB veya TcB düzeyi yüksek veya yüksek –orta risk bölgesinde olması
+Düşük gebelik haftası (<38)
+Anne sütü ile beslenme, özellikle iyi ememeyen aşırı ağırlık kaybı olan bebekler
+İlk 24 saatte sarılık gözlenmesi
+İzoimmün hemolitik hastalık, diğer hemolitik hastalıklar (G6PD enzim eksikliği, vs.)
+Kardeşinde sarılık öyküsü
+Sefal hematom veya yaygın ekimoz
+Asya kökenli olmak
+Tablo 4. Ağır hiperbilirubinemi için önemli risk faktörleri 
+17
+Şekil 3. Taburculuk öncesi TcB ve TSB düzeylerine, gebelik haftası ve risk faktörlerine göre önerilen izlem ve tedavi akış şeması (8). 
+a)  Risk faktörleri: 1) pozitif direkt Coombs testi, kan grup uyuşmazlığı, hemolitik hastalık (herediter sferositoz, G6PD enzim eksik-
+liği vs.) 2) kardeşlerde sarılık öyküsü, 3) sefal hematom veya belirgin ekimoz, 4) anne sütü ile beslenme [emzirme iyi değil, tartı 
+kaybı fazla (>%8-10)] 
+b) Şekil 1 
+c) Fototerapi sınırlarına göre değerlendir (Şekil 4) 
+d) Hastanede veya ayaktan izlenebilir
+3C
+3A
+3B
+18
+B2d) Risk faktörleri
+Tüm yenidoğanlar taburcu olmadan önce ciddi hiperbili-
+rubinemi risk faktörleri açısından değerlendirilmelidir (8). 
+Her yenidoğan ünitesinde risk değerlendirme protokolle-
+ri oluşturulmalıdır. Ağır hiperbilirubinemi için önemli risk 
+faktörleri Tablo 4’te sıralanmıştır (8).
+B2e) Sarılığın nedenine yönelik özel değerlendirmeler
+G6PD enzim eksikliği akut hemoliz ile ilişkili olup ciddi 
+hiperbilirubinemi ve bilirubin ensefalopatisi ile sonuçla -
+nabilir. Ülkemizde G6PD enzim eksikliği sık görülür. Bir 
+çalışmada kan değişimi yapılan bebeklerde sıklık %2,2 
+oranında bildirilmiştir (83). Ülkemizdeki çalışmaların özet-
+lendiği bir başka derlemede de çalışma yöntemine göre 
+sıklığın çok değişken olduğu, % 18’e kadar çıkabildiği ve 
+sonuç olarak G6PD enzim eksikliğinin nadir olmadığı bil -
+dirilmiştir (84). Bu nedenle hiperbilirubinemili yenidoğan-
+larda G6PD enzim düzeyine bakılmalıdır. 
+Hemoliz varlığında enzim düzeyleri yüksek çıkabilir, 
+üç ay sonra tekrarlanmalı ve bebek hemoliz yapıcı ajan-
+lardan uzak tutulmalıdır (16). G6PD enzim eksikliği olan 
+yenidoğanların çoğunda anemi ve retikülositoz gibi be -
+lirgin hemoliz bulguları yoktur. Daha duyarlı testler yapıl-
+dığında bu bebeklerde hem döngüsünde bir hızlanma 
+olduğu gösterilebilir ancak bu tek başına hiperbilirubine-
+miyi açıklamaz. G6PD enzim eksikliği olan ve ciddi hiper -
+bilirubinemi gelişen bebeklerde aynı zamanda bilirubin 
+konjugasyonunda da defekt olduğu öne sürülmektedir 
+(UGT promotor gen mutasyonu) (85). 
+Galaktozemi için ciddi sarılığı olan bebeklerde bir tara-
+ma testi olarak idrarda redüktan madde mutlaka bakılma-
+lıdır. Galaktozemili hastalarda yaşamın ilk günlerinde in -
+direkt bilirubin hakimiyeti olabileceği akılda tutulmalıdır.
+B2f) Taburculuk öncesi risk değerlendirme
+Her yenidoğanda taburcu olmadan önce ciddi hiperbi -
+lirubinemi gelişim riski değerlendirilmeli, risk değerlen -
+dirme protokolleri oluşturulmalıdır. Risk değerlendirmesi 
+özellikle 72 saatten önce taburcu olan yenidoğanlar için 
+önemlidir.
+Risk belirlenmesi için tüm bebeklerden hastaneden 
+taburcu olmadan önce TSB veya TcB ölçümü yapılmalıdır. 
+Bu yaklaşım ciddi hiperbilirubinemi gelişim riski olan be -
+beklerin belirlenmesinde yardımcı olur (10). Yenidoğan 
+metabolik hastalıklarının taranması esnasında TSB için 
+alınan kan örneği tekrar kan alma ihtiyacını ortadan kal -
+dırır. Bilirubin ölçümlerinin yanı sıra risk faktörlerinin de 
+belirlenmesi (bakınız B2d ve Tablo 4) ve bunların birlikte 
+kullanılması önerilmektedir (8). 
+Taburculuk öncesi alınan bilirubin düzeyi yüksek risk 
+bölgesinde (>95 persentil) olan yenidoğanlar taburcu 
+edilmemelidir. Bilirubin düzeylerine göre izlem şeması 
+Şekil 3’de verilmiştir.
+B2g) Taburculuk sonrası izlem
+Her yenidoğana taburcu olurken hiperbilirubinemi risk fak-
+törleri göz önünde bulundurularak sarılık için uygun izlem 
+planı yapılmalıdır ve bir sonraki sayfada yer alan Yenidoğan 
+Sarılığının Taburculuk Formunun doldurulması önerilir. Ai-
+lelere sarılık hakkında bilgi ve yazılı rehberler verilmelidir. 
+İlk randevudan önce tıbbi konularda (sarılık, beslenme ye-
+terliliği) ne zaman kiminle temas edeceği konusunda da 
+aileler bilgilendirilmelidir.
+İzlem randevularının zamanı bebeğin taburcu oldu -
+ğundaki yaşına ve risk faktörlerinin olup olmamasına bağ-
+lıdır. TSB’nin tepe yaptığı dönemden önce taburcu edilen 
+bebekler yükselme döneminde sarılık açısından izlenmeli 
+gerekirse bilirubin ölçümü yapılmalıdır.
+Taburculuğu 72 saatten önce olan bebekler taburcu ol-
+duktan sonraki 2 gün içinde görülmeli, sarılığı ve bilirubin 
+ölçümüne ihtiyacı değerlendirilmelidir. Bazı risk faktörleri 
+olan bebeklerin 24 saat içinde görülmesi gerekirken, risk 
+faktörü olmayanlar daha uzun aralıktan sonra görülebilir 
+(Şekil 3).
+Genel olarak erken taburcu olan bebeklerin daha er -
+ken görülmesi gerekir (10).
+•  24 saatten önce taburcu olanlar, yaşamlarının 72. saa -
+tinde, 
+•  24-47,9 saat arasında taburcu olanlar, yaşamlarının 96.
+saatinde,
+•  48-72 arasında taburcu olanlar yaşamlarının 120. saa -
+tinde görülmelidir.
+Eğer hiperbilirubinemi için risk faktörü varsa ve uygun 
+izlem yapılamayacaksa hiperbilirubinemi riskinin en yük -
+sek olduğu zaman dilimi geçinceye kadar bebeğin tabur-
+culuğu ertelenmelidir.
+Her kontrolde yenidoğanın ağırlığı, ağırlık kaybı yüz -
+desi, beslenmesi yanında idrar, gaita sayı ve rengi, sarılık 
+olup olmadığı değerlendirilmelidir. 
+B2h) Uzamış sarılık 
+Term bebeklerde iki haftadan, preterm bebeklerde üç haf-
+tadan uzun süren sarılıklar uzamış sarılık olarak tanımlanır 
+(19). Uzamış sarılıklarda öncelikle direkt-indirekt bilirubin 
+yüksekliği değerlendirilmelidir. Direkt bilirubin yüksekliği 
+her zaman patolojiktir ve kolestaz nedenleri araştırılmalı -
+dır. Anne sütü ile beslenen bebeklerde formül mama ile 
+beslenenlere göre sarılık daha uzun sürer. Anne sütü ile 
+beslenen bebeklerin %15-40‘ında uzamış sarılık görülür 
+(86). Uzamış sarılıkların büyük çoğunluğu anne sütü sa -
+rılığıdır. Ancak emzirmenin kesilmesi önerilmez ve anne 
+sütü sarılığı demek için diğer nedenlerin dışlanması gere-
+kir. Bazen 12 haftaya kadar uzayabilir.
+Daha önce sarılığı olmayan, 7 günden sonra ortaya çı -
+kan sarılık da dikkatli bir şekilde araştırılmalıdır. 
+Uzamış sarılığı olan bebekte doğumdan itibaren bü-
+yüme ve beslenme etraflıca değerlendirilmeli, gaita rengi 
+(açık renk) ve idrar rengi sorulmalı (koyu idrar rengi), ay -
+rıntılı fizik muayene yapılmalı ve aşağıdaki başlangıç test-
+leri istenmelidir: 
+1. Direkt, indirekt bilirubin tayini
+2. Anne-bebek kan grubu, direkt Coombs testi (bebek
+anemik değilse, öyküde erken sarılık yoksa, tam kan
+sayımında hemoliz bulguları yoksa direkt Coombs tes-
+tine gerek olmayabilir)
+3. Tam kan sayımı, periferik yayma (eritrosit morfolojisi,
+hemoliz ve enfeksiyon bulgularının değerlendirilmesi), 
+retikülosit sayısı
+4. G6PD enzim düzeyi
+5. Tiroid fonksiyon testleri (TSH, sT4)
+6. İdrar tetkiki, idrar kültürü
+7. İdrarda indirgen madde
+8. Dir ekt bilirubin yüksekliği yoksa karaciğer enzim dü -
+zeylerinin bakılmasına gerek yoktur.
+Uzamış sarılıkta fototerapi sınırlarının geçerliliği kesin
+olmamakla birlikte beşinci gündeki tedavi sınırlarının bu 
+bebeklerde de kullanılması önerilir. Ailelere tedavi gerek-
+19
+YENİDOĞAN SARILIĞININ TABURCULUK SONRASI İZLEM FORMU
+Adı soyadı: Doğum tarihi - saati:
+Gebelik haftası: Doğum tartısı:
+Anne kan grubu: Bebek kan grubu:
+Hematokrit: Retikülosit
+Direkt Coombs testi:
+Taburculuk tarihi:
+Sonraki ölçümler (ayaktan izlem)
+Tarih:
+Transkutan (TcB): x       Total serum biliburin (TSB): o
+ Gestasyon yaşı < 38 hafta
+ İzoimmün hemolitik hast, G6PD eksikliği
+ Sefalhematom, yaygın ekimoz
+ Sadece anne sütü ile beslenme ve aşırı tartı kaybı
+NOT: Risk faktörleri varlığında daha kısa aralıklarla kontrol/TSB izlemi
+Risk faktörleri:
+Yer:
+Postanatal saat olarak yaşı: TSB/ TcB: Persentil:
+G6PD enzim düzeyi:
+20
+tirmeyen anne sütü sarılığının tehlikeli olmadığı anlatıl -
+malı, endişeleri giderilmelidir. 
+B2i) Sarılıklı bebeklerde kaçınılması gereken ilaçlar
+Hiperbilirubinemili bebeklerde sulfanamidler, dikloksa-
+silin, sefoperazon ve seftriakson kullanılmasından kaçı -
+nılmalıdır (87, 88). Sulfisoksazol, indometasin, ibuprofen, 
+salisilatlar, hatta ampisilin de hızlı verilirse bilirubinle al -
+bumine bağlanma açısından yarışmaya girer ve bu mad -
+delerin varlığında serumda serbest/bağlı bilirubin oranı 
+artar (89, 90). Bu nedenle bu ilaçlar kullanılırken dikkat 
+edilmelidir. Ciddi hiperbilirubinemisi olan prematüre be -
+beklerde lipid solüsyonlarının verilmesi serbest bilirubin 
+düzeyini artıracağından özellikle 28 haftanın altındaki be-
+beklerde dikkatli kullanılmalıdır (91, 92).
+1. Sarılıklı bebekler risk faktörleri açısından değerlendiril -
+melidir.
+2. D üşük gebelik haftası ve tek başına anne sütü ile beslen -
+me en önemli hiperbilirubinemi risk faktörleridir.
+3. G6PD enzim eksik liği akut hemoliz ile ilişkili olup ciddi
+hiperbilirubinemi ve bilirubin ensefalopatisi ile sonuçla-
+nabilir. Bu nedenle tedavi gerektiren tüm sarılıklı bebek-
+lerde bakılmalıdır.
+4. Her yenidoğan taburcu olmadan önce ciddi hiperbiliru -
+binemi gelişim riski için değerlendirilmeli, risk değerlen-
+dirme protokolleri oluşturulmalıdır.
+5. Bilirubin ölçümleri nomogramda değerlendirilmeli ve iz -
+lem planı risk faktörleri de dikkate alınarak yapılmalıdır.
+6. T aburculuk öncesi alınan bilirubin düzeyi yüksek risk
+bölgesinde (>95 persentil) olan yenidoğanlar taburcu
+edilmemelidir.
+7. Kon trol randevuları bebeğin taburcu olduğundaki yaşına
+ve risk faktörlerinin olup olmamasına göre düzenlenir.
+8. Her kon trolde bebeğin ağırlığı, ağırlık kaybı yüzdesi,
+beslenmesi yanında idrar, gaita sayı ve rengi, sarılık olup
+olmadığı değerlendirilmelidir.
+9.
+T erm bebeklerde iki haftadan, preterm bebeklerde üç
+haftadan uzun süren sarılıklar uzamış sarılık olarak ta-
+nımlanır.
+10.
+ U zamış sarılığı olan bebeklerde öncelikle direkt ve indi -
+rekt bilirubin tayini yapılmalıdır.
+C. TEDAVİ
+C1. TEDAVİ ENDİKASYONU GEBELİK 
+HAFTASINA MI YOKSA DOĞUM AĞIRLIĞINA 
+GÖRE Mİ OLMALI?
+Yenidoğan sarılığında en korkulan komplikasyon kernik -
+terusdur. Kernikterus bilirubine bağlı olmayan serbest 
+bilirubin düzeyine ve kan beyin bariyerinin geçirgenliği -
+ne bağlıdır. Gebelik haftası kan beyin bariyerinin geçir -
+genliğini etkiler. Ayrıca gebelik haftası arttıkça bilirubinin 
+albumine bağlanmasının da arttığına dair yayınlar vardır 
+(93, 94). Gebelik haftası her zaman doğru tespit edileme -
+yebilir. En iyi koşullarda bile gebelik haftası ±1 hafta deği-
+şir (43). Doğum ağırlığı bu açıdan daha pratiktir ve çoğu 
+bebekte doğum ağırlığı maturasyonla koreledir. Zama -
+nında doğan bebeklerin doğum ağırlığı 2500 g civarında 
+olabilir, ancak sarılık açısından term bebeklere göre daha 
+riskli olan geç preterm bebekler de bu ağırlıkta olabilirler. 
+Bu nedenle bu sınırdaki bebeklerde gebelik haftası daha 
+önemlidir. Hem gebelik haftası hem de doğum ağırlığının 
+kullanıldığı tedavi eşiklerinin belirlendiği eğriler veya tab-
+lolar vardır (34, 43-45). Gebelik yaşı 35 hafta ve üzerindeki 
+bebeklerde ise hem gebelik haftasını hem de risk faktör -
+lerini değerlendirme kapsamına alan AAP eğrileri yaygın 
+olarak kullanılmaktadır. (10).
+Yenidoğan sarılığı olan bebeklerde tedavi kararı TSB, 
+gebelik haftası, doğum ağırlığı ve risk faktörlerini içine 
+alan eğriler veya tablolar kullanılarak verilir.
+C2. YENİDOĞANDA HEMOLİZ KRİTERLERİ
+İlk 24 saatte sarılık görülen ve bilirubin düzeylerinde hızlı 
+yükselme gözlenen bebekler hemoliz açısından değerlen-
+dirilmelidir. End tidal karbon monoksit (ETCOc) ölçümü 
+hem katabolizmasını ve bilirubin üretimini direkt gösteren 
+bir testtir (95). Ancak rutin olarak kullanılmamaktadır. Kar-
+boksihemoglobin düzeyinde artış (kan gazında >%1,5-2), 
+idrarda eritrosit olmaksızın hemoglobinüri varlığı, serum 
+haptaglobulin düzeylerinde düşüklük ve normoblast sa -
+yısında artış (>3000/mikrolitre) hemoliz göstergesi olarak 
+kullanılabilecek diğer laboratuvar bulgularıdır (96). Biliru-
+bin düzeylerini değerlendirirken saatlik artış hızı önemli -
+dir. Bilirubinin saatlik artış hızının 0,2 mg/dL ’nin üzerinde 
+olması hemoliz göstergesi olarak kabul edilir (19). Hemo -
+liz düşünülen hastada kan grubu, direkt Coombs testi, 
+tam kan sayımı, periferik yayma, retikülosit sayısı, G6PD 
+enzim düzeyi de değerlendirilmelidir. Periferik yaymada 
+eritrosit morfolojisi mikrosferositoz (herediter sferositoz, 
+ABO uyuşmazlığı), eliptositoz, kabarcık ve yenik eritrosit -
+ler (G6PD enzim eksikliği), ekinositler (pirüvat kinaz eksik-
+liği) ve şistositler (DİK, perinatal asfiksi), Heinz cisimciği 
+(hemolitik anemi) açısından değerlendirilir
+Hemoliz göstergeleri 
+1. İlk 24 saatte sarılık
+2.  Dir ekt Coombs testi pozitifliği ve eşlik eden labora -
+tuvar bulguları
+a. Periferik yaymada hemoliz bulguları
+b. Retikülosit sayısında yükseklik
+c. Hemoglobin ve hematokrit düzeyinde düşme
+3. Artan TSB düzeyi ile birlikte G6PD enzim eksikliği
+4. Bilirubin düzeyinde saatte > 0,2 mg/dL artış
+5. FT’ye rağmen artan veya düşmeyen TSB
+21
+Şekil 4. Gebelik yaşı ≥ 35 hafta bebeklerde postnatal yaşa göre fototerapi sınırları (10). Risk faktörleri: izoimmün hemolitik has-
+talık, G6PD enzim eksikliği, asfiksi, belirgin letarji, ısının korunamaması, asidoz, sepsis, albumin < 3 gr/dL (eğer ölçülürse). Tüm 
+risk faktörleri dışlanmadıkça bebek riskli sayılır ve bir alt eğri kullanılır. Tedavi kararı total bilirubin düzeyi ile verilir, direkt bilirubin 
+total bilirubinden çıkarılmaz.
+Gebelik haftası 24 saat 48 saat  72 saat
+23 hafta   4 (8)* 6 (10) 8 (13)
+24 hafta 4 (8) 6 (11) 8 (14)
+25 hafta 4 (8) 6 (11) 9 (15)
+26 hafta 5 (8) 7 (12) 9 (15)
+27 hafta 5 (8) 7 (12) 10 (16)
+28 hafta 5 (9) 7 (12) 10 (16)
+29 hafta 5 (9) 8 (13) 11 (17)
+30 hafta 6 (9) 9 (13) 11 (17)
+31 hafta 6 (9) 9 (13) 12 (18)
+32 hafta 6 (9) 9 (14) 13 (19)
+33 hafta 6 (9) 9 (15) 13 (19)
+34 hafta 6 (10) 10 (15) 14 (20)
+Tablo 5. Gebelik yaşı <35 hafta olan bebeklerde fototerapi ve kan değişimi sınırları 
+*İlk rakam fototerapi sınırını parantez içindeki rakam kan değişimi sınırını göstermektedir (mg/dL). NICE rehberinden adapte
+edilmiştir (NICE rehberinde fototerapi ve kan değişimi sınırları yenidoğan ünitelerindeki bildirilen bakım uygulamalarına ve uzlaşı 
+görüşlerine dayandırılmıştır) (53). 
+Postnatal yaşı 72 saatin üzerinde olan bebeklerde fototerapi başlama eşiği gebelik haftasına göre aşağıdaki formül ile hesaplanır 
+(53): Total bilirubin (mg/dL) = (Gebelik haftası × 0,6) – 6
+22
+Şekil 5. Gebelik yaşı <35 hafta olan bebekler için fototerapi ve kan değişimi sınırları (97)
+*Alttaki eğriyi risk faktörü olan bebeklerde kullanın
+Risk faktörleri olan bebeklerde tedavi için daha düşük bilirubin değerleri kullanılır. Bilirubin nörotoksisitesini artıracak 
+risk faktörleri (99):
+1. Serum albumin < 2,5 g/dL
+2. Hemolitik hastalığı düşündürecek hız ile yükselen bilirubin düzeyleri
+3. Klinik olarak stabil olmayan bebekler
+a. Kan pH <7,15
+b. Son 24 saat içinde kan kültür pozitifliği
+c. Son 24 saat içinde müdahale gerektiren apne /bradikardi (pozitif basınçlı ventilasyon ve/veya entübasyon)
+d. Son 24 saat içinde inotrop tedavi gerektiren hipotansiyon
+e. Kan alındığı sırada mekanik ventilasyon desteği alıyor olma
+C3. FOTOTERAPİ
+C3a) Amaç ve endikasyonlar
+Fototerapinin amacı indirekt bilirubin düzeyini düşürüp 
+kan değişimi ihtiyacını azaltmak ve bilirubin ensefalopati-
+si gelişmesini engellemektir. Kan değişimi yerine kullanıl-
+maz. Fototerapi bilirubin düzeylerinin izlenebildiği ve risk 
+faktörleri açısından bebeğin değerlendirilebileceği mer -
+kezlerde uygulanmalıdır. FT’nin hangi bilirubin düzeyinde 
+başlanması gerektiğine dair kesin bilimsel veriler yoktur. 
+Tedavi kararı total serum bilirubin düzeyi, serum bilirubin 
+düzeyinin artış hızı, bebeğin doğum ağırlığı, gebelik haf -
+tası ve postnatal yaşı ve risk faktörlerinin varlığına göre 
+verilir. Serum bilirubin düzeyi bebeğin postnatal yaşı ve 
+bilirubin nörotoksisitesi açısından taşıdığı potansiyel risk 
+faktörlerine göre belirlenen tedavi eşiklerine ulaştığında 
+fototerapi başlanır. Gebelik yaşı 35 hafta ve üzerindeki 
+bebeklerde Şekil 4 (10), 35 haftanın altındaki bebeklerde 
+ise Tablo 5 (53) veya Şekil 5 (97) kullanılır. Gebelik haftası 
+bilinmeyen erken doğan bebeklerde doğum tartısını esas 
+alan Tablo 6 kullanılabilir (98). 
+23
+Doğum ağırlığı, g Fototerapi Kan değişimi
+Standard risk Yüksek risk Standard risk Yüksek risk
+TSB B/A** TSB B/A** TSB B/A** TSB B/A**
+<1000 5,8 2,3 5,8 2,3 9,9 3,9 9,9 3,9
+1000-1250 8,7 3,5 5,8 2,3 12,8 5,1 9,9 3,9
+1250-1500 11,1 3,7 8,7 2,9 15,2 6,1 11,8 5,1
+1500-2000 12,8 4,2 11,1 3,7 16,9 6,8 15,2 6,1
+2000-2500 14 4,6 12,8 4,2 18,1 7,2 16,9 6,8
+Tablo 6. Bilirubin albumin oranına göre fototerapi ve kan değişim kriterleri* (98) 
+*Doğum yaşı 48 saat ve üzeri
+Yüksek risk: asfiksi, hipoksemi, asidoz, hemoliz, nörolojik kötüleşme (sepsis, menenjit, intrakraniyal kanama > grade 2)
+TSB mg/dL ve B/A** mg/g 
+C3b) Fototerapinin etkinliği 
+Fototerapi etkinliğini ışığın dalga boyu ve yoğunluğu/
+gücü ve ışığa maruz kalan vücut yüzeyi belirler (100). 
+Fototerapide en az 8-10 µW/cm2/nm gücünde cihazlar 
+kullanılır (101). Fototerapi sırasında bebeğin ışığa maruz 
+kalan yüzey alanı mümkün olduğu kadar geniş tutulur. 
+Fototerapinin klinik etkinliği tedavi başlandıktan 4-6 
+saat sonra bilirubin düzeyinin ölçümü ile değerlendirilir. 
+Bilirubin düzeyinde 2-3 mg/dL ’nin üzerinde düşüş bekle-
+nir (10). Etkinlik sadece ışık dozuna değil, hiperbilirubine-
+mi düzeyine ve nedenine göre değişir.  
+C3b.1) Doz-yanıt ilişkisi 
+Doz yanıt ilişkisi cildin optik özelliklerine ve bilirubin 
+üretimi ve eliminasyonu arasındaki orana bağlıdır. Klinik 
+cevap enterohepatik dolaşımın düzeyine, bilirubinin eli -
+minasyonuna, dokuda depolanan bilirubin miktarına ve 
+bilirubinin fotokimyasal dönüşüm hızına bağlıdır (102, 
+103). Serum bilirubin düzeylerinde doğrusal bir düşüş iz -
+lenmez. TSB 20 mg/dL ’nin üzerindeyse bilirubin düzeyle-
+rinde daha hızlı düşüş elde edilir. Başlangıç düzeyi ne ka -
+dar yüksekse o kadar hızlı düşüş beklenir. Serum bilirubin 
+düzeylerinde düşüşün irradiyans 30-35 µW/cm2/nm’ye 
+ulaştığında doygunluk noktasına geldiği, bunun üzerin-
+deki değerlere ulaşıldığında düşüş hızında daha fazla artış 
+olmadığı ileri sürülmekltedir (10). FT’nin en yüksek etkin 
+dozu bilinmemektedir (10). Ciddi hiperbilirubinemi du -
+rumunda yoğun FT kullanımı (“crash-cart” yaklaşımı) kan 
+değişimi ihtiyacını azaltmakla kalmaz, bilirubin nörotoksi-
+sitesinin ciddiyetini de azaltır (104).
+Bilirubin düzeylerinin tekrarlayan ölçümleri FT’ye 
+verilen yanıtı ölçmek için kullanılır. Bilirubin üretimi ve 
+atılımında görülebilecek değişiklikler ve FT kesildikten 
+sonra bilirubin düzeyinde oluşabilecek ani yükselme (“re-
+bound”) açısından dikkat etmek gerekir. Seri ölçümlerin 
+zaman aralıkları klinik değerlendirmeye bağlı olmakla bir-
+likte Tablo 7’nin kullanılması önerilir. Hiperbilirubinemili 
+bebeklerde tedavi yaklaşımı Şekil 6’da verilmiştir.
+TSB = 20-25 mg/dL 3-4 saatte tekrar
+TSB < 20 mg/dL 4-6 saatte tekrar
+TSB düşüyor 8-12 saatte tekrar
+TSB aynı ve KD yakın Kan değişimini düşün
+TSB < 13-14 mg/dL Fototerapiyi kes
+Fototerapi sonrası 12-24 saat sonra TSB bak*
+Tablo 7. Fototerapi alan bebeklerde izlem  
+TSB: Total serum bilirubini, KD: kan değişimi 
+* Hemoliz, direkt Coombs pozitifliği, gebelik yaşı <37 hafta, ilk 3 günde FT alan bebeklerde FT kesildikten
+sonra TSB kontrol edilir (“Rebound”). Ancak bunun için bebeğin hastanede kalması gerekmez.
+24
+Şekil 6. Hiperbilirubinemide tedavi yaklaşımı (53) 
+Akut bilirubin ensefalopatisi bulguları: Letarji, hipotoni, emmede azalma, tiz sesle ağlama, opistotonus, retrokollis, nöbet.
+C3b.2) Fototerapi dozunun rutin ölçümü
+Dozun her tedavi uygulamasından önce rutin ölçümü 
+önerilmez. Ancak yeterli dozun verildiğini gösterebilmek 
+için periyodik ölçüm yapılması gerekir (10). Işık gücü veya 
+enerji çıkışı, irradiyans ile belirlenir ve birim alana (cm2) 
+ulaşan foton sayısı (spektral enerji) ile ölçülür (100). Foto -
+terapi dozu belirli bir sürede verilen irradiyansın ölçümü -
+dür ve maruz kalan vücut yüzey alanına göre ayarlanır. İr-
+radiyans belirli bir dalga boyu aralığında radyometre (W/
+cm2) veya spektroradyometre (µW/cm2/nm) ile ölçülür 
+(100). Halihazırda FT dozunu ölçmek için genel kullanım -
+da olan tek bir yöntem yoktur. Ayrıca kalibrasyon yöntem-
+leri ve dalga boyu cevapları standart değildir (100). Aynı 
+ışık kaynağının doz ölçümünde değişik radyometreler de-
+ğişik sonuçlar verebilir (105).
+Doz ölçümünde klinikte üretici tarafından önerilen ci -
+hazların kullanılması gerekir. Cihaz bebeğe ne kadar yak -
+laştırılırsa irradiyans o kadar yüksek ölçülür. Ayrıca ölçüm 
+yapılan yer de önemlidir. Işığın düştüğü alanın merkezin -
+den yapılan ölçümlerde periferinden yapılan ölçümlere 
+göre daha yüksek değerler elde edilir ve fototerapi ciha -
+zından cihazına da fark eder (10). Bu yüzden ölçüm bebe-
+ğin yüzey alanının birden fazla noktasından yapılır (100). 
+Lambalar kullanıldıkça irradiyansları düşer. Bu yüzden 
+üretici tarafından belirtilen maksimum lamba ömürlerinin 
+üzerinde kullanılmamalıdır.
+C3b.3) Işık spektrumunun irradiyansı
+En etkin ışık mavi-yeşil ışık olup dalga boyu 460-490 nm 
+arasındadır. Daha geniş spektruma sahip ışık kaynakları 
+da etkili olmakla beraber bu dalga boyu kadar etkili de -
+ğildir. Özel mavi florasan lambaları en etkin lambalardır, 
+ancak beyaz florasan lambalarının maviye boyanması 
+veya mavi bir plastikle kaplanması aynı etkiyi yapmaz ve 
+bu şekilde hazırlanan lambalar kullanılmamalıdır. Yüksek 
+güçlü galyum nitrit içeren, emisyonu 460-490 nm arasın -
+da olan LED (“light emitted diods”) lambaları da etkin, yarı 
+ömürleri daha uzun (20 000 saat) ve infrared emisyonları 
+daha düşüktür. 
+25
+C3c) Y oğun fototerapi nedir?
+Yoğun FT vermek için bebeğin fototerapiye maruz kalacak 
+olan vücut yüzeyi artırılır veya yüksek yoğunluklu lamba -
+lar içeren cihazlar kullanılır. Konvansiyonel FT’de 8-10 µW/
+cm2/nm gücünde cihazlar kullanılırken (101), AAP yoğun 
+FT için en az 30 µW/cm2/nm gücünde cihazların kullanıl -
+masını önerir. Gücü 65 µW/cm2/nm üzerindeki cihazların 
+yan etkileri olabilir (100). Bu değerlerin üzerine çıkmak 
+yerine fototerapiye maruz kalan vücut yüzeyi artırılır. Alt -
+tan üstten olmak üzere iki ayrı fototerapi cihazı kullanarak 
+veya tünel FT cihazları kullanılarak yoğun FT verilir.  
+Prematüre bebeklere FT uygulanırken daha dikkatli ol-
+mak gerekir. Cilt yapılarından dolayı yan etkiler daha fazla 
+görülebilir. Bu bebeklerde hedef FT gücü 15-40 µW/cm2/
+nm’dir. Daha güçlü cihazların kullanımlarından kaçınılır 
+(97). Prematüre bebeklerde 26-28 hafta arasında 25-30 
+µW/cm2/nm, 26 hafta altında ise 15-25 µW/cm2/nm irra -
+diyans önerilmektedir. Özellikle 1000 gr altındaki bebek -
+lerde daha yüksek değerlerin mortaliteyi arttırdığına dair 
+veriler vardır (97).
+C3d) Fototerapi nasıl etkin kullanılır?
+Fototerapiyi etkin kullanmak için bilirubin düzeyine göre 
+bebekler değerlendirilir.  Bilirubin düzeyi kan değişimi sı -
+nırının 3 mg/dL altına kadar olan vakalarda yoğun FT, bili-
+rubin düzeyi daha düşük olanlarda ise tek yönlü FT kullanı-
+lır. Eskiden etkinliğin artırılması için 2-3 saatte bir bebeğin 
+yönünün değiştirilmesi önerilirken son çalışmalarda etkisi 
+tartışılmaktadır (106-107). Ancak AAP ışığa maruz kalan 
+alanın artırılması için 2-3 saat arayla bebeğin postürünün 
+değiştirilmesini halen önermektedir (100). Son Cochrane 
+derlemesi FT sırasında, vücut pozisyonun araklıklı değiş -
+tirilmesinin bilirubin düzeyinde düşüşe belirgin etkisinin 
+olmadığı gibi yan etkisinin de gözlenmediğini belirtmiştir 
+(108). Bu nedenle uygulamanın sürdürülmesi uygundur. 
+Bebek kuvözde FT alıyorsa, yansıma ve etkinlik kaybını 
+en aza indirmek için fototerapi ışınları kuvöz yüzeyine dik 
+gelecek şekilde ayarlanır (10, 105). Işığın bebeğin vücut 
+yüzeyine geliş açısı da önemlidir. İrradiyans ışık vücut yü -
+zeyine 45° açıyla geldiğinde, dik gelişine göre %40 aza -
+lır. TSB seviyesi kan değişimi sınırında ise bebeğin içinde 
+bulunduğu yatağı alüminyum folyo veya beyaz materyal 
+gibi ışığı yansıtan material ile kaplamak da FT etkinliğini 
+artırabilir (109).  
+Fototerapi sırasında bebeğin vücuduna herhangi bir 
+krem, yağ vs. sürülmemelidir. Bebeğin bezi mümkün ol -
+duğunca küçük tutulmalı ve ışığa maruz kalan vücut yü -
+zey alanı artırılmalıdır.
+FT etkinliğini ışık kaynağının özelliği (en etkin mavi flo-
+rasan veya LED ışıklar), ışık kaynağı ile bebek arasındaki 
+mesafe ve ışığa maruz kalan yüzey alanı belirler. 
+C3d.1) Işık kaynağı
+Fototerapi cihazları ışık kaynaklarına göre [florasan lam -
+ba (gün ışığı, mavi, özel mavi, turkuaz, yeşil), U veya spi -
+ral şekilli lamba, metal halojen lamba (spot ve kuvöz) ve 
+LED lamba] sınıflandırılırlar (100). Evde FT veya hastanede 
+anne yanında FT vermek için “biliblanket” , fiberoptik ci -
+hazlar kullanılabilir, ancak term bebeklerin akut tedavile -
+rinde kullanımları önerilmemektedir (47). 
+C3d.2) Işığın mesafesi
+Cihaz bebeğe ne kadar yaklaştırılırsa etkinlik o kadar ar -
+tar (10). Işığın irradiyansı ışık kaynağı ve bebek arasındaki 
+mesafenin karesiyle ters orantılıdır (44). Ancak halojen ve 
+tungsten lambalar kullanıldığında lambalar yanığa neden 
+olabileceği için bebeğe çok yaklaştırılmamalıdır (100). Be-
+bek ve bu cihazlar arasında 35-40 cm mesafe bırakılır (44). 
+Mesafeyi azaltmak ışığa maruz kalan yüzey alanını daral -
+tabilir (100). Florasan lambalar bebeğe mümkün olduğu 
+kadar yaklaştırılır. Mavi florasan ışıklar bebeğe 10-15 cm 
+yaklaştırıldığında 35 µW/cm2/nm’ye ulaşan irradiyans 
+sağlayabilir. Bebeğe mümkünse hem aradaki mesafeyi 
+azaltmak hem de kuvöz duvarının irradiyans üzerinde ya-
+pabileceği azaltıcı etkiyi dışlamak için kuvöz yerine beşik-
+te tedavi verilebilir.
+C3d.3) Yüzeyin genişliği
+Fototerapi sırasında bebeğin ışığa maruz kalan yüzey ala-
+nı mümkün olduğu kadar geniş tutulur. Vücut yüzeyinin 
+%100’ünün ışıkla temas etmesi mümkün değildir. Özel -
+likle preterm bebeklerde başın vücuda göre orantısız bü -
+yük olması FT’ye maruz kalacak alanı kısıtlar. Tek yönlü FT 
+kullanılırken bebeğin ışığa maruz kalan vücut yüzeyi %35 
+iken, çevresel maruziyet (farklı yönlerden vücut yüzeyinin 
+ışık alması) bu oranı %80’lere ulaştırır (100).
+C3e) Fototerapi bilirubini ne kadar düşürür?
+Bilirubin düzeylerinde düşüş kullanılan lambanın spektru-
+muna, irradiyansına, gücüne, sarılığın etiyolojisine ve FT 
+başlandığındaki TSB düzeyine bağlıdır (10). Bilirubin dü -
+zeyinde saatte 0,5 mg/dL ’nin üzerinde düşüş elde edildi-
+ğinde FT etkin kabul edilir (bkz. C3b). 
+Gebelik yaşı 35 hafta ve üzerinde ve yoğun FT verilen 
+bebeklerde tedavi başlandıktan sonraki ilk 24 saatte bili -
+rubin düzeylerinde %30-40’lık düşüş beklenir. En belirgin 
+düşüş tedavinin ilk 4-6 saatinde olur (10). Standart FT kul-
+lanıldığında ise 24 saatlik düşüş %6-20 arasında değişir 
+(110, 111).
+C3f) Fototerapi aralıklı mı, sürekli mi verilmeli?
+Bilirubin düzeyleri kan değişimi sınırına yakınsa FT sürek -
+li uygulanır. Aralıklı uygulamanın bilimsel bir açıklaması 
+yoktur. Bilirubin düzeyinde düşme gözlendikten sonra 
+26
+anne bebek bağlanmasını sağlamak ve beslenmeye izin 
+vermek için fototerapiye yarım saat ara verilip bebek em-
+mesi için anneye verilir. Bu sırada göz maskesi çıkarılır (10).
+C3g) Fototerapi ne zaman sonlandırılmalı?
+Total serum bilirubini term ve risk faktörü olmayan be -
+bekte 13-14 mg/dL ’nin altına düştüğünde veya fotote -
+rapi başlama sınırının 2-3 mg/dl altına düştüğünde FT  
+kesilir (10).
+C3h) “Rebound” bilirubin bakılmalı mı? 
+“Rebound” bilirubin FT kesildikten sonra total serum bi -
+lirubin düzeyinde gözlenen artmadır. Genelde tekrar FT 
+başlanmasını gerektirmez. Bebeklerin sadece %5’inde 
+FT kesildikten sonraki 72 saat içinde tekrar FT başlamak 
+gerekir (45). Bu durum için risk faktörleri; gebelik yaşının 
+38 haftanın altında olması, anne sütü ile beslenme, direkt 
+Coombs testinin pozitif olması ve yaşamın ilk 72 saatinde 
+FT gerekmesidir (45). Bu bebeklerde FT kesildikten son -
+ra “rebound” bakılır. Ancak “rebound” bilirubin takibi için 
+bebeği hastanede tutmaya gerek yoktur, taburcu edilip 
+ayaktan takip yapılır. 
+C3i) Profilaktik fototerapi uygulanmalı mı? 
+Profilaktik FT, eşik düzeyin altındaki bilirubin düzeylerin -
+de FT uygulanmasıdır. Sıklıkla doğum sonrası izlem sıra -
+sında tekrar hastaneye yatışı engellemek için kullanılır. 
+Tekrar yatış riskini azaltmasına rağmen, gereksiz fototera-
+pi maruziyetine, anne bebek bağlanmasının olumsuz et -
+kilenmesine ve doğum sonrası yatışın uzamasına yol aça-
+bilir ve muhtemel yan etkileri nedeniyle de kullanılması 
+önerilmez (112).  Profilaktik fototerapi yerine yakın takip 
+önerilir.   
+Preterm veya düşük doğum tartılı bebeklerde de pro -
+filaktik FT serum bilirubin düzeyinin düşmesini sağlayarak 
+kan değişimi sıklığını ve nörogelişimsel bozukluk riskini 
+azaltabilir, ancak bu bebeklerde de yan etkileri, etkinliği 
+ve uzun vadeli prognozu bilinmediği için kullanımı öne -
+rilemez (113).
+C3j) Fototerapi komplikasyonlar 
+C3j.1) Kısa dönem etkileri
+Fototerapi alan yenidoğan bebeğin bakımında deneyimli 
+kişiler yer almalıdır. Bu bebeklerde insensibl sıvı kaybı ar -
+tar ve gaita kıvamında yumuşama görülür. Ciltte dökün -
+tüler olur ve tedavi kesildikten sonra düzelir. Yeterli hid -
+rasyon, beslenme ve ısı kontrolü önemlidir. Nötral çevre 
+ısısı sağlanır. FT’nin serum bilirubin düzeylerinde düşüşü 
+sağladığı ana mekanizma idrarla lumirubin atılımı olduğu 
+için yeterli idrar çıkışı, dolayısıyla yeterli hidrasyonu sağla-
+mak önemlidir. Ancak bu amaçla intravenöz sıvı verilmesi 
+önerilmez, bebeğin günlük vücut ağırlığı ve ıslak bezleri 
+izlenir. Ayrıca bu bebeklerde anne bebek bağlanması et -
+kilenebilir (114). 
+Klinik iyileşme veya sarılığın ilerlemesi, uyku paterni, 
+beslenme veya ağlama paterninde değişiklikler gibi er -
+ken bilirubin ensefalopatisi bulguları değerlendirilmelidir 
+(10). FT hemolizi artırmaz.
+Mavi ışıklar %0,3 oranında UV radyasyon içerir (115). 
+LED lambaları ısı üretmez. LED lambalı cihazlar kullanıldı -
+ğında sıvı ve ısı kontrolü daha güvenli olur. Ayrıca bu lam-
+balar çok daha düşük oranda UV ışık içerirler. 
+Fototerapi Cry1 gen ekspresyonunu artırıp, plazma 
+melatonin düzeylerini düşürürek gece gündüz sirkadiyan 
+ritmini bozabilir, sık ağlama ve jitterinese yol açabilir (116).
+Retina hasarını engellemek için gözler kapatılır. Reti -
+na hasarı gözleri kapatılmamış yenidoğan maymunlarda 
+tespit edilmiştir. Ancak gözler her zaman kapalı tutulduğu 
+için yenidoğan bebeklerde benzer bir veri yoktur (100). 
+Göz bantlarının uzun süreli kullanımına bağlı olarak göz -
+lerde pürülan konjunktivit bildirilmiştir (117). 
+Üreme organlarının uzun süre FT’ye maruz kalması 
+endişe nedeni olmuş ancak kanıtlanmamıştır (118-120). 
+Hijyen açısından bezin iyice küçültülerek kullanılması 
+önerilir.
+Konjenital porfirisi olan veya fotosensitizan ilaçlar kul -
+lanan bebeklerde FT kullanımı kontraendikedir (10). Uzun 
+süreli FT kullanımı oksidatif stresi, lipid peroksidasyonu -
+nu) ve riboflavin eksikliğini artırır (121,122). DNA hasarı ve 
+sitokin düzeylerinde azalma bildirilmiştir (123).
+Preterm bebeklerde idrarda kalsiyum atılımının artma-
+sına bağlı hipokalsemi görülebilir (126). Ayrıca fototerapi  
+ışığı pineal bezden melatonin salınımını inhibe ederek 
+kalsiyum homeostazını etkileyebilir (127). Hipokalsemi 
+klinik olarak çok nadiren bulgu verir ve FT kesildikten son-
+ra 24 saat içinde kendiliğinden düzelir (123, 128). 
+Özellikle doğum tartısı 1500 gramın altındaki preterm 
+bebeklerde yüksek güçte FT cihazları kullanıldığında PDA 
+insidansı artabilir (85), bu bölgenin kapatılması tartış -
+malıdır (123). Mezenterik kan akımınında değişikliklere 
+yol açabilir (129), gebelik yaşı 28 haftanın altında doğan 
+preterm bebeklerde mortalite riskini artırabileceği bildi -
+rilmiştir (130).
+Bronz bebek sendromu: Cilt ve idrar renginde koyu 
+gri-kahverengi renk değişikliği ile seyreden bir durumdur. 
+Fotoizomerlerine bağlı bronz renkli pigmentlerin birik -
+mesi sonucu, genelde FT uygulanan kolestatik sarılığı (di-
+rekt bilirubin > 2 mg/dL) olan bebeklerde görülür (124). 
+Zararsızdır ve FT kesildikten sonra normale döner. Hem 
+direkt hem de indirekt hiperbilirubinemisi olan hastalarda 
+FT kontrendike değildir. Ancak direkt bilirubin total bili -
+rubinin %50’sinden fazlasını oluşturuyorsa uzman görüşü 
+27
+alınmalıdır (97). Direkt bilirubin albumine bağlanmak için 
+indirekt bilirubin ile yarışacağından serbest bilirubin artı -
+şına ve nörotoksisite gelişimine katkıda bulunabilir (125). 
+Tedavi gerektiren bronz bebeklerde FT’nin kesilmesi ke -
+sinlikle önerilmez. 
+C3j.2) Uzun dönem yan etkileri 
+Fototerapinin uygun kullanıldığında uzun dönem sorun -
+lara yol açtığı kesin kanıtlanmamıştır.
+Nöbet: FT’nin erkeklerde daha fazla olmak üzere ye -
+nidoğan ve çocukluk çağı nöbetleri açısından düşük risk 
+oluşturduğu bildirilmiştir (131, 132). Ancak, bu risk artışı-
+nın yüksek bilirubin düzeylerine mi, yoksa FT’ye mi bağlı 
+olduğu açık değildir. 
+Alerji: FT’nin immün sistem ve Th2/Th1 dengesini etki-
+leyerek astım, allerjik rinit ve konjunktivit riskini artırdığı -
+na dair veriler öne sürülmüştür (115). Hiperbilirubinemi -
+nin çocukluk çağı astımına yol açabileceği, ancak FT’nin 
+bu riski etkilemediği bildirilmiştir (133).
+Çocukluk çağı kanserleri: Fototerapi ve çocukluk çağı 
+kanserleri arasında direkt bir ilişki varlığını kanıtlamak ko-
+lay değildir. Kullanılan ışık kaynağının değişkenliği (bazıla-
+rı UV ışığını filtrelemiyor), ayrıca güneş ışığına maruz kal -
+ma gibi faktörlerin eliminasyonunun zorluğu direkt bağın 
+kurulmasını zorlaştırır. Retrospektif bir kohort çalışmasın-
+da lösemi ve karaciğer kanseri riskinin arttığı bildirilmiştir. 
+Ancak bilirubin düzeyleri, kromozom bozuklukları, kon -
+jenital anomaliler açısından düzeltmeler yapıldığında bu 
+risk artışları istatistiksel olarak anlamını yitirmiştir (134). İlk 
+yaş içinde FT ve kanser arasındaki ilişkiyi inceleyen baş-
+ka bir çalışmada ise FT alan bebeklerde ilk bir yıl içinde 
+kanser riskinde artış 9,4/100 000 olarak hesaplanmıştır ve 
+FT’nin bebeklik döneminde kanser riskini hafifçe yüksel -
+tebileceği bildirilmiştir (135).
+Cilt lezyonları: Melanositik nevus sayısını artırdığı, 
+atipik nevus oluşumuna yol açtığı bildirilmekle birlikte, 
+melanoma veya diğer cilt kanserlerinde artışa yol açtığı 
+gösterilememiştir. Ancak yapılan çalışmaların izlem süresi 
+30 yılı geçmemiştir ve cilt kanseri 30 yaş altında nadiren 
+görülür (115).  
+Diyabet: Çocukluk çağı diyabet riskini arttırdığı ileri sü-
+rülmüş olsa da (136), daha sonraki yayınlarda bu risk artışı 
+gösterilememiştir (137, 138).
+Tüm bu yan etkileri nedeniyle profilaktik FT kullanımı 
+önerilmemektedir.
+1. FT ’nin amacı indirekt bilirubin düzeyinin nörotoksik dü -
+zeylere ulaşmasını engellemektir.
+2. T SB risk faktörlerine göre belirlenen tedavi eşiklerine
+ulaştığında FT başlanır. Tedavi kararı verilirken direkt bi-
+lirubin total bilirubinden çıkarılmaz.
+3. FT etk inliğini ışığın dalga boyu ve yoğunluğu/gücü, ışı -
+ğa maruz kalan vücut yüzeyi ve bilirubin düzeyinde dü -
+şüş hızı belirler.
+4. T SB ne kadar yüksekse o kadar hızlı düşüş beklenir.
+5. FT ’nin en yüksek etkin dozu bilinmemektedir.
+6. FT ’ye verilen yanıtı ölçmek için bilirubin düzeylerinin
+tekrarlayan ölçümleri kullanılır.
+7. C ihazların etkin çalıştığını kontrol etmek için periyodik
+irradiyans ölçümü yapılması gerekir.
+8. Y oğun FT en az 30 µW/cm2/nm gücünde cihazların kul -
+lanılması ve fototerapiye maruz kalan vücut yüzeyinin
+artırılmasıdır.
+9.
+ Bilirubin düzeyi kan değişimi sınırının 3 mg/dL altına ka -
+dar olan vakalarda yoğun FT, bilirubin düzeyi daha dü -
+şük olanlarda ise tek yönlü FT kullanılır.
+10. Cihaz bebeğe ne kadar yaklaştırılırsa etkinlik o kadar ar -
+tar.
+11. Halojen ve tungsten lambalar kullanıldığında lambalar
+yanığa neden olabileceği için bebeğe çok yaklaştırılma -
+malıdır.
+12. Bilirubin düzeylerinde düşüş kullanılan lambanın spekt-
+rumuna, irradiyansına, gücüne, sarılığın etiyolojisine ve
+FT başlandığındaki TSB düzeyine bağlıdır.
+13.
+ Bilirubin düz eyleri kan değişimi sınırına yakınsa FT sü -
+rekli uygulanır. Daha düşük düzeylerde beslenme sıra -
+sında fototerapiye ara verilip bebeğin annesini emmesi-
+ne izin verilir.
+14. TSB fototerapi başlama sınırının 2-3 mg/dL altına düştü-
+ğünde FT kesilir.
+15. FT esnasında nötral çevre ısısı sağlanır ve hidrasyon için
+bebeğin günlük vücut ağırlığı ve ıslak bezleri takip edilir.
+16. Profilaktik FT kullanımı önerilmez.
+17. Uygun kullanıldığu takdirde FT’nin uzun dönem sorun -
+lara yol açması konusunda kesin veriler yoktur.
+28
+C4. KAN DEĞIŞİMİ
+C4a) Amaç ve endikasyonlar
+Kan değişimi erken ve etkin fototerapi kullanımı sayesin -
+de uygulanması gün geçtikçe azalan bir yöntemdir. Amaç 
+kernikterus gelişimini engellemektir. Bebekte bilirubin 
+ensefalopatisi bulguları varsa veya serum bilirubin düzeyi 
+yoğun fototerapi ve gerekli durumlarda İVİG tedavisine 
+rağmen bebeğin postnatal yaşı ve bilirubin nörotoksisite-
+si açısından taşıdığı potansiyel risk faktörlerine göre belir-
+lenen tedavi eşiklerine (Şekil 5 ve 7, Tablo 5 ve 6) ulaştığın-
+da kan değişimi uygulanır (10).
+Evden gelen bebeklerde, bilirubin değeri kan değişimi 
+için belirlenen düzeylerin üzerinde ise kan değişimi için 
+hazırlanırken, yoğun fototerapi başlanır, 2-3 saatte bir bili-
+rubin düzeyi ölçülür ve yoğun fototerapiye rağmen, 6 saat 
+boyunca bu düzeylerin üzerinde olmaya devam ederse 
+kan değişimi yapılır. Doğum sonrası hastanede yatmakta 
+olan ve yoğun fototerapiye rağmen bilirubin değeri kan 
+değişimi için önerilen bu düzeylere çıkan bebeklerde kan 
+değişimi önerilir.
+C4b) Serum albumin düzeyi ve B/A oranı
+Lipofilik özelliği nedeniyle konjüge olmamış serbest bili -
+rubin (albumine bağlı olmayan veya gevşek olarak bağlı 
+olan bilirubin) kan-beyin bariyerini geçebilir. Albumin 
+düzeyleri düşük olduğunda serbest bilirubin düzeyi arta -
+cağından daha düşük bilirubin düzeylerinde kernikterus 
+gelişme riski vardır.
+Serum albumin düzeyi 3 gr/dL ’nin altında ise bebek 
+riskli kabul edilir ve tedavi sınırı ona göre belirlenir.  B/A 
+oranı tek başına kan değişimi kararı vermek için kullanıl -
+maz ancak, kan değişimi kararı verilen bebeklerde TSB dü-
+zeyleri ile birlikte, tedavi kararını desteklemek için kullanı-
+lır (Tablo 6, 8 ve 9) (10, 98, 139). Rutin albumin infüzyonu 
+önerilmez (53). Zamanında doğan bebeklerde B/A oranı 
+tablodaki değerlerin üzerinde olduğunda tüm albumin 
+bağlanma noktaları dolu demektir. Bu değerin üzerindeki 
+her yükselme serbest bilirubin düzeyini yükselterek ker -
+nikterus riskini artıracaktır (140).
+Şekil 7. Gebelik yaşı ≥ 35 hafta bebeklerde postnatal yaşa göre kan değişimi sınırları (10). Risk faktörleri: izoimmün hemolitik 
+hastalık, G6PD enzim eksikliği, asfiksi, belirgin letarji, ısının korunamaması, asidoz, sepsis, albumin < 3 gr/dL (eğer ölçülürse). Tüm 
+risk faktörleri dışlanmadıkça bebek riskli sayılır. Tedavi kararı verilirken direkt bilirubin total bilirubinden çıkarılmaz, total bilirubin 
+düzeyi kullanılır. 
+29
+Risk kategorisi Kan değişimi planlanması gereken 
+B/A oranı
+Gebelik yaşı >38 hafta ve iyi 8
+Gebelik yaşı 35 0/7–36 6/7 hafta ve iyi 
+Gebelik yaşı >38 hafta ve riskli bebek 7,2
+Gebelik yaşı 35 0/7–36 6/7 hafta ve riskli bebek 6,8 
+Doğum ağırlığı (g) B/A oranı (mg/g)
+<1250 4 – 5,2
+1250-1499 5,2 – 6
+1500-1999 6 – 6,8
+2000-2499 6,8 – 7
+> 2500 > 7
+Tablo 8. Bebeğin bulunduğu risk kategorisine göre kan değişimi planlanması gereken bilirubin/albumin oranları (10)
+Tablo 9. Preterm bebeklerde kan değişimi kararına destek kriteri olarak kullanılması önerilen bilirubin/albumin (mg/g) oranları 
+(139).
+C4c) Kan değişimi hazırlığı, malzemeler
+Kan değişimi sınırında bilirubin düzeyi ile yatan tüm yeni-
+doğanların ebeveynlerine bebeğin yatışında kan değişimi 
+gereksinimi olasılığı hakkında bilgi verilmelidir. Bebek he-
+men yoğun fototerapiye alınır ve kan değişimi için gerekli 
+kan ürünleri hazırlatılır (bkz. C4d). Kan değişimi bu konu -
+da deneyimli kişilerce yapılmalıdır. 
+Malzemeler: Kan değişimi seti olan merkezlerde, direkt 
+bu steril setler kullanılır. Bunların içinde 5 - 8F göbek ka -
+teterleri, “Luer - Lock” 10-20 mL enjektörler, 2 adet serum 
+seti, bebekten alınan kanın atılacağı torba veya boş şişe, 2 
+adet üçlü musluk, ölçüm için cetvel, umbilikal kordon şe -
+ridi, kan değişimi öncesi ve sonrası kan örneklerinin alın -
+ması için 5 mL enjektörler bulunur.
+C4d) Seçilecek kan ürünleri ve özellikleri 
+C4d.1) Kan grupları
+Genellikle kan bankası tarafından eritrosit ile plazma, he -
+matokrit düzeyini %50-60’a indirecek şekilde karıştırılır. Rh 
+uyuşmazlıklarında düşük anti-A ve anti-B titreli O negatif 
+eritrosit süspansiyonu ve AB plazma, ABO uyuşmazlıkla -
+rında ise anne ve bebeğin Rh grubuna uyumlu O eritrosit 
+süspansiyonu ve sıklıkla AB plazma kullanılır. Bebeğin kan 
+grubuna göre A veya  B  grubu plazma da kullanılabilir 
+(141,142,142a). ABO uyuşmazlıkları haricinde plazma ye -
+rine serum fizyolojik veya albumin eklenebilir. Uyuşmazlık 
+yoksa kan değişimi çocuğun kan grubu ile aynı gruptan 
+kanla yapılmalıdır. Subgrup uyuşmazlığı olan vakalarda 
+uyuşmazlığa neden olan antijen yönünden negatif kan 
+kullanılır. 
+Kan değişimi için tam kan kullanılacaksa taze tam kan 
+olmalıdır (<24 saatlik). Verici kan ile eşleştirme (“cross-mat-
+ch”), bebeğe kan değişimi acil olarak doğum odasında ya-
+pılacaksa ve intrauterin transfüzyon yapılmışsa anne kanı 
+ile, diğer tüm durumlarda bebeğin kanı ile yapılır (10). 
+Mümkün olan en taze eritrosit süspansiyonu kullanılır 
+(<5 gün) (142, 142a).
+Bebeğin ve annenin kan gruplarına göre, değişim için 
+uygun kan Tablo 10’da gösterilmiştir.  
+30
+Tablo 10. Kan değişimi sırasında kullanılacak ABO eritrosit suspansiyonu ve plazma grupları
+C4d.2) Işınlama ve filtreleme
+Kan değişimi için kullanılacak kan ışınlanıp filtrelenir (10, 
+141).
+C4d.3) Isıtma
+Kan değişiminde kullanılacak kan, kan ısıtıcısında veya 
+oda ısısında ısıtılır (10, 141).
+C4d.4) Miktarın hesaplanması
+Hiperbilirubinemi tedavisinde çift hacimli kan değişimi 
+yapılır (10, 141). 
+Term bebekte tahmini kan volumü 85 mL/kg, preterm-
+de 100 mL/kg’dır. Bu nedenle şu şekilde hesaplanır:
+• Term bebekte:  2x 85 mL x tartı (kg)
+• Preterm bebekte: 2x 100 mL x tartı (kg)
+Çift hacim ile bebek kanının %86’sı değiştirilir.
+C4e) Umbilikal ven kateterizasyonu (143)
+1. Yan delikleri olan umbilikal kateterler tercih edilir. Do -
+ğum ağırlığı 750 gramın altında 3.5 F, 750-1250 g ara -
+sında 3.5-5 F, 1250-3500 g arasında 5-6 F, 3500 gramın 
+üzerinde 8 F kateter kullanılır. İşlem asepsi kurallarına 
+uygun olarak yapılır.
+2. Kateter takılmadan önce bebeğin göbek-omuz me -
+safesi ölçülür ve Tablo 11’den kateterin ilerletileceği 
+uzunluk belirlenir veya aşağıdaki bebeğin ağırlığına 
+göre olan formül kullanılarak hesaplanır.
+Kateterin ilerletileceği uzunluk (cm) = + 13 x ağırlık (kg) +9
+2
+3. Göbek kordonu gevşek olarak şerit ile bağlanır ve cilt 
+üzerinden yaklaşık 1-2 cm kalacak şekilde bistüri ile ke-
+silir.
+4. Kateterin ucu veya iris forsepsi ile venin ağzı bir miktar 
+dilate edilir ve kateter sokulup hesaplanan uzunlukta 
+ilerletilir.
+5. Daha sonra 5 mL ’lik enjektör ile kateterden kan gelip 
+gelmediği kontrol edilir. Kan gelmiyorsa ya pıhtı vardır 
+ya da kateter portal sisteme veya umbilikal venin intra-
+hepatik dallarından birine girmiştir. Pıhtı olup olmadığı 
+enjektörle negatif basınç uygulanarak kontrol edilip çı-
+kartılmaya çalışılır. Gerekiyorsa kateter çıkartılır ve yeni 
+kateter takılır.
+6. İşlem sonrası direkt grafi ile radyolojik kontrol yapılır. 
+Anatomik olarak kateterin ucu vena kava inferiorun 
+sağ atrium girişine denk gelmelidir. Kateter kalp göl -
+gesi içerisinde olmamalı ancak diyafragmanın hemen 
+üzerinde olmalıdır (T9-T10). Kateter karaciğere doğru 
+dönmüşse bir miktar geri çekilir.
+7. Omfalit, omfalosel gibi kordon malformasyonları ve 
+patent urakus, peritonit, nekrotizan enterokolit gibi 
+göbek kateterinin takılmasının kontrendike olduğu 
+durumlar veya kateter takmanın zor olabileceği bebe -
+ğin yaşının 1-2 haftayı geçmesi gibi durumlarda umbi-
+likal vene girilemiyorsa “cut-down” açılır veya periferik 
+büyük bir venden kan değişimi yapılır (141). 
+Bebek kan 
+grubu
+Anne kan 
+grubu
+İlk seçilecek eritrosit 
+süspansiyonu/tam kan
+İkinci seçilecek 
+eritrosit süspansiyonu
+Plazma 
+A O O A, AB
+A A A O A, AB
+A B O A, AB
+A AB A /tam kan O A, AB
+B O O B, AB
+B A O B, AB
+B B B O B, AB
+B AB B/tam kan O B, AB
+O O O/tam kan O, A, B, AB
+O A O/tam kan O, A, B, AB
+O B O/tam kan O, A, B, AB
+AB A A O AB
+AB B B O AB
+AB AB AB/tam kan A, B, O AB
+A, B, O, AB ? O AB
+31
+Omuz göbek uzaklığı (cm) Alt düzey arter 
+kateterizasyonu
+Üst düzey arter 
+kateterizasyonu Ven kateterizasyonu
+9 5,0 9,0 5,7
+10 5,5 10,5 6,5
+11 6,3 11,5 7,5
+12 7,0 13,0 8,0
+13 7,8 14,0 8,5
+14 8,5 15,0 9,5
+15 9,3 16,5 10,0
+16 10,0 17,5 10,5
+17 11,0 19,0 11,5
+18 12,0 20,0 12,5
+Tablo 11. Omuz göbek mesafesine göre kateterin ilerletilmesi gereken uzunluk (cm)
+C4f) Kan değişimi için alınacak önlemler 
+Kan değişimi öncesi bebek stabilize edilir. Monitörizas -
+yon ve gerektiğinde destek olacak personel belirlenir. 
+Bebeğin işlem sırasında genel durumu kötüleşirse, işlem 
+durdurulur veya klinik stabil hale gelene kadar yavaşla -
+tılır. Bebekten kan alınması zorlaşırsa aşırı negatif basınç 
+uygulanmaz, gerekirse kateter yeri kontrol edilir, enjektör 
+veya üçlü musluklar değiştirilir. İşleme ara verilmesi gere-
+kirse kateterlerin içi heparinize serum fizyolojik ile yıkana-
+rak beklenir (143).
+C4g) Bebeğin hazırlanması 
+Isı kaybının engellenmesi için bebek açık yatağa alınır. 
+Prematüre bebeklere ısı regülasyonu daha kolay olacaksa 
+steril ortamın sağlanması koşuluyla kuvöz içinde işlem ya-
+pılabilir. Bebek aç bırakılmaz, gerekirse uygulama öncesi 
+mide nazogastrik sonda ile boşaltılır. Canlandırma mal -
+zemeleri hazırlanır. Bebek işlem boyunca monitörize edi -
+lir ve kan değişimi öncesi, işlem sırasında ve sonrasında 
+yoğun FT’ye devam edilir. İşlem öncesi aileden mutlaka 
+onam alınır. Bebeğin kolları ve bacakları, işlemi aksatma -
+yacak şekilde sabitlenir. Sedasyon veya ağrı kesiciye gerek 
+olmaz. Sakinleştirmek için emzik verilebilir. Bebek moni -
+törize edilir ve ilk değerler (vücut ısısı, solunum ve kalp 
+hızı, satürasyon) kaydedilir. Bankadan gelen kanın kan 
+grubu, bebek ile uygunluğu (“cross-match”), kanın üretim 
+ve son kulllanım tarihi, alıcı ve verici bilgileri kontrol edilir.
+C4h) İşlem 
+Ameliyathane koşullarındaki gibi yıkanılır ve steril giyi -
+nilir. Maske ve bone takılır. İki farklı teknik uygulanabilir. 
+Birincisi umbilikal ven kateteri aracılığıyla önce bir miktar 
+kan (en fazla 5 mL/kg) alınır ve bu kan kurulan sistem ara-
+cılığıyla boş şişe veya torbaya boşaltılır, ardından kan ban-
+kasından sağlanan kan ürününden aynı miktar kan alınır 
+ve bebeğe verilir. İkinci bir yöntem hem artere hem de 
+vene kateter yerleştirip, aynı anda arterden bebeğin ka -
+nının alınması ve venden kan ürününün bebeğe verilmesi 
+şeklinde uygulanır (141). İzovolumetrik kan değişimi ola -
+rak adlandırılan bu teknik hasta veya genel durumu stabil 
+olmayan bebeklerde kan basıncı ve serebral hemodina -
+mide daha az dalgalanmaya yol açarak daha iyi tolere edi-
+lebilir. Pratikte genellikle tek kateter yerleştirilmesi yeterli 
+olduğu için ilk yöntem kullanılır. Göbek kateteri ucuna iki 
+adet üçlü musluk yerleştirilir. İlk üçlü musluğun bir çıkı -
+şı bebekten gelen katetere, diğeri atık kanın boşaltılması 
+için kullanılan sete ve üçüncüsü ikinci musluğa bağlanır, 
+ikinci üçlü musluk enjektör ve kan ürününe bağlanır. Aşa-
+ğıdaki sırada işlemler yapılır.
+1. Bebekten kan alınırken üçlü musluklar bebekten en -
+jektöre kanın ulaşacağı şekilde ayarlanır. Bu işlem en 
+az bir dakikada tamamlanır. 
+2. Ardından alınan kan atık torbasına yönlendirilecek şe -
+kilde üçlü musluk ayarlanır.
+3. Kan bankası ürününden enjektöre ürün çekilecek şe -
+kilde üçlü musluk ayarı değiştirilir, ürün çekilir.
+4. Çekilen ürünün bebeğe verilmesini sağlayacak şekilde 
+üçlü musluk tekrar ayarlanır ve kan ürünü bebeğe veri-
+lir. Bu işlem en az bir dakikada tamamlanır.
+Dört basamaktan oluşan bu döngü yaklaşık 2-4 dakika 
+sürer. Kan değişimi sırasında işlemi yapan kişi dışında ka -
+yıt tutacak bir kişi daha bulunmalıdır. İşlem sırasında, alı -
+nan kan miktarı, verilen kan miktarı, ateş, nabız, solunum, 
+satürasyon ve kanın alınma ve verilme zamanları ve eğer 
+uygulandıysa uygulanan ilaçlar not edilir. Bu basamaklar 
+32
+verilmesi planlanan kan miktarı bitene kadar tekrarlanır. 
+Sistem içine hava girmemesine özen gösterilir. Kan tor -
+bası 10-15 dakikada bir eritrositlerin çökmesini önlemek 
+için karıştırılır. Rutin olarak kalsiyum verilmez, hipokalse -
+mi varsa ve kalsiyum uygulanacaksa, kateter öncesinde ve 
+sonrasında serum fizyolojik ile yıkanır.
+Geçmiş yıllarda her kan değişiminde umbilikal ven ka -
+teterinden santral venöz basınç (CVP) ölçümü yapılırken 
+artık günümüzde yakın kan basıncı, kalp hızı, apne ve ok -
+sijenizasyon izlemi yapıldığı için önerilmemektedir (141). 
+Olası bir kan değişimi tekrarı riskine karşı kateter güvenli 
+bilirubin düzeyleri elde edilene kadar yerinde bırakılır.
+C4i) Kan değişimi hızı, miktarı 
+Kan değişim süresi 1-2 saattir. Bir seferde alınıp verilecek 
+kan miktarı en fazla 5 mL/kg’dır. Kan basıncında ve dolayı-
+sıyla intrakraniyal basınçta dalgalanmaların engellenmesi 
+için kan değişim hızı dakikada 2 mL/kg’ın üzerine çıkılmaz.
+C4j) Kan değişimi öncesi ve sonrası laboratuvar testleri 
+Değişim öncesi: İlk alınan kandan tam kan sayımı, periferik 
+yayma, Coombs testi, total ve direkt bilirubin, kalsiyum, 
+kan şekeri bakılır. G6PD enzim düzeyi, rutin yenidoğan ta-
+rama testleri için kan alınır. 
+Eğer gerekiyorsa idrar-kan aminoasitleri ve nedeni bel-
+li olmayan sarılıklarda enfeksiyon yönünden endişe varsa, 
+kan kültürü alınmalıdır.
+Değişim sonrası: Total bilirubin alınır. İkinci bir kan deği-
+şimi ihtimaline karşı tekrar kan istemi yapılır (Kan merke -
+zinde kan ayırtılır). 2-4 saat sonra bilirubin, Hct/Hb, trom -
+bosit sayısı, kalsiyum, kan şekeri bakılır. Kalsiyum ve kan 
+şekeri değerlerinde sorun varsa izlenmelidir takibi yapılır. 
+Bazı hasta bebeklerde kan değişimi sonrasında trombosit 
+transfüzyonu ihtiyacı olabilir.
+C4k) Kan değişimi sonrası ilaçlar 
+Kan değişimi ilaçların vücuttan atılmasına yol açacağı için 
+dozun tekrarlanması veya ilaç düzeylerinin izlemi gerekir. 
+Kan değişimi sonrasında enfeksiyon şüphesi yoksa antibi-
+yotik tedavisine gerek yoktur (141).
+C4l) Kan değişimi sonrası izlem 
+Kan değişimi sonrasında vital bulguların yakın izlemine 
+4-6 saat daha devam edilir. Bebek 3 saat beslenmez ve 
+beslenme başlandığında bebek, batında distansiyon, kus-
+ma ve nekrotizan enterokolit açısından yakın takip edilir 
+(141). Trombositopeni, hipokalsemi, hipoglisemi açısın -
+dan izlenir ve gerekirse tedavi edilir.
+C4m) Kan değişimi komplikasyonları (143) 
+1. Ölüm: sağlıklı bebeklerde işleme bağlı %1’den az iken 
+hasta bebeklerde bu oran daha yüksektir
+2. Apne, bradikardi, aritmi
+3. Hipotansiyon, hipertansiyon
+4. Hipokalsemi, hipo/hiperglisemi, hiperkalemi
+5. Trombositopeni (değişim sonrası değişim öncesi de -
+ğerlerin yaklaşık %50’sine düşebilir), nötropeni, koa -
+gülopati, disemine intravasküler koagülasyon
+6. Metabolik asidoz
+7. Vasküler spazm, tromboz, emboli, portal ven trombozu
+8. Beslenme intoleransı, iskemik hasar, nekrotizan ente -
+rokolit
+9. Omfalit, sepsis
+10. Graft versus host hastalığ
+1. Serum bilirubin düzeyi yoğun fototerapi ve gerekli du -
+rumlarda İVİG tedavisine rağmen bebeğin postnatal yaşı 
+ve bilirubin nörotoksisitesi açısından taşıdığı potansiyel 
+risk faktörlerine göre belirlenen tedavi eşiklerine ulaştı -
+ğında kan değişimi uygulanır. 
+2. Kan değişimi kararı verilirken direkt bilirubin total biliru-
+binden çıkarılmaz. 
+3. B/A oranı kan değişimi kararı verilen bebeklerde TSB dü-
+zeyleri ile birlikte, tedavi kararını desteklemek için kulla-
+nılır. Rutin albumin infüzyonu önerilmez. 
+4. Kan değişimi öncesi ve sonrasında yoğun FT’ye devam 
+edilir.
+5. Kan değişiminde kullanılacak kan, kan bankası tarafın -
+dan uygun eritrosit süspansiyonu ve plazmanın eritro -
+sitin hematokrit düzeyini %50-60’a indirecek şekilde ka-
+rıştırılması ile hazırlanır.
+6. Kan değişimi için tam kan kullanılacaksa taze tam kan 
+olmalıdır (<24 saatlik).
+7. Kan değişimi için kullanılacak kan ışınlanıp filtrelenir.
+8. Hiperbilirubinemi tedavisinde çift hacimli kan değişimi 
+yapılır.
+9. Kan değişim süresi 1-2 saattir. Bir seferde alınıp verilecek 
+kan miktarı en fazla 5 mL/kg’dır. 
+10. Kan değişimi sırasında rutin kalsiyum infüzyonu yapıl -
+maz.
+11. Kan değişimi sonrası kullanılan ilaçların dozu tekrarlanır 
+veya ilaç düzeyleri izlenir. 
+33
+C5. FARMAKOLOJİK TEDAVİ
+C5a) Bilirubin klirensinin normal metabolik yolunun 
+hızlandırılması
+Kan yağlarını düşürmek için kullanılan fenofibrat veya klo-
+fibrat gibi fibratlar aynı zamanda glukuronozil transferaz 
+enzimini uyarır ve bilirubin klirensini hızlandırır. Term ve 
+preterm bebeklerde etkinliği gösterilmiştir (144, 145). Ru-
+tin kullanımı önerilmez (146). 
+C5a.1) Glukuronozil transferaz enziminin indüksiyonu 
+Fenobarbital mikrozomal enzimlerin güçlü bir indükleyi -
+cisidir. Bilirubin konjugasyonunu, atılımını ve safra akışı -
+nı arttırır. Crigler Najjar tanı ve tedavisinde kullanılabilir 
+(147). Hiperbilirubinemi tedavisinde rutin kullanımı öne -
+rilmez. 
+C5a.2) Enterohepatik dolaşımın azaltılması
+Oral agar bilirubinin enterohepatik dolaşımını engeller 
+(148). Zamanında doğan bebeklerde bilirubin düzeylerini 
+düşürmede ve FT süresini kısaltmada etkili olduğu bildi -
+rilmiştir (149). En iyi yöntem erken ve sık aralıklarla, anne 
+sütü ile beslenmedir. 
+C5b) Bilirubin yapımını azaltılması
+C5b.1) Hem oksijenazın inhibisyonu
+Metalloporfirinler bilirubin üretiminde hız kısıtlıyıcı basa -
+mak olan hem oksijenaz enzimini inhibe ederler ve aşırı 
+bilirubin oluşumunu engellerler (150). Bilirubin düzeyini 
+düşürebilir, FT ve hastaneye yatış ihtiyacını azaltabilirler 
+(151, 152). Kalay (Sn)- ve çinko (Zn)- protoporfirin ve me -
+zoporfirin hem oksijenaz enzimini ve hem metabolizma -
+sını kompetetif olarak inhibe ederek bilirubin yapımını 
+azaltırlar. Tedavide 6 µmol/kg tek doz halinde kullanılır. 
+Sn- mezoporfirinle birlikte fototerapi uygulanan bazı be -
+beklerde geçici eritemler gözlenmiştir. Ancak halen rutin 
+kullanımda değildir (147).
+C5b.2) Hemolizin inhibe edilmesi (İVİG)
+İntravenöz immünoglobulin (İVİG): Retiküloendoteliyal 
+sistemde Fc reseptörlerini bloke ederek hemolizi engel -
+lediği düşünülmektedir. İVİG etkinliği konusunda çelişki -
+li yayınlar vardır. Cochrane analizi İVİG’in kan değişimini 
+azalttığını gösteren çalışmaların yanlı olduğunu (“bias”), 
+yanlı olmayan çalışmalarda ise faydasının olmadığını bil -
+dirmiştir (153). İVİG uygulaması tartışmalı olmakla birlikte 
+çeşitli rehberler verilmesini halen önermektedir (32, 43, 
+44, 52-54). Coombs (+) Rh veya ABO uyuşmazlığı olan 
+bebeklerde yoğun fototerapiye rağmen yükselen serum 
+bilirubin düzeyi veya kan değişimi sınırına yakın (2-3 mg/
+dL) bilirubin düzeyi varlığında standart İVİG (0.5-1 g/kg 2 
+saatte) verilebilir ve gerekirse 12 saat sonra tekrarlanır (10, 
+43, 44, 52-54).
+Ateş, alerjik reaksiyon, sıvı yüklenmesi ve “rebound” 
+hemolize sebep olabilir.
+1. Hiperbilirubinemi tedavisinde farmakolojik tedavi yön -
+temleri kullanılmaz.  
+2. En iyi yöntem erken ve sık aralıklarla, anne sütü ile bes -
+lenmedir.
+3. İVİG yoğun fototerapiye rağmen yükselen serum biliru -
+bin düzeyi, kan değişimi sınırına yakın bilirubin düzeyi 
+olup Coombs (+) Rh veya ABO uyuşmazlığı olan bebek -
+lerde verilebilir.
+D. ÖZEL DURUMLAR
+D1. Rh HEMOLİTİK HASTALIĞIN YÖNETİMİ
+Gelişmiş ülkelerde yenidoğanın Rh hemolitik hastalığı ar -
+tık hemen hemen hiç görülmediğinden, bu durumun yö -
+netimiyle ilgili kaynaklar sınırlıdır. 
+O Rh (-) eritrosit süspansiyonu ve AB plazma karışımı 
+ile O (-) eritrosit süspansiyonu hazırlatılır. Doğum odasın -
+da kan değişimi yapacak şekilde hazırlanılır ve İVİG temin 
+edilir. Canlandırma konusunda deneyimli bir ekip ile do -
+ğuma girilir. 
+Bebek doğar doğmaz acilen kordonda kan grubu, di -
+rekt Coombs testi, TB ve Hb tayini yapılır.  Kordon Hb < 10 
+g/dL ve TB > 5 mg/dL ciddi hemolizi gösterir (154). 
+Kordon Hb < 10 g/dL ise dolaşım sisteminde sıvı yük -
+lenme riski ve miyokard fonksiyonlarının iyi olmaması 
+nedeniyle çoğu kez basit transfüzyon yerine parsiyel kan 
+değişimi yaparak aneminin izovolümetrik olarak düzeltil -
+mesi tercih edilir (154). Aşağıdaki formüle göre anemi için 
+kan değişimi yapılır (155). Kalp yetmezliği bulgusu olan 
+bebeklerde daha yüksek Hb değerlerinde de (10-11 g/dL) 
+parsiyel kan değişimi düşünülmelidir.
+Eritrosit süp (mL) = Kan hacmi (ml)  x (istenen Hct - ölçülen Hct )
+Kan hacmi: 85 mL/kg   İstenen Hct: %45   Eritrosit süsp Hct: %75
+(%75 - ölçülen Hct)
+Kordon kanında Hb 10-13 g/dL ile birlikte TSB’nin artış 
+hızı > 0,5 mg/dL/st olduğunda kan değişimi gerekir. Bu 
+bebeklere TSB değerini dikkate almaksızın doğumdan iti-
+baren FT başlanır. ABO veya Rh izoimmünizasyonu olan 
+bebeklerde İVİG etkili olur (43).
+34
+D2. İLK 24 SAATTE ORTAYA ÇIKAN 
+SARILIKTA TEDAVİ PRENSİPLERİ
+İlk 24 saatte çıkan sarılık her zaman patolojiktir. TSB düze-
+yi alınır ve FT başlanır.
+Bu bebeklerde kan değişimi endikasyonları:
+a. Gebelik yaşı 38 hafta ve üzeri bebeklerde: Kordon bi -
+lirubini bakılmış ve bilirubin düzeyi > 5 mg/dL ise kan 
+değişimi için hazırlık yapılırken yoğun fototerapi başla-
+nır ve bilirubin artış hızı izlenir. Bu sınır 6. saatte 9 mg/
+dL, 12. saatte 12 mg/dL, 18. saatte 15 mg/dL ’nin üzeri-
+dir (53). 
+b. Gebelik yaşı 38 haftanın altındaki bebeklerde: Tablo 
+12’deki değerler esas alınır. 
+c. Yoğun fototerapiye rağmen bilirubin düzeyi saatte 0.5 
+mg/dL ’nin üzerinde yükseliyorsa kan değişimi yapılır.
+d. Bilirubin yükselme hızı 0.5 mg/dL ’nin altındaysa yoğun 
+fototerapiye devam edilir.
+e. Gerekirse İVİG verilir (bkz. farmakolojik tedavi)
+E. İZLEM 
+Yüksek bilirubin düzeyleri nedeniyle tedavi alan yenido -
+ğanlar taburcu olduktan sonra riskli bebek poliklinikle -
+rinde izlenmelidir. Bu bebekler işitme, görme ve nöroge -
+lişimsel açıdan takip edilmelidir. Kan değişimi yapılan 
+bebeklerde yenidoğan işitme taraması (ABR: işitsel beyin 
+sapı uyarılmış cevapları) yapılsa bile taburculuk öncesi 
+tekrar edilmelidir (156). Hiperbilirubinemisi olan bebek -
+ler altıncı aydan önce klinik ABR ile değerlendirilmelidir 
+(156).
+Hafta 6. saat 12. saat 18. saat
+23 - 28 5 6 7
+29 - 33 6.5 9.5 12.5
+34 - 37 8.5 11.5 13.5
+Tablo 12. Gebelik yaşı 38 haftanın altındaki bebeklerde ilk 24 saat içinde kan değişimi sınırları için bilirubin değerleri  
+(mg/dL) (53)
+1. İntrauterin dönemde etkilenmiş Rh uyuşmazlığı olan 
+bebeklerde, doğum öncesinde O Rh (-) eritrosit süspan -
+siyonu ve AB plazma ile O (-) eritrosit süspansiyonu ha -
+zırlatılır. Gerekirse doğum odasında kan değişimi yapılır.
+2. Kordondan hemoglobin ve bilirubin düzeyi gönderilir.
+3. Hemoglobin, bilirubin düzeyi ve saatlik bilirubin düzeyi 
+artış hızına göre kan değişimine karar verilir.
+4. İlk 24 saatte kan değişimi kararına bilirubin düzeyinin 
+saatlik artış hızına göre karar verilir. 
+5. Yoğun FT’ye rağmen bilirubinin saatlik artış hızı 0.5 mg/kg/
+dL ’nin üzerinde olan bebeklere kan değişimi uygulanır.
+6. Endikasyonu olan bebeklerde İVİG uygulanır. 
+35
+KAYNAKLAR
+1. Hansen TWH, Bratlid D. Physiology of neonatal unconjuga -
+ted hyperbilirubinemia. In: Stevenson DK, Maisels MJ, Wat -
+chko JF, eds. Care of Jaundiced Neonate. New York: McG -
+raw-Hill, 2012: 65-95.
+2. Schwarz HP , Haberman BE, Ruddy RM. Hyperbilirubinemia. 
+Current guidelines and emerging therapies. Pediatr Emer 
+Care 2011; 27: 884-889.
+3. Kaplan M, Muraca M, Hammerman C, et al. Inbalance betwe-
+en production and conjugation of bilirubin: a fundamental 
+concept in the mechanism of neonatal jaundice. Pediatrics 
+2002; 110: e47.
+4. Davidson L, Thilo EH. How to make kernicterus a “never 
+event” . Neoreviews 2003; 4: e308-e314.
+5. Bhutani VK. Kernicterus as a “never event”: A newborn safety 
+standart? Indian J Pediatr 2005; 72: 53-56.
+6. Olusanya BO, Kaplan M, Hansen TWR. Neonatal hyperbiliru-
+binemia: a global perspective. Lancet Child Adolesc Health. 
+2018; 2: 610-620.
+7. Olusanya BO, Teeple S, Kassebaum N. The contribution of 
+neonatal jaundice to global child mortality: Findings from 
+the GBD 2016 study. Pediatrics 2018; 4: e20171471.
+8. Maisels MJ, Bhutani VK, Bogen D Newman TB, Stark AR, Wat-
+chko JF. Hyperbilirubinemia in the newborn infant ≥35 we -
+eks gestation: an update with clarification. Pediatrics 2009; 
+124: 1193-1198.
+9. Maisels MJ. What’s in a name? Physiologic and pathologic 
+jaundice: the conundrum of defining normal bilirubin levels 
+in the newborn. Pediatrics 2006; 118: 805-807. 
+10. American Academy of Pediatrics, Clinical Practice Guideline, 
+Subcommittee on Hyperbilirubinemia. Management of the 
+newborn 35 or more weeks of gestation. Pediatrics 2004; 
+114: 297-316.
+11. Johnson L, Brown AK, Bhutani VK. BIND-a clinical score for 
+bilirubin induced neurologic dysfunction in newborns. Pe -
+diatrics Suppl 1999; 104: 746-747.
+12. Shapiro SM. Definition of the clinical spectrum of kernicte -
+rus and bilirubin induced neurologic dysfunction (BIND). J 
+Perinatol 2005; 25: 54-59.
+13. Shapiro SM. Kernicterus. In: Stevenson DK, Maisels MJ, Wat -
+chko JF, eds. Care of Jaundiced Neonate. New York: McG -
+raw-Hill, 2012: 229-242.
+14. Perlman JM, Volpe JJ. Bilirubin. In: Volpe JJ, Inder TE, Darras 
+BT, de Vries LS, du Plessis AJ, Neil J, Perlman JM eds. Volpe’s 
+Neurology of the Newborn. Sixth edition. Philadelphia: Else-
+vier. 2018: 730-762.
+15. Le Pichon JB, Riordan SM, Watchko J, Shapiro SM. The neuro-
+logical sequelae of neonatal hyperbilirubinemia: Definiti -
+ons, diagnosis and treatment of the Kernicterus Spectrum 
+Disorders (KSDs). Curr Pediatr Rev 2017; 13: 199-209.
+16. Stevenson DK, Fanarof AA, Maisels MJ, et al. Prediction of 
+hyperbilirubinemia in near-term and term infants. Pediatrics 
+2001; 108: 31-39.
+17. American Academy of Pediatrics, Provisional Committee for 
+Quality Improvement. Practice parameter: mamagement of 
+hyperbilirubinemia in the healty term newborn. Pediatrics 
+1994; 94: 558-565.
+18. Johnson L, Bhutani VK, Karp K, Sivieri EM, Shapiro SM. Clini -
+cal report from the pilot kernicterus registry (1992 to 2004). 
+J Perinatol 2009; 29: 25-45. 
+19. Kaplan M, Merlob P , Regev R. Israel guidelines for the mana-
+gement of neonatal hyperbilirubinemia and prevention of 
+kernicterus. J Perinatol 2008; 28: 389-397.
+20. Bhutani VK, Johnson LH, Maisels JM, et al. Kernicterus: 
+epidemiological strategies for its prevention through sys -
+tems-based approaches. J Perinatol 2004; 24: 650–662.
+21. Sgro M, Campbell D, Shah V. Incidence and causes of seve -
+re neonatal hyperbilirubinemia in Canada. CMAJ 2006; 175: 
+587–590.
+22. Govaert P , Lequin M, Swarte R, et al. Changes in globus pal-
+lidus with (pre)term kernicterus. Pediatrics 2003; 112: 1256–
+1263.
+23. Ebbesen F, Andersson C, Verder H, et al. Extreme hyperbili -
+rubinaemia in term and near-term infants in Denmark. Acta 
+Paediatr 2005; 94: 59–64.
+24. Bertini G, Dani C, Fonda C, Zorzi C, Rubaltelli FF. Bronze baby 
+syndrome and the risk of kernicterus. Acta Paediatr 2005; 94: 
+968–971.
+25. Manning D, Todd P , Maxwell M, Jane Platt M. Prospective 
+surveillance study of severe hyperbilirubinaemia in the 
+newborn in the UK and Ireland. Arch Dis Child Fetal Neona -
+tal Ed 2007; 92: F342–F346.
+26. Stanley TV. A case of kernicterus in New Zealand: a predic -
+table tragedy? J Paediatr Child Health 1997; 33: 451–453.
+27. Bartmann P , Schaaf F. Kernicterus in Germany 2003–2005. 
+Pediatric Academic Societies. Online abstract number: 
+E-PAS2007:7936.
+28. Watchko JF, Tribelli C. Bilirubin-induced neurologic dama -
+ge-mechanisms and management approaches. N Engl J 
+Med 2013; 369; 2021-2030.
+29. Maisels MJ, Newman TB. Prevention, screening and post -
+natal management of neonatal hyperbilirubinemia. In: Ste -
+venson DK, Maisels MJ, Watchko JF, eds. Care of Jaundiced 
+Neonate. New York: McGraw-Hill, 2012: 175-194.
+30. Donneborg ML, Hansen BM, Vandborg  PK, Rodrigo-Domin-
+go  M,  Ebbesen F. Extreme neonatal hyperbilirubinemia and 
+kernicterus spectrum disorder in Denmark during the years 
+2000-2015. J Perinatol 2020; 40: 194-202
+31. Alkén   J, Håkansson  S, Ekéus C, Gustafson  P ,  Norman M. Ra-
+tes of extreme neonatal hyperbilirubinemia and kernicterus 
+in children and adherence to national guidelines for scree -
+ning, diagnosis, and treatment in Sweden. JAMA Network 
+Open 2019; 2: e190858.
+32. Morioka I. Hyperbilirubinemia in preterm infants in Japan: 
+New treatment criteria. Pediatr Int 2018; 60: 684-690. 
+33. Slusher TM, Zamora TG, Appiah D, et al. Burden of severe ne-
+onatal jaundice: a systematic review and meta-analysis. BMJ 
+Paediatr Open 2017; 1: e000105. 
+34. Slusher TM, Olusaniya BO. Neonatal jaundice in low-and 
+middle-income countries. In: S tevenson DK, Maisels MJ, 
+36
+Watchko JF, eds. Care of Jaundiced Neonate. New York: McG-
+raw-Hill, 2012: 263-273.
+35. Erdeve O, Okulu E, Olukman O, et al. Turkish Neonatal Jaun-
+dice Registry Collabolators. The Turkish Neonatal Jaundice 
+Online Registry: A national root cause analysis. PLoS One 
+2018; 13: e0193108.
+36. Okulu E, Erdeve heonatal Hyperbilirubinemia Ö, Tuncer O, et 
+al. Exchange transfusion for neonatal hyperbilirubinemia: A 
+multicenter, prospective study of Turkish Neonatal Society. 
+Turk Arch Pediatr 2021; 56: 121-126.
+37. Tiker F, Gulcan H, Kilicdag H, Tarcan A, Gurakan B. Extreme 
+hyperbilirubinemia in newborn infants. Clin Pediatr (Phila)  
+2006; 45: 257-261.
+38. Hacettepe Üniversitesi Nüfus Etütleri Enstitüsü, Sağlık Ba -
+kanlığı Ana Çocuk Sağlığı ve Aile Planlaması Genel Müdür -
+lüğü, Devlet Planlama Teşkilatı ve Avrupa Birliği. Hacettepe 
+Üniversitesi Nüfus Etütleri Enstitüsü, Türkiye Nüfus ve Sağ -
+lık Araştırması, 2008. Ankara-Hacettepe Üniversitesi Nüfus 
+Etütleri Enstitüsü: 2009.
+39. Şenol V, Ünalan D, Çetinkaya F, Öztürk Y. Kayseri ilinde halk 
+ebeliği ile ilgili geleneksel uygulamalar. Klinik Gelişim 2004; 
+17: 47-55.
+40. Atkinson LR, Escobar GJ, Takayama J et al. Phototherapy use 
+in jaundiced newborns in a large managed care organiza -
+tion:do clinicians adhere to the guideline? Pediatrics 2003; 
+111: e555–e561.
+41. Ip S, Chung M, Kulig J, et al. An evidence-based review of 
+important issues concerning neonatal hyperbilirubinemia. 
+Pediatrics 2004; 114: e130-153.
+42. Türk Neonatoloji Derneği Tanı ve Tedavi Protokolleri No. 1.  
+Türk Neonatoloji Derneği Bülteni. Sayı: 6 – Güz 2002.
+43. Bratlid D, Nakstad B, Hansen TWR. National guidelines for 
+treatment of jaundice in the newborn. Acta Paediatrica 
+2011; 100: 499-505.
+44. Guidelines for detection, management and prevention of 
+hyperbilirubinemia in term and late preterm newborn in -
+fants ( 35 or more weeks’ gestation) - Summary. Paediatr 
+Child Health 2007; 12: 401-418. 
+45. Arlettaz R, Blumberg A, Buetti L, Fahnenstich H, Mieth D, Ro-
+th-Kleiner M. Assessment and treatment of jaundice new -
+born infants 35 0/7 or more weeks of gestation. Swiss Soc 
+Neonatology 2007: 1–4.
+46. van Imhoff DE, Dijk PH, Hulzebos CV, Bartrial study group 
+NNRN: Uniform treatment thresholds for hyperbilirubine -
+mia in preterm infants: background and synopsis of a natio-
+nal guideline. Early Hum Dev 2011, 87: 521–525.
+47. Atkinson M, Budge H. Review of the NICE guidance on neo -
+natal jaundice. Arch Dis Child Educ Pract Ed 2011; 96: 136–
+140.
+48. Romagnoli C, Barone G, Pratesi S, et al. Italian guidelines for 
+management and treatment of hyperbilirubinemia of new -
+born infants >=35 weeks’ gestational age. Italian J Pediatr 
+2014; 40: 11.
+49. Berns M, Bührer C. Leitlinie zur Hyperbilirubinaemie des 
+Neugeborenen. Diagnostik und Therapie. Monatsschr Kin -
+derheilkd 2010; 158; 1117-1124.
+50. Editorial Board of Chinese Journal of Pediatrics; Subspeci -
+alty Group of Neonatology, The Society of Pediatrics, Chi -
+nese Medical Association. Zhonghua Er Ke Za Zhi 2010; 48: 
+685-686.
+51. Sánchez-Redondo Sánchez-Gabriel MD, Leante Castellanos 
+JL, Benavente Fernández I, et al. Recomendaciones para la 
+prevención, la detección y el manejo de la hiperbilirrubine -
+mia en los recién nacidos con 35 o más semanas de edad 
+gestacional [Guidelines for prevention, detection and ma -
+nagement of hyperbilirubinaemia in newborns of 35 or 
+more weeks of gestation]. An Pediatr (Barc) 2017; 87: 294. 
+52. Morioka I, Nakamura H. Treatment criteria for infants with 
+hyperbilirubinemia in Japan. Semin Perinatol 2021; 45: 
+151352. 
+53. National Institute of Child Health and Clinical Excellence: Ja-
+undice in newborn babies under 28 days.  https://www.nice.
+org.uk/guidance/cg98
+54. Queensland Maternity and Neonatal Clinical Guideline: 
+Neonatal Jaundice. 2019 https://www.health.qld.gov.au/__
+data/assets/pdf_file/0018/142038/g-jaundice.pdf
+55. Management of neonatal jaundice. https://starship.org.nz/
+guidelines/jaundice-management-of-neonatal-jaundice 
+56. Çoban A, Türkmen MK, Gürsoy T. Turkish Neonatal Society 
+guideline to the approach, follow-up, and treatment of neo-
+natal jaundice. Turk Pediatri Ars 2018; 53: S172-S179. 
+57. Zhang M, Tang J, He Y, et al. Systematic review of global clini-
+cal practice guidelines for neonatal hyperbilirubinemia. BMJ 
+Open 2021; 11: e040182. 
+58. Kaplan M, Hammerman C. American Academy of Pediatrics 
+guidelines for detecting neonatal hyperbilirubinaemia and 
+preventing kernicterus. Arch Dis Child Fetal Neonatal Ed 
+2005; 90: F448-F449.
+59. Preer GL, Philipp BL. Understanding and managing breast 
+milk jaundice. Arch Dis Child Fetal Neonatal Ed 2011; 96: 
+F461-F466. 
+60. Flaherman VJ, Maisels MJ. Academy of Breastfeeding Medi -
+cine. ABM Clinical Protocol #22: Guidelines for management 
+of jaundice in the breastfeeding infant 35 weeks or more of 
+gestation-revised 2017. Breastfeed Med 2017; 12: 250-257. 
+61. Smith HA, Becker GE. Early additional food and fluids for 
+healthy breastfed full-term infants. Cochrane Database Syst 
+Rev 2016; 2016(8): CD006462. 
+62. Azzuqa A, Watchko JF. Conjunctival Icterus - An important 
+but neglected sign of clinically relevant hyperbilirubinemia 
+in jaundiced neonates. Curr Pediatr Rev. 2017; 13: 169-175. 
+63. Bhutani VK, Johnson L, Sivieri EM. Predictive ability of a pre-
+discharge hour-specific serum bilirubin for subsequent sig -
+nificant hyperbilirubinemia in healthy term and near-term 
+newborns. Pediatrics 1999; 103: 6–14.
+64. Bahr TM, Henry E, Christensen RD, Minton SD, Bhutani VK. A 
+new hour-specific serum bilirubin nomogram for neonates 
+≥35 weeks of gestation. J Pediatr 2021; 236: 28-33
+65. Kaplan M, Maisels MJ. Natural history of early neonatal bi -
+lirubinemia: a global perspective. J Perinatol 2021; 41: 873-
+878.
+37
+66. Wolff M, Schinasi DA, Lavelle J, Boorstein N, Zorc JJ. Manage-
+ment of neonates with hyperbilirubinemia: improving time-
+liness of care using a clinical pathway.  Pediatrics 2012; 130: 
+e1688-94.
+67. Vreman HJ, Verter J, Oh W et al. Interlaboratory variability of 
+bilirubin measurements. Clin Chem 1996; 42: 869-873.
+68. Grohman K, Roser M, Rolinski B, et al. Bilirubin measurement 
+for neonates: comparison of 9 frequently used methods. Pe-
+diatrics 2006; 117: 1174-1183.
+69. Maisels MJ, Kring E. Transcutaneous bilirubin levels in first 
+96 hours in normal newborn population of>or =35 weeks 
+gestation. Pediatrics 2006; 117: 169-173.
+70. Kuboi T, Kusaka T, Kawada K, et al. Hour-specific nomogram 
+for transcutaneous bilirubin in Japanese neonates. Pediatr 
+Int 2013; 55: 608-611.
+71. Kaur S, Chawla D, Pathak U, Jain S. Predischarge non-invasi-
+ve risk assesment for prediction of significant hyperbilirubi-
+nemia in term and late preterm neonates. J Perinatol 2012; 
+32: 716-721.
+72. Gothwal S, Singh N, Sitaraman S, et al. Efficacy of transcu -
+taneous bilirubinometry as compared to serum bilirubin in 
+preterm newborn during phototherapy. Eur J Pediatr 2021; 
+180: 2629-2636. 
+73. Türkmen M, Aydoğdu S, Gökbulut C, Çiğdem Yenisey, Ömer 
+Söz, Çetinkaya-Çakmak B. Transcutaneous measurement of 
+bilirubin in Turkish newborns: comparison with total serum 
+bilirubin. Turk J Pediatr 2011; 53: 67-74.
+74. Okwundu IC, Saini SS. Noninvasive methods for bilirubin 
+measurements in newborns: A report. Semin Perinatol 2021; 
+45: 151355.
+75. Bhutani VK, Gourley GR, Adler S, Kreamer B, Dalin C, Johnson 
+LH. Noninvasive measurement of total serum bilirubin in a 
+multiracial predischarge newborn population to assess the 
+risk of severe hyperbilirubinemia. Pediatrics 2000; 106: E17. 
+76. Kaplan M, Bromiker R. Variation in transcutaneous bilirubin 
+nomograms across population groups. J Pediatr 2019; 208: 
+273. 
+77. Taylor JA, Burgos AE, Flaherman V, Chung EK, Simpson EA, Go-
+yal NK, et al. Better outcomes through research for newborns 
+network. Discrepancies between transcutaneous and serum 
+bilirubin measurements. Pediatrics 2015; 135: 224–231.
+78. Maisels MJ. Use TcB as ascreening tool for jaundiced new -
+borns. AAP News 2004; 25: 9-13.
+79. Outlaw F, Nixon M, Odeyemi O, MacDonald LW, Meek J, 
+Leung TS. Smartphone screening for neonatal jaundice via 
+ambient-subtracted sclera chromaticity. PLoS One 2020; 15: 
+e0216970. 
+80. Leung TS, Outlaw F, MacDonald LW, Meek J. Jaundice Eye 
+Color Index (JECI): quantifying the yellowness of the scle -
+ra in jaundiced neonates with digital photography. Biomed 
+Opt Express 2019; 10:1250-1256. 
+81. Althnian A, Almanea N, Aloboud N. Neonatal jaundice diag-
+nosis using a smartphone camera based on eye, skin, and 
+fused features with transfer learning. Sensors (Basel) 2021; 
+21: 7038. 
+82. Fawaz R, Baumann U, Ekong U, et. al.  Guideline for the eva-
+luation of cholestatic jaundice in infants: Joint recommen -
+dations of the North American Society for Pediatric Gast -
+roenterology, Hepatology, and Nutrition and the European 
+Society for Pediatric Gastroenterology, Hepatology, and 
+Nutrition. JPGN 2017; 64: 154–168. 
+83. Bülbül A, Okan F, Ciğerci N, Nuhoğlu A. Hiperbilirubinemi 
+nedeniyle kan değişimi uygulanan zamanında doğmuş be -
+beklerin klinik özellikleri ve kan değişimi nedenleri. Türk Ped 
+Arş 2007; 42: 107-111 
+84. Altay Ç, Gümrük F. Red cell glucose-6-phosphate dehydroge-
+nase deficiency in Turkey. Türkiye’de eritrosit glukoz-6-fosfat 
+dehidrogenaz (G6PD) enzim eksikliği. Turk J Haematol 2008; 
+25: 1-7.
+85. Maisels MJ. Jaundice. In Avery GB, Fletcher MA, MacDonald 
+MG (eds). Neonatology: Pathophysiology and Management 
+of the Newborn (5th ed). Philadelphia: JB, Lippincott, 1999: 
+765-819.
+86. Hannam S, McDonnell M, Rennie JM. Investigation of pro -
+longed neonatal jaundice. Acta Paediatr 2000; 89: 694-697.
+87. Wadsworth SJ, Suh B. In vitro displacement of bilirubin by 
+antibiotics and 2-hydroxybenzoylglycine in newborns. Anti-
+microb Agents Chemother 1988; 32: 1571-1575.
+88. Martin E, Fanconi S, Kälin P , et al. Ceftriaxone--bilirubin-al -
+bumin interactions in the neonate: an in vivo study. Eur J 
+Pediatr 1993; 152: 530-534.
+89. Brodersen R, Ebbesen F. Bilirubin-displacing effect of ampi -
+cillin, indomethacin, chlorpromazine, gentamicin, and para-
+bens in vitro and in newborn infants. J Pharm Sci 1983; 72: 
+248-253.
+90. Gal P , Ransom JL, Davis SA. Possible Ibuprofen-induced ker-
+nicterus in a near-term infant with moderate hyperbilirubi -
+nemia. J Pediatr Pharmacol Ther 2006; 11: 245-250.
+91. Amin SB, Harte T, Scholer L, Wang H. Intravenous lipid and 
+bilirubin-albumin binding variables in premature infants. 
+Pediatrics 2009; 124: 211-217.
+92. Hegyi T, Kleinfeld A, Huber A, et al. Unbound bilirubin levels 
+in phototherapy-treated pret erm infants receiving soy-ba -
+sed lipid emulsion. Pediatr Int 2020; 62: 1357-1363. 
+93. Cashore WJ, Oh W, Brodersen R. Reserve albumin and biliru-
+bin toxicity index in infant serum. Acta Paediatr Scand 1983; 
+72: 415–419.
+94. Ebbesen F, Nyboe J. Postnatal changes in the ability of plas-
+ma albumin to bind bilirubin. Acta Paediatr Scand 1983; 72: 
+665–670.
+95. Herschel M, Karrison T, Wen M, Caldarelli L, Baron B. Evalua-
+tion of the direct antiglobulin (Coombs’) test for identifying 
+newborns at risk for hemolysis as determined by end-tidal 
+carbon monoxide concentration (ETCOc); and comparison 
+of the Coombs’ test with ETCOc for detecting significant ja -
+undice. J Perinatol 2002; 22: 341–347.
+96. Christensen RD, Yaish HM. Hemolytic disorders causing se -
+vere neonatal hyperbilirubinemia. Clin Perinatol 2015; 42: 
+515-527.
+97. Maisels MJ, Watchko JF, Bhutani VK, Stevenson DK. An ap -
+proach to the management of hyperbilirubinemia in the 
+38
+preterm infant less than 35 weeks of gestation. J Perinatol. 
+2012; 32: 660-664. 
+98. Watchko JF, Maisels MJ. Treatment of hyperbilirubinemia in 
+newborns. In: Buonocore G, Bracci R, Weindling M eds. Neo-
+natology. Second edition. Springer International Publishing; 
+2018: 1185-1206.
+99. Palma JP , Arain YH. Development of a web-based decision 
+support tool to operationalize and optimize management 
+of hyperbilirubinemia in preterm infants. Clin Perinatol 
+2016; 43: 375-383. 
+100. Bhutani VK; Committee on Fetus and Newborn; Ame -
+rican Academy of Pediatrics. Phototherapy to prevent 
+severe neonatal hyperbilirubinemia in the newborn in -
+fant 35 or more weeks of gestation. Pediatrics 2011; 128: 
+e1046-e1052.
+101. Raimondi F, Maffucci R, Milite P , et al. Why should we care 
+about neonatal hyperbilirubinemia in 2011? J Matern Fe -
+tal Neonatal Med 2011; 24: 83-84.
+102. Tan KL. The pattern of bilirubin response to phototherapy 
+for neonatal hyperbilirubinaemia. Pediatr Res 1982; 16: 
+670–674.
+103. Jährig K, Jährig D, Meisel P . Dependence of the efficiency 
+of phototherapy on plasma bilirubin concentration. Acta 
+Paediatr Scand 1982; 71: 293–299.
+104. Hansen TW, Nietsch L, Norman E, et al. Reversibility of 
+acute intermediate phase bilirubin encephalopathy. Acta 
+Paediatr 2009; 98: 1689 –1694.
+105. McDonagh AF, Agati G, Fusi F, Pratesi R. Quantum yields 
+for laser photocyclization of bilirubin in the presence of 
+human serum albumin: dependence of quantum yield on 
+excitation wavelength. Photochem Photobiol 1989; 50: 
+305–319.
+106. Chen CM, Liu SH, Lai CC et al. Changing position does not 
+improve the efficacy of conventional phototherapy. Acta 
+Paediatr Taiwan 2002; 43: 255-258.
+107. Shinwell ES, Sciaky Y, and Karplus M. Effect of position 
+changing on bilirubin levels during phototherapy. J Peri -
+natol 2002; 22: 226-229.
+108. Thukral A, Deorari A, Chawla D. Periodic change of body 
+position under phototherapy in term and preterm neo -
+nates with hyperbilirubinaemia. Cochrane Database Syst 
+Rev 2022; 3: CD011997. 
+109. Van Rostenberghe H, Ho JJ, Lim CH, Abd Hamid IJ. Use of 
+reflective materials during phototherapy for newborn in -
+fants with unconjugated hyperbilirubinaemia. Cochrane 
+Database Syst Rev 2020; 7: CD012011.
+110. Garg AK, Prasad RS, Hifzi IA. A controlled trial of high-in -
+tensity double-surface phototherapy on a fluid bed ver -
+sus conventional phototherapy in neonatal jaundice. Pe -
+diatrics. 1995; 95: 914–916.
+111. Tan KL. Comparison of the efficacy of fiberoptic and con -
+ventional phototherapy for neonatal hyperbilirubinemia. 
+J Pediatr 1994; 125: 607–612.
+112. Wickremasinghe AC, Kuzniewicz MW, McCulloch CE, New-
+man TB. Efficacy of subthreshold newborn phototherapy 
+during the birth hospitalization in preventing readmissi -
+on for phototherapy. JAMA Pediatr 2018; 172: 378-385.
+113. Okwundu CI, Okoromah CAN, Shah PS. Prophylactic pho -
+totherapy for preventing jaundice in preterm or low birth 
+weight infants. Cochrane Database Syst Rev 2012; 18: 
+CD007966.
+114. Lai NM, Ahmad Kamar A, Choo YM, Kong JY, Ngim CF. 
+Fluid supplementation for neonatal unconjugated hyper-
+bilirubinaemia. Cochrane Database Syst Rev 2017; 8(8): 
+CD011891. 
+115. Xiong T, Qu Y, Cambier S, Mu D. The side effects of photo-
+therapy for neonatal jaundice: what do we know? What 
+should we do? Eur J Pediatr 2011; 170: 1247-1255. 
+116. Chen A, Du L, Xu Y et al. The effect of blue light exposure 
+on the expression of circadian genes: bmal1 and crypto -
+chrome 1 in peripheral blood mononuclear cells of jaun -
+diced neonates. Pediatr Res 2005; 58: 1180–1184.
+117. Fok TF, Wong W, Cheung KL. Eye protection for newbor -
+ns under phototherapy: comparison between a modified 
+headbox and the conventional eyepatches. Ann Trop Pae-
+diatr 1997; 17: 349–354.
+118. Koç H, Altunhan H, Dilsiz A, et al. Testicular changes in 
+newborn rats exposed to phototherapy. Pediatr Dev Pat -
+hol 1999; 2: 333–336.
+119. Wurtman RJ. The effects of light on the human body. Sci 
+Am 1975; 233: 69 –77.
+120. Cetinkursun S, Demirbag S, Cincik M, Baykal B, Gunal A. 
+Effects of phototherapy on newborn rat testicles. Arch 
+Androl 2006; 52: 61–70.
+121. Lightner DA, Linnane WP , Ahlfors CE. Bilirubin photooxi -
+dation products in the urine of jaundiced neonates recei -
+ving phototherapy. Pediatr Res 1984; 18: 696–700.
+122. Sisson TR. Photodegradation of riboflavin in neonates. 
+Fed Proc. 1987; 46: 1883–1885.
+123. Wang J, Guo G, Li A, Cai WQ, Wang X. Challenges of pho -
+totherapy for neonatal hyperbilirubinemia (Review). Exp 
+Ther Med 2021; 21: 231. 
+124. De Luca D, Picone S, Fabiano A, Paolillo P . Images in neo-
+natal medicine. Bronze baby syndrome: pictorial descrip -
+tion of a rare condition. Arch Dis Child Fetal Neonatal Ed 
+2010; 95: F325.
+125. Hochwald O, Borenstein-Levin L, Dinur G, Kugelman A. 
+Is there a “direct” answer: should we perform exchange 
+transfusion for neonatal predominantly conjugated hy -
+perbilirubinemia? Clin Pediatr (Phila). 2021; 60: 221-225. 
+126. Hooman N, Honarpisheh A. The effect of phototherapy on 
+urinary calcium excretion in newborns. Pediatr Nephrol 
+2005; 20: 1363–1364.
+127. Eghbalian F, Monsef A. Phototherapy-induced hypocalce-
+mia in icteric newborns. Iran J Med Sci 2002; 27: 169–171.
+128. Karamifar H, Pishva N. Prevalence of phototherapy indu -
+ced hypocalcemia. Iran J Med Sci 2002; 27: 166–168. 
+129. Yao AC, Martinussen M, Johansen OJ, Brubakk AM. Pho -
+totherapy-associated changes in mesenteric blood flow 
+response to feeding in term neonates. J Pediatr 1994; 124: 
+309–312.
+39
+130. Hansen TWR, Maisels MJ, Ebbesen F, et al. Sixty years of 
+phototherapy for neonatal jaundice – from serendipitous 
+observation to standardized treatment and rescue for mil-
+lions. J Perinatol 2020; 40: 180-193
+131. Maimburg RD, Olsen J, Sun Y. Neonatal hyperbilirubine -
+mia and the risk of febrile seizures and childhood epi -
+lepsy. Epilepsy Res 2016; 124: 67-72. 
+132. Newman TB, Wu YW, Kuzniewicz MW, Grimes BA, McCullo-
+ch CE. Childhood Seizures After Phototherapy. Pediatrics 
+2018; 142: e20180648. 
+133. Kuzniewicz MW, Niki H, Walsh EM, McCulloch CE, Newman 
+TB. Hyperbilirubinemia, phototherapy, and childhood ast-
+hma. Pediatrics 2018; 142: e20180662. 
+134. Newman TB, Wickremasinghe AC, Walsh EM, Grimes BA, 
+McCulloch CE, Kuzniewicz MW. Retrospective cohort 
+study of phototherapy and childhood cancer in Northern 
+California. Pediatrics 2016; 137: e20151354.
+135. Wickremasinghe AC, Kuzniewicz MW, Grimes BA, McCul -
+loch CE, Newman TB. Neonatal phototherapy and infanti-
+le cancer. Pediatrics 2016; 137: e20111353.
+136. Dahlquist G, Kallen B. Indications that phototherapy is a 
+risk factor for insulin-dependent diabetes. Diabetes Care 
+2003; 26: 247–248.
+137. Robertson L, Harrild K. Maternal and neonatal risk factors 
+for childhood type 1 diabetes: a matched case– control 
+study. BMC Public Health 2010; 10: 281.
+138. Newman TB, Wickremasinghe AC, Walsh EM, Grimes BA, 
+McCulloch CE, Kuzniewicz MW. Phototherapy and risk of 
+type 1 diabetes. Pediatrics 2016; 138: 20160687.
+139. Ahlfors CE, Amin SB, Parker AE. Unbound bilirubin predi -
+cts abnormal automated auditory brainstem response in 
+a diverse newborn population. J Perinatol 2009; 29: 305-
+309.
+140. Ahlfors CE, Wennberg RP , Ostrow JD, Tiribelli C. Unbound 
+(free) bilirubin: improving the paradigm for evaluating ne-
+onatal jaundice. Clin Chem. 2009; 55: 1288-1299. 
+141. Falciglia HS, Greenwood CS. Double volume exchange 
+transfusion: a review of the ‘’ins and outs’’ . Neoreviews 
+2013; 14; e513-e520.
+142. Girelli G, Antoncecchi S, Casadei AM, Vecchio AD, Iser -
+nia P , Motta M,  et al. Recommendations for transfusion 
+therapy in neonatology. Review Blood Transfus. 2015 
+Jul;13(3):484-97.
+142 a. diye yeni bir kaynak eklenecek aşağıdaki kaynak EKLE -
+NECEK: 142a. Chang TT.Transfusion therapy in critically ill 
+children. Pediatr Neonatol 2008;49(2):5-12.
+143. Ramasethu J. Exchange transfusion. In: MacDonald MG, 
+Ramasethu J, Rais-Bahrami K eds. Atlas of Procedures in 
+Neonatology. Fifth edition, Philadelphia: Lippincott Willi -
+ams and Wilkings, Wolters Kluver. 2013: 315-322
+144. Sharafi R, Mortazavi Z, Sharafi S, Parashkouh RM. The ef -
+fect of clofibrate on decreasing serum bilirubin in healthy 
+term neonates under home phototherapy. Iran J Pediatr 
+2010; 20: 48-52.
+145. Awad MH, Amer S, Hafez M, Nour I, Shabaan A. Fenofibra-
+te as an adjuvant to phototherapy in pathological uncon-
+jugated hyperbilirubinemia in neonates: a randomized 
+control trial. J Perinatol 2021; 41: 865-872. 
+146. Gholitabar M, McGuire H, Rennie J, Manning D, Lai R. Clo -
+fibrate in combination with phototherapy for unconju -
+gated neonatal hyperbilirubinaemia. Cochrane Database 
+Syst Rev 2012; 12(12): CD009017. 
+147. Dennery PA. Pharmacological interventions for the treatment 
+of neonatal jaundice. Semin Neonatol 2002; 7: 111-119.
+148. Caglayan S, Candemir H, Aksit S, Kansoy S, Asik S, Yaprak I. 
+Superiority of oral agar and phototherapy combination in 
+the treatment of neonatal hyperbilirubinemia. Pediatrics 
+1993; 92: 86-89.
+149. Abdel-Aziz Ali SM, Mansour Galal S, Sror SM, Hussein O, 
+Abd-El-Haseeb Ahmed AO, Hamed EA. Efficacy of oral agar 
+in management of indirect hyperbilirubinemia in full-term 
+neonates. J Matern Fetal Neonatal Med 2020; 1-6. 
+150. Stevenson DK, Wong RJ. Metalloporphyrins in the mana -
+gement of neonatal hyperbilirubinemia. Semin Fetal Neo-
+natal Med 2010; 15: 164–168.
+151. Suresh GK, Martin CL, Soll RF. Metalloporphyrins for tre -
+atment of unconjugated hyperbilirubinemia in neonates. 
+Cochrane Database Syst Rev 2003;(2):CD004207. 
+152. Bhutani VK, Poland R, Meloy LD, Hegyi T, Fanaroff AA, Mai-
+sels MJ. Clinical trial of tin mesoporphyrin to prevent neo-
+natal hyperbilirubinemia. J Perinatol 2016; 36: 533-539. 
+153. Zwiers C, Scheffer-Rath ME, Lopriore E, de Haas M, Liley 
+HG. Immunoglobulin for alloimmune hemolytic disease in 
+neonates. Cochrane Database Syst Rev 2018; 3: CD003313. 
+154. Kaplan M, Hammerman C. Hemolytic disorders and their 
+management. In: Stevenson DK, Maisels MJ, Watchko JF, 
+eds. Care of Jaundiced Neonate. New York: McGraw-Hill; 
+2012: 145-165.
+155. Fasano RM, Luban NLC. Transfusion practices. In: de Alarcon 
+PA, Werner EJ, Christensen RD, eds. Neonatal Hematology. 
+New York: Cambridge University Press; 2013: 303-327.
+156. American Academy of Pediatrics, Joint Committee on In -
+fant Hearing. Year 2007 position statement: Principles and 
+guidelines for early hearing detection and intervention 
+programs. Pediatrics 2007; 120: 898-921. 

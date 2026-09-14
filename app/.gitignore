@@ -1,0 +1,10 @@
+node_modules
+dist
+dev-dist
+*.local
+dexie-cloud.key
+dexie-cloud.json
+.vercel
+
+.vercel
+.env*

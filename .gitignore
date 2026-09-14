@@ -1,0 +1,15 @@
+# bağımlılıklar ve çıktılar
+app/node_modules/
+app/dist/
+app/dist-local/
+app/dev-dist/
+app/.vercel/
+# sırlar — asla commit etme
+app/dexie-cloud.json
+app/dexie-cloud.key
+app/.env.local
+app/.env*.local
+# geçici
+*.log
+.DS_Store
+Thumbs.db

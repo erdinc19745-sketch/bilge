@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/* ---------- Tema ----------
+   Koyu (gece) varsayılan: gece 3'te gözü almayan zemin, sıcak turuncu vurgu (mavi ışık yok).
+   Açık (gündüz) tema data-theme="light" ile; Ayarlar'da Otomatik / Koyu / Açık. */
+:root {
+  --bg: #0b0f14;
+  --card: #151b23;
+  --card-2: #1c2430;
+  --input: rgba(0, 0, 0, 0.3);
+  --line: rgba(255, 255, 255, 0.1);
+  --text: #e6edf3;
+  --muted: #8b98a5;
+  --accent: #f0a35e;
+  --on-accent: #1a1208;
+  --c-uyku: #3987e5;
+  --c-emzirme: #d95926;
+  --c-bez: #199e70;
+  --c-biberon: #c98500;
+  color-scheme: dark;
+}
+:root[data-theme="light"] {
+  --bg: #f6f3ee;
+  --card: #ffffff;
+  --card-2: #f1ede6;
+  --input: rgba(0, 0, 0, 0.05);
+  --line: rgba(0, 0, 0, 0.09);
+  --text: #1d2230;
+  --muted: #6b7280;
+  --accent: #d9822b;
+  --on-accent: #ffffff;
+  --c-uyku: #2a78d6;
+  --c-emzirme: #eb6834;
+  --c-bez: #1baf7a;
+  --c-biberon: #eda100;
+  color-scheme: light;
+}
+
+html, body, #root { height: 100%; }
+/* iOS Dynamic Type: kullanıcının sistem yazı boyutu; diğer tarayıcılar 16px'e düşer */
+html { font: -apple-system-body; font-size: 16px; }
+@supports (font: -apple-system-body) { html { font: -apple-system-body; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  overscroll-behavior: none;
+  transition: background 0.3s;
+}
+input, textarea, select { -webkit-user-select: text; user-select: text; color: var(--text); }
+h1, h2, h3 { letter-spacing: -0.01em; }
+
+/* iPhone çentik / ana ekran çubuğu boşlukları */
+.safe-top { padding-top: env(safe-area-inset-top); }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
+@layer components {
+  .btn {
+    border-radius: 1rem; font-weight: 600; font-size: 1.125rem; user-select: none;
+    background: var(--card); color: var(--text); min-height: 72px;
+    box-shadow: 0 1px 0 var(--line) inset; transition: transform 0.1s;
+  }
+  .btn:active { transform: scale(0.95); background: var(--card-2); }
+  .btn-accent { background: var(--accent); color: var(--on-accent); }
+  .btn-accent:active { filter: brightness(0.9); }
+  .card { background: var(--card); border-radius: 1rem; padding: 1rem; box-shadow: 0 1px 0 var(--line) inset; }
+  .muted { color: var(--muted); }
+  .input { background: var(--input); border-radius: 0.75rem; padding: 0.5rem 0.75rem; font-size: 1rem; width: 100%; margin-top: 0.25rem; }
+  :root[data-theme="light"] .card, :root[data-theme="light"] .btn, :root[data-theme="light"] .tile { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04); }
+
+  /* Eylem kartı: ikon çipi + başlık + alt yazı */
+  .tile {
+    display: flex; align-items: center; gap: 12px; width: 100%; min-height: 72px; padding: 12px 14px;
+    border-radius: 18px; background: var(--card); color: var(--text); user-select: none;
+    box-shadow: 0 1px 0 var(--line) inset; transition: transform 0.1s, background 0.15s;
+  }
+  .tile:active { transform: scale(0.97); background: var(--card-2); }
+  .tile-accent { background: var(--accent); color: var(--on-accent); }
+  .tile-accent:active { filter: brightness(0.92); }
+  .tile.lit { animation: lit 0.7s ease-out; }
+
+  /* Bölüm başlığı: küçük, büyük harf, aralıklı */
+  .section-title { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 4px 4px -4px; }
+
+  /* Büyük sayı */
+  .hero-num { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .label { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+}
+
+/* Kayıt alındı: buton kısa süre turuncu yanar */
+@keyframes lit {
+  0% { box-shadow: 0 0 0 0 var(--accent); background: var(--accent); color: var(--on-accent); }
+  100% { box-shadow: 0 0 0 10px transparent; }
+}
+.btn.lit { animation: lit 0.7s ease-out; }
+
+/* ---------- canlılık ---------- */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.6); opacity: 1; }
+}
+.dot-live { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: currentColor; animation: breathe 2.4s ease-in-out infinite; }
+
+@keyframes slide-up { from { transform: translateY(24px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.slide-up { animation: slide-up 0.22s ease-out; }
+@keyframes fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fade-in 0.18s ease-out; }
+
+.tone-ok { color: var(--text); }
+.tone-warn { color: #e2b93b; }
+.tone-late { color: #e8703f; }
+.hint { outline: 2px solid color-mix(in srgb, var(--accent) 55%, transparent); outline-offset: -2px; }
+
+@keyframes burst {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(1.2) rotate(360deg); opacity: 0; }
+}
+.burst { position: absolute; left: 50%; top: 50%; pointer-events: none; animation: burst 0.9s ease-out forwards; }
+
+/* 24 saatlik gün şeridi */
+.daybar { position: relative; height: 14px; border-radius: 7px; background: var(--line); overflow: hidden; }
+.daybar > i { position: absolute; top: 0; bottom: 0; border-radius: 2px; }
+.daybar .uyku { background: var(--c-uyku); }
+.daybar .emzirme { background: var(--c-emzirme); }
+.daybar .biberon { background: var(--c-biberon); }
+.daybar .bez { background: var(--c-bez); width: 3px; }
+
+/* Durum paneli: hafif gradyan + ince kenar */
+.status { background: linear-gradient(160deg, var(--card) 0%, var(--card-2) 100%); box-shadow: 0 0 0 1px var(--line) inset, 0 8px 24px -16px rgba(0,0,0,0.6); }
+
+/* Liquid Glass tarzı yarı saydam çubuklar (üst başlık + alt menü) */
+.bar-glass {
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  -webkit-backdrop-filter: saturate(160%) blur(18px);
+  backdrop-filter: saturate(160%) blur(18px);
+}
+
+/* Alt menü */
+.nav-btn { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 8px 0 6px; font-size: 11px; font-weight: 500; color: var(--muted); }
+.nav-btn.active { color: var(--accent); }
+.nav-btn .ind { width: 20px; height: 3px; border-radius: 2px; background: transparent; margin-top: 2px; }
+.nav-btn.active .ind { background: var(--accent); }
+
+/* Avatar halkası */
+.avatar-ring { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px color-mix(in srgb, var(--accent) 60%, transparent); }
+
+/* ---------- Yazdırma (aile hekimi raporu) ---------- */
+.print-only { display: none; }
+@media print {
+  :root { --bg: #fff; --card: #fff; --card-2: #f4f4f4; --text: #000; --muted: #555; --line: #ccc; --accent: #000; }
+  body { background: #fff; color: #000; }
+  .no-print, nav, header { display: none !important; }
+  .print-only { display: block; }
+  .report { position: static !important; overflow: visible !important; }
+  .print-card { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; padding: 8px 12px; margin-top: 8px; }
+  h1 { font-size: 18pt; } h2 { font-size: 10pt; } table, p, li { font-size: 10pt; }
+}
