@@ -46,11 +46,18 @@ export default function App() {
   const recent = useLiveQuery(() => db.events.orderBy("start").reverse().limit(50).toArray(), []);
   const subCount = useLiveQuery(() => db.pushSubs.count(), []);
   const meds = useLiveQuery(() => db.meds.toArray(), []);
+  // Uygulama öne gelince de eşitle: zamanı geçmiş hatırlatmanın kalan tekrar bildirimleri iptal olur
+  const [focusTick, setFocusTick] = useState(0);
+  useEffect(() => {
+    const on = () => { if (document.visibilityState === "visible") setFocusTick((x) => x + 1); };
+    document.addEventListener("visibilitychange", on);
+    return () => document.removeEventListener("visibilitychange", on);
+  }, []);
   useEffect(() => {
     if (!baby || !recent || subCount === undefined) return;
-    const t = window.setTimeout(() => syncReminders(baby, recent, meds ?? []), 3000);
+    const t = window.setTimeout(() => syncReminders(baby, recent, meds ?? []), focusTick ? 500 : 3000);
     return () => window.clearTimeout(t);
-  }, [baby, recent, subCount, meds]);
+  }, [baby, recent, subCount, meds, focusTick]);
 
   // Hatırlatma zamanı: alarm modu açıksa sürekli zil + tam ekran; değilse kısa zil + şerit
   const alarm = useAlarm();
@@ -80,8 +87,8 @@ export default function App() {
       )}
       {baby && !onboarded && !needLogin && <Onboarding onDone={() => setOnboarded(true)} />}
       {!alarm.armed && alarm.prefWanted && baby && (
-        <button className="fixed left-4 right-4 top-4 z-40 px-4 py-3 rounded-2xl text-sm font-semibold shadow-lg text-left" style={{ background: "var(--card)", marginTop: "env(safe-area-inset-top)", boxShadow: "0 0 0 1px var(--line)" }} onClick={() => armAlarm()}>
-          ⏰ Gece alarm modu kapandı (sayfa yenilendi) — <span style={{ color: "var(--accent)" }}>yeniden açmak için dokun</span>
+        <button className="fixed left-4 right-4 top-4 z-40 px-4 py-2.5 rounded-2xl text-sm font-semibold shadow-lg text-left" style={{ background: "var(--card)", marginTop: "env(safe-area-inset-top)", boxShadow: "0 0 0 1px var(--line)" }} onClick={() => armAlarm()}>
+          ⏰ Alarm modu bekliyor — <span style={{ color: "var(--accent)" }}>ekrana bir kez dokun</span> <span className="muted font-normal text-xs">(iPhone sesi dokunuşla açar)</span>
         </button>
       )}
       {chimeMsg && (

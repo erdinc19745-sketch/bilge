@@ -11,7 +11,9 @@ import { isActive, nextDoseAt } from "../meds/meds";
 export const DEFAULT_RULES = { feedGapMin: 180, sleepMaxMin: 240, dvit: true };
 export type Rules = typeof DEFAULT_RULES;
 
-interface Desired { kind: string; at: number; title: string; body: string }
+interface Desired { kind: string; at: number; title: string; body: string; repeat?: number[] }
+/** Uygulama kapalıyken tek bildirim sesi yetmez: 0 · 1 · 3 dk tekrar (uygulama açılınca kalanlar iptal) */
+const SALVO = [0, 60, 180];
 
 export function desiredReminders(baby: Baby, recent: BabyEvent[], now = Date.now(), meds: Medication[] = []): Desired[] {
   const r = { ...DEFAULT_RULES, ...(baby.reminders ?? {}) };
@@ -25,13 +27,13 @@ export function desiredReminders(baby: Baby, recent: BabyEvent[], now = Date.now
   // Beslenme aralığı: son beslenmenin bitişinden itibaren
   if (r.feedGapMin > 0 && lastFeed && !runningFeed) {
     const at = (lastFeed.end ?? lastFeed.start) + r.feedGapMin * 60_000;
-    if (at > now) out.push({ kind: "feed", at, title: `${name} · beslenme zamanı`, body: `Son beslenmeden ${Math.round(r.feedGapMin / 60 * 10) / 10} saat geçti.` });
+    if (at > now) out.push({ kind: "feed", at, title: `${name} · beslenme zamanı`, body: `Son beslenmeden ${Math.round(r.feedGapMin / 60 * 10) / 10} saat geçti.`, repeat: SALVO });
   }
 
   // Uzun uyku: yenidoğan 4 saatten uzun uyuyorsa beslenmek için uyandırılır
   if (r.sleepMaxMin > 0 && runningSleep) {
     const at = runningSleep.start + r.sleepMaxMin * 60_000;
-    if (at > now) out.push({ kind: "sleep", at, title: `${name} uzun süredir uyuyor`, body: `${Math.round(r.sleepMaxMin / 60 * 10) / 10} saati geçti — beslenme için uyandırmayı düşün.` });
+    if (at > now) out.push({ kind: "sleep", at, title: `${name} uzun süredir uyuyor`, body: `${Math.round(r.sleepMaxMin / 60 * 10) / 10} saati geçti — beslenme için uyandırmayı düşün.`, repeat: SALVO });
   }
 
   // D vitamini: seçilen saatten 1 saat sonra hâlâ verilmediyse
@@ -46,7 +48,7 @@ export function desiredReminders(baby: Baby, recent: BabyEvent[], now = Date.now
   // İlaç kürleri: sonraki doz zamanı (gerekirse ilaçlarda plan yok)
   for (const m of meds.filter((x) => isActive(x, now) && !x.prn)) {
     const at = nextDoseAt(m, recent);
-    if (at && at > now) out.push({ kind: `med-${m.id}`, at, title: `${name} · ${m.name} zamanı`, body: `${m.dose} — ${m.intervalH} saatte bir. Verince uygulamada işaretle.` });
+    if (at && at > now) out.push({ kind: `med-${m.id}`, at, title: `${name} · ${m.name} zamanı`, body: `${m.dose} — ${m.intervalH} saatte bir. Verince uygulamada işaretle.`, repeat: SALVO });
   }
   return out;
 }
@@ -82,6 +84,7 @@ export async function syncReminders(baby: Baby, recent: BabyEvent[], meds: Medic
         title: d.title,
         body: d.body,
         tag: `bilge-${d.kind}`,
+        repeat: d.repeat ?? [0],
         subs: subs.map((s) => ({ endpoint: s.endpoint, keys: s.keys })),
       });
       if (r?.msgId) await db.reminders.put({ kind: d.kind, at: d.at, msgId: r.msgId, updatedAt: Date.now(), realmId });

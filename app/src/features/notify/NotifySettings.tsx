@@ -64,7 +64,7 @@ export default function NotifySettings({ baby }: { baby: Baby }) {
         {mine ? "🔕 Bu cihazda kapat" : "🔔 Bu cihazda aç"}
       </button>
       {msg && <p className="text-xs muted">{msg}</p>}
-      <p className="text-[10px] muted">Bildirim sesi iPhone'un sistem sesidir: iPhone Ayarlar → Bildirimler → Bilge → <b>Sesler</b> açık olsun; Odak/Rahatsız Etmeyin kapalıyken çalar. Uygulama açıkken ayrıca kısa bir zil duyulur.</p>
+      <p className="text-[10px] muted">Uygulama <b>kapalıyken</b> iPhone web uygulamasına sürekli alarm çaldırmaz; onun yerine beslenme/uyku/ilaç hatırlatması <b>3 bildirim</b> olarak gelir (0 · 1 · 3 dk), uygulamayı açınca kalanı durur. Ses iPhone'un sistem sesidir: iPhone Ayarlar → Bildirimler → Bilge → <b>Sesler</b> açık; Odak/Rahatsız Etmeyin kapalı. Üçüncü katman: Takvim aboneliği (Takvim sekmesi) uygulama kapalıyken Takvim uyarısı çalar.</p>
       {!codeSaved && (
         <div className="rounded-xl p-3 text-xs flex flex-col gap-2" style={{ background: "color-mix(in srgb, var(--accent) 12%, var(--card))" }}>
           <span>Hatırlatma sunucusu için bu telefonda aile kodu kayıtlı değil (eski girişten kalma). Bir kez gir:</span>
@@ -85,7 +85,7 @@ export default function NotifySettings({ baby }: { baby: Baby }) {
         <div className="flex items-center justify-between gap-2">
           <div>
             <div className="text-sm font-semibold">⏰ Gece alarm modu</div>
-            <div className="text-[11px] muted">Hatırlatma anında telefon kilitliyken de sürekli zil (medya sesiyle çalar; sessiz anahtarı etkilemez). Uygulama açık kalsın — kaydırıp kapatma, şarja tak, medya sesini aç.</div>
+            <div className="text-[11px] muted">Varsayılan açık. Uygulama açıkken (telefon kilitli olsa da) hatırlatma anında sürekli zil — medya sesiyle çalar, sessiz anahtarı etkilemez; medya sesini aç, geceleri şarja tak. Sayfa yenilenirse ilk dokunuşta kendiliğinden yeniden kurulur.</div>
           </div>
           <button className={`btn text-sm px-4 shrink-0 ${alarm.armed ? "btn-accent" : ""}`} style={{ minHeight: 44 }} onClick={() => (alarm.armed ? disarmAlarm() : armAlarm())}>{alarm.armed ? "Açık" : "Aç"}</button>
         </div>

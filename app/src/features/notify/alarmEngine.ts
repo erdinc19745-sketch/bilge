@@ -1,4 +1,4 @@
-import { db } from "../../db/db";
+import { db, demoMode } from "../../db/db";
 import { keepAliveStart, keepAliveStop, keepAliveInfo, playAlarmTone, stopAlarmTone, chime } from "../noise/audioEngine";
 
 /**
@@ -16,7 +16,20 @@ const emit = () => listeners.forEach((l) => l({ ...state }));
 export const subscribeAlarm = (l: (s: AlarmState) => void) => { listeners.add(l); l({ ...state }); return () => { listeners.delete(l); }; };
 export const getAlarmState = () => ({ ...state });
 const PREF = "bilge.alarmMode";
-export const alarmPrefEnabled = () => { try { return localStorage.getItem(PREF) === "1"; } catch { return false; } };
+/** Varsayılan AÇIK (önemli uyarı, seçenek değil); kullanıcı Ayarlar'dan kapatırsa "0" */
+export const alarmPrefEnabled = () => { if (demoMode) return false; try { return localStorage.getItem(PREF) !== "0"; } catch { return true; } };
+
+/**
+ * iOS sesi yalnız kullanıcı dokunuşuyla başlatır; sayfa yenilenince mod düşer. Bunu kullanıcıya iş çıkarmadan
+ * çözmek için: mod isteniyor ama kurulu değilse, uygulamadaki İLK dokunuş (hangi düğme olursa olsun) modu kurar.
+ */
+let autoArmBound = false;
+export function autoArmOnFirstTap() {
+  if (autoArmBound || state.armed || !alarmPrefEnabled()) return;
+  autoArmBound = true;
+  const h = () => { autoArmBound = false; document.removeEventListener("click", h, true); if (!state.armed && alarmPrefEnabled()) armAlarm(); };
+  document.addEventListener("click", h, true);
+}
 
 /* ---- tanı günlüğü: son 40 satır, cihazda ---- */
 const LOG = "bilge.alarmLog";
