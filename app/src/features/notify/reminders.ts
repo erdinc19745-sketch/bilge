@@ -8,8 +8,17 @@ import { isActive, nextDoseAt } from "../meds/meds";
  * Anne ve babanın telefonu aynı tabloyu gördüğü için aynı hatırlatma iki kez kurulmaz.
  */
 
-export const DEFAULT_RULES = { feedGapMin: 180, sleepMaxMin: 240, dvit: true };
+export const DEFAULT_RULES = { feedGapMin: 180, sleepMaxMin: 240, dvit: true, alarmFrom: "", alarmTo: "" };
 export type Rules = typeof DEFAULT_RULES;
+
+/** Sesli (sürekli) alarm bu saatler arasında; boşsa her zaman. Gece yarısını aşan aralık ("21:00"–"09:00") desteklenir. */
+export function inAlarmHours(r: { alarmFrom?: string; alarmTo?: string } | undefined, now = new Date()): boolean {
+  if (!r?.alarmFrom || !r?.alarmTo) return true;
+  const [fh, fm] = r.alarmFrom.split(":").map(Number), [th, tm] = r.alarmTo.split(":").map(Number);
+  const cur = now.getHours() * 60 + now.getMinutes(), from = fh * 60 + fm, to = th * 60 + tm;
+  if (from === to) return true;
+  return from < to ? cur >= from && cur < to : cur >= from || cur < to;
+}
 
 interface Desired { kind: string; at: number; title: string; body: string; repeat?: number[] }
 /** Uygulama kapalıyken tek bildirim sesi yetmez: 0 · 1 · 3 dk tekrar (uygulama açılınca kalanlar iptal) */

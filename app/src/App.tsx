@@ -61,7 +61,7 @@ export default function App() {
 
   // Hatırlatma zamanı: alarm modu açıksa sürekli zil + tam ekran; değilse kısa zil + şerit
   const alarm = useAlarm();
-  const chimeMsg = alarm.ringing && !alarm.armed ? alarm.ringing.label : null;
+  const chimeMsg = alarm.ringing && !alarm.loud ? alarm.ringing.label : null;
 
   // ?act=… kısayolu (iOS Kısayolları / kilit ekranı widget'ı)
   const [actMsg, setActMsg] = useState<string | null>(null);
@@ -76,7 +76,7 @@ export default function App() {
   return (
     <div className="flex flex-col h-full">
       <ConfirmHost />
-      {alarm.ringing && alarm.armed && (
+      {alarm.ringing && alarm.loud && (
         <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 px-6 text-center" style={{ background: "var(--accent)", color: "var(--on-accent)" }}>
           <Icon name="bell" size={64} />
           <div className="text-3xl font-bold">{alarm.ringing.label}</div>

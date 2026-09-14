@@ -1,6 +1,7 @@
 import { db, demoMode } from "../../db/db";
 import { keepAliveStart, keepAliveStop, keepAliveInfo, playAlarmTone, stopAlarmTone, chime } from "../noise/audioEngine";
 import { updateLockStatus } from "./lockStatus";
+import { inAlarmHours } from "./reminders";
 
 /**
  * Gece alarm modu. iOS web uygulaması arka planda uyur; ama ses çalıyorsa uyumaz.
@@ -10,8 +11,8 @@ import { updateLockStatus } from "./lockStatus";
  * Mod bir kullanıcı dokunuşuyla açılmalı (iOS ses kuralı); sayfa yeniden yüklenince tekrar açılır.
  * Tanı günlüğü (Ayarlar → Bildirimler → alarm günlüğü): kilitliyken ne olduğunu görmek için.
  */
-export interface AlarmState { armed: boolean; ringing: { label: string; kind: string } | null; snoozeUntil: number | null; next: { at: number; label: string } | null }
-const state: AlarmState = { armed: false, ringing: null, snoozeUntil: null, next: null };
+export interface AlarmState { armed: boolean; loud: boolean; ringing: { label: string; kind: string } | null; snoozeUntil: number | null; next: { at: number; label: string } | null }
+const state: AlarmState = { armed: false, loud: false, ringing: null, snoozeUntil: null, next: null };
 const listeners = new Set<(s: AlarmState) => void>();
 const emit = () => listeners.forEach((l) => l({ ...state }));
 export const subscribeAlarm = (l: (s: AlarmState) => void) => { listeners.add(l); l({ ...state }); return () => { listeners.delete(l); }; };
@@ -79,10 +80,18 @@ async function ring(label: string, kind: string, again = 0) {
     navigator.mediaSession.setActionHandler("pause", () => stopRinging());
     navigator.mediaSession.setActionHandler("play", () => stopRinging());
   }
-  if (state.armed) {
+  const baby = await db.baby.get("me").catch(() => undefined);
+  state.loud = state.armed && inAlarmHours(baby?.reminders);
+  emit();
+  if (state.loud) {
     const how = await playAlarmTone();
     alog(`ÇAL "${label}" → ${how} · ${document.visibilityState} · ses ${keepAliveInfo()}`);
-  } else { chime(); alog(`zil "${label}" (mod kapalı)`); }
+  } else {
+    chime(); alog(`zil "${label}" (${state.armed ? "sesli alarm saati dışı" : "mod kapalı"})`);
+    // Kısa zil + şerit: 60 sn sonra kendiliğinden kapanır (yoksa sonraki hatırlatma hiç çalmazdı)
+    window.setTimeout(() => { if (ringSeq === seq && state.ringing) { state.ringing = null; emit(); } }, 60_000);
+    return;
+  }
   // 2 dk sonra sus (bebek uyanmasın), uyarı ekranda kalır; yanıt yoksa 3 dk sonra bir kez daha (en fazla 2)
   window.setTimeout(() => {
     if (ringSeq !== seq || !state.ringing) return;

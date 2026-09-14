@@ -8,11 +8,14 @@ import EditEvent from "./EditEvent";
 import { swatch } from "../stool/stoolCard";
 import { Chip, Icon, type IconName } from "../../lib/icons";
 import DayBar from "./DayBar";
+import AddPast from "./AddPast";
 
 /** Günlük zaman şeridi: en yeni üstte, güne göre gruplu; satıra dokun → düzenle/sil */
 export default function Timeline() {
   const events = useLiveQuery(() => db.events.orderBy("start").reverse().limit(500).toArray(), []) ?? [];
   const [editing, setEditing] = useState<BabyEvent | null>(null);
+  const [adding, setAdding] = useState(false);
+  const [addedMsg, setAddedMsg] = useState("");
   const [filter, setFilter] = useState<"hepsi" | "beslenme" | "uyku" | "bez" | "diger">("hepsi");
   const match = (e: BabyEvent) =>
     filter === "hepsi" ? true
@@ -29,7 +32,7 @@ export default function Timeline() {
     groups.get(k)!.push(e);
   }
 
-  if (events.length === 0) return <p className="muted text-center pt-10">Henüz kayıt yok — Kayıt sekmesinden başla.</p>;
+  if (events.length === 0 && !adding) return <p className="muted text-center pt-10">Henüz kayıt yok — Kayıt sekmesinden başla. <button className="underline" onClick={() => setAdding(true)}>Geçmişe kayıt ekle</button></p>;
 
   const FILTERS: { id: typeof filter; label: string }[] = [
     { id: "hepsi", label: "Hepsi" }, { id: "beslenme", label: "Beslenme" }, { id: "uyku", label: "Uyku" }, { id: "bez", label: "Bez" }, { id: "diger", label: "Diğer" },
@@ -43,7 +46,11 @@ export default function Timeline() {
             {f.label}
           </button>
         ))}
+        <button className="btn text-sm px-3 whitespace-nowrap flex items-center gap-1" style={{ minHeight: 36, marginLeft: "auto" }} onClick={() => setAdding(true)} aria-label="Geçmişe kayıt ekle">
+          <Icon name="plus" size={16} /> Geçmiş
+        </button>
       </div>
+      {addedMsg && <p className="text-xs muted -mt-2">{addedMsg}</p>}
       {[...groups.entries()].map(([day, list]) => (
         <section key={day}>
           <h2 className="text-sm font-semibold muted mb-1 flex justify-between">
@@ -61,6 +68,7 @@ export default function Timeline() {
         </section>
       ))}
       {editing && <EditEvent e={editing} onClose={() => setEditing(null)} />}
+      {adding && <AddPast onClose={() => setAdding(false)} onAdded={(m) => { setAddedMsg(m); window.setTimeout(() => setAddedMsg(""), 5000); }} />}
     </div>
   );
 }

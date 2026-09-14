@@ -89,3 +89,15 @@ describe("gelişim hedef ayı", () => {
     expect(targetMonth(13)).toBe(12);
   });
 });
+
+describe("sesli alarm saatleri", async () => {
+  const { inAlarmHours } = await import("../features/notify/reminders");
+  const at = (h: number, m = 0) => { const d = new Date(2026, 8, 14, h, m); return d; };
+  it("boşsa her zaman", () => { expect(inAlarmHours(undefined, at(13))).toBe(true); expect(inAlarmHours({ alarmFrom: "", alarmTo: "" }, at(3))).toBe(true); });
+  it("gece yarısını aşan aralık", () => {
+    const r = { alarmFrom: "21:00", alarmTo: "09:00" };
+    expect(inAlarmHours(r, at(23))).toBe(true); expect(inAlarmHours(r, at(3, 30))).toBe(true);
+    expect(inAlarmHours(r, at(8, 59))).toBe(true); expect(inAlarmHours(r, at(9))).toBe(false); expect(inAlarmHours(r, at(13))).toBe(false);
+  });
+  it("gün içi aralık", () => { const r = { alarmFrom: "08:00", alarmTo: "20:00" }; expect(inAlarmHours(r, at(12))).toBe(true); expect(inAlarmHours(r, at(22))).toBe(false); });
+});

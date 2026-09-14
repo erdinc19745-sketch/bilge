@@ -93,6 +93,17 @@ export default function NotifySettings({ baby }: { baby: Baby }) {
           <>
             <div className="text-xs muted">{alarm.next ? `Sonraki: ${new Date(alarm.next.at).toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" })} · ${alarm.next.label}` : "Bekleyen hatırlatma yok (beslenme/uyku kaydı girince oluşur)"}</div>
             <button className="btn text-base" style={{ minHeight: 48 }} onClick={() => { testAlarm(); setMsg(`${TEST_DELAY_S} saniye sonra alarm çalacak — şimdi telefonu kilitle ve bekle.`); }}>🔔 Alarmı dene ({TEST_DELAY_S} sn sonra)</button>
+            <div className="flex items-center justify-between gap-2 text-xs">
+              <span>Sesli alarm saatleri <span className="muted">(dışında sadece kısa zil + bildirim)</span></span>
+              <button className={`btn text-xs px-3 ${!rules.alarmFrom ? "btn-accent" : ""}`} style={{ minHeight: 32 }} onClick={() => setRule(rules.alarmFrom ? { alarmFrom: "", alarmTo: "" } : { alarmFrom: "21:00", alarmTo: "09:00" })}>{rules.alarmFrom ? "saat aralığı" : "her zaman"}</button>
+            </div>
+            {rules.alarmFrom && (
+              <div className="flex items-center gap-2 text-sm">
+                <input type="time" className="input mt-0 flex-1" value={rules.alarmFrom} onChange={(e) => setRule({ alarmFrom: e.target.value })} />
+                <span className="muted">–</span>
+                <input type="time" className="input mt-0 flex-1" value={rules.alarmTo} onChange={(e) => setRule({ alarmTo: e.target.value })} />
+              </div>
+            )}
             <button className="text-[11px] muted underline text-left" onClick={() => setLogOpen((v) => !v)}>{logOpen ? "günlüğü gizle" : "alarm günlüğü (çalmadıysa buraya bak)"}</button>
             {logOpen && (
               <div className="text-[10px] font-mono leading-snug whitespace-pre-wrap break-words rounded-lg p-2" style={{ background: "var(--card)" }}>

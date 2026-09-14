@@ -24,6 +24,8 @@ import { computeStock } from "../milk/milk";
 import { Icon } from "../../lib/icons";
 import { confirmIfNeeded } from "../../lib/confirm";
 import MorningCard from "./MorningCard";
+import AdjustCard, { type Adjust } from "./AdjustCard";
+import VaccineCard from "../calendar/VaccineCard";
 
 /**
  * Gece modu kayıt ekranı.
@@ -70,6 +72,7 @@ export default function QuickLog() {
     navigator.vibrate?.(30);
   };
   const undoNow = async () => {
+    setAdjust(null);
     if (toast?.undo) await toast.undo();
     setToast({ msg: "Geri alındı" });
     window.clearTimeout(toastTimer.current);
@@ -96,6 +99,14 @@ export default function QuickLog() {
   const lastMeasure = useLiveQuery(() => db.measurements.orderBy("at").last(), []);
   const stockMl = computeStock(recent).totalMl;
   const [feverOpen, setFeverOpen] = useState(false);
+  // Kayıttan sonra süre/başlangıç düzeltme şeridi (emzirme, uyku)
+  const [adjust, setAdjust] = useState<(Adjust & { type: "emzirme" | "uyku" }) | null>(null);
+  const adjustTimer = useRef<number | undefined>(undefined);
+  const offerAdjust = (a: Adjust & { type: "emzirme" | "uyku" }) => {
+    setAdjust(a);
+    window.clearTimeout(adjustTimer.current);
+    adjustTimer.current = window.setTimeout(() => setAdjust(null), 30_000);
+  };
 
   const ago = (t?: number) => (t ? `${fmtDuration(Date.now() - t)} önce` : "—");
   /** Yenidoğan 2-3 saatte bir beslenir: 3 saat → sarı, 4 saat → turuncu */
@@ -112,6 +123,7 @@ export default function QuickLog() {
   const feedStart = async (side: "sol" | "sag") => {
     const id = await startEvent("emzirme", { side });
     done(`emzir-${side}`, `${side === "sol" ? "Sol" : "Sağ"} emzirme başladı`, del(id));
+    offerAdjust({ id, mode: "baslangic", start: Date.now(), end: 0, what: "Emzirme", type: "emzirme" });
   };
   /** Emzirirken diğer memeye geç: bu tarafı bitir, öbürünü başlat (tek dokunuş) */
   const switchSide = async (e: BabyEvent) => {
@@ -124,6 +136,7 @@ export default function QuickLog() {
     if (!(await confirmIfNeeded("emzirme-bitir", { title: "Emzirme bitsin mi?", text: `${fmtDuration(Date.now() - e.start)} sürdü.`, ok: "Bitir" }))) return;
     await endEvent(e.id);
     done("emzir-bitir", `Emzirme kaydedildi · ${fmtDuration(Date.now() - e.start)}`, () => reopenEvent(e.id));
+    offerAdjust({ id: e.id, mode: "sure", start: e.start, end: Date.now(), what: "Emzirme", type: "emzirme" });
   };
   const bottle = async (ml: number) => {
     if (!(await confirmIfNeeded("biberon", { title: `${ml} ml ${bottleKind === "sut" ? "anne sütü" : "mama"} kaydedilsin mi?`, ok: "Kaydet" }))) return;
@@ -148,11 +161,13 @@ export default function QuickLog() {
     if (feed) await endEvent(feed.id);
     const id = await startEvent("uyku");
     done("uyku", feed ? `Uyku başladı · emzirme bitti (${fmtDuration(Date.now() - feed.start)})` : "Uyku başladı", async () => { await db.events.delete(id); if (feed) await reopenEvent(feed.id); });
+    offerAdjust({ id, mode: "baslangic", start: Date.now(), end: 0, what: "Uyku", type: "uyku" });
   };
   const sleepEnd = async (e: BabyEvent) => {
     if (!(await confirmIfNeeded("uyku-bitir", { title: "Uyandı mı?", text: `${fmtDuration(Date.now() - e.start)} uyudu.`, ok: "Uyandı" }))) return;
     await endEvent(e.id);
     done("uyandi", `Uyandı · ${fmtDuration(Date.now() - e.start)} uyudu`, () => reopenEvent(e.id));
+    offerAdjust({ id: e.id, mode: "sure", start: e.start, end: Date.now(), what: "Uyku", type: "uyku" });
   };
   const dvit = async () => {
     const recentDose = lastDvit && Date.now() - lastDvit.start < 20 * 3600_000;
@@ -183,6 +198,7 @@ export default function QuickLog() {
             <ActionTile k="emzir-sag" lit={lit} icon="baby" tone="emzirme" title="Sağ" sub={nextSide === "sag" ? "sıra bunda" : "emzirmeyi başlat"} hint={nextSide === "sag"} onTap={() => feedStart("sag")} />
           </div>
         )}
+        {adjust?.type === "emzirme" && <AdjustCard key={adjust.id + adjust.mode} a={adjust} onClose={() => setAdjust(null)} />}
       </>
     ),
     biberon: (
@@ -257,6 +273,7 @@ export default function QuickLog() {
         ) : (
           <ActionTile k="uyku" lit={lit} icon="moon" tone="uyku" title="Uyudu" sub="uykuyu başlat" onTap={sleepStart} />
         )}
+        {adjust?.type === "uyku" && <AdjustCard key={adjust.id + adjust.mode} a={adjust} onClose={() => setAdjust(null)} />}
       </>
     ),
     "ates-dvit": (
@@ -320,6 +337,7 @@ export default function QuickLog() {
         <>
           <StatusPanel baby={baby} recent={recent} />
           <MorningCard recent={recent} />
+          {baby && <VaccineCard baby={baby} onFever={() => { setFeverOpen(true); }} />}
           <BackupNudge />
           <div className="text-xs muted -mb-1 flex justify-between px-1">
             <span>Son bez: {ago(lastDiaper?.start)}{lastDiaper?.diaper ? ` (${lastDiaper.diaper === "islak" ? "çiş" : lastDiaper.diaper === "ikisi" ? "çiş+kaka" : "kaka"})` : ""}</span>
