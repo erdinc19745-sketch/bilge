@@ -16,12 +16,32 @@ import type { BabyEvent } from "../../db/types";
  *   "kaka yaptı" / "çiş" / "bez değiştirdim" → bez
  *   "otuz yedi virgül sekiz" / "37 8 ateş" / "otuz yedi buçuk derece" → ateş 37.8 / 37.8 / 37.5
  *   "d vitamini verdim" / "demir verdim" / "aşısı oldu" → ilaç
+ *   "bitti" / "emzirme bitti"           → devam eden emzirmeyi bitir
+ *   "sağa geç" / "sola geçtim"          → devam eden emzirmeyi bitir, öbür tarafı başlat
+ *   "mama 60" / "sağma 80"              → biberon mama 60 ml / süt sağma 80 ml
+ *   Birden çok komut: "sağdan 15 dakika emdi ve kaka yaptı" → iki kayıt (parseTurkishMulti)
  */
 
 export type Parsed =
   | { kind: "add"; event: Omit<BabyEvent, "id" | "createdAt" | "updatedAt" | "realmId">; label: string }
   | { kind: "sleepStart"; at: number; label: string }
-  | { kind: "sleepEnd"; at: number; label: string };
+  | { kind: "sleepEnd"; at: number; label: string }
+  | { kind: "feedEnd"; at: number; label: string }
+  | { kind: "switchSide"; at: number; label: string };
+
+/** Cümleyi "ve", virgül, "sonra", "ayrıca", "bir de" ile böl; her parçayı ayrı ayrıştır. Anlaşılmayan parça atılır (tek parçaysa not olur). */
+export function parseTurkishMulti(raw: string): Parsed[] {
+  const parts = raw.split(/\s+ve\s+|,\s+|\s+sonra\s+|\s+ayrıca\s+|\s+ayrica\s+|\s+bir de\s+/i).map((p) => p.trim()).filter(Boolean);
+  if (parts.length <= 1) { const p = parseTurkish(raw); return p ? [p] : []; }
+  const out: Parsed[] = [];
+  for (const p of parts) {
+    const r = parseTurkish(p);
+    if (r && !(r.kind === "add" && r.event.type === "not")) out.push(r);
+  }
+  if (out.length) return out;
+  const whole = parseTurkish(raw);
+  return whole ? [whole] : [];
+}
 
 const ONES: Record<string, number> = { sıfır: 0, bir: 1, iki: 2, üç: 3, uç: 3, dört: 4, dort: 4, beş: 5, bes: 5, altı: 6, alti: 6, yedi: 7, sekiz: 8, dokuz: 9 };
 const TENS: Record<string, number> = { on: 10, yirmi: 20, otuz: 30, kırk: 40, kirk: 40, elli: 50, altmış: 60, altmis: 60, yetmiş: 70, yetmis: 70, seksen: 80, doksan: 90 };
@@ -47,6 +67,7 @@ export function wordsToDigits(text: string): string {
 /** Ondalıklar: "37 virgül 8" → "37.8", "37 buçuk" → "37.5", "37 8 ateş" → "37.8", "bir buçuk saat" → "1.5 saat" */
 function normalizeDecimals(t: string): string {
   t = t.replace(/(\d+)\s*(virgül|virgul|nokta)\s*(\d+)/g, "$1.$3");
+  t = t.replace(/(\d+),(\d+)/g, "$1.$2"); // dikte "37,8" yazar
   t = t.replace(/(\d+)\s*buçuk|(\d+)\s*bucuk/g, (_m, a, b) => `${Number(a ?? b) + 0.5}`);
   t = t.replace(/yarım saat|yarim saat/g, "30 dakika");
   t = t.replace(/(\d{2})\s(\d)(?=\s*(ateş|ates|derece))/g, "$1.$2"); // "37 8 ateş"
@@ -88,9 +109,13 @@ export function parseTurkish(raw: string): Parsed | null {
   if (/demir/.test(t)) return { kind: "add", event: { type: "ilac", start: at, medName: "Demir" }, label: `Demir verildi${when}` };
   if (/aşı|asi oldu|aşısı/.test(t)) return { kind: "add", event: { type: "ilac", start: at, medName: "Aşı" }, label: `Aşı yapıldı${when}` };
 
+  // --- devam eden emzirme: bitir / taraf değiştir ---
+  if (/(sağa|saga|sola)\s*geç/.test(t)) return { kind: "switchSide", at, label: `Diğer memeye geç${when}` };
+  if (/^(bitti|bitir|emzirme bitti|emzirmeyi bitir|bıraktı|birakti|doydu)$/.test(t.trim()) || /emzirme(yi)?\s*bit/.test(t)) return { kind: "feedEnd", at, label: `Emzirme bitti${when}` };
+
   // --- süt sağma ---
   if (/sağ(dım|dı|ıldı|ma)|sagdim|pompa/.test(t)) {
-    const m2 = t.match(/(\d+)\s*(ml|mililitre|cc)/);
+    const m2 = t.match(/(\d+)\s*(ml|mililitre|cc)/) ?? t.match(/(?:sağma|sagma|pompa)\s*(\d+)/);
     if (m2) {
       const store = /dondurucu/.test(t) ? "dondurucu" : /taze|hemen|verdim/.test(t) ? "taze" : "dolap";
       return { kind: "add", event: { type: "sagma", start: at, amountMl: Number(m2[1]), store }, label: `Süt sağma ${m2[1]} ml → ${store}${when}` };
@@ -98,7 +123,7 @@ export function parseTurkish(raw: string): Parsed | null {
   }
 
   // --- biberon ---
-  const ml = t.match(/(\d+)\s*(ml|mililitre|cc)/) ?? t.match(/biberon\s*(\d+)/) ?? t.match(/(\d+)\s*biberon/);
+  const ml = t.match(/(\d+)\s*(ml|mililitre|cc)/) ?? t.match(/(?:biberon|mama)\s*(\d+)/) ?? t.match(/(\d+)\s*(?:biberon|mama)/);
   if (ml) {
     const amount = Number(ml[1]);
     if (amount > 0 && amount < 500) {
@@ -148,11 +173,14 @@ export function parseTurkish(raw: string): Parsed | null {
 /** Yardım metni: neleri anlıyor */
 export const PARSER_EXAMPLES = [
   "sağdan on beş dakika emdi",
-  "on dakika önce soldan emdi",
-  "60 ml içti",
+  "soldan emiyor",
+  "bitti",
+  "sağa geç",
   "kaka yaptı",
-  "yarım saat önce uyudu",
+  "uyudu",
   "uyandı",
+  "60 ml içti",
+  "on dakika önce soldan emdi ve çiş",
   "otuz yedi virgül sekiz derece",
   "d vitamini verdim",
 ];

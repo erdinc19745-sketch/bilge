@@ -4,7 +4,7 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { addEvent, consumeAutoWake, db, endEvent, reopenEvent, startEvent } from "../../db/db";
 import type { BabyEvent } from "../../db/types";
 import { fmtClock, fmtDuration, fmtTime } from "../../lib/time";
-import VoiceInput from "./VoiceInput";
+import VoiceSheet from "./VoiceSheet";
 import StatusPanel from "./StatusPanel";
 import MilestoneCard from "../milestones/MilestoneCard";
 const WhiteNoise = lazy(() => import("../noise/WhiteNoise"));
@@ -304,7 +304,7 @@ export default function QuickLog() {
     sarilik: baby && (Date.now() - parseISO(baby.birthDate).getTime()) / 86_400_000 <= 28 ? <JaundiceCard baby={baby} recent={recent} onDone={done} /> : null,
     ekgida: baby ? <SolidsBlock baby={baby} recent={recent} lit={lit} onDone={done} /> : null,
     bilgi: <InfoCards />,
-    ses: <VoiceInput onSaved={(label, undo) => done("ses", label, undo)} />,
+    ses: null,
     uykusesi: <Suspense fallback={null}><WhiteNoise /></Suspense>,
     anne: (
       <>
@@ -346,13 +346,15 @@ export default function QuickLog() {
         </>
       )}
 
-      {layout.order.filter((b) => isVisible(layout, b, getRole()) && SEGMENT_OF[b] === segment).map((b) => <Fragment key={b}>{blocks[b]}</Fragment>)}
+      {layout.order.filter((b) => isVisible(layout, b, getRole()) && SEGMENT_OF[b] === segment && blocks[b]).map((b) => <Fragment key={b}>{blocks[b]}</Fragment>)}
+
+      {/* Yüzen 🎤: her bölmede; konuş → kendiliğinden kaydeder */}
+      <VoiceSheet onSaved={(label, undo) => done("ses", label, undo)} />
 
       {/* ---- Toast + Geri al ---- */}
       {toast && (
         <div
-          className="slide-up fixed left-4 right-4 bottom-24 flex items-center justify-between gap-3 px-4 py-3 rounded-2xl text-sm shadow-lg"
-          style={{ background: "var(--accent)", color: "var(--on-accent)" }}
+          className="slide-up fixed left-4 bottom-24 flex items-center justify-between gap-3 px-4 py-3 rounded-2xl text-sm shadow-lg" style={{ right: 84, background: "var(--accent)", color: "var(--on-accent)" }}
         >
           <span className="flex items-center gap-2"><Icon name="check" size={18} /> {toast.msg}</span>
           {toast.undo && (

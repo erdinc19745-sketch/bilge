@@ -10,7 +10,7 @@ export const isOnboarded = () => { try { return localStorage.getItem(KEY) === "1
  * Son ekran doğum kilosunu girmeye yönlendirir (değerlendirme kartının "veri yok" satırı için).
  */
 const SLIDES: { icon: IconName; tone: "emzirme" | "uyku" | "accent"; title: string; lines: string[] }[] = [
-  { icon: "plus", tone: "emzirme", title: "Gece 3'te tek dokunuş", lines: ["Kayıt ekranının Hızlı bölmesi: Sol/Sağ emzir, Çiş/Kaka, Uyudu — dokun, kaydolur.", "Yanlış bastın? Altta 6 saniye Geri al çıkar.", "Zamanı yanlış mı? Şerit'te kayda dokun, −15 dk ile kaydır."] },
+  { icon: "plus", tone: "emzirme", title: "Gece 3'te tek dokunuş", lines: ["Kayıt ekranının Hızlı bölmesi: Sol/Sağ emzir, Çiş/Kaka, Uyudu — dokun, kaydolur.", "Yanlış bastın? Altta 6 saniye Geri al çıkar.", "Yüzen 🎤: “sağdan on beş dakika emdi ve kaka yaptı” de — kendi kaydeder.", "Geç mi durdurdun? Kayıttan sonra çıkan şeritten süreyi düzelt."] },
   { icon: "chart", tone: "uyku", title: "Her şey yolunda mı?", lines: ["Özet sekmesi son 24 saati Sağlık Bakanlığı / AAP / WHO eşikleriyle karşılaştırır: iyi · izle · dikkat.", "Aile hekimine giderken 🩺 Rapor: tek sayfa, yazdır ya da WhatsApp'la gönder.", "Takvim: aşı ve izlem günleri, iPhone alarmıyla."] },
   { icon: "ruler", tone: "accent", title: "İlk iş: doğum kilosu", lines: ["Sağlık karnesindeki doğum kilosunu doğum tarihiyle gir; sonra her aile hekimi tartısını.", "İki tartıyla kilo alımı (g/gün) ve WHO persentili hesaplanır.", "Bakım bölmesi → Ölçüm kartı."] },
 ];

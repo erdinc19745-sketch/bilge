@@ -18,7 +18,8 @@ export const BLOCK_LABEL: Record<Block, string> = {
   anne: "Anne paneli",
   baba: "Gece nöbeti & giderler",
 };
-const DEFAULT_ORDER: Block[] = ["gelisim", "emzirme", "biberon", "sagma", "bez", "uyku", "ates-dvit", "sarilik", "ilaclar", "olcum", "ekgida", "bilgi", "ses", "uykusesi", "anne", "baba"];
+// "ses" artık blok değil: sesli kayıt Kayıt ekranındaki yüzen 🎤 düğmesinde (eski düzen kayıtlarından süzülür)
+const DEFAULT_ORDER: Block[] = ["gelisim", "emzirme", "biberon", "sagma", "bez", "uyku", "ates-dvit", "sarilik", "ilaclar", "olcum", "ekgida", "bilgi", "uykusesi", "anne", "baba"];
 const KEY = "bilge.layout";
 
 /** Kayıt ekranı bölmeleri: gece 3'te sadece "Hızlı" görünür; diğerleri bir dokunuş uzakta */

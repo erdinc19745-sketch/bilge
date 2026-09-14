@@ -46,3 +46,28 @@ describe("parseTurkish", () => {
     expect((parseTurkish("12 derece") as { event: { type: string } }).event.type).toBe("not");
   });
 });
+
+describe("parseTurkishMulti + yeni komutlar", async () => {
+  const { parseTurkishMulti } = await import("../features/log/parseTurkish");
+  it("iki komut tek cümlede", () => {
+    const r = parseTurkishMulti("sağdan on beş dakika emdi ve kaka yaptı");
+    expect(r.map((p) => p.kind)).toEqual(["add", "add"]);
+    expect(r[0].kind === "add" && r[0].event.type).toBe("emzirme");
+    expect(r[1].kind === "add" && r[1].event.diaper).toBe("kaka");
+  });
+  it("virgülle ayrılmış, ondalık virgül bozulmaz", () => {
+    expect(parseTurkishMulti("çiş, uyudu").length).toBe(2);
+    const f = parseTurkishMulti("37,8 derece");
+    expect(f.length).toBe(1); expect(f[0].kind === "add" && f[0].event.tempC).toBe(37.8);
+  });
+  it("bitti / sağa geç / mama / sağma", () => {
+    expect(parseTurkishMulti("bitti")[0].kind).toBe("feedEnd");
+    expect(parseTurkishMulti("sağa geç")[0].kind).toBe("switchSide");
+    const m = parseTurkishMulti("mama 60")[0]; expect(m.kind === "add" && m.event.bottleKind).toBe("mama");
+    const s = parseTurkishMulti("sağma 80")[0]; expect(s.kind === "add" && s.event.type).toBe("sagma");
+  });
+  it("anlaşılmayan parça atılır, tek parça not olur", () => {
+    expect(parseTurkishMulti("kaka yaptı ve bilmemne").length).toBe(1);
+    const n = parseTurkishMulti("bugün çok neşeliydi")[0]; expect(n.kind === "add" && n.event.type).toBe("not");
+  });
+});
