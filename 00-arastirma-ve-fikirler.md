@@ -391,3 +391,56 @@ mağaza sayfaları). "?" = doğrulanmadı.
 - **iOS 26 Liquid Glass:** yarı saydam, bulanık zeminli çubuklar; derinlik; içerikle tonlanan yüzeyler → üst başlık ve alt menü `backdrop-filter: blur` ile yarı saydam yapıldı.
 - **2026 eğilimleri:** koyu mod birincil yüzey (bizde zaten), amaçlı mikro-etkileşimler (lit/undo var), başparmak-öncelikli düzen (alt menü + büyük kartlar var), sesle kullanım (var), uyarlanabilir erişilebilirlik (Dynamic Type eklendi).
 - Sıradaki görsel adaylar: günlük hedef halkaları (beslenme 8/8, ıslak bez 6/6) durum panelinde; boş durum illüstrasyonları; sekme geçişinde yumuşak kaydırma; skeleton yükleme; büyük başlık (large title) stili; gece modunda daha sıcak gradyan.
+
+## 23. Rakip taraması — 6. tur (15 Eylül 2026, güncel 2026 incelemeleri)
+
+Kaynaklar: Pebbi "Best Baby Tracker Apps 2026" (11 uygulama), Tottli 2026 karşılaştırması, OurKidsMom (Huckleberry / Napper / Nara / Robin Baby),
+ConservaMom, NotSalmon; App Store TR: Mutlu Bebek, Emzirme & Bebek Takibi, Bebek Takibi!, Bebek+, Baby Tracker (Nighp).
+
+### 2026'da "olmazsa olmaz" sayılan özellikler
+Apple Watch · ana ekran widget'ı · kilit ekranı Live Activity · eş senkronu · uyku tahmini · hekim PDF'i · WHO persentil ·
+süt stoku · gece modu · tek elle kayıt · çoklu bebek · sesle kayıt (yeni) · yapay zekâ soru-cevap (yeni) · veri dışa aktarma.
+
+### Öne çıkanlar
+- **Huckleberry**: SweetSpot uyku tahmini, "Berry" AI koç, canlı uyku danışmanlığı. 68,99 $/yıl. Şikâyet: pahalı, obsesif takibe itiyor, çevrimdışı yok.
+- **Robin Baby** (2026'nın "en iyi iPhone" seçimi): sesle kayıt — tek cümlede birden çok olay ("15 dk soldan emdi, sonra kaka") + verine soru sorma ("son beslenme ne zamandı?") + hekim PDF.
+- **Nara Baby**: tamamen ücretsiz/reklamsız, lohusa sağlığı, ikiz/çoklu bebek, Live Activity, ilaç hatırlatması (çift doz engeli), belirti günlüğü.
+- **Pebbi**: 2 bakıcıya ücretsiz senkron, çevrimdışı, hesapsız; "AI devir-teslim özeti", gebelik haftasına göre düzeltilmiş tahmin (prematüre).
+- **Tottli**: en hızlı tek el kayıt, kilit ekranı widget'ı, süt stoku, pompa zamanlayıcı; iOS-only, fotoğraf/analiz yok.
+- **Baby Tracker (Nighp)**: 4,99 $ tek sefer, PDF, WHO; senkron iCloud (gerçek zamanlı değil).
+- **Talli**: fiziksel buton + Alexa (donanım 40–60 $).
+- **Wonder Weeks**: "sıçrama dönemi" tahmini (bilimsel kanıtı zayıf; takip yapmaz).
+- **TR uygulamaları** (Mutlu Bebek 4,7★ 663 oy, 129–649 ₺/yıl; Emzirme & Bebek Takibi; Bebek Takibi!): temel takip + ilaç hatırlatma;
+  hiçbirinde SB aşı takvimi, aile hekimi izlem protokolü, WHO persentil, sarılık/kırmızı bayrak, sesle kayıt yok; senkron ücretli.
+
+### Bizde OLMAYAN (dürüst liste)
+| Eksik | Kimde var | Yapılabilir mi? |
+|---|---|---|
+| Ana ekran widget'ı / Live Activity / Apple Watch | Tottli, Nara, Glow, Huckleberry | PWA'da imkânsız; yalnız native (Capacitor + Swift widget, 99 $/yıl + Mac). Kısmi karşılık: kilit ekranı medya kartı (bizde var). |
+| Verine soru sorma ("son beslenme ne zaman?", "bugün kaç bez?") | Robin Baby | EVET, kural tabanlı Türkçe soru-cevap, 0 TL — parser'ın üstüne. |
+| Belirti günlüğü (kusma, ishal, döküntü, öksürük, burun akıntısı…) | Nara | EVET, olay türü + çipler + rapora satır. |
+| Çoklu bebek / ikiz | Nara, Baby Connect | Çok-aile mimarisiyle birlikte (ertelendi). |
+| CSV/Excel dışa aktarma | Baby Tracker, Baby Connect | EVET, 1 saat. |
+| Aktivite: karın üstü süresi (tummy time), banyo, dışarı | Huckleberry | EVET; tummy time AAP kaynaklı öneriyle. |
+| Pompa zamanlayıcı (power pump) | Tottli, ParentLove | Kolay; anne isterse. |
+| Gebelik haftasına göre düzeltme (prematüre) | Pebbi | Gerekmiyor (term bebek); ürünleşirse eklenir. |
+| Prematüre/gelişim "sıçrama" takvimi | Wonder Weeks | Bilerek YOK (kanıt zayıf). |
+| Uyku tahmini derinliği (uyku basıncı modeli) | Huckleberry, Napper | Bizde yaş bandı + kişisel medyan var; veri birikince geliştirilebilir. |
+| Topluluk/forum, koçluk, canlı danışman | Glow, Huckleberry | Hedef değil. |
+
+### Bizde OLUP rakiplerde olmayan / nadir
+1. **Türkiye klinik standardı**: SB aşı takvimi 2026 (resmi kartla doğrulandı), aile hekimi izlem protokolü, TND sarılık kuralları, NICE kırmızı bayraklar, WHO 2023 ek gıda — ekranda kaynaklı. Hiçbir TR/global uygulamada yok.
+2. **Sesli, sürekli alarm** (telefon kilitliyken de) + uygulama kapalıyken 3'lü bildirim salvosu — rakiplerin hepsi tek bildirim.
+3. **Gece ekranı** (siyah, dev düğmeler, kilidi açınca önünde) + varsayılan açık alarm modu + kilit ekranı canlı durum kartı.
+4. **Akıllı kurallar**: uyurken bez/emzirme girince uyku biter; emzirirken "uyudu" emzirmeyi bitirir; taraf değiştir; süre düzeltme şeridi.
+5. **Türkçe sesle kayıt, çok komutlu, hataya toleranslı, sunucuya ses göndermeden** (Robin Baby sesi buluta yollar).
+6. **Ücretsiz, reklamsız, abonelik yok, veri bizde** (AB sunucusu), çevrimdışı, gerçek zamanlı eş senkronu, rol etiketi.
+7. **Değerlendirme kartı "veri yok" dürüstlüğü** — Huckleberry'nin "obsesif takip" şikâyetinin tersi: kayıt eksikse yorum yapmaz.
+8. Anne paneli + EPDS (TR kesme 13) + gece nöbeti/gider defteri + aile hekimi raporu tek yerde.
+
+### Eylem (sıra)
+1. Soru-cevap: "son beslenme?", "kaç bez?", "ne kadar uyudu?", "sonraki beslenme?", "D vitamini verildi mi?" — 🎤 sayfasından.
+2. Belirti günlüğü (çipler + not + rapora "Belirtiler" bölümü).
+3. CSV dışa aktarma (Ayarlar → Yedek).
+4. Karın üstü süresi (tummy time) + banyo kaydı (Bakım bölmesi, AAP kaynaklı hedef).
+5. Native karar (widget/Watch) — ürünleşme kararıyla birlikte, Ekim.
