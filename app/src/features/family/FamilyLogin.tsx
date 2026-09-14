@@ -56,7 +56,7 @@ export default function FamilyLogin() {
             className="w-full mt-1 input py-3 text-xl tracking-widest text-center font-mono"
           />
         </label>
-        {err && <p className="text-sm text-red-300">{err}</p>}
+        {err && <p className="text-sm text-danger">{err}</p>}
         <button className="btn btn-accent" style={{ minHeight: 56 }} disabled={busy} onClick={go}>
           {busy ? "Bağlanıyor…" : "Gir"}
         </button>

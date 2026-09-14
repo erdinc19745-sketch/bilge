@@ -9,6 +9,7 @@ import { swatch } from "../stool/stoolCard";
 import { Chip, Icon, type IconName } from "../../lib/icons";
 import DayBar from "./DayBar";
 import AddPast from "./AddPast";
+import { ROLE_LABEL, type Role } from "../family/family";
 
 /** Günlük zaman şeridi: en yeni üstte, güne göre gruplu; satıra dokun → düzenle/sil */
 export default function Timeline() {
@@ -116,7 +117,7 @@ function Row({ e, onTap }: { e: BabyEvent; onTap: () => void }) {
       <span className="tabular-nums muted text-xs w-10">{fmtTime(e.start)}</span>
       <Chip name={d.icon} tone={d.tone} size={32} />
       <span className="flex-1 text-sm">{d.text}{e.note && e.type !== "not" ? <span className="muted"> · {e.note}</span> : null}</span>
-      {e.by && <span className="text-[10px] px-1.5 py-0.5 rounded-md muted" style={{ background: "var(--line)" }}>{e.by}</span>}
+      {e.by && <span className="text-[10px] px-1.5 py-0.5 rounded-md muted" style={{ background: "var(--line)" }}>{ROLE_LABEL[e.by as Role] ?? e.by}</span>}
       <Icon name="chevronRight" size={16} className="muted" />
     </button>
   );

@@ -36,6 +36,8 @@ const PATHS: Record<string, string> = {
   play: "M6 4l14 8-14 8z",
   stop: "M6 6h12v12H6z",
   undo: "M3 7v6h6M21 17a9 9 0 0 0-15-6.7L3 13",
+  syringe: "M9.5 6.5l8 8-4.5 4.5-8-8zM6 15l-3 3M17.5 6.5l3-3M15 4l5 5M11 10l3 3",
+  microscope: "M6 18h8M3 22h18M14 22a7 7 0 1 0 0-14h-1M9 14h2M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2zM12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3",
 };
 
 export type IconName = keyof typeof PATHS;

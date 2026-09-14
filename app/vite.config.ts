@@ -20,7 +20,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     VitePWA({
-      registerType: "autoUpdate",
+      registerType: "prompt", // kendiliğinden yenileme yok: gece açık uygulamada alarm modunu düşürürdü; başlıkta "yeni sürüm" pili
       strategies: "injectManifest", // kendi service worker'ımız: önbellek + push
       srcDir: "src",
       filename: "sw.ts",

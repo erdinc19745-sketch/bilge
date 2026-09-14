@@ -4,8 +4,9 @@ import { clientsClaim } from "workbox-core";
 
 declare let self: ServiceWorkerGlobalScope;
 
-// Çevrimdışı: derleme çıktısı önbelleğe alınır, yeni sürüm hemen devreye girer
-self.skipWaiting();
+// Çevrimdışı: derleme çıktısı önbelleğe alınır. Yeni sürüm BEKLER: ya kullanıcı "yenile" der (SKIP_WAITING)
+// ya da uygulama tamamen kapanıp açılınca devreye girer — gece açık uygulama kendi kendine yenilenmez.
+self.addEventListener("message", (e) => { if ((e.data as { type?: string } | undefined)?.type === "SKIP_WAITING") self.skipWaiting(); });
 clientsClaim();
 cleanupOutdatedCaches();
 precacheAndRoute(self.__WB_MANIFEST);

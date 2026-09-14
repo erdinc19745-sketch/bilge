@@ -86,6 +86,20 @@ export default function EditEvent({ e, onClose }: { e: BabyEvent; onClose: () =>
             <input type="datetime-local" className={inputCls} value={end} onChange={(ev) => setEnd(ev.target.value)} />
           </label>
         )}
+        {timed && end && (() => {
+          const s0 = fromInput(start), e0 = fromInput(end);
+          const min = Math.max(0, Math.round((e0 - s0) / 60_000));
+          const setMin = (m: number) => setEnd(toInput(s0 + Math.max(1, m) * 60_000));
+          return (
+            <div className="flex items-center gap-2 text-sm">
+              <span className="muted">Süre</span>
+              <button className="btn text-sm px-3" style={{ minHeight: 36 }} onClick={() => setMin(min - 5)}>−5</button>
+              <span className="tabular-nums font-semibold w-16 text-center">{min} dk</span>
+              <button className="btn text-sm px-3" style={{ minHeight: 36 }} onClick={() => setMin(min + 5)}>+5</button>
+              {[10, 15, 20, 30].map((m) => <button key={m} className={`btn text-xs px-2 ${min === m ? "btn-accent" : ""}`} style={{ minHeight: 36 }} onClick={() => setMin(m)}>{m}</button>)}
+            </div>
+          );
+        })()}
 
         {e.type === "emzirme" && (
           <div className="grid grid-cols-2 gap-2">
@@ -143,10 +157,10 @@ export default function EditEvent({ e, onClose }: { e: BabyEvent; onClose: () =>
           <input className={inputCls} value={note} onChange={(ev) => setNote(ev.target.value)} placeholder="isteğe bağlı" />
         </label>
 
-        {err && <p className="text-sm text-red-300">{err}</p>}
+        {err && <p className="text-sm text-danger">{err}</p>}
 
         <div className="grid grid-cols-[1fr_2fr] gap-2 pt-1">
-          <button className="btn text-base text-red-300" style={{ minHeight: 52 }} onClick={remove}>Sil</button>
+          <button className="btn text-base text-danger" style={{ minHeight: 52 }} onClick={remove}>Sil</button>
           <button className="btn btn-accent" style={{ minHeight: 52 }} onClick={save}>Kaydet</button>
         </div>
       </div>

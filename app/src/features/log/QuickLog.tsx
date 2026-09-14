@@ -26,6 +26,8 @@ import { confirmIfNeeded } from "../../lib/confirm";
 import MorningCard from "./MorningCard";
 import AdjustCard, { type Adjust } from "./AdjustCard";
 import VaccineCard from "../calendar/VaccineCard";
+import FamilyStatus from "../father/FamilyStatus";
+const Report = lazy(() => import("../report/Report"));
 
 /**
  * Gece modu kayıt ekranı.
@@ -95,6 +97,7 @@ export default function QuickLog() {
   const [bottleKind, setBottleKind] = useState<"sut" | "mama">("sut");
   const [motherOpen, setMotherOpen] = useState(false);
   const [fatherOpen, setFatherOpen] = useState(false);
+  const [reportOpen, setReportOpen] = useState(false);
   const [measureOpen, setMeasureOpen] = useState(false);
   const lastMeasure = useLiveQuery(() => db.measurements.orderBy("at").last(), []);
   const stockMl = computeStock(recent).totalMl;
@@ -305,6 +308,14 @@ export default function QuickLog() {
     ekgida: baby ? <SolidsBlock baby={baby} recent={recent} lit={lit} onDone={done} /> : null,
     bilgi: <InfoCards />,
     ses: null,
+    ailedurum: baby ? (
+      <>
+        <FamilyStatus recent={recent} />
+        <MorningCard recent={recent} always />
+        <ActionTile k="rapor" lit={lit} icon="stethoscope" tone="accent" title="Aile hekimi raporu" sub="son 7 gün tek sayfa · yazdır / WhatsApp" right={<Icon name="chevronRight" size={18} />} onTap={() => setReportOpen(true)} />
+        {reportOpen && <Suspense fallback={null}><Report baby={baby} onClose={() => setReportOpen(false)} /></Suspense>}
+      </>
+    ) : null,
     uykusesi: <Suspense fallback={null}><WhiteNoise /></Suspense>,
     anne: (
       <>
@@ -315,7 +326,7 @@ export default function QuickLog() {
     ),
     baba: baby ? (
       <>
-        <div className="section-title">Aile</div>
+        <div className="section-title">Nöbet · giderler</div>
         <ActionTile k="baba" lit={lit} icon="clock" tone="uyku" title="Gece nöbeti & giderler" sub="kim kaç kez kalktı, bu gece nöbetçi, aylık harcama" right={<Icon name="chevronRight" size={18} />} onTap={() => setFatherOpen(true)} />
         {fatherOpen && <Suspense fallback={null}><FatherPage baby={baby} onClose={() => setFatherOpen(false)} /></Suspense>}
       </>

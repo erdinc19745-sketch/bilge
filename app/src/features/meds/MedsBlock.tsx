@@ -119,7 +119,7 @@ function MedForm({ onDone }: { onDone: () => void }) {
         </div>
         <p className="text-[10px] muted mt-1">{prn ? `Plan yok; "en az ${intervalH} saat ara" korumasıyla istediğinde verirsin (ateş düşürücü gibi).` : `${days} gün × ${24 / intervalH} doz/gün = ${Math.round((days * 24) / intervalH)} doz; sonraki dozlar hatırlatılır.`}</p>
       </div>
-      {err && <p className="text-sm text-red-300">{err}</p>}
+      {err && <p className="text-sm text-danger">{err}</p>}
       <div className="grid grid-cols-2 gap-2">
         <button className="btn text-base" style={{ minHeight: 48 }} onClick={onDone}>Vazgeç</button>
         <button className="btn btn-accent flex items-center justify-center gap-2" style={{ minHeight: 48 }} onClick={save}><Icon name="check" size={18} /> Kaydet</button>

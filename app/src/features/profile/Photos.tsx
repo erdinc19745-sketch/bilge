@@ -44,7 +44,7 @@ export default function Photos({ birthDate }: { birthDate: string }) {
         <div className="fixed inset-0 z-30 flex flex-col items-center justify-center gap-3 p-4" style={{ background: "rgba(0,0,0,0.9)" }} onClick={() => setView(null)}>
           <Img blob={view.blob} className="max-h-[75vh] max-w-full rounded-2xl" />
           <div className="text-sm">{view.month === 0 ? "Doğum" : `${view.month}. ay`}</div>
-          <button className="text-red-300 text-sm" onClick={async (e) => { e.stopPropagation(); if (await ask({ title: "Fotoğraf silinsin mi?", ok: "Sil", danger: true })) { db.photos.delete(view.id); setView(null); } }}>Sil</button>
+          <button className="text-danger text-sm" onClick={async (e) => { e.stopPropagation(); if (await ask({ title: "Fotoğraf silinsin mi?", ok: "Sil", danger: true })) { db.photos.delete(view.id); setView(null); } }}>Sil</button>
         </div>
       )}
     </section>

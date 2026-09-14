@@ -22,7 +22,7 @@ export default function DayBar({ day, events }: { day: number; events: BabyEvent
           return null;
         })}
         {/* şimdi çizgisi (sadece bugün) */}
-        {end < day + dayMs && <i style={{ left: pct(end), width: 1, background: "rgba(255,255,255,0.5)" }} />}
+        {end < day + dayMs && <i style={{ left: pct(end), width: 1, background: "var(--text)", opacity: 0.5 }} />}
       </div>
       <div className="flex justify-between text-[10px] muted mt-0.5 px-0.5">
         <span>00</span><span>06</span><span>12</span><span>18</span><span>24</span>

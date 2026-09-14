@@ -34,6 +34,9 @@ export default function App() {
   const [tab, setTab] = useState<Tab>(() => (new URLSearchParams(location.search).get("tab") as Tab) || "kayit");
   const [profile, setProfile] = useState(() => location.search.includes("profile"));
   const [onboarded, setOnboarded] = useState(isOnboarded);
+  // Yeni sürüm bekliyor (service worker): kullanıcı isteyince yenile
+  const [updateReady, setUpdateReady] = useState(false);
+  useEffect(() => { const on = () => setUpdateReady(true); window.addEventListener("bilge-update", on); return () => window.removeEventListener("bilge-update", on); }, []);
   const sync = useObservable(syncState$);
   // undefined = yükleniyor, null = kayıt yok (get() ikisinde de undefined döndürür, o yüzden null'a çeviriyoruz)
   const baby = useLiveQuery(() => db.baby.get("me").then((b) => b ?? null));
@@ -124,6 +127,11 @@ export default function App() {
         </span>
       </header>
 
+      {updateReady && !alarm.ringing && (
+        <button className="mx-4 mt-2 px-3 py-2 rounded-xl text-xs font-semibold text-left flex items-center justify-between" style={{ background: "color-mix(in srgb, var(--accent) 14%, var(--card))" }} onClick={() => window.__bilgeUpdate?.()}>
+          <span>Yeni sürüm hazır</span><span style={{ color: "var(--accent)" }}>yenile →</span>
+        </button>
+      )}
       <main className="flex-1 overflow-y-auto px-4 pb-4">
         <Suspense fallback={<div className="muted text-sm text-center pt-10">yükleniyor…</div>}>
         {needLogin ? (

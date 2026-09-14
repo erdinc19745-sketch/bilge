@@ -17,6 +17,7 @@
   --c-emzirme: #d95926;
   --c-bez: #199e70;
   --c-biberon: #c98500;
+  --danger: #e8703f;
   color-scheme: dark;
 }
 :root[data-theme="light"] {
@@ -57,6 +58,7 @@ h1, h2, h3 { letter-spacing: -0.01em; }
 /* iPhone çentik / ana ekran çubuğu boşlukları */
 .safe-top { padding-top: env(safe-area-inset-top); }
 .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+.text-danger { color: var(--danger); }
 
 @layer components {
   .btn {

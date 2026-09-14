@@ -3,9 +3,11 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { differenceInCalendarDays, format } from "date-fns";
 import { tr } from "date-fns/locale";
 import { db, markScheduleDone } from "../../db/db";
+import { Chip, type IconName } from "../../lib/icons";
 import { buildSchedule, KIND_LABEL, type ScheduleItem } from "./schedule";
 
-const KIND_ICON = { asi: "💉", izlem: "🩺", tarama: "🔬", ilac: "💊" } as const;
+const KIND_ICON: Record<ScheduleItem["kind"], IconName> = { asi: "syringe", izlem: "stethoscope", tarama: "microscope", ilac: "pill" };
+const KIND_TONE: Record<ScheduleItem["kind"], "accent" | "uyku" | "biberon" | "emzirme"> = { asi: "emzirme", izlem: "uyku", tarama: "biberon", ilac: "accent" };
 
 /** Aşı yapıldı işaretlenince 12 parçacık saçılır */
 function Burst() {
@@ -115,7 +117,7 @@ function Section({
           return (
             <button key={i.key} className="relative w-full flex items-center gap-3 px-3 py-3 text-left" onClick={() => toggle(i)}>
               {burst === i.key && <Burst />}
-              <span className="text-xl">{doneKeys.has(i.key) ? "✅" : KIND_ICON[i.kind]}</span>
+              {doneKeys.has(i.key) ? <Chip name="check" tone="bez" size={36} /> : <Chip name={KIND_ICON[i.kind]} tone={KIND_TONE[i.kind]} size={36} />}
               <span className="flex-1">
                 <div className="text-sm font-medium">{i.title}</div>
                 <div className="text-xs muted">

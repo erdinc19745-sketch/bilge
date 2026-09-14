@@ -10,14 +10,16 @@ import { ROLE_LABEL, type Role } from "../family/family";
 const NIGHT_START = 23, NIGHT_END = 6;
 const dayKey = (t: number) => new Date(t).toISOString().slice(0, 10);
 
-export default function MorningCard({ recent }: { recent: BabyEvent[] }) {
+export default function MorningCard({ recent, always }: { recent: BabyEvent[]; always?: boolean }) {
   const now = new Date();
   const h = now.getHours();
   const key = dayKey(now.getTime());
   const [hidden, setHidden] = useState(() => { try { return localStorage.getItem("bilge.morningSeen") === key; } catch { return false; } });
-  if (hidden || h < NIGHT_END || h >= 12) return null;
+  if (!always && (hidden || h < NIGHT_END || h >= 12)) return null;
 
+  // Sabah 06'dan önce "dün gece" = önceki gece (bu gece daha bitmedi)
   const end = new Date(now); end.setHours(NIGHT_END, 0, 0, 0);
+  if (h < NIGHT_END) end.setTime(end.getTime() - 86_400_000);
   const start = new Date(end.getTime() - 86_400_000); start.setHours(NIGHT_START, 0, 0, 0);
   const s0 = start.getTime(), e0 = end.getTime();
   const inNight = recent.filter((e) => e.start >= s0 && e.start < e0);
@@ -28,7 +30,7 @@ export default function MorningCard({ recent }: { recent: BabyEvent[] }) {
     .map((e) => ({ e, ms: Math.min(e.end ?? now.getTime(), e0) - Math.max(e.start, s0) }));
   const totalSleep = sleeps.reduce((a, x) => a + x.ms, 0);
   const longest = sleeps.sort((a, b) => b.ms - a.ms)[0];
-  if (feeds.length + diapers.length + sleeps.length === 0) return null;
+  if (feeds.length + diapers.length + sleeps.length === 0) return always ? <div className="card text-xs muted">Dün gece (23:00–06:00) kayıt yok.</div> : null;
   // Kim kalktı: beslenme/bez kayıtlarındaki rol etiketi
   const who = new Map<string, number>();
   for (const e of [...feeds, ...diapers]) if (e.by) who.set(e.by, (who.get(e.by) ?? 0) + 1);
@@ -38,8 +40,8 @@ export default function MorningCard({ recent }: { recent: BabyEvent[] }) {
   return (
     <div className="card flex flex-col gap-1.5" style={{ background: "color-mix(in srgb, var(--c-uyku) 12%, var(--card))" }}>
       <div className="flex items-center justify-between">
-        <div className="font-semibold text-sm">🌅 Gece özeti <span className="muted font-normal text-xs">23:00–06:00</span></div>
-        <button className="text-xs muted underline" onClick={close}>tamam</button>
+        <div className="font-semibold text-sm">🌅 {always ? "Dün gece" : "Gece özeti"} <span className="muted font-normal text-xs">23:00–06:00</span></div>
+        {!always && <button className="text-xs muted underline" onClick={close}>tamam</button>}
       </div>
       <div className="grid grid-cols-3 gap-2 text-center">
         <div><div className="hero-num" style={{ fontSize: 22 }}>{feeds.length}</div><div className="text-[11px] muted">beslenme</div></div>
