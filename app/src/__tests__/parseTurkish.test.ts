@@ -71,3 +71,24 @@ describe("parseTurkishMulti + yeni komutlar", async () => {
     const n = parseTurkishMulti("bugün çok neşeliydi")[0]; expect(n.kind === "add" && n.event.type).toBe("not");
   });
 });
+
+describe("dikte toleransı", async () => {
+  const { parseTurkish, has } = await import("../features/log/parseTurkish");
+  const t = (s: string) => parseTurkish(s)!;
+  it("bölünmüş ekler ve harf hataları", () => {
+    expect(t("sağ dan on beş dakika emsirdi").label).toContain("Sağ · 15 dk");
+    expect(t("de vitamini verdim").label).toContain("D vitamini");
+    expect(t("uyuttum").kind).toBe("sleepStart");
+    expect(t("kalktı").kind).toBe("sleepEnd");
+    expect(t("yattı").kind).toBe("sleepStart");
+    const w = t("işedi"); expect(w.kind === "add" ? w.event.diaper : "").toBe("islak");
+    expect(t("doydu bıraktı").kind).toBe("feedEnd");
+    expect(t("öbür memeye geçtim").kind).toBe("switchSide");
+  });
+  it("yanlış pozitif yok: kadar, demin, memnun", () => {
+    expect(has("on dakika kadar", ["kaka"])).toBe(false);
+    expect(has("demin emdi", ["demir"])).toBe(false);
+    const a = t("demin soldan emdi"); expect(a.kind === "add" ? a.event.type : a.kind).toBe("emzirme");
+    const b = t("sağdan 10 dakika emdi bitti"); expect(b.kind === "add" ? b.event.type : b.kind).toBe("emzirme");
+  });
+});

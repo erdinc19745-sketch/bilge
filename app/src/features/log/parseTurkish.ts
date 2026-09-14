@@ -74,6 +74,35 @@ function normalizeDecimals(t: string): string {
   return t;
 }
 
+/* ---- Bulanık eşleme: dikte hataları ("emsirdi", "kaga", "uyuttu") ve bölünmüş ekler ("sağ dan") ----
+ * Kısa kökler (≤3 harf: sağ, sol, çiş) tam aranır; 4+ harfli köklerde bir harf hatası (ekleme/silme/değişme) affedilir.
+ * Kök eşleşmesi sözcüğün BAŞINDA aranır: "emzir" → "emzirdim", "emsirdi" ✓, ama "meme" "memnun"u yakalamaz (4 harf, 1 hata olur… bu yüzden
+ * riskli kökler listeye alınmadı). */
+function editDistance(a: string, b: string): number {
+  const d: number[][] = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+  for (let j = 1; j <= b.length; j++) d[0][j] = j;
+  for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) {
+    d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1); // harf yer değiştirme
+  }
+  return d[a.length][b.length];
+}
+/** Metinde köklerden biri geçiyor mu. "~kök": bir harf hatası affedilir (yalnız 4+ harf); düz kök: tam önek ("kaka" → "kadar"ı yakalamasın) */
+export function has(t: string, stems: string[]): boolean {
+  const toks = t.split(/\s+/);
+  return stems.some((s) => {
+    const fuzzy = s.startsWith("~"), k = fuzzy ? s.slice(1) : s;
+    return toks.some((w) => w.startsWith(k) || (fuzzy && k.length >= 4 && (editDistance(w.slice(0, k.length), k) <= 1 || editDistance(w.slice(0, k.length + 1), k) <= 1)));
+  });
+}
+/** Dikte kaynaklı bölünmeler: "sağ dan" → "sağdan", "de vitamini" → "d vitamini", "on beş" zaten sayıya çevrildi */
+function joinSplits(t: string): string {
+  return t
+    .replace(/(^|\s)(sağ|sag|sol)\s+(dan|den|a|e|ı|i|u|ü)(?=\s|$)/g, "$1$2$3")
+    .replace(/\bde\s+vitamin/g, "d vitamin")
+    .replace(/\bd\s+vit\b/g, "d vitamin");
+}
+
 /** "X dakika/saat" → dakika (metnin tamamında ilk eşleşme) */
 function durationMin(t: string): number | undefined {
   const h = t.match(/(\d+(?:\.\d+)?)\s*saat/);
@@ -83,7 +112,7 @@ function durationMin(t: string): number | undefined {
 }
 
 export function parseTurkish(raw: string): Parsed | null {
-  let t = normalizeDecimals(wordsToDigits(raw.trim().toLowerCase().replace(/[.!?]+$/g, "")));
+  let t = joinSplits(normalizeDecimals(wordsToDigits(raw.trim().toLowerCase().replace(/[.!?]+$/g, ""))));
   const now = Date.now();
 
   // --- "X dakika/saat önce": olay zamanını kaydır; süre olarak sayma ---
@@ -105,16 +134,16 @@ export function parseTurkish(raw: string): Parsed | null {
   }
 
   // --- ilaç / aşı ---
-  if (/d\s*vitamin/.test(t)) return { kind: "add", event: { type: "ilac", start: at, medName: "D vitamini" }, label: `D vitamini verildi${when}` };
-  if (/demir/.test(t)) return { kind: "add", event: { type: "ilac", start: at, medName: "Demir" }, label: `Demir verildi${when}` };
+  if (/d\s*vitamin/.test(t) || has(t, ["~dvitamin"])) return { kind: "add", event: { type: "ilac", start: at, medName: "D vitamini" }, label: `D vitamini verildi${when}` };
+  if (has(t, ["demir"])) return { kind: "add", event: { type: "ilac", start: at, medName: "Demir" }, label: `Demir verildi${when}` };
   if (/aşı|asi oldu|aşısı/.test(t)) return { kind: "add", event: { type: "ilac", start: at, medName: "Aşı" }, label: `Aşı yapıldı${when}` };
 
   // --- devam eden emzirme: bitir / taraf değiştir ---
-  if (/(sağa|saga|sola)\s*geç/.test(t)) return { kind: "switchSide", at, label: `Diğer memeye geç${when}` };
-  if (/^(bitti|bitir|emzirme bitti|emzirmeyi bitir|bıraktı|birakti|doydu)$/.test(t.trim()) || /emzirme(yi)?\s*bit/.test(t)) return { kind: "feedEnd", at, label: `Emzirme bitti${when}` };
+  if (/(sağa|saga|sola)\s*geç/.test(t) || /(diğer|öbür|obur) meme|taraf değiş/.test(t)) return { kind: "switchSide", at, label: `Diğer memeye geç${when}` };
+  if (/^(bitti|bitir|bıraktı|birakti|doydu|kes|kestim|tamam bitti)$/.test(t.trim()) || /emzirme(yi)?\s*bit/.test(t) || (has(t, ["bitti", "bitir", "~bırak", "~birak", "doydu"]) && !has(t, ["uyu", "uyan"]) && durationMin(t) === undefined)) return { kind: "feedEnd", at, label: `Emzirme bitti${when}` };
 
   // --- süt sağma ---
-  if (/sağ(dım|dı|ıldı|ma)|sagdim|pompa/.test(t)) {
+  if (/sağ(dım|dı|ıldı|ma)|sagdim/.test(t) || has(t, ["~pompa", "~sağma", "~sagma"])) {
     const m2 = t.match(/(\d+)\s*(ml|mililitre|cc)/) ?? t.match(/(?:sağma|sagma|pompa)\s*(\d+)/);
     if (m2) {
       const store = /dondurucu/.test(t) ? "dondurucu" : /taze|hemen|verdim/.test(t) ? "taze" : "dolap";
@@ -133,16 +162,16 @@ export function parseTurkish(raw: string): Parsed | null {
   }
 
   // --- bez ---
-  const kaka = /kaka|büyük|buyuk/.test(t);
-  const islak = /çiş|cis|ıslak|islak|pipi|küçük|kucuk/.test(t);
-  if (kaka || islak || /bez|altını|altini/.test(t)) {
+  const kaka = has(t, ["kaka", "~büyük", "~buyuk", "~dışkı"]);
+  const islak = has(t, ["çiş", "cis", "~ıslak", "~islak", "pipi", "~küçük", "~kucuk", "~işedi", "~isedi"]);
+  if (kaka || islak || has(t, ["bez", "~altını", "~altini"])) {
     const d = (kaka && islak) || /ikisi/.test(t) ? "ikisi" : kaka ? "kaka" : "islak";
     return { kind: "add", event: { type: "bez", start: at, diaper: d }, label: `${d === "ikisi" ? "Bez · çiş + kaka" : d === "kaka" ? "Bez · kaka" : "Bez · çiş"}${when}` };
   }
 
   // --- emzirme ---
-  const side = /sağ|sag/.test(t) ? "sag" : /sol/.test(t) ? "sol" : undefined;
-  if (side || /emz|emdi|meme/.test(t)) {
+  const side = /\bsağ|\bsag/.test(t) ? "sag" : /\bsol/.test(t) ? "sol" : undefined;
+  if (side || has(t, ["emz", "emdi", "emmi", "meme", "~emiyor", "~emzir"])) {
     const dur = durationMin(t);
     const sideLabel = side === "sol" ? "Sol" : side === "sag" ? "Sağ" : "?";
     if (dur) {
@@ -157,8 +186,8 @@ export function parseTurkish(raw: string): Parsed | null {
   }
 
   // --- uyku ---
-  if (/uyan/.test(t)) return { kind: "sleepEnd", at, label: `Uyandı${when}` };
-  if (/uyu|uyku/.test(t)) {
+  if (has(t, ["uyan", "~kalktı", "~kalkti"])) return { kind: "sleepEnd", at, label: `Uyandı${when}` };
+  if (has(t, ["uyu", "uyku", "~yattı", "~yatti", "~daldı"])) {
     const dur = durationMin(t);
     if (dur && !offsetMin) return { kind: "add", event: { type: "uyku", start: now - dur * 60_000, end: now }, label: `Uyku · ${dur} dk` };
     if (dur && offsetMin) return { kind: "add", event: { type: "uyku", start: at - dur * 60_000, end: at }, label: `Uyku · ${dur} dk${when}` };

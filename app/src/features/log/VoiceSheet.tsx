@@ -14,7 +14,12 @@ interface SpeechRecognitionLike {
 const IOS = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 const SR = (window as unknown as { SpeechRecognition?: new () => SpeechRecognitionLike }).SpeechRecognition
   ?? (window as unknown as { webkitSpeechRecognition?: new () => SpeechRecognitionLike }).webkitSpeechRecognition;
-const AUTO_MS = 2000; // metin bu kadar süre değişmezse kendiliğinden kaydet
+const AUTO_MS = 2500; // metin bu kadar süre değişmezse kendiliğinden kaydet (dikte arası duraklamaya pay)
+
+/* Anlaşılmayan cümleler cihazda birikir (son 15): kullanıcı bana gönderir, kalıpları genişletirim */
+const UNPARSED = "bilge.unparsed";
+const getUnparsed = (): string[] => { try { return JSON.parse(localStorage.getItem(UNPARSED) || "[]"); } catch { return []; } };
+const addUnparsed = (t: string) => { try { const a = getUnparsed().filter((x) => x !== t); a.push(t); localStorage.setItem(UNPARSED, JSON.stringify(a.slice(-15))); } catch { /* */ } };
 
 /** Ayrıştırılmış komutu uygula; etiket + geri alma döner */
 export async function applyParsed(p: Parsed): Promise<{ label: string; undo?: () => Promise<void> }> {
@@ -61,12 +66,20 @@ export default function VoiceSheet({ onSaved }: { onSaved: (label: string, undo?
   const timer = useRef<number | undefined>(undefined);
   const tick = useRef<number | undefined>(undefined);
   const busy = useRef(false);
+  // results state'i zamanlayıcıdan çağrılan save/close içinde güncel olsun diye ref
+  const resultsRef = useRef(results); resultsRef.current = results;
 
   const clearTimers = () => { window.clearTimeout(timer.current); window.clearInterval(tick.current); setProgress(0); };
-  const close = () => { clearTimers(); setOpen(false); setText(""); setResults([]); setHint(""); setListening(false); inputRef.current?.blur(); };
+  const [unparsed, setUnparsed] = useState<string[]>(getUnparsed);
+  const [unOpen, setUnOpen] = useState(false);
+  const close = () => {
+    clearTimers();
+    // Anlaşılmadan kapatılan cümleyi biriktir (not olarak kaydedilse de)
+    const cur = resultsRef.current;
+    if (text.trim().length >= 3 && (cur.length === 0 || cur.some((p) => p.kind === "add" && p.event.type === "not"))) { addUnparsed(text.trim()); setUnparsed(getUnparsed()); }
+    setOpen(false); setText(""); setResults([]); setHint(""); setListening(false); inputRef.current?.blur();
+  };
 
-  // results state'i zamanlayıcıdan çağrılan save içinde güncel olsun diye ref
-  const resultsRef = useRef(results); resultsRef.current = results;
   const save = async () => {
     const rs = resultsRef.current;
     if (busy.current || rs.length === 0) return;
@@ -165,6 +178,20 @@ export default function VoiceSheet({ onSaved }: { onSaved: (label: string, undo?
             {PARSER_EXAMPLES.map((ex) => (
               <button key={ex} className="text-[11px] px-2 py-1 rounded-lg whitespace-nowrap muted" style={{ background: "var(--card-2)" }} onClick={() => analyze(ex)}>{ex}</button>
             ))}
+          </div>
+        )}
+        {!text && unparsed.length > 0 && (
+          <div className="text-[11px] muted">
+            <button className="underline" onClick={() => setUnOpen((v) => !v)}>Anlaşılmayanlar ({unparsed.length}) {unOpen ? "▲" : "▼"}</button>
+            {unOpen && (
+              <div className="mt-1 flex flex-col gap-1">
+                <ul className="list-disc pl-4">{unparsed.slice().reverse().map((u, i) => <li key={i}>“{u}”</li>)}</ul>
+                <div className="flex gap-3">
+                  <button className="underline" onClick={() => { navigator.clipboard?.writeText(unparsed.join("\n")); }}>kopyala (bana gönder, kalıp eklerim)</button>
+                  <button className="underline" onClick={() => { try { localStorage.removeItem(UNPARSED); } catch { /* */ } setUnparsed([]); }}>temizle</button>
+                </div>
+              </div>
+            )}
           </div>
         )}
         {!text && IOS && (
