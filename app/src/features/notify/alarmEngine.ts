@@ -1,5 +1,6 @@
 import { db, demoMode } from "../../db/db";
 import { keepAliveStart, keepAliveStop, keepAliveInfo, playAlarmTone, stopAlarmTone, chime } from "../noise/audioEngine";
+import { updateLockStatus } from "./lockStatus";
 
 /**
  * Gece alarm modu. iOS web uygulaması arka planda uyur; ama ses çalıyorsa uyumaz.
@@ -57,6 +58,7 @@ async function tick() {
   const nx = rs.find((r) => r.at > now);
   state.next = nx ? { at: nx.at, label: labelOf(nx.kind) } : null;
   if (state.ringing) { emit(); return; }
+  if (state.armed) updateLockStatus().catch(() => undefined); // kilit ekranı kartı: canlı durum
   if (state.snoozeUntil && now < state.snoozeUntil) { emit(); return; }
   if (state.snoozeUntil && now >= state.snoozeUntil) { state.snoozeUntil = null; ring("Ertelenen hatırlatma", "snooze"); return; }
   for (const r of rs) {
@@ -89,7 +91,7 @@ async function ring(label: string, kind: string, again = 0) {
   }, 120_000);
 }
 
-export function stopRinging() { if (state.ringing) alog("durduruldu"); stopAlarmTone(); state.ringing = null; ringSeq++; emit(); }
+export function stopRinging() { if (state.ringing) alog("durduruldu"); stopAlarmTone(); state.ringing = null; ringSeq++; emit(); if (state.armed) updateLockStatus().catch(() => undefined); }
 export function snooze(min = 10) { alog(`ertelendi ${min} dk`); stopAlarmTone(); state.ringing = null; ringSeq++; state.snoozeUntil = Date.now() + min * 60_000; emit(); }
 
 /** Kullanıcı dokunuşuyla çağrılmalı */

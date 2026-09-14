@@ -23,6 +23,7 @@ import SolidsBlock from "../solids/SolidsBlock";
 import { computeStock } from "../milk/milk";
 import { Icon } from "../../lib/icons";
 import { confirmIfNeeded } from "../../lib/confirm";
+import MorningCard from "./MorningCard";
 
 /**
  * Gece modu kayıt ekranı.
@@ -112,6 +113,13 @@ export default function QuickLog() {
     const id = await startEvent("emzirme", { side });
     done(`emzir-${side}`, `${side === "sol" ? "Sol" : "Sağ"} emzirme başladı`, del(id));
   };
+  /** Emzirirken diğer memeye geç: bu tarafı bitir, öbürünü başlat (tek dokunuş) */
+  const switchSide = async (e: BabyEvent) => {
+    const other = e.side === "sol" ? "sag" : "sol";
+    await endEvent(e.id);
+    const id = await startEvent("emzirme", { side: other });
+    done(`emzir-${other}`, `${e.side === "sol" ? "Sol" : "Sağ"} bitti (${fmtDuration(Date.now() - e.start)}) · ${other === "sol" ? "Sol" : "Sağ"} başladı`, async () => { await db.events.delete(id); await reopenEvent(e.id); });
+  };
   const feedEnd = async (e: BabyEvent) => {
     if (!(await confirmIfNeeded("emzirme-bitir", { title: "Emzirme bitsin mi?", text: `${fmtDuration(Date.now() - e.start)} sürdü.`, ok: "Bitir" }))) return;
     await endEvent(e.id);
@@ -135,9 +143,11 @@ export default function QuickLog() {
     }
   };
   const sleepStart = async () => {
-    if (!(await confirmIfNeeded("uyku-baslat", { title: "Uyku başlasın mı?", ok: "Uyudu" }))) return;
+    const feed = runningFeed; // memede uyudu: emzirme de biter
+    if (!(await confirmIfNeeded("uyku-baslat", { title: "Uyku başlasın mı?", text: feed ? `Devam eden ${feed.side === "sol" ? "sol" : "sağ"} emzirme de bitirilir (${fmtDuration(Date.now() - feed.start)}).` : undefined, ok: "Uyudu" }))) return;
+    if (feed) await endEvent(feed.id);
     const id = await startEvent("uyku");
-    done("uyku", "Uyku başladı", del(id));
+    done("uyku", feed ? `Uyku başladı · emzirme bitti (${fmtDuration(Date.now() - feed.start)})` : "Uyku başladı", async () => { await db.events.delete(id); if (feed) await reopenEvent(feed.id); });
   };
   const sleepEnd = async (e: BabyEvent) => {
     if (!(await confirmIfNeeded("uyku-bitir", { title: "Uyandı mı?", text: `${fmtDuration(Date.now() - e.start)} uyudu.`, ok: "Uyandı" }))) return;
@@ -163,7 +173,10 @@ export default function QuickLog() {
       <>
         <div className="section-title">Emzirme</div>
         {runningFeed ? (
-          <ActionTile k="emzir-bitir" lit={lit} accent icon="baby" title={`Emziriyor · ${runningFeed.side === "sol" ? "Sol" : "Sağ"}`} sub={`${fmtTime(runningFeed.start)}'den beri · dokun → bitir`} right={fmtClock(Date.now() - runningFeed.start)} tone="emzirme" onTap={() => feedEnd(runningFeed)} />
+          <>
+            <ActionTile k="emzir-bitir" lit={lit} accent icon="baby" title={`Emziriyor · ${runningFeed.side === "sol" ? "Sol" : "Sağ"}`} sub={`${fmtTime(runningFeed.start)}'den beri · dokun → bitir`} right={fmtClock(Date.now() - runningFeed.start)} tone="emzirme" onTap={() => feedEnd(runningFeed)} />
+            <ActionTile compact k={`emzir-${runningFeed.side === "sol" ? "sag" : "sol"}`} lit={lit} icon="undo" tone="emzirme" title={`${runningFeed.side === "sol" ? "Sağa" : "Sola"} geç`} sub="bu taraf biter, öbürü başlar" onTap={() => switchSide(runningFeed)} />
+          </>
         ) : (
           <div className="grid grid-cols-2 gap-3">
             <ActionTile k="emzir-sol" lit={lit} icon="baby" tone="emzirme" title="Sol" sub={nextSide === "sol" ? "sıra bunda" : "emzirmeyi başlat"} hint={nextSide === "sol"} onTap={() => feedStart("sol")} />
@@ -240,7 +253,7 @@ export default function QuickLog() {
       <>
         <div className="section-title">Uyku</div>
         {runningSleep ? (
-          <ActionTile k="uyandi" lit={lit} accent icon="sun" tone="uyku" title="Uyandı" sub={`${fmtTime(runningSleep.start)}'den beri uyuyor · dokun → uyandı (emzirme/bez girince de biter)`} right={fmtClock(Date.now() - runningSleep.start)} onTap={() => sleepEnd(runningSleep)} />
+          <ActionTile k="uyandi" lit={lit} accent icon="sun" tone="uyku" title="Uyandı" sub={`${fmtTime(runningSleep.start)}'den beri · dokun → uyandı (ya da bez/emzirme gir)`} right={fmtClock(Date.now() - runningSleep.start)} onTap={() => sleepEnd(runningSleep)} />
         ) : (
           <ActionTile k="uyku" lit={lit} icon="moon" tone="uyku" title="Uyudu" sub="uykuyu başlat" onTap={sleepStart} />
         )}
@@ -306,6 +319,7 @@ export default function QuickLog() {
       {segment === "hizli" && (
         <>
           <StatusPanel baby={baby} recent={recent} />
+          <MorningCard recent={recent} />
           <BackupNudge />
           <div className="text-xs muted -mb-1 flex justify-between px-1">
             <span>Son bez: {ago(lastDiaper?.start)}{lastDiaper?.diaper ? ` (${lastDiaper.diaper === "islak" ? "çiş" : lastDiaper.diaper === "ikisi" ? "çiş+kaka" : "kaka"})` : ""}</span>
