@@ -1,4 +1,4 @@
-import { addEvent, db, endEvent, startEvent } from "../../db/db";
+import { addEvent, consumeAutoWake, db, endEvent, startEvent } from "../../db/db";
 
 /**
  * URL ile hızlı kayıt: bilge-omega.vercel.app/?act=emzir-sol
@@ -16,7 +16,7 @@ export async function runQuickAct(): Promise<string | null> {
   switch (act) {
     case "emzir-sol": case "emzir-sag":
       if (runFeed) { await endEvent(runFeed.id); return "Önceki emzirme bitirildi"; }
-      await startEvent("emzirme", { side: act === "emzir-sol" ? "sol" : "sag" }); return `Kısayol: ${act === "emzir-sol" ? "sol" : "sağ"} emzirme başladı`;
+      await startEvent("emzirme", { side: act === "emzir-sol" ? "sol" : "sag" }); return `Kısayol: ${act === "emzir-sol" ? "sol" : "sağ"} emzirme başladı${consumeAutoWake() ? " · uyandı" : ""}`;
     case "emzir-bitir":
       if (!runFeed) return "Devam eden emzirme yok";
       await endEvent(runFeed.id); return "Kısayol: emzirme bitti";
@@ -26,8 +26,8 @@ export async function runQuickAct(): Promise<string | null> {
     case "uyandi":
       if (!runSleep) return "Devam eden uyku yok";
       await endEvent(runSleep.id); return "Kısayol: uyandı";
-    case "bez-islak": await addEvent({ type: "bez", start: Date.now(), diaper: "islak" }); return "Kısayol: ıslak bez";
-    case "bez-kaka": await addEvent({ type: "bez", start: Date.now(), diaper: "kaka" }); return "Kısayol: kaka";
+    case "bez-islak": await addEvent({ type: "bez", start: Date.now(), diaper: "islak" }); return `Kısayol: çiş bezi${consumeAutoWake() ? " · uyandı" : ""}`;
+    case "bez-kaka": await addEvent({ type: "bez", start: Date.now(), diaper: "kaka" }); return `Kısayol: kaka${consumeAutoWake() ? " · uyandı" : ""}`;
     case "dvit": await addEvent({ type: "ilac", start: Date.now(), medName: "D vitamini" }); return "Kısayol: D vitamini";
     default: return null;
   }

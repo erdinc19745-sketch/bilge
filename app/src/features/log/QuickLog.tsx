@@ -1,7 +1,7 @@
 import { parseISO } from "date-fns";
 import { Fragment, lazy, Suspense, useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
-import { addEvent, db, endEvent, reopenEvent, startEvent } from "../../db/db";
+import { addEvent, consumeAutoWake, db, endEvent, reopenEvent, startEvent } from "../../db/db";
 import type { BabyEvent } from "../../db/types";
 import { fmtClock, fmtDuration, fmtTime } from "../../lib/time";
 import VoiceInput from "./VoiceInput";
@@ -53,8 +53,14 @@ export default function QuickLog() {
   const [lit, setLit] = useState<string | null>(null);
   const toastTimer = useRef<number | undefined>(undefined);
 
-  /** Kayıt alındı: butonu yak, mesajı göster, geri alma yolunu sakla */
+  /** Kayıt alındı: butonu yak, mesajı göster, geri alma yolunu sakla. Kayıt uykuyu kendiliğinden bitirdiyse ekle. */
   const done = (key: string, msg: string, undo?: () => Promise<void>) => {
+    const w = consumeAutoWake();
+    if (w) {
+      msg = `${msg} · uyandı (${fmtDuration(w.sleptMs)} uyudu)`;
+      const u = undo;
+      undo = async () => { await u?.(); await reopenEvent(w.id); };
+    }
     setLit(key);
     window.setTimeout(() => setLit((k) => (k === key ? null : k)), 700);
     setToast({ msg, undo });
@@ -234,7 +240,7 @@ export default function QuickLog() {
       <>
         <div className="section-title">Uyku</div>
         {runningSleep ? (
-          <ActionTile k="uyandi" lit={lit} accent icon="sun" tone="uyku" title="Uyandı" sub={`${fmtTime(runningSleep.start)}'den beri uyuyor · dokun → uyandı`} right={fmtClock(Date.now() - runningSleep.start)} onTap={() => sleepEnd(runningSleep)} />
+          <ActionTile k="uyandi" lit={lit} accent icon="sun" tone="uyku" title="Uyandı" sub={`${fmtTime(runningSleep.start)}'den beri uyuyor · dokun → uyandı (emzirme/bez girince de biter)`} right={fmtClock(Date.now() - runningSleep.start)} onTap={() => sleepEnd(runningSleep)} />
         ) : (
           <ActionTile k="uyku" lit={lit} icon="moon" tone="uyku" title="Uyudu" sub="uykuyu başlat" onTap={sleepStart} />
         )}

@@ -109,11 +109,27 @@ export async function inviteMember(email: string, name: string) {
 
 /* ---------------- Olay yardımcıları ---------------- */
 
+/**
+ * Bebek uyurken beslenme / bez / ek gıda kaydı giriliyorsa uyanmış demektir: devam eden uykuyu kaydın
+ * anında bitirir (ayrıca "Uyandı"ya basmak gerekmez). Sonuç consumeAutoWake() ile alınır (toast + geri al).
+ */
+const AWAKE_TYPES = new Set<BabyEvent["type"]>(["emzirme", "biberon", "bez", "ekgida"]);
+let lastAutoWake: { id: string; sleptMs: number } | null = null;
+export async function wakeIfSleeping(at = Date.now()): Promise<{ id: string; sleptMs: number } | null> {
+  const running = (await db.events.where("type").equals("uyku").reverse().sortBy("start")).find((e) => e.end == null);
+  if (!running || running.start > at) return null;
+  await db.events.update(running.id, { end: at, updatedAt: Date.now() });
+  return { id: running.id, sleptMs: at - running.start };
+}
+/** Son addEvent'in otomatik bitirdiği uyku (bir kez okunur) */
+export function consumeAutoWake() { const w = lastAutoWake; lastAutoWake = null; return w; }
+
 /** Yeni olay ekle (tek satırlık kayıtlar: bez, biberon, ateş, ilaç) */
 export async function addEvent(e: Omit<BabyEvent, "id" | "createdAt" | "updatedAt" | "realmId">) {
   const now = Date.now();
   const realmId = await familyRealmId();
   const id = uid();
+  lastAutoWake = AWAKE_TYPES.has(e.type) ? await wakeIfSleeping(e.start) : null;
   await db.events.add({ ...e, id, createdAt: now, updatedAt: now, realmId, by: getRole() || undefined });
   return id; // "Geri al" için
 }
