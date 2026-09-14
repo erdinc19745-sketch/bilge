@@ -22,7 +22,6 @@ import SolidsBlock from "../solids/SolidsBlock";
 import { computeStock } from "../milk/milk";
 import { Icon } from "../../lib/icons";
 import { confirmIfNeeded } from "../../lib/confirm";
-import Tips from "./Tips";
 
 /**
  * Gece modu kayıt ekranı.
@@ -294,7 +293,7 @@ export default function QuickLog() {
       {segment === "hizli" && (
         <>
           <StatusPanel baby={baby} recent={recent} />
-          <Tips />
+          <BackupNudge />
           <div className="text-xs muted -mb-1 flex justify-between px-1">
             <span>Son bez: {ago(lastDiaper?.start)}{lastDiaper?.diaper ? ` (${lastDiaper.diaper === "islak" ? "çiş" : lastDiaper.diaper === "ikisi" ? "çiş+kaka" : "kaka"})` : ""}</span>
             <span className={feedTone(lastFeed?.end ?? lastFeed?.start)}>{lastFeed ? `son beslenme ${ago(lastFeed.end ?? lastFeed.start)}` : ""}</span>
@@ -318,6 +317,21 @@ export default function QuickLog() {
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+/** Ayda bir yedek hatırlatması: 30 günden eski ya da hiç yedek yoksa (ilk 30 gün sessiz) */
+function BackupNudge() {
+  const [hidden, setHidden] = useState(false);
+  let last = 0, first = 0;
+  try { last = Number(localStorage.getItem("bilge.lastBackup") || 0); first = Number(localStorage.getItem("bilge.firstUse") || 0); if (!first) { localStorage.setItem("bilge.firstUse", String(Date.now())); first = Date.now(); } } catch { return null; }
+  const ref = last || first;
+  if (hidden || Date.now() - ref < 30 * 86_400_000) return null;
+  return (
+    <div className="card flex items-center gap-3 text-sm" style={{ background: "color-mix(in srgb, var(--accent) 10%, var(--card))" }}>
+      <span className="flex-1">Ayda bir yedek: Ayarlar → Veri → <b>Yedeği paylaş / indir</b> (Dosyalar'a kaydet).</span>
+      <button className="text-xs muted underline" onClick={() => setHidden(true)}>sonra</button>
     </div>
   );
 }

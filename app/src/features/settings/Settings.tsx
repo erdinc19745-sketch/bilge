@@ -52,6 +52,7 @@ export default function Settings() {
     const fileName = `bilge-yedek-${new Date().toISOString().slice(0, 10)}.json`;
     const file = new File([blob], fileName, { type: "application/json" });
     // iPhone: paylaşım menüsü açılır (Dosyalar, WhatsApp, Mail...). Masaüstü: indirme.
+    try { localStorage.setItem("bilge.lastBackup", String(Date.now())); } catch { /* */ }
     if (navigator.canShare?.({ files: [file] })) {
       await navigator.share({ files: [file], title: "Bilge yedek" });
     } else {
@@ -180,7 +181,8 @@ export default function Settings() {
         <section className="card flex flex-col gap-2">
           <h2 className="font-semibold">Veri</h2>
           <p className="text-xs muted">
-            Kayıtlar bu telefonda durur. Yedeği dosya olarak al; başka telefona aynı dosyayla geri yükle.
+            Kayıtlar telefonda ve aile bulutunda durur. Ayda bir yedeği dosya olarak al (Dosyalar/iCloud'a kaydet); gerekirse aynı dosyayla geri yükle.
+            {(() => { try { const t = Number(localStorage.getItem("bilge.lastBackup") || 0); return t ? ` Son yedek: ${new Date(t).toLocaleDateString("tr-TR")}.` : " Henüz yedek alınmadı."; } catch { return ""; } })()}
           </p>
           <button className="btn text-base" style={{ minHeight: 48 }} onClick={exportJson}>
             Yedeği paylaş / indir

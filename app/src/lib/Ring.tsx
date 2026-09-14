@@ -4,7 +4,7 @@ export default function Ring({ value, target, color, size = 44, label, text }: {
   const p = Math.max(0, Math.min(1, target ? value / target : 0));
   return (
     <div className="flex items-center gap-2 min-w-0">
-      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="shrink-0">
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="shrink-0" role="img" aria-label={`${label}: ${text ?? value} / hedef ${target}`}>
         <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--line)" strokeWidth={5} />
         <circle
           cx={size / 2} cy={size / 2} r={r} fill="none" stroke={color} strokeWidth={5} strokeLinecap="round"

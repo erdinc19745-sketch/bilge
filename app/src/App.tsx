@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import { useLiveQuery, useObservable } from "dexie-react-hooks";
-import { cloudEnabled, db, currentUser$, demoMode } from "./db/db";
+import { cloudEnabled, db, currentUser$, demoMode, syncState$ } from "./db/db";
+import Onboarding, { isOnboarded } from "./features/onboarding/Onboarding";
 import FamilyLogin from "./features/family/FamilyLogin";
 import QuickLog from "./features/log/QuickLog";
 import Timeline from "./features/log/Timeline";
@@ -32,6 +33,8 @@ export default function App() {
   // ?tab=serit gibi: tasarım kontrolü için başlangıç sekmesi
   const [tab, setTab] = useState<Tab>(() => (new URLSearchParams(location.search).get("tab") as Tab) || "kayit");
   const [profile, setProfile] = useState(() => location.search.includes("profile"));
+  const [onboarded, setOnboarded] = useState(isOnboarded);
+  const sync = useObservable(syncState$);
   // undefined = yükleniyor, null = kayıt yok (get() ikisinde de undefined döndürür, o yüzden null'a çeviriyoruz)
   const baby = useLiveQuery(() => db.baby.get("me").then((b) => b ?? null));
   const avatar = useLiveQuery(() => db.photos.where("month").equals(-1).first(), []);
@@ -75,6 +78,7 @@ export default function App() {
           <button className="btn text-base w-full" style={{ minHeight: 56, background: "rgba(0,0,0,0.15)", color: "var(--on-accent)" }} onClick={() => snooze(10)}>10 dk ertele</button>
         </div>
       )}
+      {baby && !onboarded && !needLogin && <Onboarding onDone={() => setOnboarded(true)} />}
       {!alarm.armed && alarm.prefWanted && baby && (
         <button className="fixed left-4 right-4 top-4 z-40 px-4 py-3 rounded-2xl text-sm font-semibold shadow-lg text-left" style={{ background: "var(--card)", marginTop: "env(safe-area-inset-top)", boxShadow: "0 0 0 1px var(--line)" }} onClick={() => armAlarm()}>
           ⏰ Gece alarm modu kapandı (sayfa yenilendi) — <span style={{ color: "var(--accent)" }}>yeniden açmak için dokun</span>
@@ -91,7 +95,7 @@ export default function App() {
         </div>
       )}
       <header className="bar-glass safe-top px-4 pt-3 pb-2 flex items-center justify-between sticky top-0 z-10">
-        <button className="flex items-center gap-3 text-left" onClick={() => baby && setProfile(true)}>
+        <button className="flex items-center gap-3 text-left" aria-label="Bebek profili: büyüme, gelişim, albüm" onClick={() => baby && setProfile(true)}>
           <span className="avatar-ring w-10 h-10 rounded-full overflow-hidden flex items-center justify-center" style={{ background: "var(--card-2)", color: "var(--accent)" }}>
             {avatar ? <Img blob={avatar.blob} className="w-full h-full object-cover" /> : <Icon name={baby ? "baby" : "moon"} size={22} />}
           </span>
@@ -101,6 +105,12 @@ export default function App() {
           </span>
         </button>
         <span className="text-xs muted text-right leading-tight">
+          {cloudEnabled && (
+            <span className="inline-flex items-center gap-1 justify-end" title={`senkron: ${sync?.phase ?? "—"}`} aria-label={`senkron ${sync?.phase ?? ""}`}>
+              <span className="w-2 h-2 rounded-full" style={{ background: sync?.phase === "in-sync" ? "var(--c-bez)" : sync?.phase === "pushing" || sync?.phase === "pulling" ? "var(--accent)" : sync?.phase === "error" ? "#e8703f" : "var(--muted)" }} />
+              <span className="text-[10px]">{sync?.phase === "in-sync" ? "güncel" : sync?.phase === "pushing" || sync?.phase === "pulling" ? "eşleniyor" : sync?.phase === "offline" ? "çevrimdışı" : sync?.phase === "error" ? "hata" : ""}</span>
+            </span>
+          )}
           {demoMode && <span className="block text-[10px] font-bold px-1.5 rounded" style={{ background: "var(--accent)", color: "var(--on-accent)" }}>DEMO · örnek veri</span>}
           {new Date().toLocaleDateString("tr-TR", { day: "numeric", month: "short" })}
           <span className="block">{new Date().toLocaleDateString("tr-TR", { weekday: "long" })}</span>

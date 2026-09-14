@@ -29,7 +29,7 @@ export default function Photos({ birthDate }: { birthDate: string }) {
                   <Img blob={p.blob} className="w-full h-full object-cover" />
                 </button>
               ) : (
-                <label className="w-full h-full flex flex-col items-center justify-center text-2xl muted">
+                <label className="w-full h-full flex flex-col items-center justify-center text-2xl muted" aria-label={`${m === 0 ? "doğum" : m + ". ay"} fotoğrafı ekle`}>
                   +
                   <input type="file" accept="image/*" className="hidden" onChange={(e) => e.target.files?.[0] && addPhoto(e.target.files[0], m)} />
                 </label>
