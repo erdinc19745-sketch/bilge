@@ -1,4 +1,5 @@
 import { db, familyRealmId } from "../../db/db";
+import { getRole, ROLE_LABEL, type Role } from "../family/family";
 
 export const VAPID_PUBLIC: string = import.meta.env.VITE_VAPID_PUBLIC_KEY ?? "";
 
@@ -28,7 +29,7 @@ export async function enablePush(): Promise<"ok" | "denied" | "unsupported" | "n
     id,
     endpoint: sub.endpoint,
     keys: { p256dh: j.keys!.p256dh, auth: j.keys!.auth },
-    device: /iPhone/.test(navigator.userAgent) ? "iPhone" : /Android/.test(navigator.userAgent) ? "Android" : "Cihaz",
+    device: `${/iPhone/.test(navigator.userAgent) ? "iPhone" : /Android/.test(navigator.userAgent) ? "Android" : "Cihaz"}${getRole() ? ` (${ROLE_LABEL[getRole() as Role]})` : ""}`,
     createdAt: Date.now(),
     realmId: await familyRealmId(),
   });

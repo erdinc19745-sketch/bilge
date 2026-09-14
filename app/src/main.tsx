@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { registerSW } from "virtual:pwa-register";
 import "./index.css";
 import App from "./App";
+import ErrorBoundary from "./lib/ErrorBoundary";
 import { startThemeClock } from "./lib/theme";
 import { seedDemoIfRequested } from "./dev/seed";
 
@@ -15,6 +16,8 @@ window.__bilgeUpdate = () => updateSW(true);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </StrictMode>,
 );

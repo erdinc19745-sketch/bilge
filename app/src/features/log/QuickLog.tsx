@@ -192,7 +192,7 @@ export default function QuickLog() {
         <div className="section-title">Emzirme</div>
         {runningFeed ? (
           <>
-            <ActionTile k="emzir-bitir" lit={lit} accent icon="baby" title={`Emziriyor · ${runningFeed.side === "sol" ? "Sol" : "Sağ"}`} sub={`${fmtTime(runningFeed.start)}'den beri · dokun → bitir`} right={fmtClock(Date.now() - runningFeed.start)} tone="emzirme" onTap={() => feedEnd(runningFeed)} />
+            <ActionTile k="emzir-bitir" lit={lit} accent icon="baby" title={`Emziriyor · ${runningFeed.side === "sol" ? "Sol" : "Sağ"}`} sub={Date.now() - runningFeed.start > 60 * 60_000 ? "1 saati geçti — bitirmeyi unuttun mu? dokun, süreyi düzelt" : `${fmtTime(runningFeed.start)}'den beri · dokun → bitir`} right={fmtClock(Date.now() - runningFeed.start)} tone="emzirme" onTap={() => feedEnd(runningFeed)} />
             <ActionTile compact k={`emzir-${runningFeed.side === "sol" ? "sag" : "sol"}`} lit={lit} icon="undo" tone="emzirme" title={`${runningFeed.side === "sol" ? "Sağa" : "Sola"} geç`} sub="bu taraf biter, öbürü başlar" onTap={() => switchSide(runningFeed)} />
           </>
         ) : (
@@ -272,7 +272,7 @@ export default function QuickLog() {
       <>
         <div className="section-title">Uyku</div>
         {runningSleep ? (
-          <ActionTile k="uyandi" lit={lit} accent icon="sun" tone="uyku" title="Uyandı" sub={`${fmtTime(runningSleep.start)}'den beri · dokun → uyandı (ya da bez/emzirme gir)`} right={fmtClock(Date.now() - runningSleep.start)} onTap={() => sleepEnd(runningSleep)} />
+          <ActionTile k="uyandi" lit={lit} accent icon="sun" tone="uyku" title="Uyandı" sub={Date.now() - runningSleep.start > 6 * 3600_000 ? "6 saati geçti — uyanmayı kaydetmeyi unuttun mu? dokun, süreyi düzelt" : `${fmtTime(runningSleep.start)}'den beri · dokun → uyandı (ya da bez/emzirme gir)`} right={fmtClock(Date.now() - runningSleep.start)} onTap={() => sleepEnd(runningSleep)} />
         ) : (
           <ActionTile k="uyku" lit={lit} icon="moon" tone="uyku" title="Uyudu" sub="uykuyu başlat" onTap={sleepStart} />
         )}

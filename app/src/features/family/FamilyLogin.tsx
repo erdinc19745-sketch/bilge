@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { db } from "../../db/db";
 import { getFamilyCode, getRole, ROLE_LABEL, setFamilyCode, setRole, type Role } from "./family";
+import { Chip } from "../../lib/icons";
+import { isStandalone } from "../notify/push";
+
+const IOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
 
 /** İlk açılış: "ben kimim" + aile kodu. Ne e-posta ne şifre. */
 export default function FamilyLogin() {
@@ -27,11 +31,16 @@ export default function FamilyLogin() {
 
   return (
     <div className="flex flex-col gap-5 pt-6 fade-in">
-      <div className="text-center">
-        <div className="text-5xl mb-2">🌙</div>
+      <div className="text-center flex flex-col items-center gap-2">
+        <Chip name="moon" tone="accent" size={64} />
         <h1 className="text-2xl font-bold">Bilge</h1>
         <p className="muted text-sm">Aile defteri — herkes aynı sayfada</p>
       </div>
+      {IOS && !isStandalone() && (
+        <div className="card text-sm" style={{ background: "color-mix(in srgb, var(--accent) 12%, var(--card))" }}>
+          <b>Önce ana ekrana ekle:</b> Safari'de alttaki Paylaş <span aria-hidden>⎙</span> → <b>Ana Ekrana Ekle</b> → oradan aç. Bildirim ve gece alarmı ancak öyle çalışır; kodu orada gir.
+        </div>
+      )}
 
       <section className="card flex flex-col gap-3">
         <div className="text-sm muted">Ben kimim?</div>
@@ -49,7 +58,7 @@ export default function FamilyLogin() {
             value={code}
             onChange={(e) => setCode(e.target.value.toUpperCase())}
             onKeyDown={(e) => e.key === "Enter" && go()}
-            placeholder="ör. K7MP-4Q9T"
+            placeholder="ör. 1234-5678"
             autoCapitalize="characters"
             autoCorrect="off"
             spellCheck={false}
