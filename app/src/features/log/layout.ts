@@ -1,5 +1,5 @@
 /** Kayıt ekranı düzeni: hangi bloklar görünsün, hangi sırada. Cihaz ayarı (localStorage). */
-export type Block = "gelisim" | "emzirme" | "biberon" | "sagma" | "bez" | "uyku" | "ates-dvit" | "ilaclar" | "olcum" | "sarilik" | "ekgida" | "bilgi" | "ses" | "uykusesi" | "anne" | "baba" | "ailedurum";
+export type Block = "gelisim" | "emzirme" | "biberon" | "sagma" | "bez" | "uyku" | "ates-dvit" | "ilaclar" | "olcum" | "sarilik" | "ekgida" | "bilgi" | "ses" | "uykusesi" | "anne" | "baba" | "ailedurum" | "belirti" | "aktivite";
 export const BLOCK_LABEL: Record<Block, string> = {
   gelisim: "Gelişim kartı",
   emzirme: "Emzirme",
@@ -15,12 +15,14 @@ export const BLOCK_LABEL: Record<Block, string> = {
   bilgi: "Bilgi kartları (acil, güvenli uyku, ağlama)",
   ses: "Sesle / yazarak kayıt",
   ailedurum: "Kim ne zaman · dün gece · rapor",
+  belirti: "Belirti günlüğü",
+  aktivite: "Aktivite (karın üstü, banyo, dışarı)",
   uykusesi: "Uyku sesi",
   anne: "Anne paneli",
   baba: "Gece nöbeti & giderler",
 };
 // "ses" artık blok değil: sesli kayıt Kayıt ekranındaki yüzen 🎤 düğmesinde (eski düzen kayıtlarından süzülür)
-const DEFAULT_ORDER: Block[] = ["gelisim", "emzirme", "biberon", "sagma", "bez", "uyku", "ates-dvit", "sarilik", "ilaclar", "olcum", "ekgida", "bilgi", "uykusesi", "ailedurum", "anne", "baba"];
+const DEFAULT_ORDER: Block[] = ["gelisim", "emzirme", "biberon", "sagma", "bez", "uyku", "ates-dvit", "sarilik", "belirti", "ilaclar", "olcum", "aktivite", "ekgida", "bilgi", "uykusesi", "ailedurum", "anne", "baba"];
 const KEY = "bilge.layout";
 
 /** Kayıt ekranı bölmeleri: gece 3'te sadece "Hızlı" görünür; diğerleri bir dokunuş uzakta */
@@ -29,7 +31,7 @@ export const SEGMENT_LABEL: Record<Segment, string> = { hizli: "Hızlı", bakim:
 export const SEGMENT_OF: Record<Block, Segment> = {
   emzirme: "hizli", biberon: "hizli", bez: "hizli", uyku: "hizli", "ates-dvit": "hizli", ses: "hizli",
   sarilik: "bakim", ilaclar: "bakim", olcum: "bakim", sagma: "bakim", ekgida: "bakim", gelisim: "bakim", uykusesi: "bakim", bilgi: "bakim",
-  anne: "aile", baba: "aile", ailedurum: "aile",
+  anne: "aile", baba: "aile", ailedurum: "aile", belirti: "bakim", aktivite: "bakim",
 };
 const SEG_KEY = "bilge.segment";
 export const getSegment = (): Segment => { try { return (localStorage.getItem(SEG_KEY) as Segment) || "hizli"; } catch { return "hizli"; } };

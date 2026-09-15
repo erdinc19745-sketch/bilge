@@ -69,6 +69,7 @@ export default function Report({ baby, onClose }: { baby: Baby; onClose: () => v
   const msTarget = MILESTONES.filter((m) => m.month <= target);
   const fevers = events.filter((e) => e.type === "ates").sort((a, b) => b.start - a.start);
   const notes = events.filter((e) => e.type === "not").sort((a, b) => b.start - a.start);
+  const symptoms = events.filter((e) => e.type === "belirti" && e.start > Date.now() - 7 * 86_400_000).sort((a, b) => b.start - a.start);
   const paleStools = events.filter((e) => e.type === "bez" && e.stoolColor && e.stoolColor <= 3);
   const medEvents = events.filter((e) => e.type === "ilac" && e.medId);
   const medSummary = Object.values(medEvents.reduce((acc, e) => { const k = e.medName ?? "?"; (acc[k] ??= { name: k, n: 0, first: e.start, last: e.start }); acc[k].n++; acc[k].first = Math.min(acc[k].first, e.start); acc[k].last = Math.max(acc[k].last, e.start); return acc; }, {} as Record<string, { name: string; n: number; first: number; last: number }>));
@@ -85,6 +86,7 @@ export default function Report({ baby, onClose }: { baby: Baby; onClose: () => v
     if (scheduleDoneList.length) L.push("Yapılan: " + scheduleDoneList.map((i) => i.title).join(", "));
     if (overdue.length) L.push("Gecikmiş: " + overdue.map((i) => i.title).join(", "));
     L.push(`Gelişim (${target}. ay listesi): ${msTarget.filter((m) => msDone.has(m.key)).length}/${msTarget.length} işaretli` + (msTarget.some((m) => !msDone.has(m.key)) ? `; işaretlenmemiş: ${msTarget.filter((m) => !msDone.has(m.key)).map((m) => m.text).join(", ")}` : ""));
+    if (symptoms.length) L.push("Belirtiler (7 gün): " + symptoms.map((s) => `${format(s.start, "d MMM HH:mm", { locale: tr })} ${[...(s.symptoms ?? []), s.note].filter(Boolean).join(", ")}`).join(" · "));
     if (fevers.length) L.push("Ateş: " + fevers.slice(0, 6).map((f) => `${format(f.start, "d MMM HH:mm", { locale: tr })} ${f.tempC?.toFixed(1)}°C`).join(", "));
     if (notes.length) L.push("Notlar: " + notes.slice(0, 6).map((n) => `${format(n.start, "d MMM", { locale: tr })} ${n.note}`).join(" · "));
     if (questions.trim()) L.push("Sorularımız: " + questions.trim());
@@ -155,6 +157,12 @@ export default function Report({ baby, onClose }: { baby: Baby; onClose: () => v
           <p className="text-sm"><b>İşaretli:</b> {msTarget.filter((m) => msDone.has(m.key)).map((m) => m.text).join(" · ") || "—"}</p>
           <p className="text-sm"><b>Henüz değil:</b> {msTarget.filter((m) => !msDone.has(m.key)).map((m) => m.text).join(" · ") || "—"}</p>
         </Sec>
+
+        {symptoms.length > 0 && (
+          <Sec title="Belirtiler (7 gün)">
+            <ul className="text-sm list-disc pl-4">{symptoms.map((s) => <li key={s.id}>{format(s.start, "d MMM HH:mm", { locale: tr })} — {[...(s.symptoms ?? []), s.note].filter(Boolean).join(", ")}</li>)}</ul>
+          </Sec>
+        )}
 
         {medSummary.length > 0 && (
           <Sec title="İlaçlar (30 gün)">

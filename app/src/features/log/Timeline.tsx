@@ -23,7 +23,7 @@ export default function Timeline() {
     : filter === "beslenme" ? e.type === "emzirme" || e.type === "biberon"
     : filter === "uyku" ? e.type === "uyku"
     : filter === "bez" ? e.type === "bez"
-    : e.type === "ates" || e.type === "ilac" || e.type === "not";
+    : e.type === "ates" || e.type === "ilac" || e.type === "not" || e.type === "belirti" || e.type === "aktivite";
 
   // Güne göre grupla
   const groups = new Map<number, BabyEvent[]>();
@@ -105,6 +105,10 @@ function describe(e: BabyEvent): { icon: IconName; tone: Tone; text: string } {
       return { icon: "thermometer", tone: "danger", text: `Ateş · ${e.tempC?.toFixed(1)} °C` };
     case "ilac":
       return { icon: "pill", tone: "accent", text: `${e.medName ?? "İlaç"}${e.medId && e.note ? ` · ${e.note}` : ""}` };
+    case "belirti":
+      return { icon: "thermometer", tone: "danger", text: `Belirti · ${(e.symptoms ?? []).join(", ") || e.note || ""}` };
+    case "aktivite":
+      return { icon: e.activity === "banyo" ? "droplet" : e.activity === "disari" ? "sun" : "baby", tone: e.activity === "banyo" ? "uyku" : "biberon", text: e.activity === "karin" ? `Karın üstü · ${e.end ? fmtDuration(e.end - e.start) : ""}` : e.activity === "banyo" ? "Banyo" : "Dışarı çıktı" };
     default:
       return { icon: "list", tone: "muted", text: e.note ?? "Not" };
   }
@@ -116,7 +120,7 @@ function Row({ e, onTap }: { e: BabyEvent; onTap: () => void }) {
     <button className="w-full flex items-center gap-3 px-3 py-3 text-left active:bg-white/5" onClick={onTap}>
       <span className="tabular-nums muted text-xs w-10">{fmtTime(e.start)}</span>
       <Chip name={d.icon} tone={d.tone} size={32} />
-      <span className="flex-1 text-sm">{d.text}{e.note && e.type !== "not" ? <span className="muted"> · {e.note}</span> : null}</span>
+      <span className="flex-1 text-sm">{d.text}{e.note && e.type !== "not" && !(e.type === "belirti" && !(e.symptoms ?? []).length) ? <span className="muted"> · {e.note}</span> : null}</span>
       {e.by && <span className="text-[10px] px-1.5 py-0.5 rounded-md muted" style={{ background: "var(--line)" }}>{ROLE_LABEL[e.by as Role] ?? e.by}</span>}
       <Icon name="chevronRight" size={16} className="muted" />
     </button>

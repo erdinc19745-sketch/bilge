@@ -76,6 +76,25 @@ export default function Settings() {
     }
   };
 
+  /** Excel'de açılan CSV (UTF-8 BOM + noktalı virgül: Türkçe Excel bunu doğrudan sütunlara ayırır) */
+  const exportCsv = async () => {
+    const ev = await db.events.orderBy("start").toArray();
+    const TYPE: Record<string, string> = { emzirme: "Emzirme", biberon: "Biberon", bez: "Bez", uyku: "Uyku", ates: "Ateş", ilac: "İlaç", not: "Not", sagma: "Süt sağma", sarilik: "Sarılık", ekgida: "Ek gıda", belirti: "Belirti", aktivite: "Aktivite" };
+    const dt = (t?: number) => (t ? format(t, "yyyy-MM-dd HH:mm") : "");
+    const q = (v: unknown) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const head = ["Tür", "Başlangıç", "Bitiş", "Süre (dk)", "Taraf", "ml", "Biberon türü", "Bez", "Kaka rengi", "Ateş °C", "İlaç", "Besin", "Tepki", "Belirti", "Aktivite", "Not", "Kim"];
+    const rows = ev.map((e) => [
+      TYPE[e.type] ?? e.type, dt(e.start), dt(e.end), e.end ? Math.round((e.end - e.start) / 60_000) : "", e.side === "sol" ? "Sol" : e.side === "sag" ? "Sağ" : "",
+      e.amountMl ?? "", e.bottleKind === "sut" ? "Anne sütü" : e.bottleKind === "mama" ? "Mama" : "", e.diaper === "islak" ? "Çiş" : e.diaper === "kaka" ? "Kaka" : e.diaper === "ikisi" ? "Çiş+Kaka" : "",
+      e.stoolColor ?? "", e.tempC ?? "", e.medName ?? "", e.food ?? "", e.reaction ?? "", (e.symptoms ?? []).join(", "), e.activity ?? "", e.note ?? "", e.by ?? "",
+    ].map(q).join(";"));
+    const csv = "\ufeff" + [head.map(q).join(";"), ...rows].join("\r\n");
+    const fileName = `bilge-kayitlar-${new Date().toISOString().slice(0, 10)}.csv`;
+    const file = new File([csv], fileName, { type: "text/csv;charset=utf-8" });
+    if (navigator.canShare?.({ files: [file] })) await navigator.share({ files: [file], title: "Bilge kayıtlar (CSV)" });
+    else { const a = document.createElement("a"); a.href = URL.createObjectURL(file); a.download = fileName; a.click(); }
+  };
+
   const importJson = async (f: File) => {
     const data = JSON.parse(await f.text());
     await db.transaction("rw", [db.baby, db.events, db.measurements, db.scheduleDone, db.milestones, db.motherLog, db.meds, db.expenses], async () => {
@@ -204,6 +223,7 @@ export default function Settings() {
               <input type="file" accept="application/json" className="hidden" onChange={(e) => e.target.files?.[0] && importJson(e.target.files[0])} />
             </label>
           </div>
+          <button className="btn text-sm" style={{ minHeight: 44 }} onClick={exportCsv}>Excel için CSV indir / paylaş (tüm kayıtlar)</button>
         </section>
       )}
 

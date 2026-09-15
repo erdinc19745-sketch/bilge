@@ -1,6 +1,7 @@
 import { addEvent, consumeAutoWake, db, endEvent, startEvent } from "../../db/db";
 import { parseTurkishMulti } from "./parseTurkish";
-import { applyParsed } from "./VoiceSheet";
+import { applyParsed, askDb } from "./VoiceSheet";
+import { isQuestion } from "./askTurkish";
 
 /**
  * URL ile hızlı kayıt: bilge-omega.vercel.app/?act=emzir-sol
@@ -15,6 +16,7 @@ export async function runQuickAct(): Promise<string | null> {
   history.replaceState(null, "", location.pathname); // yenilemede tekrar çalışmasın
   if (!(await db.baby.get("me"))) return "Önce bebek bilgisi gerekli";
   if (say) {
+    if (isQuestion(say)) return await askDb(say);
     const parsed = parseTurkishMulti(say);
     if (!parsed.length) return `Anlaşılmadı: "${say}"`;
     const labels: string[] = [];

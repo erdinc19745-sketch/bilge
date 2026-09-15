@@ -26,7 +26,7 @@ export default function EditEvent({ e, onClose }: { e: BabyEvent; onClose: () =>
   const [note, setNote] = useState(e.note ?? "");
   const [err, setErr] = useState("");
 
-  const timed = e.type === "emzirme" || e.type === "uyku";
+  const timed = e.type === "emzirme" || e.type === "uyku" || (e.type === "aktivite" && e.activity === "karin");
 
   const shift = (min: number) => setStart(toInput(fromInput(start) + min * 60_000));
 
@@ -179,4 +179,6 @@ const TITLE: Record<BabyEvent["type"], string> = {
   sagma: "Süt sağma",
   sarilik: "Sarılık gözlemi",
   ekgida: "Ek gıda",
+  belirti: "Belirti",
+  aktivite: "Aktivite",
 };

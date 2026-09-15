@@ -4,7 +4,7 @@
 // realmId: Dexie Cloud "aile alanı". Bulut kapalıyken boş kalır; açıkken tüm
 // kayıtlar aile alanına yazılır ki anne ve baba aynı veriyi görsün.
 
-export type EventType = "emzirme" | "biberon" | "bez" | "uyku" | "ates" | "ilac" | "not" | "sagma" | "sarilik" | "ekgida";
+export type EventType = "emzirme" | "biberon" | "bez" | "uyku" | "ates" | "ilac" | "not" | "sagma" | "sarilik" | "ekgida" | "belirti" | "aktivite";
 
 export interface BabyEvent {
   id: string; // UUID — Dexie Cloud'da aynen kullanılır
@@ -23,6 +23,8 @@ export interface BabyEvent {
   tempC?: number; // ateş
   medName?: string; // ilaç (D vitamini, demir...)
   medId?: string; // ilaç kürü kaydına bağ (meds tablosu)
+  symptoms?: string[]; // belirti günlüğü çipleri (kusma, ishal, döküntü…)
+  activity?: "karin" | "banyo" | "disari"; // aktivite: karın üstü (start/end süre), banyo, dışarı
   note?: string;
   by?: string; // kaydı giren: anne | baba | anneanne | babaanne | bakici
   createdAt: number;

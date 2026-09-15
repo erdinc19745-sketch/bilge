@@ -2,6 +2,23 @@ import { useEffect, useRef, useState } from "react";
 import { addEvent, db, endEvent, reopenEvent, startEvent } from "../../db/db";
 import { Icon } from "../../lib/icons";
 import { parseTurkishMulti, PARSER_EXAMPLES, type Parsed } from "./parseTurkish";
+import { answerQuestion, isQuestion } from "./askTurkish";
+
+/** Soruyu veriyle cevapla (son 300 kayıt, bebek, ölçümler) */
+export async function askDb(text: string): Promise<string> {
+  const [events, baby, measurements] = await Promise.all([db.events.orderBy("start").reverse().limit(300).toArray(), db.baby.get("me"), db.measurements.toArray()]);
+  return answerQuestion(text, { events, baby, measurements }) ?? "Bu soruyu anlayamadım. Deneyebileceklerin: son beslenme ne zaman? · bugün kaç bez? · ne kadar uyudu? · D vitamini verildi mi? · sıra hangi memede?";
+}
+/** Cevabı sesli oku (iOS/Android'de Türkçe ses varsa) — gece elde bebek varken ekrana bakmadan */
+export function speak(text: string) {
+  try {
+    if (!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text); u.lang = "tr-TR"; u.rate = 1;
+    window.speechSynthesis.speak(u);
+  } catch { /* */ }
+}
+const ASK_EXAMPLES = ["son beslenme ne zaman?", "bugün kaç bez?", "ne kadar uyudu?", "D vitamini verildi mi?", "sıra hangi memede?"];
 
 // Minimal tip: Web Speech API (tarayıcıya göre önekli)
 interface SpeechRecognitionLike {
@@ -62,6 +79,7 @@ export default function VoiceSheet({ onSaved }: { onSaved: (label: string, undo?
   const [hint, setHint] = useState("");
   const [progress, setProgress] = useState(0); // 0-1 kendiliğinden kaydet sayacı
   const [tip, setTip] = useState(false);
+  const [answer, setAnswer] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const timer = useRef<number | undefined>(undefined);
   const tick = useRef<number | undefined>(undefined);
@@ -74,6 +92,7 @@ export default function VoiceSheet({ onSaved }: { onSaved: (label: string, undo?
   const [unOpen, setUnOpen] = useState(false);
   const close = () => {
     clearTimers();
+    setAnswer("");
     // Anlaşılmadan kapatılan cümleyi biriktir (not olarak kaydedilse de)
     const cur = resultsRef.current;
     if (text.trim().length >= 3 && (cur.length === 0 || cur.some((p) => p.kind === "add" && p.event.type === "not"))) { addUnparsed(text.trim()); setUnparsed(getUnparsed()); }
@@ -94,9 +113,16 @@ export default function VoiceSheet({ onSaved }: { onSaved: (label: string, undo?
     } finally { busy.current = false; }
   };
 
-  const analyze = (v: string) => {
+  const analyze = (v: string, spoken = false) => {
     setText(v);
     clearTimers();
+    setAnswer("");
+    // Soru mu? → kaydetme, cevapla (mikrofonla geldiyse sesli de oku)
+    if (v.trim().length >= 3 && isQuestion(v)) {
+      setResults([]);
+      askDb(v).then((a) => { setAnswer(a); if (spoken) speak(a); });
+      return;
+    }
     const r = v.trim().length >= 3 ? parseTurkishMulti(v) : [];
     setResults(r);
     // Not (anlaşılmayan cümle) kendiliğinden kaydedilmez; yapılandırılmış komut 2 sn sonra kaydedilir
@@ -112,7 +138,7 @@ export default function VoiceSheet({ onSaved }: { onSaved: (label: string, undo?
     try {
       const r = new SR!();
       r.lang = "tr-TR"; r.interimResults = false; r.maxAlternatives = 1;
-      r.onresult = (ev) => { const t = ev.results?.[0]?.[0]?.transcript ?? ""; setListening(false); if (t) analyze(t); };
+      r.onresult = (ev) => { const t = ev.results?.[0]?.[0]?.transcript ?? ""; setListening(false); if (t) analyze(t, true); };
       r.onerror = (ev) => { setListening(false); setHint(ev.error === "not-allowed" ? "Mikrofon izni verilmedi — yazabilirsin." : "Ses tanınamadı; tekrar dene ya da yaz."); };
       r.onend = () => setListening(false);
       setHint(""); setListening(true); r.start();
@@ -162,7 +188,13 @@ export default function VoiceSheet({ onSaved }: { onSaved: (label: string, undo?
           />
           {text && <button className="muted px-2" onClick={() => analyze("")} aria-label="Temizle">✕</button>}
         </div>
-        {hint && <p className="text-xs muted">{hint}</p>}
+        {hint && !answer && <p className="text-xs muted">{hint}</p>}
+        {answer && (
+          <div className="rounded-xl p-3 text-sm flex items-start gap-2" style={{ background: "color-mix(in srgb, var(--accent) 12%, var(--card))" }}>
+            <span className="flex-1">{answer}</span>
+            <button className="shrink-0 text-lg" aria-label="Sesli oku" onClick={() => speak(answer)}>🔊</button>
+          </div>
+        )}
         {results.length > 0 && (
           <div className="flex flex-col gap-1">
             {results.map((p, i) => <div key={i} className="text-sm flex items-center gap-2"><Icon name="check" size={16} className="muted" /> <b>{p.label}</b></div>)}
@@ -174,11 +206,19 @@ export default function VoiceSheet({ onSaved }: { onSaved: (label: string, undo?
           </div>
         )}
         {!text && (
-          <div className="flex gap-1.5 overflow-x-auto -mx-1 px-1 pb-0.5">
-            {PARSER_EXAMPLES.map((ex) => (
-              <button key={ex} className="text-[11px] px-2 py-1 rounded-lg whitespace-nowrap muted" style={{ background: "var(--card-2)" }} onClick={() => analyze(ex)}>{ex}</button>
-            ))}
-          </div>
+          <>
+            <div className="flex gap-1.5 overflow-x-auto -mx-1 px-1 pb-0.5">
+              {PARSER_EXAMPLES.map((ex) => (
+                <button key={ex} className="text-[11px] px-2 py-1 rounded-lg whitespace-nowrap muted" style={{ background: "var(--card-2)" }} onClick={() => analyze(ex)}>{ex}</button>
+              ))}
+            </div>
+            <div className="flex gap-1.5 overflow-x-auto -mx-1 px-1 pb-0.5">
+              <span className="text-[11px] muted self-center shrink-0">Sor:</span>
+              {ASK_EXAMPLES.map((ex) => (
+                <button key={ex} className="text-[11px] px-2 py-1 rounded-lg whitespace-nowrap" style={{ background: "color-mix(in srgb, var(--accent) 12%, var(--card-2))", color: "var(--accent)" }} onClick={() => analyze(ex)}>{ex}</button>
+              ))}
+            </div>
+          </>
         )}
         {!text && unparsed.length > 0 && (
           <div className="text-[11px] muted">

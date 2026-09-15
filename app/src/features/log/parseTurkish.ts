@@ -138,6 +138,17 @@ export function parseTurkish(raw: string): Parsed | null {
   if (has(t, ["demir"])) return { kind: "add", event: { type: "ilac", start: at, medName: "Demir" }, label: `Demir verildi${when}` };
   if (/aşı|asi oldu|aşısı/.test(t)) return { kind: "add", event: { type: "ilac", start: at, medName: "Aşı" }, label: `Aşı yapıldı${when}` };
 
+  // --- belirti ---
+  {
+    const SYM: [string[], string][] = [[["~kustu", "kusma", "~kusuyor"], "kusma"], [["ishal"], "ishal"], [["kabız"], "kabızlık"], [["döküntü", "dokuntu", "kızarıklık"], "döküntü"], [["öksür", "oksur"], "öksürük"], [["burnu", "burun ak", "hapşır"], "burun akıntısı"], [["gaz sancı", "gazı var", "gaz "], "gaz sancısı"], [["huzursuz"], "huzursuzluk"], [["az emiyor", "az emdi", "emmiyor"], "az emme"], [["pişik", "pisik"], "pişik"], [["çapak", "capak"], "göz çapağı"]];
+    const found = SYM.filter(([ks]) => ks.some((k) => (k.includes(" ") ? t.includes(k) : has(t, [k])))).map(([, v]) => v);
+    if (found.length) return { kind: "add", event: { type: "belirti", start: at, symptoms: found }, label: `Belirti: ${found.join(", ")}${when}` };
+  }
+  // --- aktivite ---
+  if (has(t, ["banyo", "~yıkadı", "~yikadi"])) return { kind: "add", event: { type: "aktivite", start: at, activity: "banyo" }, label: `Banyo${when}` };
+  if (/karın üstü|karin ustu|tummy/.test(t)) { const d = durationMin(t) ?? 3; return { kind: "add", event: { type: "aktivite", start: at - d * 60_000, end: at, activity: "karin" }, label: `Karın üstü ${d} dk${when}` }; }
+  if (has(t, ["dışarı", "disari", "gezdi", "parka", "yürüyüş"])) return { kind: "add", event: { type: "aktivite", start: at, activity: "disari" }, label: `Dışarı çıkıldı${when}` };
+
   // --- devam eden emzirme: bitir / taraf değiştir ---
   if (/(sağa|saga|sola)\s*geç/.test(t) || /(diğer|öbür|obur) meme|taraf değiş/.test(t)) return { kind: "switchSide", at, label: `Diğer memeye geç${when}` };
   if (/^(bitti|bitir|bıraktı|birakti|doydu|kes|kestim|tamam bitti)$/.test(t.trim()) || /emzirme(yi)?\s*bit/.test(t) || (has(t, ["bitti", "bitir", "~bırak", "~birak", "doydu"]) && !has(t, ["uyu", "uyan"]) && durationMin(t) === undefined)) return { kind: "feedEnd", at, label: `Emzirme bitti${when}` };

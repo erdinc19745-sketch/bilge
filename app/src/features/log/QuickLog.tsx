@@ -27,6 +27,8 @@ import MorningCard from "./MorningCard";
 import AdjustCard, { type Adjust } from "./AdjustCard";
 import VaccineCard from "../calendar/VaccineCard";
 import FamilyStatus from "../father/FamilyStatus";
+import SymptomBlock from "../care/SymptomBlock";
+import ActivityBlock from "../care/ActivityBlock";
 const Report = lazy(() => import("../report/Report"));
 
 /**
@@ -308,6 +310,8 @@ export default function QuickLog() {
     ekgida: baby ? <SolidsBlock baby={baby} recent={recent} lit={lit} onDone={done} /> : null,
     bilgi: <InfoCards />,
     ses: null,
+    belirti: <SymptomBlock recent={recent} lit={lit} onDone={done} />,
+    aktivite: <ActivityBlock recent={recent} lit={lit} onDone={done} />,
     ailedurum: baby ? (
       <>
         <FamilyStatus recent={recent} />

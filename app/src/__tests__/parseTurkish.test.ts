@@ -25,7 +25,8 @@ describe("parseTurkish", () => {
     ["otuz yedi buçuk derece", "Ateş 37.5 °C"],
     ["d vitaminini verdim", "D vitamini verildi"],
     ["100 ml sağdım dondurucuya koydum", "Süt sağma 100 ml → dondurucu"],
-    ["bugün çok huzursuzdu", "Not: bugün çok huzursuzdu"],
+    ["bugün çok neşeliydi", "Not: bugün çok neşeliydi"],
+    ["bugün çok huzursuzdu", "Belirti: huzursuzluk"],
   ];
   for (const [input, label] of cases) {
     it(`"${input}" → ${label}`, () => {
@@ -90,5 +91,17 @@ describe("dikte toleransı", async () => {
     expect(has("demin emdi", ["demir"])).toBe(false);
     const a = t("demin soldan emdi"); expect(a.kind === "add" ? a.event.type : a.kind).toBe("emzirme");
     const b = t("sağdan 10 dakika emdi bitti"); expect(b.kind === "add" ? b.event.type : b.kind).toBe("emzirme");
+  });
+});
+
+describe("belirti ve aktivite", async () => {
+  const { parseTurkish } = await import("../features/log/parseTurkish");
+  it("belirtiler", () => {
+    const a = parseTurkish("kustu ve ishal oldu")!; expect(a.kind === "add" ? a.event.symptoms : []).toEqual(["kusma", "ishal"]);
+    const b = parseTurkish("öksürüyor")!; expect(b.kind === "add" ? b.event.type : "").toBe("belirti");
+  });
+  it("aktivite", () => {
+    const a = parseTurkish("banyo yaptı")!; expect(a.kind === "add" ? a.event.activity : "").toBe("banyo");
+    const b = parseTurkish("karın üstü 5 dakika")!; expect(b.kind === "add" ? b.event.end! - b.event.start : 0).toBe(5 * 60_000);
   });
 });
