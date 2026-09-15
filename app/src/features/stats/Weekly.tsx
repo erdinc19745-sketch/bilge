@@ -9,6 +9,7 @@ import { fmtDuration } from "../../lib/time";
 import { seriesColors } from "../../lib/theme";
 const Report = lazy(() => import("../report/Report"));
 import Assessment from "./Assessment";
+import SleepHeatmap from "./SleepHeatmap";
 
 interface Day { day: number; label: string; feeds: number; bottleMl: number; sleepMin: number; longestMin: number; diapers: number; nightWakes: number }
 
@@ -44,6 +45,8 @@ function summarize(events: BabyEvent[], days = 7): Day[] {
 export default function Weekly() {
   const from = startOfDay(subDays(Date.now(), 7)).getTime();
   const events = useLiveQuery(() => db.events.where("start").aboveOrEqual(from).toArray(), [from]) ?? [];
+  const from14 = startOfDay(subDays(Date.now(), 14)).getTime();
+  const heatEvents = useLiveQuery(() => db.events.where("start").aboveOrEqual(from14).toArray(), [from14]) ?? [];
   const [table, setTable] = useState(false);
   const [report, setReport] = useState(false);
   const baby = useLiveQuery(() => db.baby.get("me"));
@@ -74,6 +77,8 @@ export default function Weekly() {
         <Tile label="En uzun uyku" value={fmtDuration(Math.max(...days.map((d) => d.longestMin)) * 60_000)} sub="bu hafta" />
         <Tile label="Gece uyanma" value={avg((d) => d.nightWakes).toFixed(1)} sub="23:00–06:00, ortalama" />
       </div>
+
+      <SleepHeatmap events={heatEvents} />
 
       <div className="flex justify-end">
         <button className="text-xs muted underline" onClick={() => setTable((v) => !v)}>{table ? "Grafik" : "Tablo"}</button>
@@ -152,7 +157,7 @@ function Chart({ title, color, data, unit }: { title: string; color: string; dat
           return (
             <g key={i} onClick={() => setActive(i)} onMouseEnter={() => setActive(i)} style={{ cursor: "pointer" }}>
               <rect x={padL + slot * i} y={padT} width={slot} height={H - padT} fill="transparent" />
-              {path && <path d={path} fill={color} opacity={active === null || active === i ? 1 : 0.55} />}
+              {path && <path d={path} fill={color} opacity={active === null || active === i ? 1 : 0.55} className="bar-grow" style={{ animationDelay: `${i * 45}ms` }} />}
               {(labeled || active === i) && d.value > 0 && (
                 <text x={x + bw / 2} y={top - 4} fontSize="10" textAnchor="middle" fill="var(--text)">{d.text}</text>
               )}

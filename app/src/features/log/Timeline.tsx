@@ -54,7 +54,7 @@ export default function Timeline() {
       {addedMsg && <p className="text-xs muted -mt-2">{addedMsg}</p>}
       {[...groups.entries()].map(([day, list]) => (
         <section key={day}>
-          <h2 className="text-sm font-semibold muted mb-1 flex justify-between">
+          <h2 className="text-sm font-semibold muted mb-1 flex justify-between sticky top-0 z-[5] py-1 -mx-4 px-4 bar-glass">
             <span>{fmtDay(day)}</span>
             <span className="font-normal">{daySummary(list)}</span>
           </h2>

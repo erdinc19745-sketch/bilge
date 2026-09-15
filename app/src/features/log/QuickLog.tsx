@@ -85,7 +85,19 @@ export default function QuickLog() {
 
   const [layout, setLayoutState] = useState(getLayout);
   const [segment, setSeg] = useState<Segment>(getSegment);
-  const pick = (s: Segment) => { setSegment(s); setSeg(s); };
+  const [dir, setDir] = useState<"l" | "r">("l"); // geçiş animasyonu yönü
+  const SEGS = Object.keys(SEGMENT_LABEL) as Segment[];
+  const pick = (s: Segment) => { setDir(SEGS.indexOf(s) > SEGS.indexOf(segment) ? "l" : "r"); setSegment(s); setSeg(s); };
+  // Sağa/sola kaydırınca bölme değişir (yatay 60 px, dikey 40 px'ten az)
+  const touch = useRef<{ x: number; y: number } | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => { touch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }; };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const t = touch.current; touch.current = null; if (!t) return;
+    const dx = e.changedTouches[0].clientX - t.x, dy = e.changedTouches[0].clientY - t.y;
+    if (Math.abs(dx) < 60 || Math.abs(dy) > 40) return;
+    const i = SEGS.indexOf(segment) + (dx < 0 ? 1 : -1);
+    if (i >= 0 && i < SEGS.length) pick(SEGS[i]);
+  };
   useEffect(() => {
     const on = () => setLayoutState(getLayout());
     window.addEventListener("bilge-layout", on);
@@ -338,15 +350,17 @@ export default function QuickLog() {
   };
 
   return (
-    <div className="flex flex-col gap-3 pt-1">
-      {/* ---- Bölme seçici ---- */}
-      <div className="grid grid-cols-3 gap-1 p-1 rounded-2xl" style={{ background: "var(--card)" }}>
-        {(Object.keys(SEGMENT_LABEL) as Segment[]).map((s) => (
-          <button key={s} className="rounded-xl py-2 text-sm font-semibold transition-colors" style={segment === s ? { background: "var(--accent)", color: "var(--on-accent)" } : { color: "var(--muted)" }} onClick={() => pick(s)}>
+    <div className="flex flex-col gap-3 pt-1" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+      {/* ---- Bölme seçici: kayan yastık; sağa/sola kaydırarak da geçilir ---- */}
+      <div className="seg" role="tablist">
+        <span className="seg-ind" style={{ transform: `translateX(calc(${SEGS.indexOf(segment)} * (100% + 4px)))` }} aria-hidden />
+        {SEGS.map((s) => (
+          <button key={s} role="tab" aria-selected={segment === s} className={segment === s ? "on" : ""} onClick={() => pick(s)}>
             {SEGMENT_LABEL[s]}
           </button>
         ))}
       </div>
+      <div key={segment} className={`flex flex-col gap-3 ${dir === "l" ? "slide-l" : "slide-r"}`}>
 
       {segment === "hizli" && (
         <>
@@ -362,6 +376,7 @@ export default function QuickLog() {
       )}
 
       {layout.order.filter((b) => isVisible(layout, b, getRole()) && SEGMENT_OF[b] === segment && blocks[b]).map((b) => <Fragment key={b}>{blocks[b]}</Fragment>)}
+      </div>
 
       {/* Yüzen 🎤: her bölmede; konuş → kendiliğinden kaydeder */}
       <VoiceSheet onSaved={(label, undo) => done("ses", label, undo)} />

@@ -123,6 +123,33 @@ h1, h2, h3 { letter-spacing: -0.01em; }
 }
 .burst { position: absolute; left: 50%; top: 50%; pointer-events: none; animation: burst 0.9s ease-out forwards; }
 
+/* Grafik çubukları alttan büyür; çizgi grafiği çizilir (SVG) */
+@keyframes grow-y { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+.bar-grow { transform-box: fill-box; transform-origin: bottom; animation: grow-y 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.draw-line { stroke-dasharray: 1600; stroke-dashoffset: 1600; animation: draw 1.4s ease-out forwards; }
+
+/* Bölme seçici: kayan turuncu yastık */
+.seg { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; border-radius: 16px; background: var(--card); }
+.seg-ind { position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc((100% - 8px - 8px) / 3); border-radius: 12px; background: var(--accent); transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.seg > button { position: relative; z-index: 1; border-radius: 12px; padding: 8px 0; font-size: 14px; font-weight: 600; color: var(--muted); transition: color 0.2s; }
+.seg > button.on { color: var(--on-accent); }
+
+/* Bölme geçişi: içerik hafif kayar */
+@keyframes slide-l { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+@keyframes slide-r { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: none; } }
+.slide-l { animation: slide-l 0.22s ease-out; }
+.slide-r { animation: slide-r 0.22s ease-out; }
+
+/* Yükleniyor iskeleti */
+@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.skeleton { border-radius: 16px; background: linear-gradient(90deg, var(--card) 25%, var(--card-2) 50%, var(--card) 75%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
+
+/* Sistem "hareketi azalt" diyorsa animasyonlar kapanır */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
 /* 24 saatlik gün şeridi */
 .daybar { position: relative; height: 14px; border-radius: 7px; background: var(--line); overflow: hidden; }
 .daybar > i { position: absolute; top: 0; bottom: 0; border-radius: 2px; }

@@ -155,7 +155,7 @@ export default function App() {
         </button>
       )}
       <main className="flex-1 overflow-y-auto px-4 pb-4">
-        <Suspense fallback={<div className="muted text-sm text-center pt-10">yükleniyor…</div>}>
+        <Suspense fallback={<div className="flex flex-col gap-3 pt-2"><div className="skeleton h-40" /><div className="skeleton h-24" /><div className="skeleton h-24" /></div>}>
         {needLogin ? (
           <FamilyLogin />
         ) : baby === undefined ? null : showSettings ? (

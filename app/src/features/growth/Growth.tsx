@@ -153,7 +153,7 @@ function Curve({ baby, ind, points }: { baby: Baby; ind: Indicator; points: { ag
             <text x={W - padR + 3} y={y(c.pts[c.pts.length - 1][1]) + 3} fontSize="9" fill="var(--muted)">{c.label}</text>
           </g>
         ))}
-        {points.length > 1 && <path d={path(points.map((p) => [p.age, p.v]))} fill="none" stroke="var(--c-uyku)" strokeWidth={2} />}
+        {points.length > 1 && <path d={path(points.map((p) => [p.age, p.v]))} fill="none" stroke="var(--c-uyku)" strokeWidth={2} className="draw-line" />}
         {points.map((p, i) => (
           <g key={i} onClick={() => setActive(i)} style={{ cursor: "pointer" }}>
             <circle cx={x(p.age)} cy={y(p.v)} r={12} fill="transparent" />
