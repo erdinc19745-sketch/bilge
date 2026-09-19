@@ -1,6 +1,7 @@
+import { ageDays as getAgeDays, ageMonths as getAgeMonths } from "../../lib/age";
 import { useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
-import { differenceInDays, parseISO, startOfDay, subDays } from "date-fns";
+import { differenceInDays, startOfDay, subDays } from "date-fns";
 import { db } from "../../db/db";
 import type { Baby, BabyEvent } from "../../db/types";
 import { Chip, type IconName } from "../../lib/icons";
@@ -43,8 +44,8 @@ export default function Assessment({ baby }: { baby: Baby }) {
   const events = useLiveQuery(() => db.events.where("start").aboveOrEqual(from7).toArray(), [from7]) ?? [];
   const measurements = useLiveQuery(() => db.measurements.orderBy("at").toArray(), []) ?? [];
   const [showSrc, setShowSrc] = useState(false);
-  const ageDays = differenceInDays(now, parseISO(baby.birthDate));
-  const ageMonths = ageDays / 30.4375;
+  const ageDays = getAgeDays(baby.birthDate, now);
+  const ageMonths = getAgeMonths(baby.birthDate, now);
   const last24 = (e: BabyEvent) => e.start >= now - 86_400_000;
   const has = (t: BabyEvent["type"] | BabyEvent["type"][]) => events.some((e) => (Array.isArray(t) ? t.includes(e.type) : e.type === t));
   const rows: Row[] = [];
@@ -91,11 +92,11 @@ export default function Assessment({ baby }: { baby: Baby }) {
 
   /* 5) Kilo: doğum kilosu kaybı, doğum kilosuna dönüş, g/gün (≥5 gün aralıkla) */
   const w = measurements.filter((m) => m.weightG);
-  const birthW = w.find((m) => differenceInDays(m.at, parseISO(baby.birthDate)) <= 1);
+  const birthW = w.find((m) => getAgeDays(baby.birthDate, m.at) <= 1);
   if (w.length >= 2) {
     const last = w[w.length - 1];
-    const lastAge = differenceInDays(last.at, parseISO(baby.birthDate));
-    const z = zScore(baby.sex, "weight", lastAge / 30.4375, last.weightG! / 1000);
+    const lastAge = getAgeDays(baby.birthDate, last.at);
+    const z = zScore(baby.sex, "weight", getAgeMonths(baby.birthDate, last.at), last.weightG! / 1000);
     let status: Status = "iyi", note = "", value = "";
     if (birthW && lastAge <= 14) {
       const loss = (birthW.weightG! - last.weightG!) / birthW.weightG!;

@@ -1,13 +1,13 @@
+import { ageMonths } from "../../lib/age";
 import { useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
-import { differenceInDays, format, parseISO } from "date-fns";
+import { format } from "date-fns";
 import { tr } from "date-fns/locale";
 import { db, familyRealmId } from "../../db/db";
 import type { Baby } from "../../db/types";
 import { Chip } from "../../lib/icons";
 import { CAT_ICON, CAT_LABEL, MILESTONES, PERIOD_NOTES, targetMonth, WINDOWS, type Cat } from "./milestones";
 
-const ageMonths = (baby: Baby) => differenceInDays(Date.now(), parseISO(baby.birthDate)) / 30.4375;
 
 /** Basamağı işaretle / kaldır */
 async function toggle(key: string, done: boolean) {
@@ -22,7 +22,7 @@ async function toggle(key: string, done: boolean) {
 export default function MilestoneCard({ baby }: { baby: Baby }) {
   const done = useLiveQuery(() => db.milestones.toArray(), []) ?? [];
   const [open, setOpen] = useState(false);
-  const age = ageMonths(baby);
+  const age = ageMonths(baby.birthDate, Date.now());
   const target = targetMonth(age);
   const doneKeys = new Set(done.map((d) => d.key));
   const items = MILESTONES.filter((m) => m.month === target);
@@ -111,7 +111,7 @@ export function MilestoneList({ month, doneKeys, doneMap }: { month: number; don
 /** Profil sayfası: tüm aylar, sekmeli */
 export function MilestonesAll({ baby }: { baby: Baby }) {
   const done = useLiveQuery(() => db.milestones.toArray(), []) ?? [];
-  const [month, setMonth] = useState<number>(targetMonth(ageMonths(baby)));
+  const [month, setMonth] = useState<number>(targetMonth(ageMonths(baby.birthDate, Date.now())));
   const doneKeys = new Set(done.map((d) => d.key));
   return (
     <section className="flex flex-col gap-3">

@@ -1,14 +1,14 @@
+import { ageMonths } from "../../lib/age";
 import { useState } from "react";
 import { ask } from "../../lib/confirm";
 import { useLiveQuery } from "dexie-react-hooks";
-import { differenceInDays, format, parseISO } from "date-fns";
+import { format } from "date-fns";
 import { tr } from "date-fns/locale";
 import { db, familyRealmId, uid } from "../../db/db";
 import type { Baby, Measurement } from "../../db/types";
 import type { Indicator } from "./who";
 import { IND_LABEL, percentile, valueAtZ, Z_LINES, zScore } from "./percentile";
 
-const ageMonths = (baby: Baby, at: number) => differenceInDays(at, parseISO(baby.birthDate)) / 30.4375;
 
 /** Ölçüm girişi + WHO persentil eğrisi (aile hekiminin kullandığı eğrinin aynısı) */
 export default function Growth({ baby }: { baby: Baby }) {
@@ -17,7 +17,7 @@ export default function Growth({ baby }: { baby: Baby }) {
   const [open, setOpen] = useState(false);
 
   const last = [...list].reverse().find((m) => val(m, ind) != null);
-  const lastZ = last ? zScore(baby.sex, ind, ageMonths(baby, last.at), val(last, ind)!) : null;
+  const lastZ = last ? zScore(baby.sex, ind, ageMonths(baby.birthDate, last.at), val(last, ind)!) : null;
 
   return (
     <section className="flex flex-col gap-3">
@@ -49,7 +49,7 @@ export default function Growth({ baby }: { baby: Baby }) {
         </div>
       )}
 
-      <Curve baby={baby} ind={ind} points={list.filter((m) => val(m, ind) != null).map((m) => ({ age: ageMonths(baby, m.at), v: val(m, ind)!, at: m.at }))} />
+      <Curve baby={baby} ind={ind} points={list.filter((m) => val(m, ind) != null).map((m) => ({ age: ageMonths(baby.birthDate, m.at), v: val(m, ind)!, at: m.at }))} />
 
       {list.length > 0 && (
         <div className="card p-0 divide-y divide-(--line)">
@@ -112,7 +112,7 @@ export function MeasureForm({ onDone }: { onDone: () => void }) {
  */
 function Curve({ baby, ind, points }: { baby: Baby; ind: Indicator; points: { age: number; v: number; at: number }[] }) {
   const [active, setActive] = useState<number | null>(null);
-  const nowAge = ageMonths(baby, Date.now());
+  const nowAge = ageMonths(baby.birthDate, Date.now());
   const maxAge = Math.min(24, Math.max(3, Math.ceil(nowAge + 1), ...points.map((p) => Math.ceil(p.age + 0.5))));
   const W = 320, H = 200, padL = 34, padB = 22, padT = 10, padR = 28;
 
