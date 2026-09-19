@@ -7,6 +7,7 @@ import type { Baby, BabyEvent } from "../../db/types";
 import { Chip, type IconName } from "../../lib/icons";
 import { fmtDuration } from "../../lib/time";
 import { percentile, zScore } from "../growth/percentile";
+import { weightAssessment } from "./weightAssessment";
 
 /**
  * "Her şey yolunda mı?" — son 24 saat / 7 gün ve tartılar, yaşa göre yayımlanmış eşiklerle karşılaştırılır.
@@ -98,13 +99,12 @@ export default function Assessment({ baby }: { baby: Baby }) {
     const lastAge = getAgeDays(baby.birthDate, last.at);
     const z = zScore(baby.sex, "weight", getAgeMonths(baby.birthDate, last.at), last.weightG! / 1000);
     let status: Status = "iyi", note = "", value = "";
-    if (birthW && lastAge <= 14) {
+    const birthAssessment = weightAssessment(birthW?.weightG, last.weightG!, lastAge);
+    if (birthW && birthAssessment) {
       const loss = (birthW.weightG! - last.weightG!) / birthW.weightG!;
       value = `${loss > 0 ? "−" : "+"}%${Math.abs(loss * 100).toFixed(1)} (doğum ${birthW.weightG} g → ${last.weightG} g, ${lastAge}. gün)`;
-      if (loss > 0.10) { status = "dikkat"; note = "doğum kilosunun %10'undan fazla kayıp — hekime bugün söyle (beslenme değerlendirmesi)"; }
-      else if (loss > 0.07) { status = "izle"; note = "%7-10 kayıp sınırda; 10-14. günde doğum kilosuna dönmeli"; }
-      else if (lastAge >= 14 && loss > 0) { status = "dikkat"; note = "14. günde hâlâ doğum kilosunun altında — hekime söyle"; }
-      else note = "ilk günlerde %7'ye kadar kayıp normal; doğum kilosuna dönüş 10-14. günde";
+      status = birthAssessment.status;
+      note = birthAssessment.note;
     } else {
       // Son iki ölçüm arası artış hızı; kısa aralık gürültülü
       let i = w.length - 2;
