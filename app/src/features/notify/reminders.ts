@@ -1,6 +1,7 @@
 import { db, familyRealmId } from "../../db/db";
 import type { Baby, BabyEvent, Medication } from "../../db/types";
 import { isActive, nextDoseAt } from "../meds/meds";
+import { needsReminderScheduling } from "./reminderDecision";
 
 /**
  * Hatırlatma motoru. Kayıtlar değiştikçe "istenen" hatırlatmaları hesaplar,
@@ -85,7 +86,7 @@ export async function syncReminders(baby: Baby, recent: BabyEvent[], meds: Medic
     // Yenilerini zamanla
     for (const d of desired) {
       const c = await db.reminders.get(d.kind);
-      if (c && Math.abs(c.at - d.at) <= 60_000) continue;
+      if (!needsReminderScheduling(c, d.at, subs.length > 0)) continue;
       if (!subs.length) { await db.reminders.put({ kind: d.kind, at: d.at, msgId: "", updatedAt: Date.now(), realmId }); continue; }
       const r = await api({
         action: "schedule",
