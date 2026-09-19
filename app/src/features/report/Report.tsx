@@ -6,7 +6,7 @@ import { db } from "../../db/db";
 import type { Baby, BabyEvent } from "../../db/types";
 import { fmtDuration } from "../../lib/time";
 import { buildSchedule } from "../calendar/schedule";
-import { percentile, zScore } from "../growth/percentile";
+import { percentileLabel } from "./percentileLabel";
 import { MILESTONES, targetMonth } from "../milestones/milestones";
 
 /**
@@ -82,7 +82,7 @@ export default function Report({ baby, onClose }: { baby: Baby; onClose: () => v
     for (const s of [s7, s30]) {
       L.push(`Son ${s.days} gün: günde ${per(s.days, s.feeds)} beslenme (${s.breast} emzirme, ${s.bottle} biberon${s.bottle ? ` ort. ${Math.round(s.bottleMl / s.bottle)} ml` : ""}), ${per(s.days, s.wet)} ıslak, ${per(s.days, s.poo)} kaka, uyku ${fmtDuration((s.sleepMin / s.days) * 60_000)}/gün, en uzun ${fmtDuration(s.longest * 60_000)}, gece uyanma ${per(s.days, s.nightWakes)}, D vit ${s.dvitDays}/${s.days} gün`);
     }
-    if (measurements.length) L.push("Ölçümler: " + measurements.map((m) => `${format(m.at, "d MMM", { locale: tr })}: ${[m.weightG ? `${(m.weightG / 1000).toFixed(2)} kg P${percentile(zScore(baby.sex, "weight", differenceInDays(m.at, parseISO(baby.birthDate)) / 30.4375, m.weightG / 1000) ?? 0)}` : "", m.lengthCm ? `${m.lengthCm} cm` : "", m.headCm ? `baş ${m.headCm} cm` : ""].filter(Boolean).join(", ")}`).join(" · "));
+    if (measurements.length) L.push("Ölçümler: " + measurements.map((m) => `${format(m.at, "d MMM", { locale: tr })}: ${[m.weightG ? `${(m.weightG / 1000).toFixed(2)} kg ${percentileLabel(baby.sex, "weight", differenceInDays(m.at, parseISO(baby.birthDate)) / 30.4375, m.weightG / 1000)}` : "", m.lengthCm ? `${m.lengthCm} cm` : "", m.headCm ? `baş ${m.headCm} cm` : ""].filter(Boolean).join(", ")}`).join(" · "));
     if (scheduleDoneList.length) L.push("Yapılan: " + scheduleDoneList.map((i) => i.title).join(", "));
     if (overdue.length) L.push("Gecikmiş: " + overdue.map((i) => i.title).join(", "));
     L.push(`Gelişim (${target}. ay listesi): ${msTarget.filter((m) => msDone.has(m.key)).length}/${msTarget.length} işaretli` + (msTarget.some((m) => !msDone.has(m.key)) ? `; işaretlenmemiş: ${msTarget.filter((m) => !msDone.has(m.key)).map((m) => m.text).join(", ")}` : ""));
@@ -139,7 +139,7 @@ export default function Report({ baby, onClose }: { baby: Baby; onClose: () => v
               <tbody className="tabular-nums text-center">
                 {measurements.map((m) => {
                   const age = differenceInDays(m.at, parseISO(baby.birthDate)) / 30.4375;
-                  const p = (ind: "weight" | "length" | "head", v?: number) => { if (!v) return "—"; const z = zScore(baby.sex, ind, age, v); return z == null ? String(v) : `${v} (P${percentile(z)})`; };
+                  const p = (ind: "weight" | "length" | "head", v?: number) => { if (!v) return "—"; return `${v} (${percentileLabel(baby.sex, ind, age, v)})`; };
                   return <Row key={m.id} l={format(m.at, "d MMM yyyy", { locale: tr })} a={p("weight", m.weightG ? +(m.weightG / 1000).toFixed(2) : undefined)} b={p("length", m.lengthCm)} c={p("head", m.headCm)} />;
                 })}
               </tbody>
