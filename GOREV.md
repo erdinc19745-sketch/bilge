@@ -8,6 +8,10 @@ Codex (PC-B) ve Claude (PC-A) aynı repoda paralel çalışır: biri yazarken di
 Canlı sürüm iPhone'da gerçek kullanımda — **kırmayan, küçük, doğrulanmış adımlar.**
 
 ## Tamamlananlar
+- [x] Aday 3: Abonelik açılınca msgId boş yerel hatırlatma sunucuda zamanlanıyor; saf karar fonksiyonu için 8 test (geçiş, yeniden deneme ve ±60 saniye sınırı), api/ değişmedi (commit `50bc40d`, codex, 20 Eyl 2026).
+- [x] Aday 5: Kür sayacı ilgili medId için sınırsız ilaç geçmişinden hesaplanıyor; kart ve bitirme onayı ortak sayıyı kullanıyor. Mevcut saf dosesGiven için 4 test; 250 başka olay, farklı kür ve geri alma dahil (commit `60f3e46`, codex, 20 Eyl 2026).
+- [x] Aday 10: Dört modül ortak ageDays/ageMonths yardımcısını kullanıyor; tam gün hesabı, 30.4375 böleni ve NaN davranışı korundu, 9 sınır testi (commit `e482bfe`, codex, 20 Eyl 2026).
+- [x] Aday 8: Takvim değiştirilmeden 36 kaydın açık tarihleri, benzersiz anahtarlar, izlem ve ay sonu/artık yıl sınırları 8 regresyon testiyle sabitlendi (commit `30f3429`, codex, 20 Eyl 2026).
 - [x] Aday 9: Select-String taraması yalnız tanımları buldu; `minutesSince`, `inviteMember` ve gereksiz `differenceInMinutes` importu kaldırıldı; son taramada eşleşme yok (commit `cbc0302`, codex, 20 Eyl 2026).
 - [x] Aday 4: Haftalık özet saf fonksiyona taşındı; bitmiş/devam eden gece uykusu gün aralığıyla kesiştiriliyor, 4 regresyon testi (commit `1ee5b08`, codex, 20 Eyl 2026).
 - [x] Aday 2: Rapor ekranı ve paylaşımında ortak persentil yardımcısı; veri aralığı dışında “hesaplanamadı”, 3 regresyon testi (commit `d2775af`, codex, 20 Eyl 2026).
@@ -16,21 +20,22 @@ Canlı sürüm iPhone'da gerçek kullanımda — **kırmayan, küçük, doğrula
 ## Sıradaki adım
 - [x] (codex) İlk tarama: `app/src` içinde ölü kod / tekrar eden mantık / bariz hata / testsiz kritik modül listesi çıkar; **kod değiştirme**, bulguları buraya "Adaylar" olarak yaz.
 - [x] (codex) Seçilen 2, 4 ve 9 tamamlandı; başlangıç ve bitiş test/tsc kontrolleri yeşil.
-- [ ] (kullanıcı seçer) Kalan adaylar: 1, 3, 5, 6, 7, 8, 10; ek ölü kod notu aşağıda.
+- [x] (codex) Seçilen 8, 10, 5 ve 3 bu sırayla, ayrı commit'lerle tamamlandı; başlangıç ve her commit öncesi test/tsc yeşil.
+- [ ] Kalan adaylar: 1, 6, 7 — sağlık eşikleri için kaynak/hekim planı doğrulaması bekleniyor; ek ölü kod notu aşağıda.
 
 ## Adaylar
 Tarama doğrulaması (2026-09-19): `npm test` → 3 dosya, 45 test geçti; son dolu satır: `Duration  2.53s (import 87%, transform 12%, tests 1%)`; `npx tsc -b --noEmit` → çıktı yok, çıkış kodu 0.
-Test envanteri: `app/src/__tests__/rules.test.ts:13` içinde sleepWindow için 2 test var; schedule, meds doz aralığı, JaundiceCard ve Assessment eşikleri için test yok (üç test dosyasının importları ve test gövdeleri tarandı; reminders importu yalnız alarm saatlerini test ediyor).
+Test envanteri (2026-09-20): 9 dosya, 81 test. Takvim, yaş hesabı, kür doz sayımı ve hatırlatma abonelik geçişi regresyon testli. meds doz aralığı, JaundiceCard ve Assessment sağlık eşikleri için kaynak doğrulaması ve testler bekliyor.
 
 1. `app/src/features/meds/meds.ts:29`, `app/src/features/meds/MedsBlock.tsx:54` — Sorun: Testsiz `tooEarly`, PRN kartındaki “en az X saat ara” metnine rağmen aralığın %85'inde uyarıyı kaldırıyor (4 saatlik kayıtta 3 saat 30 dakika sonra `early: false` doğrulandı). Öneri: PRN metni ile kontrol davranışını kaynak ve hekim planı doğrulamasıyla tutarlı hale getirip ilk doz, sınır anları ve PRN senaryolarını test et; sağlık eşiği için kaynak gerekiyor, yeni eşik önerilmiyor. Etki: büyük; risk: yüksek.
-3. `app/src/features/notify/reminders.ts:88` — Sorun: Abonelik yokken `msgId: ""` ile oluşturulan yerel hatırlatma, abonelik sonradan açılınca zamanı aynı olduğu için atlanıyor ve sunucuda zamanlanmıyor. Öneri: Abonelik mevcutken boş `msgId` kaydını sunucuda zamanlanması gereken kayıt say ve aboneliksizden abonelikliye geçişi test et. Etki: büyük; risk: orta.
-5. `app/src/features/meds/MedsBlock.tsx:63`, `app/src/features/log/QuickLog.tsx:40` — Sorun: Kür boyunca verilen doz sayısı yalnız son 200 genel olaydan hesaplandığı için yoğun kayıtta eski dozlar kaybolup toplam azalıyor. Öneri: Kür sayacı için ilgili `medId` geçmişini ayrı sorgula ve araya 200'den fazla başka olay giren senaryoyu test et. Etki: orta; risk: orta.
 6. `app/src/features/jaundice/JaundiceCard.tsx:29`, `app/src/db/types.ts:47` — Sorun: Testsiz sarılık kontrol hesabı yalnız gün içeren doğum tarihini gece yarısı kabul ederek saat bazlı taburculuk yaşı ve kesin kontrol saati üretiyor. Öneri: Doğum saati bilinmediğinde belirsizliği göster, saat hesabı ve taburculuk sınırlarını test et; klinik kontrol kuralları için kaynak doğrulaması gerekiyor, yeni eşik önerilmiyor. Etki: büyük; risk: yüksek.
 7. `app/src/features/stats/Assessment.tsx:104` — Sorun: Testsiz kilo değerlendirmesinde önceki kayıp dalı, 14. gün doğum kilosuna dönmeme dalını belirli kayıplarda gölgeliyor ve aynı durum farklı uyarı düzeylerine düşüyor. Öneri: Koşulların önceliğini mevcut sağlık kaynağıyla doğrulayıp kilo, yaş, ateş ve veri-yok sınırlarını tablo testleriyle kapsa; sağlık eşikleri için kaynak gerekiyor, yeni eşik önerilmiyor. Etki: büyük; risk: yüksek.
-8. `app/src/features/calendar/schedule.ts:70` — Sorun: SB aşı/izlem takvimini üreten `buildSchedule` için tarih, benzersiz anahtar, doz sırası ve ay sonu/artık yıl regresyon testi yok. Öneri: Mevcut SB kaynak belgesiyle doğrulanmış beklenen takvim ve tarih sınırı testleri ekle; klinik takvim değişikliği kaynak doğrulaması gerektirir. Etki: büyük; risk: düşük.
-10. `app/src/features/growth/Growth.tsx:11`, `app/src/features/milestones/MilestoneCard.tsx:10`, `app/src/features/log/StatusPanel.tsx:26`, `app/src/features/stats/Assessment.tsx:46` — Sorun: Doğum tarihini ayrıştırıp gün farkını 30.4375'e bölerek yaş hesaplama mantığı birden fazla modülde tekrar ediyor. Öneri: Mevcut davranışı koruyan, referans zamanı parametre alan ortak yaş yardımcısına taşı ve tarih sınırlarını tek yerde test et. Etki: orta; risk: orta.
 
 ## Yarım kaldı / dikkat
+- Son doğrulama (2026-09-20): `npm test` → 9 dosya, 81 test geçti; son dolu satır `Duration  2.18s (import 90%, transform 8%, tests 1%, worker 1%)`. `npx tsc -b --noEmit` → çıktı yok, çıkış kodu 0.
+- Doğrulama (8, 10, 5, 3; 2026-09-20): başlangıç 5 dosya, 52 test; son dolu satır `Duration  2.09s (import 91%, transform 7%, tests 1%)`. Dört madde commit'i öncesi sırasıyla 60, 69, 73, 81 test geçti; tüm `npx tsc -b --noEmit` kontrolleri çıktısız, çıkış kodu 0. Son doğrulama aşağıda. Takvim ve sağlık eşikleri değiştirilmedi.
+- Uygulama notu: QuickLog'un son 200 genel olayı artık kür sayacının veri kaynağı değil; MedsBlock mevcut type indeksinden ilgili medId geçmişini ayrı sorgular. Mevcut saf dosesGiven tekrar kullanılmaktadır; şema değişmedi, fake-indexeddb gerekmedi.
+- Eşitleme: başlangıç `git pull --rebase 2pc main` ağ zaman aşımıyla başarısız oldu; yerel temiz ağaçtan devam edildi. Deploy, npm install ve GitHub push yapılmadı.
 - Ek ölü kod notu (değiştirilmedi): `app/src/features/stats/summarize.ts` içindeki `Day.bottleMl` hesaplanıyor ancak Weekly tarafından okunmuyor; Select-String taramasında haftalık özet için yalnız tanım ve atama bulundu. Report içindeki ayrı `Stats.bottleMl` kullanılıyor.
 - Doğrulama (2026-09-20): başlangıç `npm test` → 3 dosya, 45 test; son dolu satır `Duration  2.40s (import 89%, transform 9%, tests 1%, worker 1%)`. Bitiş → 5 dosya, 52 test; son dolu satır `Duration  2.27s (import 91%, transform 7%, tests 1%, worker 1%)`. Başlangıç ve bitiş `npx tsc -b --noEmit` → çıktı yok, çıkış kodu 0. Sağlık eşikleri değiştirilmedi.
 - PC-B'de bulut yok (`dexie-cloud.json` yalnız PC-A'da) → orada uygulama yerel modda; test/tsc/build için yeterli.
