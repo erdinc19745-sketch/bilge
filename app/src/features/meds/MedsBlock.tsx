@@ -65,7 +65,7 @@ export default function MedsBlock({ recent, lit, onDone }: { recent: BabyEvent[]
           <div key={m.id} className="flex flex-col gap-1">
             <ActionTile
               k={`med-${m.id}`} lit={lit} icon="pill" tone={due ? "accent" : "muted"} accent={due}
-              title={`${m.name} · ${m.dose}`} sub={sub}
+              title={`${m.name} · ${m.dose}`} sub={`${sub}${m.prn ? "" : " · erken dozda %15 tolerans"}`}
               right={<span className="text-xs font-normal">{count}{m.totalDoses ? `/${m.totalDoses}` : ""} doz</span>}
               className={early && !m.prn ? "opacity-70" : ""}
               onTap={() => give(m)}

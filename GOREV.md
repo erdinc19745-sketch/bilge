@@ -8,6 +8,7 @@ Codex (PC-B) ve Claude (PC-A) aynı repoda paralel çalışır: biri yazarken di
 Canlı sürüm iPhone'da gerçek kullanımda — **kırmayan, küçük, doğrulanmış adımlar.**
 
 ## Tamamlananlar
+- [x] Aday 7: Kilo kaybı dal önceliği ve 14 gün sonrası doğum kilosuna dönüş uyarısı düzeltildi; saf fonksiyon ve 14 regresyon testi (commit `424b58d`, codex, 20 Eyl 2026).
 - [x] Aday 3: Abonelik açılınca msgId boş yerel hatırlatma sunucuda zamanlanıyor; saf karar fonksiyonu için 8 test (geçiş, yeniden deneme ve ±60 saniye sınırı), api/ değişmedi (commit `50bc40d`, codex, 20 Eyl 2026).
 - [x] Aday 5: Kür sayacı ilgili medId için sınırsız ilaç geçmişinden hesaplanıyor; kart ve bitirme onayı ortak sayıyı kullanıyor. Mevcut saf dosesGiven için 4 test; 250 başka olay, farklı kür ve geri alma dahil (commit `60f3e46`, codex, 20 Eyl 2026).
 - [x] Aday 10: Dört modül ortak ageDays/ageMonths yardımcısını kullanıyor; tam gün hesabı, 30.4375 böleni ve NaN davranışı korundu, 9 sınır testi (commit `e482bfe`, codex, 20 Eyl 2026).
@@ -29,7 +30,6 @@ Test envanteri (2026-09-20): 9 dosya, 81 test. Takvim, yaş hesabı, kür doz sa
 
 1. `app/src/features/meds/meds.ts:29`, `app/src/features/meds/MedsBlock.tsx:54` — Sorun: Testsiz `tooEarly`, PRN kartındaki “en az X saat ara” metnine rağmen aralığın %85'inde uyarıyı kaldırıyor (4 saatlik kayıtta 3 saat 30 dakika sonra `early: false` doğrulandı). Öneri: PRN metni ile kontrol davranışını kaynak ve hekim planı doğrulamasıyla tutarlı hale getirip ilk doz, sınır anları ve PRN senaryolarını test et; sağlık eşiği için kaynak gerekiyor, yeni eşik önerilmiyor. Etki: büyük; risk: yüksek.
 6. `app/src/features/jaundice/JaundiceCard.tsx:29`, `app/src/db/types.ts:47` — Sorun: Testsiz sarılık kontrol hesabı yalnız gün içeren doğum tarihini gece yarısı kabul ederek saat bazlı taburculuk yaşı ve kesin kontrol saati üretiyor. Öneri: Doğum saati bilinmediğinde belirsizliği göster, saat hesabı ve taburculuk sınırlarını test et; klinik kontrol kuralları için kaynak doğrulaması gerekiyor, yeni eşik önerilmiyor. Etki: büyük; risk: yüksek.
-7. `app/src/features/stats/Assessment.tsx:104` — Sorun: Testsiz kilo değerlendirmesinde önceki kayıp dalı, 14. gün doğum kilosuna dönmeme dalını belirli kayıplarda gölgeliyor ve aynı durum farklı uyarı düzeylerine düşüyor. Öneri: Koşulların önceliğini mevcut sağlık kaynağıyla doğrulayıp kilo, yaş, ateş ve veri-yok sınırlarını tablo testleriyle kapsa; sağlık eşikleri için kaynak gerekiyor, yeni eşik önerilmiyor. Etki: büyük; risk: yüksek.
 
 ## Yarım kaldı / dikkat
 - Son doğrulama (2026-09-20): `npm test` → 9 dosya, 81 test geçti; son dolu satır `Duration  2.18s (import 90%, transform 8%, tests 1%, worker 1%)`. `npx tsc -b --noEmit` → çıktı yok, çıkış kodu 0.

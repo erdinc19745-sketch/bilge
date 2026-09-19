@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { BabyEvent, Medication } from "../db/types";
-import { dosesGiven } from "../features/meds/meds";
+import { dosesGiven, tooEarly } from "../features/meds/meds";
 
 const med: Medication = {
   id: "course-1", name: "Medicine", dose: "1 dose", intervalH: 12,
@@ -8,6 +8,24 @@ const med: Medication = {
 };
 const event = (id: string, start: number, extra: Partial<BabyEvent> = {}): BabyEvent => ({
   id, type: "ilac", medId: med.id, start, createdAt: start, updatedAt: start, ...extra,
+});
+
+describe("early dose interval", () => {
+  it.each([
+    [true, 210, true], [true, 240, false],
+    [false, 210, false], [false, 180, true],
+    [true, 239, true], [false, 204, false], [false, 203, true],
+  ])("PRN %s at %i minutes → early %s", (prn, minutes, early) => {
+    expect(tooEarly({ ...med, prn, intervalH: 4 }, [event("dose", 0)], minutes * 60_000))
+      .toEqual({ early, sinceMin: minutes });
+  });
+  it("allows the first dose and ignores other medications", () => {
+    expect(tooEarly({ ...med, prn: true }, [], 0).early).toBe(false);
+    expect(tooEarly(med, [event("other", 0, { medId: "other" })], 0).early).toBe(false);
+  });
+  it("uses the latest matching dose regardless of event order", () => {
+    expect(tooEarly({ ...med, prn: true, intervalH: 4 }, [event("old", 0), event("new", 60_000)], 240 * 60_000).early).toBe(true);
+  });
 });
 
 describe("course dose count", () => {
