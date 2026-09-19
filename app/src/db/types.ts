@@ -45,6 +45,7 @@ export interface Baby {
   id: "me"; // tek bebek; ileride birden fazla olabilir
   name: string;
   birthDate: string; // "YYYY-MM-DD"
+  birthTime?: string; // "HH:mm", yerel saat; bilinmiyorsa boş
   sex: "kiz" | "erkek";
   dvitTime?: string; // "09:00" — D vitamini hatırlatma saati
   reminders?: { feedGapMin?: number; sleepMaxMin?: number; dvit?: boolean; alarmFrom?: string; alarmTo?: string }; // bildirim kuralları; alarmFrom/To "HH:MM" (boş = her zaman sesli)

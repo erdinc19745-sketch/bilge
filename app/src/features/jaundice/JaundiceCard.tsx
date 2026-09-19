@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
-import { differenceInDays, differenceInHours, format, parseISO } from "date-fns";
+import { differenceInDays, differenceInHours, format } from "date-fns";
 import { tr } from "date-fns/locale";
 import { addEvent, db } from "../../db/db";
 import type { Baby, BabyEvent } from "../../db/types";
 import { Chip, Icon } from "../../lib/icons";
+import { birthInstant } from "./birthInstant";
 
 /**
  * Sarılık takibi — ilk 28 gün.
@@ -16,8 +17,9 @@ const ZONES = ["Yok", "Yüz / gözaklar", "Gövde (göbeğe kadar)", "Kol ve bac
 
 export default function JaundiceCard({ baby, recent, onDone }: { baby: Baby; recent: BabyEvent[]; onDone: (k: string, msg: string, undo?: () => Promise<void>) => void }) {
   const [open, setOpen] = useState(false);
-  const ageDays = differenceInDays(Date.now(), parseISO(baby.birthDate));
-  const ageHours = differenceInHours(Date.now(), parseISO(baby.birthDate));
+  const birth = birthInstant(baby.birthDate, baby.birthTime);
+  const ageDays = differenceInDays(Date.now(), birth);
+  const ageHours = differenceInHours(Date.now(), birth);
   const logs = recent.filter((e) => e.type === "sarilik").sort((a, b) => b.start - a.start);
   const last = logs[0];
   const lastZone = last?.zone ?? undefined;
@@ -26,10 +28,10 @@ export default function JaundiceCard({ baby, recent, onDone }: { baby: Baby; rec
   // Kontrol zamanı: taburculuk yaşına göre (TND)
   let dueHour: number | undefined;
   if (dischargeAt) {
-    const dAge = differenceInHours(dischargeAt, parseISO(baby.birthDate));
+    const dAge = differenceInHours(dischargeAt, birth);
     dueHour = dAge < 24 ? 72 : dAge < 48 ? 96 : 120;
   }
-  const dueAt = dueHour ? parseISO(baby.birthDate).getTime() + dueHour * 3600_000 : undefined;
+  const dueAt = dueHour ? birth.getTime() + dueHour * 3600_000 : undefined;
   const all = useLiveQuery(() => db.scheduleDone.get("izlem3"), []); // 15. gün izlemi yapıldıysa artık kontrol geçmiştir
   void all;
 
@@ -56,6 +58,7 @@ export default function JaundiceCard({ baby, recent, onDone }: { baby: Baby; rec
           <span className="block text-xs leading-tight mt-0.5" style={{ opacity: 0.75 }}>
             {last ? `son gözlem ${format(last.start, "d MMM HH:mm", { locale: tr })}` : "günde bir kez gün ışığında bak"}{dueAt && Date.now() < dueAt ? ` · kontrol ${format(dueAt, "d MMM HH:mm", { locale: tr })}'e kadar` : ""}
           </span>
+          {!baby.birthTime && <span className="block text-[10px] muted mt-0.5">doğum saati girilmedi, ±12 sa</span>}
         </span>
         <Icon name={open ? "chevronDown" : "chevronRight"} size={18} />
       </button>

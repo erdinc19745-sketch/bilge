@@ -20,6 +20,7 @@ export default function Settings() {
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState("");
   const [birthDate, setBirthDate] = useState("");
+  const [birthTime, setBirthTime] = useState("");
   const [sex, setSex] = useState<"kiz" | "erkek">("kiz");
   const [dvitTime, setDvitTime] = useState("09:00");
   const [msg, setMsg] = useState("");
@@ -30,6 +31,7 @@ export default function Settings() {
     if (baby) {
       setName(baby.name);
       setBirthDate(baby.birthDate);
+      setBirthTime(baby.birthTime ?? "");
       setSex(baby.sex);
       setDvitTime(baby.dvitTime ?? "09:00");
     }
@@ -39,11 +41,11 @@ export default function Settings() {
     if (!name || !birthDate) return setMsg("İsim ve doğum tarihi gerekli.");
     if (baby) {
       // Var olan kaydı güncelle (put tüm kaydı ezer: hatırlatma kuralları, nöbet, taburculuk saati kaybolurdu)
-      await db.baby.update("me", { name, birthDate, sex, dvitTime });
+      await db.baby.update("me", { name, birthDate, birthTime: birthTime || undefined, sex, dvitTime });
     } else {
       // Bulut açıksa: ilk kayıtta aile alanı oluşur, bebek kaydı o alana yazılır
       const realmId = await ensureFamilyRealm();
-      await db.baby.put({ id: "me", name, birthDate, sex, dvitTime, realmId });
+      await db.baby.put({ id: "me", name, birthDate, birthTime: birthTime || undefined, sex, dvitTime, realmId });
     }
     setMsg("Kaydedildi.");
     setEditing(false);
@@ -149,6 +151,10 @@ export default function Settings() {
             <label className="text-sm muted">
               Doğum tarihi
               <input type="date" className="input" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} />
+            </label>
+            <label className="text-sm muted">
+              Doğum saati (isteğe bağlı)
+              <input type="time" className="input" value={birthTime} onChange={(e) => setBirthTime(e.target.value)} />
             </label>
             <label className="text-sm muted">
               D vitamini saati (hatırlatma)
