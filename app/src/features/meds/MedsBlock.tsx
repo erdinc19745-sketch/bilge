@@ -15,8 +15,14 @@ import { dosesGiven, INTERVALS, isActive, lastDose, nextDoseAt, tooEarly } from 
  * erken doz uyarısı, yeni ilaç ekleme, kürü bitirme. Bildirimler reminders.ts üzerinden.
  */
 export default function MedsBlock({ recent, lit, onDone }: { recent: BabyEvent[]; lit: string | null; onDone: (k: string, msg: string, undo?: () => Promise<void>) => void }) {
-  const meds = useLiveQuery(() => db.meds.toArray(), []) ?? [];
-  const active = meds.filter((m) => isActive(m));
+  const meds = useLiveQuery(async () => {
+    const medications = await db.meds.toArray();
+    return Promise.all(medications.map(async (med) => {
+      const history = await db.events.where("type").equals("ilac").and((e) => e.medId === med.id).toArray();
+      return { med, count: dosesGiven(med, history) };
+    }));
+  }, []) ?? [];
+  const active = meds.filter(({ med }) => isActive(med));
   const [adding, setAdding] = useState(false);
   const now = Date.now();
 
@@ -30,8 +36,8 @@ export default function MedsBlock({ recent, lit, onDone }: { recent: BabyEvent[]
     onDone(`med-${m.id}`, `${m.name} verildi`, () => db.events.delete(id));
   };
 
-  const finish = async (m: Medication) => {
-    if (!(await ask({ title: `${m.name} kürü bitsin mi?`, text: `${dosesGiven(m, recent)} doz verildi. Kart kalkar, geçmiş Şerit'te kalır.`, ok: "Bitir" }))) return;
+  const finish = async (m: Medication, count: number) => {
+    if (!(await ask({ title: `${m.name} kürü bitsin mi?`, text: `${count} doz verildi. Kart kalkar, geçmiş Şerit'te kalır.`, ok: "Bitir" }))) return;
     await db.meds.update(m.id, { endedAt: now });
   };
 
@@ -45,7 +51,7 @@ export default function MedsBlock({ recent, lit, onDone }: { recent: BabyEvent[]
       {active.length === 0 && !adding && (
         <p className="text-xs muted px-1 -mt-1">Doktor ilaç yazınca "+ ilaç ekle": doz, aralık, gün → sonraki dozu hesaplar, hatırlatır, erken dozu engeller.</p>
       )}
-      {active.map((m) => {
+      {active.map(({ med: m, count }) => {
         const last = lastDose(m, recent);
         const next = nextDoseAt(m, recent);
         const due = next !== undefined && next <= now;
@@ -60,13 +66,13 @@ export default function MedsBlock({ recent, lit, onDone }: { recent: BabyEvent[]
             <ActionTile
               k={`med-${m.id}`} lit={lit} icon="pill" tone={due ? "accent" : "muted"} accent={due}
               title={`${m.name} · ${m.dose}`} sub={sub}
-              right={<span className="text-xs font-normal">{dosesGiven(m, recent)}{m.totalDoses ? `/${m.totalDoses}` : ""} doz</span>}
+              right={<span className="text-xs font-normal">{count}{m.totalDoses ? `/${m.totalDoses}` : ""} doz</span>}
               className={early && !m.prn ? "opacity-70" : ""}
               onTap={() => give(m)}
             />
             <div className="flex justify-between px-2 text-[10px] muted">
               <span>{m.intervalH} saatte bir{m.endAt ? ` · ${format(m.endAt, "d MMM", { locale: tr })}'e kadar` : ""}{m.prn ? " · gerekirse" : ""}</span>
-              <button className="underline" onClick={() => finish(m)}>kürü bitir</button>
+              <button className="underline" onClick={() => finish(m, count)}>kürü bitir</button>
             </div>
           </div>
         );
