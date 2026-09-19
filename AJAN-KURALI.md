@@ -1,26 +1,27 @@
-# Ajan çalışma kuralı — Claude Code ve Codex için ortak
+# Ajan çalışma kuralı — BILGE (Claude Code PC-A + Codex PC-B)
 
-Bu repoda iki ajan çalışır: **Claude Code** (PC-A, 192.168.1.26) ve **Codex** (PC-B, 192.168.1.23).
-Birbirinizin hafızasını göremezsiniz. Tek ortak hafıza: **bu repo + `GOREV.md`**.
-Kullanıcı Türkçe konuşur; ona Türkçe yaz. Commit mesajları İngilizce.
+BILGE: Erdinç'in yenidoğan kızı için bebek takip PWA'sı (`app/`: Vite 7 + React 19 + TS + Tailwind 4 + Dexie 4 + Dexie Cloud + Vercel).
+Kullanıcı Türkçe; ona Türkçe yaz. Commit mesajları İngilizce. Birbirinizin hafızasını görmezsiniz: **repo + `GOREV.md`** tek ortak hafıza.
 
 ## Başlarken
-1. `GOREV.md` oku. "Sıradaki adım" boşsa iş bitmiş demektir — kullanıcıya sor, kendin iş uydurma.
-2. `git status` / `git log -5`. Kirli ağaç varsa diğer ajan yarım bırakmıştır: **silme, üstüne yazma**, ne yaptığını anla ve oradan devam et.
-3. `GOREV.md`'deki **Doğrulama** komutunu çalıştır; mevcut durumu gör (kırmızı mı, yeşil mi).
+1. `GOREV.md` oku. "Sıradaki adım" boşsa kullanıcıya sor, iş uydurma.
+2. `git status` / `git log -5`. Kirli ağaç = diğer ajan yarım bırakmış; silme, anla, devam et.
+3. Doğrulama: `cd app && npm test` (vitest, ~45 test) — başlamadan yeşil olmalı, bitince de.
 
 ## Çalışırken
-- Küçük adım, sık commit. Her commit tek konu. Mesaj başında etiket: `[claude]` ya da `[codex]`.
-- Her commit'ten sonra `GOREV.md`: "Tamamlananlar"a satır ekle (commit hash ile), "Sıradaki adım"ı güncelle.
-- Yarım bırakacaksan (kota bitti, takıldın, hata): **WIP commit at** + `GOREV.md` → "Yarım kaldı" bölümüne ne olduğunu yaz. Sessizce ölme.
-- Doğrulama komutu sen başlamadan yeşilse, bitince de yeşil olmalı. Kırmızıysa önce onu düzelt ya da "Yarım kaldı"ya yaz.
-
-## Bitirince
-- `GOREV.md`: "Sıradaki adım" boş, Doğrulama çıktısının son satırı yapıştırılmış, "Son güncelleyen" satırı senin.
-- Son mesajın 5 satır: ne yaptın, ne doğruladın, ne kaldı, hangi commit'ler.
+- Küçük adım, sık commit; mesaj başında `[claude]` / `[codex]`. Her commit'ten sonra `GOREV.md` güncelle.
+- Yarım bırakırken WIP commit + `GOREV.md` "Yarım kaldı" satırı. Sessizce ölme.
+- Tip kontrolü: `cd app && npx tsc -b --noEmit`. Build: `npm run build` (test+tsc+vite).
+- **Sağlık içeriği**: teşhis yok, kaynaklı eşik (SB/AAP/WHO/NICE), "veri yok" dürüstlüğü, yanıltıcı olma. Var olan kaynak listesini bozma.
+- **Kullanılabilirlik > yeni özellik** (kullanıcı kararı 15 Eyl). Gece kullanımı, az tıklama.
 
 ## Yapma
-- `GOREV.md` formatını değiştirme (diğer ajan aynı yerleri arıyor).
-- Diğer ajanın commit'lerini rebase/squash/amend etme.
-- Doğrulama komutunu değiştirme — onu kullanıcı belirler.
-- `GOREV.md`'de olmayan bir işe girişme; "iyileştirme" görürsen "Sıradaki adım"a öneri olarak yaz, yapma.
+- `app/dexie-cloud.json`, `dexie-cloud.key`, `.env*` → **sadece PC-A'da**, gitignore'da. PC-B'de yok; PC-B yerel modda çalışır, buluta bağlanmaya çalışma.
+- **Deploy (Vercel) yalnız PC-A'dan, yalnız kullanıcı isteyince.** Codex deploy yapmaz.
+- `git push origin` (GitHub) yapma — kullanıcı yapar. `2pc` remote'una push otomatik (is-ver.ps1), sen elle uğraşma.
+- `npm install <yeni paket>` yapma; gerekiyorsa `GOREV.md`'ye yaz.
+- Diğer ajanın commit'lerini rebase/squash/amend etme. `GOREV.md` formatını değiştirme.
+
+## Bitirince
+- `GOREV.md`: yapılan → "Tamamlananlar" (commit hash), "Sıradaki adım" güncel, doğrulama çıktısının son satırı, "Son güncelleyen".
+- Son mesajın ≤5 satır: ne yaptın, ne doğruladın (`npm test` son satırı), ne kaldı, commit'ler.
