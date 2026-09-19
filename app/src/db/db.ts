@@ -100,13 +100,6 @@ export async function ensureFamilyRealm(): Promise<string | undefined> {
   return realmId;
 }
 
-/** Anneyi (veya başka bir bakıcıyı) aile alanına davet et — sunucu e-posta gönderir */
-export async function inviteMember(email: string, name: string) {
-  const realmId = await familyRealmId();
-  if (!realmId) throw new Error("Aile alanı yok");
-  await db.members.add({ realmId, email, name, invite: true, permissions: { manage: "*" } } as never);
-}
-
 /* ---------------- Olay yardımcıları ---------------- */
 
 /**

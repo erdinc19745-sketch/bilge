@@ -1,4 +1,4 @@
-import { differenceInMinutes, format, isToday, isYesterday } from "date-fns";
+import { format, isToday, isYesterday } from "date-fns";
 import { tr } from "date-fns/locale";
 
 /** "2 sa 15 dk" biçiminde süre */
@@ -29,5 +29,3 @@ export function fmtDay(t: number) {
   if (isYesterday(t)) return "Dün";
   return format(t, "d MMMM EEEE", { locale: tr });
 }
-
-export const minutesSince = (t: number) => differenceInMinutes(Date.now(), t);
