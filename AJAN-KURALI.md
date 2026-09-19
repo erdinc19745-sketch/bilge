@@ -18,7 +18,10 @@ Kullanıcı Türkçe; ona Türkçe yaz. Commit mesajları İngilizce. Birbiriniz
 ## Yapma
 - `app/dexie-cloud.json`, `dexie-cloud.key`, `.env*` → **sadece PC-A'da**, gitignore'da. PC-B'de yok; PC-B yerel modda çalışır, buluta bağlanmaya çalışma.
 - **Deploy (Vercel) yalnız PC-A'dan, yalnız kullanıcı isteyince.** Codex deploy yapmaz.
-- `git push origin` (GitHub) yapma — kullanıcı yapar. `2pc` remote'una push otomatik (is-ver.ps1), sen elle uğraşma.
+- `git push origin` (GitHub) yapma — kullanıcı yapar.
+- `2pc` remote'u (LAN, diğer PC): `is-ver.ps1` ile gelen işlerde eşitleme otomatik. **Kullanıcı seninle sohbette çalışıyorsa** (VS Code
+  Codex / Claude paneli) bitirince kendin yap: `git add -A; git commit -m "[codex] ..."; git push 2pc main` (Claude'da `[claude]`).
+  Başlarken de `git pull --rebase 2pc main` — diğer ajanın son işi gelsin.
 - `npm install <yeni paket>` yapma; gerekiyorsa `GOREV.md`'ye yaz.
 - Diğer ajanın commit'lerini rebase/squash/amend etme. `GOREV.md` formatını değiştirme.
 
